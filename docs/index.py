@@ -32,7 +32,7 @@ for root, dirs, files in os.walk(dir_path):
     dir_name = os.path.basename(root)
     if dir_name=="":
         dir_name="Home"
-    file_link=os.path.join("Home",dir_name)
+    file_link=os.path.join(dir_name,"index")
     with open(f"{dir_path}index.md", 'a') as md_file:
         md_file.write(f"## [{dir_name}]({file_link}.md)\n")
     with open(f"{dir_path}/{dir_name}/index.md", 'w') as md_file:
