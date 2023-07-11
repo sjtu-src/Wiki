@@ -1,9 +1,6 @@
-site_name: Test docs
-site_description: 'A docs test'
-site_author: 'Michael Hausenblas'
+site_name: SRC-WIKI
+site_author: 'Juntong Peng'
 docs_dir: docs/
-repo_name: 'mhausenblas/mkdocs-template'
-repo_url: 'https://github.com/mhausenblas/mkdocs-template'
 nav:
     - Home: index.md
 theme:
