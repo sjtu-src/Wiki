@@ -5,7 +5,7 @@ import os
 import fnmatch
 
 # 指定路径
-dir_path = "./"
+dir_path = "./docs/"
 
 # 排除的目录
 exclude_dirs = {"./uploads*", "./.git*", "./Home*", "./.github", "./_*","./search*"}
