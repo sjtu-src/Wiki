@@ -2,9 +2,4 @@
 layout: default 
 title: Home
 ---
-### [Resource](../docs/Home/Resource.md)
-### [Home](../docs/Home/Home.md)
-### [Algorithm](../docs/Home/Algorithm.md)
-### [Hardware](../docs/Home/Hardware.md)
-### [Experience](../docs/Home/Experience.md)
-### [Software](../docs/Home/Software.md)
+### [上海交通大学SRC赛队章程](../docs/上海交通大学SRC赛队章程.md)
