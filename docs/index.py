@@ -59,7 +59,7 @@ for root, dirs, files in os.walk(dir_path):
 
 
             with open(f"{dir_path}/{dir_name}/index.md", 'a') as md_file:
-                md_file.write(f"{file_indent_md} [{no_extension}]({dir_name}/{no_extension})\n")
+                md_file.write(f"{file_indent_md} [{no_extension}]({file_link})\n")
 
 import datetime
 with open(f"{dir_path}index.md", 'a') as md_file:
