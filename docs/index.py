@@ -35,7 +35,7 @@ for root, dirs, files in os.walk(dir_path):
     file_link=os.path.join("Home",dir_name)
     with open(f"{dir_path}index.md", 'a') as md_file:
         md_file.write(f"## [{dir_name}]({file_link}.md)\n")
-    with open(f"/{dir_name}/index.md", 'w') as md_file:
+    with open(f"{dir_path}/{dir_name}/index.md", 'w') as md_file:
                 md_file.write(f"---\nlayout: default \ntitle: {dir_name}\n---\n")
 
     # 遍历目录下的文件
@@ -54,11 +54,11 @@ for root, dirs, files in os.walk(dir_path):
             no_extension = os.path.splitext(file)[0]
             print(no_extension)
             # 生成文件链接
-            file_link = os.path.join(dir_name, file)
+            file_link = os.path.join(dir_name, no_extension)
             print(file_link)
 
 
-            with open(f"/{dir_name}/index.md", 'a') as md_file:
+            with open(f"{dir_path}/{dir_name}/index.md", 'a') as md_file:
                 md_file.write(f"{file_indent_md} [{no_extension}](/{file_link})\n")
 
 import datetime
