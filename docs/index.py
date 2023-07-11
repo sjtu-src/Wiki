@@ -8,7 +8,7 @@ import fnmatch
 dir_path = "./docs/"
 
 # 排除的目录
-exclude_dirs = {"*/uploads*"}
+exclude_dirs = {"*/uploads*","*Home*"}
 
 # 如果不存在则创建路径
 os.makedirs(dir_path, exist_ok=True)
