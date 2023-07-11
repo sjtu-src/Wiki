@@ -1,40 +1,13 @@
-## Sample
 
-One more, finally. Or not? :)
-
-Now:
-
-```
-$ some 
-```
-
-Look what she said:
-
-> This is it!
-
-### Subtitle
-
-And now this:
-
-- One
-- Two
-- Three
+## [Home](Home/Home.md)
+## [Hardware](Home/Hardware.md)
+## [Software](Home/Software.md)
+## [Algorithm](Home/Algorithm.md)
+## [Resource](Home/Resource.md)
+## [Experience](Home/Experience.md)
 
 
-#### As well
+---
 
-#### As this
-
-### Another
-
-[a link](https://aws.com)
-
-More?
-
-
-Can we now have `the build`?
-
-NOW!
-
-
-Not gonna work, is it?
+created on:2023-07-11 02:45:30
+SJTU-SRC-All Rights Reserved

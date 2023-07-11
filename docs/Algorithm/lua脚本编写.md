@@ -1,0 +1,5 @@
+-- 	switch = function ()
+-- 		if bufcnt(player.toTargetDist("Kicker") < distThreshold , 300, 1000) then
+-- 			return "run2";
+-- 		end
+-- 	end,
