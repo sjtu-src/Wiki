@@ -8,12 +8,10 @@ import fnmatch
 dir_path = "./docs/"
 
 # 排除的目录
-exclude_dirs = {"./uploads*", "./.git*", "./Home*", "./.github", "./_*","./search*"}
+exclude_dirs = {"*/uploads*"}
 
 # 如果不存在则创建路径
 os.makedirs(dir_path, exist_ok=True)
-
-
 
 with open(f"{dir_path}index.md", 'w') as md_file:
     md_file.write("---\nhtml:\n    toc: true\n    toc_float: true\n---\n\n")
