@@ -4,15 +4,15 @@ html:
     toc_float: true
 ---
 
-## [Home](Home/Home.md)
-## [Hardware](Home/Hardware.md)
-## [Software](Home/Software.md)
-## [Algorithm](Home/Algorithm.md)
-## [Resource](Home/Resource.md)
-## [Experience](Home/Experience.md)
+## [Home](Home/index.md)
+## [Hardware](Hardware/index.md)
+## [Software](Software/index.md)
+## [Algorithm](Algorithm/index.md)
+## [Resource](Resource/index.md)
+## [Experience](Experience/index.md)
 
 
 ---
 
-created on:2023-07-11 05:01:50
+created on:2023-07-11 05:07:00
 SJTU-SRC-All Rights Reserved
