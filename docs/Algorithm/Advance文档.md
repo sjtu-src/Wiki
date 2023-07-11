@@ -1,6 +1,9 @@
-# Advance文档
+---
+layout: default 
+title: Advance
+---
 
---- Tyh 22.10
+> Tyh 22.10
 
 ## 初始工作
 
