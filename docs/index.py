@@ -15,7 +15,7 @@ os.makedirs(dir_path, exist_ok=True)
 
 
 
-with open(f"{dir_path}/index.md", 'w') as md_file:
+with open(f"{dir_path}index.md", 'w') as md_file:
     md_file.write("---\nhtml:\n    toc: true\n    toc_float: true\n---\n\n")
 
 # 遍历文件和子文件夹
@@ -35,9 +35,9 @@ for root, dirs, files in os.walk(dir_path):
     if dir_name=="":
         dir_name="Home"
     file_link=os.path.join("Home",dir_name)
-    with open(f"{dir_path}/index.md", 'a') as md_file:
+    with open(f"{dir_path}index.md", 'a') as md_file:
         md_file.write(f"## [{dir_name}]({file_link}.md)\n")
-    with open(f"{dir_path}/Home/{dir_name}.md", 'w') as md_file:
+    with open(f"{dir_path}Home/{dir_name}.md", 'w') as md_file:
                 md_file.write(f"---\nlayout: default \ntitle: {dir_name}\n---\n")
 
     # 遍历目录下的文件
@@ -60,11 +60,11 @@ for root, dirs, files in os.walk(dir_path):
             print(file_link)
 
 
-            with open(f"{dir_path}/Home/{dir_name}.md", 'a') as md_file:
+            with open(f"{dir_path}Home/{dir_name}.md", 'a') as md_file:
                 md_file.write(f"{file_indent_md} [{no_extension}](.{file_link})\n")
 
 import datetime
-with open(f"{dir_path}/index.md", 'a') as md_file:
+with open(f"{dir_path}index.md", 'a') as md_file:
     md_file.write("\n\n---\n\n")
     md_file.write("created on:{curtime}\n".format(curtime=datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")))
     md_file.write("SJTU-SRC-All Rights Reserved\n")
