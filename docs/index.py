@@ -54,7 +54,7 @@ for root, dirs, files in os.walk(dir_path):
             no_extension = os.path.splitext(file)[0]
             print(no_extension)
             # 生成文件链接
-            file_link = os.path.join(root, file)
+            file_link = os.path.join(dir_name, file)
             print(file_link)
 
 
