@@ -5,6 +5,30 @@ on:
       - master
 
 jobs:
+  
+  build:
+    name: Update Index
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up Python 3.10
+      uses: actions/setup-python@v3
+      with:
+        python-version: "3.10"
+    - name: run indexing
+      run: |
+        python docs/index.py
+    - name: commit
+      run: |
+        git config --global user.email auto_update@noreply.github.com
+        git config --global user.name auto_update
+        git add .
+        git commit -m "auto_update" -a
+    - name: GitHub Push
+      uses: ad-m/github-push-action@master
+      with:
+        github_token: ${{secrets.GITHUB_TOKEN}}
   build:
     name: Deploy docs
     runs-on: ubuntu-latest

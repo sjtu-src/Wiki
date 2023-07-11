@@ -13,7 +13,6 @@ exclude_dirs = {"./uploads*", "./.git*", "./Home*", "./.github", "./_*","./searc
 # 如果不存在则创建路径
 os.makedirs(dir_path, exist_ok=True)
 
-# 创建并写入 AsciiDoc 文件
 
 
 with open(f"{dir_path}/index.md", 'w') as md_file:
