@@ -108,3 +108,6 @@ extra_javascript:
 
 
 # Page tree
+
+nav:
+  - Home: index.md
