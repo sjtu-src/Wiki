@@ -57,11 +57,11 @@ function DoRolePosMatch(curPlay, isPlaySwitched, isStateSwitched)
 	UpdateRole(curPlay[gRealState].match, isPlaySwitched, isStateSwitched)
 ```
 
-![[../uploads/other/RoleMatch/Pasted image 20220515200827.png]]
+![](../uploads/other/RoleMatch/Pasted image 20220515200827.png)
 
-![[../uploads/other/RoleMatch/Pasted image 20220515201009.png]]
+![](../uploads/other/RoleMatch/Pasted image 20220515201009.png)
 
-![[../uploads/other/RoleMatch/Pasted image 20220515201203.png]]
+![](../uploads/other/RoleMatch/Pasted image 20220515201203.png)
 
 5. RoleMatch.lua
 ```lua
