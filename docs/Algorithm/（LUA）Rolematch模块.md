@@ -7,9 +7,9 @@
 #### bin/lua_scripts/ssl/RoleMatch.lua
 | 变量 | 类型 | 含义 | 初始值 |
 |:----:|:-----|:---:|:------:|
-| gRoleNum | 表 | 表的键是角色字符串；表的值是实车号码（当值为-1时，代表该角色没有分配小车） | ![[uploads/other/RoleMatch/Pasted image 20220515191738.png]] |
-| gRolePos | 表 | 表的键是角色字符串；表的值是角色位置点 | ![[uploads/other/RoleMatch/Pasted image 20220515192013.png]] |
-| gOurExistNum | 表 | 表的键和值都是实车号码 | ![[uploads/other/RoleMatch/Pasted image 20220515192115.png]] |
+| gRoleNum | 表 | 表的键是角色字符串；表的值是实车号码（当值为-1时，代表该角色没有分配小车） | ![[../uploads/other/RoleMatch/Pasted image 20220515191738.png]] |
+| gRolePos | 表 | 表的键是角色字符串；表的值是角色位置点 | ![[../uploads/other/RoleMatch/Pasted image 20220515192013.png]] |
+| gOurExistNum | 表 | 表的键和值都是实车号码 | ![[../uploads/other/RoleMatch/Pasted image 20220515192115.png]] |
 
 #### 相关函数
 | 函数 |       输入值       |     输出值     | 作用               | 注意                 |
@@ -57,11 +57,11 @@ function DoRolePosMatch(curPlay, isPlaySwitched, isStateSwitched)
 	UpdateRole(curPlay[gRealState].match, isPlaySwitched, isStateSwitched)
 ```
 
-![[uploads/other/RoleMatch/Pasted image 20220515200827.png]]
+![[../uploads/other/RoleMatch/Pasted image 20220515200827.png]]
 
-![[uploads/other/RoleMatch/Pasted image 20220515201009.png]]
+![[../uploads/other/RoleMatch/Pasted image 20220515201009.png]]
 
-![[uploads/other/RoleMatch/Pasted image 20220515201203.png]]
+![[../uploads/other/RoleMatch/Pasted image 20220515201203.png]]
 
 5. RoleMatch.lua
 ```lua
