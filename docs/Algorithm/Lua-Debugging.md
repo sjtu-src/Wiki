@@ -4,18 +4,18 @@
 - [下载地址](https://jbox.sjtu.edu.cn/l/n1JPeI)
 - 安装极为简单，运行可执行文件，同意协议后一路`Next`，最后选择合适的安装路径，点击`Install`下载
   
-![Install_Decoda](uploads/yujiazousjtu@sjtu.edu.cn/Algorithm/Install_Decoda.png)
+![Install_Decoda](../uploads/yujiazousjtu@sjtu.edu.cn/Algorithm/Install_Decoda.png)
 
 - 运行安装路径下的`Decoda.exe`，点击`Debug`、`Start Debugging`
 
-![Decoda](uploads/yujiazousjtu@sjtu.edu.cn/Algorithm/Decoda.png)
+![Decoda](../uploads/yujiazousjtu@sjtu.edu.cn/Algorithm/Decoda.png)
 
 - 在下图弹窗内设置，需要设置：
   - Debugging/Command : 在右侧的`...`处选择`rbk.exe`的路径
   - Debugging/Working : 完成上一步后，自动设置好`rbk.exe`的工作目录
   - Debugging/Command : 设置可执行文件的运行参数，暂时还没有用到
     
-![Settings](uploads/yujiazousjtu@sjtu.edu.cn/Algorithm/Settings.png)
+![Settings](../uploads/yujiazousjtu@sjtu.edu.cn/Algorithm/Settings.png)
 
 # VSCode + EmmyLua
 

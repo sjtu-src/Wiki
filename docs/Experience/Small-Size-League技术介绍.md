@@ -32,9 +32,9 @@ RoboCup的初衷是让在2050年左右机器人足球的世界杯冠军和人类
 
 我们重新思考一场足球比赛的层次结构。
 
-![VisionModule](uploads/other/Experience/VisionModule.png)
+![VisionModule](../uploads/other/Experience/VisionModule.png)
 
-![DecisionTree](uploads/other/Experience/DecisionTree.png)
+![DecisionTree](../uploads/other/Experience/DecisionTree.png)
 
 这个就是一场足球比赛的过程
 
@@ -48,25 +48,25 @@ SSL的实现方式，公共的相机给机器人眼睛的功能，策略机分�
 
 跑点
 
-![GoCmuRush](uploads/other/Experience/GoCmuRush.gif)
+![GoCmuRush](../uploads/other/Experience/GoCmuRush.gif)
 
 平射
 
-![FlatKick](uploads/other/Experience/FlatKick.gif)
+![FlatKick](../uploads/other/Experience/FlatKick.gif)
 
-![FlatKick1](uploads/other/Experience/FlatKick+.gif)  
+![FlatKick1](../uploads/other/Experience/FlatKick+.gif)  
 
 挑射
 
-![ChipKick](uploads/other/Experience/ChipKick.gif)
+![ChipKick](../uploads/other/Experience/ChipKick.gif)
 
 盘带
 
-![Dribble](uploads/other/Experience/Dribble.gif)
+![Dribble](../uploads/other/Experience/Dribble.gif)
 
 运动控制
 
-![MotionControl](uploads/other/Experience/MotionControl.gif)
+![MotionControl](../uploads/other/Experience/MotionControl.gif)
 
 ### 策略
 
@@ -74,27 +74,27 @@ SSL的实现方式，公共的相机给机器人眼睛的功能，策略机分�
 
 策略机与机器人通信
 
-![Communication](uploads/other/Experience/Communication.gif)
+![Communication](../uploads/other/Experience/Communication.gif)
 
 Skill&Agent
 
-![Skill&Agent](uploads/other/Experience/Skill&Agent.gif)
+![Skill&Agent](../uploads/other/Experience/Skill&Agent.gif)
 
 战术
 
-![Play](uploads/other/Experience/Play.gif)
+![Play](../uploads/other/Experience/Play.gif)
 
-![OnePassOneShoot](uploads/other/Experience/OnePassOneShoot.gif)
+![OnePassOneShoot](../uploads/other/Experience/OnePassOneShoot.gif)
 
-![CornerKick](uploads/other/Experience/CornerKick.gif)
+![CornerKick](../uploads/other/Experience/CornerKick.gif)
 
 状态机
 
-![StateMachine](uploads/other/Experience/StateMachine.gif)
+![StateMachine](../uploads/other/Experience/StateMachine.gif)
 
 策略
 
-![Stategy](uploads/other/Experience/Stategy.gif)
+![Stategy](../uploads/other/Experience/Stategy.gif)
 
 命令从教练到每个队员这一部分都是队伍大脑做的事情：分析场上形势，设计战术，分配任务给每个队员
 
@@ -106,7 +106,7 @@ Skill&Agent
 
 策略软件：AI Agent：概况而言，在场上做最有益的事！如何判断现在高度动态环境和制设计好战术。（此处脑补瓜瓜奥拉的脑袋上头发数量）
 
-![革命尚未成功,同志仍需努力](uploads/other/Experience/革命尚未成功,同志仍需努力.png)
+![革命尚未成功,同志仍需努力](../uploads/other/Experience/革命尚未成功,同志仍需努力.png)
 
 ## 写在最后
 

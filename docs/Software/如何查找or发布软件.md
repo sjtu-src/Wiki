@@ -5,11 +5,11 @@
 
 - 登录Gitlab，找到并进入需要下载的软件的仓库，以owl2为例
 
-![owl2_repo](uploads/yujiazousjtu@sjtu.edu.cn/Software/owl2_repo.png)
+![owl2_repo](../uploads/yujiazousjtu@sjtu.edu.cn/Software/owl2_repo.png)
 
 - 找到Releases，点击进入相关页面，可以看到历次发布的版本。Assets中有源码，Other为可执行文件目录。一般点击Other下的jBox链接下载
 
-![tag](uploads/yujiazousjtu@sjtu.edu.cn/Software/tag.png)
+![tag](../uploads/yujiazousjtu@sjtu.edu.cn/Software/tag.png)
 
 - 关于下载过慢，实测通过连接**交大vpn**可以提高一定程度的下载速度
 
@@ -24,7 +24,7 @@
 - 压缩可执行文件目录，得到一个压缩包，将压缩包上传至jBox，标明一下版本号，并生成分享链接。推荐放于jBox的**软件管理**目录下
 - [交大云盘](https://jbox.sjtu.edu.cn/l/eHE7uQ)
 
-![jBox](uploads/yujiazousjtu@sjtu.edu.cn/Software/jBox.png)
+![jBox](../uploads/yujiazousjtu@sjtu.edu.cn/Software/jBox.png)
 
 ### 在Gitlab中创建Tag
 
@@ -44,7 +44,7 @@
 
 在右侧的**Deployments**->**Releases**里已经可以看到刚刚的Tag了，点击Tag右上角的编辑选项
 
-![tag](uploads/yujiazousjtu@sjtu.edu.cn/Software/tag.png)
+![tag](../uploads/yujiazousjtu@sjtu.edu.cn/Software/tag.png)
 
 现在的Release只有源代码，我们需要添加之前的jBox连接，点击右上角的修改图标，在下方的**URL**和**Link title**上分别填入jbox里的分享链接和要展示的名字，点击左下角的**Save changes**
 

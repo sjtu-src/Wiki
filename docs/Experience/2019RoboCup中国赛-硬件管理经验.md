@@ -3,13 +3,13 @@
 ## 一、行前准备
 (1)做一个checklist  
 checklist要包含的内容分为三个方面：①要带哪些东西，每类东西的数量，要带的零件也都检查一遍，别带着坏的零件去比赛；②对每辆小车的性能进行全方位的排查；③根据小车的性能情况将小车分类，如：第一梯队（首发），第二梯队，第三梯队。
-![checklist_1](uploads/9b67531d0e51cdac3572e8b1264729f8/checklist_1.jpg)
-![checklist_2](uploads/00ed136ae1281f696681ca8d61c71b65/checklist_2.jpg)
-![checklist_3](uploads/2543e34efe46997677a0a91f513a94ee/checklist_3.jpg)  
+![checklist_1](../uploads/9b67531d0e51cdac3572e8b1264729f8/checklist_1.jpg)
+![checklist_2](../uploads/00ed136ae1281f696681ca8d61c71b65/checklist_2.jpg)
+![checklist_3](../uploads/2543e34efe46997677a0a91f513a94ee/checklist_3.jpg)  
 (2)养成贴标签编号的好习惯，每一类东西点清数目后就全部贴上标签编好号，便于清点和记录。
-![1](uploads/89425f2b09ee67e9f9eeb5ed96f46218/1.png)
+![1](../uploads/89425f2b09ee67e9f9eeb5ed96f46218/1.png)
 
-![2](uploads/4d930a116c4e18234e570ac13c0bc483/2.png) 
+![2](../uploads/4d930a116c4e18234e570ac13c0bc483/2.png) 
 (3)出发之前所有物品要分类放在收纳盒里，最好给收纳盒也编号，然后记录一下每个收纳盒里都放了什么东西。
 
 ## 二、临场硬件管理与维护

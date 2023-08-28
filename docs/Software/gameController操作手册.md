@@ -17,7 +17,7 @@
 
 ### 开启
 
-![ref](uploads/yujiazousjtu@sjtu.edu.cn/GC/ref.png)
+![ref](../uploads/yujiazousjtu@sjtu.edu.cn/GC/ref.png)
 
 切换至ref页面，点击Start Game Controller，或是直接点击Open Game Controller，默认显示在http://localhost:50543/#/
 
@@ -27,7 +27,7 @@
 
 ### 主界面
 
-![main](uploads/yujiazousjtu@sjtu.edu.cn/GC/main.png)
+![main](../uploads/yujiazousjtu@sjtu.edu.cn/GC/main.png)
 
 ### Auto/Manual
 
@@ -39,7 +39,7 @@
 
 - 点击左上角的齿轮图标，显示以下页面
 
-![settings](uploads/yujiazousjtu@sjtu.edu.cn/GC/settings.png)
+![settings](../uploads/yujiazousjtu@sjtu.edu.cn/GC/settings.png)
 
 - 比赛前需要设置
     - Ball placement enabled：是否能自动放球
@@ -49,7 +49,7 @@
     - Div A/B：场地大小，Division A/B标准，点击相应的选项，绿色为选中
     - Start New Game：设置完成，开始比赛
     
-![gameEvent](uploads/yujiazousjtu@sjtu.edu.cn/GC/gameEvent.png)
+![gameEvent](../uploads/yujiazousjtu@sjtu.edu.cn/GC/gameEvent.png)
 
 - Game Event：根据提示，设置对场上行为的响应（正常判罚、缓判、忽略……）
 - 与AutoRef中的选项区别：AutoRef起监视作用，选中则监视该行为并报告，但gameController中决定是否因为该行为而发布裁判指令，干涉比赛进程
@@ -89,7 +89,7 @@
 
 - 定义通讯端口
 
-![port](uploads/yujiazousjtu@sjtu.edu.cn/GC/port.png)
+![port](../uploads/yujiazousjtu@sjtu.edu.cn/GC/port.png)
 
 - publish-address：向某一地址发布裁判指令
 - vision-address：绑定地址，接收裸视觉，由AutoRef转发，默认224.5.23.2:11006
@@ -97,7 +97,7 @@
 - auto-ref：address：绑定端口，接收AutoRef反馈
 - team：address：绑定端口，接收队伍注册信息
 
-![game](uploads/yujiazousjtu@sjtu.edu.cn/GC/game.png)
+![game](../uploads/yujiazousjtu@sjtu.edu.cn/GC/game.png)
 
 - 定义一些规则和场地配置
 - 单位：秒（s），分钟（m），次数，米（m）

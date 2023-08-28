@@ -30,13 +30,13 @@
 
 ### 界面介绍
 
-![main](uploads/yujiazousjtu@sjtu.edu.cn/AutoRef/main.png)
+![main](../uploads/yujiazousjtu@sjtu.edu.cn/AutoRef/main.png)
 
 主界面，由多个不同功能的页面组成，每个页面都可单独拖出或取消，方便使用
 
 #### 下拉栏
 
-![image](uploads/yujiazousjtu@sjtu.edu.cn/AutoRef/image.png)
+![image](../uploads/yujiazousjtu@sjtu.edu.cn/AutoRef/image.png)
 
 - File：退出软件
 - Replay：录制及回放功能，暂时没用过
@@ -64,13 +64,13 @@
 
 #### Game Log
 
-![gameLog](uploads/yujiazousjtu@sjtu.edu.cn/AutoRef/gameLog.png)
+![gameLog](../uploads/yujiazousjtu@sjtu.edu.cn/AutoRef/gameLog.png)
 
 显示比赛的信息，包括裁判指令、比赛状态、自动判罚结果等，可在下栏选择需要显示的信息种类
 
 #### AutoRef
 
-![autoRef](uploads/yujiazousjtu@sjtu.edu.cn/AutoRef/autoRef.png)
+![autoRef](../uploads/yujiazousjtu@sjtu.edu.cn/AutoRef/autoRef.png)
 
 - 设置自动裁判系统的模式，重要，使用前必须确定已选择合适的模式
 - Game Event Detectors：选择是否监测以下比赛事件
@@ -80,7 +80,7 @@
 
 #### Ref
 
-![ref](uploads/yujiazousjtu@sjtu.edu.cn/AutoRef/ref.png)
+![ref](../uploads/yujiazousjtu@sjtu.edu.cn/AutoRef/ref.png)
 
 开启/关闭GC，默认显示在http://localhost:50543/#/
 
@@ -88,7 +88,7 @@
 
 ### cfg
 
-![cfg](uploads/yujiazousjtu@sjtu.edu.cn/AutoRef/cfg.png)
+![cfg](../uploads/yujiazousjtu@sjtu.edu.cn/AutoRef/cfg.png)
 
 - 显示所有的参数，并做了初步的分类（分栏）
   - autoreferee：自动判决的尺度
@@ -108,19 +108,19 @@
 - 如果接不到视觉/裁判指令，应优先查看端口是否对应
 - 绑定特一端口，接收视觉机（ssl-vision/grSim）传来的裸视觉：更换时可修改 port 选项
 
-![visionPort](uploads/yujiazousjtu@sjtu.edu.cn/AutoRef/visionPort.png)
+![visionPort](../uploads/yujiazousjtu@sjtu.edu.cn/AutoRef/visionPort.png)
 
 - 绑定特一端口，接收裁判盒（可以是GC，也可以是队内自研的）发送的裁判指令：port 定义通讯端口，gameController 定义GC是否自动激活
 
-![referee](uploads/yujiazousjtu@sjtu.edu.cn/AutoRef/referee.png)
+![referee](../uploads/yujiazousjtu@sjtu.edu.cn/AutoRef/referee.png)
 
 - 与GC通讯，向特一端口反馈自动判决结果，可修改 gameControllerPort 来更换
 
-![toGC](uploads/yujiazousjtu@sjtu.edu.cn/AutoRef/toGC.png)
+![toGC](../uploads/yujiazousjtu@sjtu.edu.cn/AutoRef/toGC.png)
 
 - 向特一地址发送滤波后的视觉信息，修改 address 更换ip，port 更换端口
 
-![tracker](uploads/yujiazousjtu@sjtu.edu.cn/AutoRef/tracker.png)
+![tracker](../uploads/yujiazousjtu@sjtu.edu.cn/AutoRef/tracker.png)
 
 - module id 和 implementation 表示功能实现的代码位置，有兴趣可以看看
 

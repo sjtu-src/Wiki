@@ -121,7 +121,7 @@ $ git mergetool
 
 此时将会弹出Sublime Merge的界面
 
-![](uploads/other/mergetool/1.png)
+![](../uploads/other/mergetool/1.png)
 
 左侧为原本所在分支的内容，右侧为merge的分支的内容；左右、上下同步滚动。此时修复冲突即可。
 
@@ -137,6 +137,6 @@ $ git mergetool
 
 例如，在上述例子中，敲击Ctrl+Shift+\[+\]即可得：
 
-![](uploads/other/mergetool/2.png)
+![](../uploads/other/mergetool/2.png)
 
 此时Ctrl+S保存退出，按照正常步骤进行add, commit即可完成merge操作。

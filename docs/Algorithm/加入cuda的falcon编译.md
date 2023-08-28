@@ -7,7 +7,7 @@
 #define has_GPU false
 ```
 最终如下图所示：
-![9](uploads/yujiazousjtu@sjtu.edu.cn/Algorithm/9.jpg)
+![9](../uploads/yujiazousjtu@sjtu.edu.cn/Algorithm/9.jpg)
 
 然后直接编译即可
 
@@ -23,7 +23,7 @@
 #define has_GPU true
 ```
 最终如下图所示：
-![10](uploads/yujiazousjtu@sjtu.edu.cn/Algorithm/10.jpg)
+![10](../uploads/yujiazousjtu@sjtu.edu.cn/Algorithm/10.jpg)
 
 然后按照下方教程安装cuda并配置VS后即可编译
 
@@ -52,30 +52,30 @@ VS配置过程：
     - ~~C:\ProgramData\NVIDIA Corporation\CUDA Samples\v11.0\common\inc~~实测12.0没有也不需要samples
     - 具体视自己电脑上的安装路径调整
 
-![1](uploads/yujiazousjtu@sjtu.edu.cn/Algorithm/1.png) 
+![1](../uploads/yujiazousjtu@sjtu.edu.cn/Algorithm/1.png) 
 
 步骤2与步骤3两个设置是Visual Studio的设置，不更换VS的情况下设置一次后就不用再重新设置
 2. 点击上方菜单栏工具->选项->文本编辑器->文件扩展名，在扩展名栏中输入.cu，并选择编辑器为：Microsoft Visual C++
 
-![2](uploads/yujiazousjtu@sjtu.edu.cn/Algorithm/2.png)    
+![2](../uploads/yujiazousjtu@sjtu.edu.cn/Algorithm/2.png)    
 
 3. 工具–>选项–>项目和解决方案–>VC++项目设置，添加要包括的扩展名".cu"
 
-![3](uploads/yujiazousjtu@sjtu.edu.cn/Algorithm/3.png)
+![3](../uploads/yujiazousjtu@sjtu.edu.cn/Algorithm/3.png)
 
 4. 右键打开的项目–>生成依赖项–>生成自定义–>勾选CUDA v12.0
 - 如果这里找不到CUDA12.0，得重新安装CUDA，注意一定要安装Visual Studio Integration
 
-![4](uploads/yujiazousjtu@sjtu.edu.cn/Algorithm/4.png)
+![4](../uploads/yujiazousjtu@sjtu.edu.cn/Algorithm/4.png)
 
 5.之后设置cuda的编译器，否则无法执行cuda，cuda文件右击->属性->配置属性->常规->项类型->CUDA C/C++
 
-![5](uploads/yujiazousjtu@sjtu.edu.cn/Algorithm/5.png)
+![5](../uploads/yujiazousjtu@sjtu.edu.cn/Algorithm/5.png)
 
 6.配置cuda的lib，项目右击->属性->链接器->输入->附加依赖项中填入:cudart_static.lib与cublas.lib
 
-![7](uploads/yujiazousjtu@sjtu.edu.cn/Algorithm/7.png)
-![8](uploads/yujiazousjtu@sjtu.edu.cn/Algorithm/8.png)
+![7](../uploads/yujiazousjtu@sjtu.edu.cn/Algorithm/7.png)
+![8](../uploads/yujiazousjtu@sjtu.edu.cn/Algorithm/8.png)
 
 - 之后编译可能会发生错误，如：
   - The CUDA Toolkit v10.0 directory ‘’ does not exist. Please verify the CUDA Toolkit is installed properly or define the CudaToolkitDir property to resolve this error. nbody C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140\BuildCustomizations\CUDA 10.0.targets 536
@@ -83,7 +83,7 @@ VS配置过程：
   - C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v11.0
 - 如果是.cu文件中显示错误，不用管，正常编译即可
 
-![6](uploads/yujiazousjtu@sjtu.edu.cn/Algorithm/6.png)
+![6](../uploads/yujiazousjtu@sjtu.edu.cn/Algorithm/6.png)
 
 ## 参考博客
 

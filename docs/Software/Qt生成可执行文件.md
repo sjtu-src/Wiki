@@ -84,9 +84,9 @@ mingw通常均可用，msvc是否可用取决于是否下载过该版本的vs工
 
 注意这时生成的 *.exe文件是不能独立运行的，需要很多外部.dll文件：
 
-![初始生成的exe文件](uploads/8bb71145ff9da6a46ee0ca7b6c56cd05/1.png)
+![初始生成的exe文件](../uploads/8bb71145ff9da6a46ee0ca7b6c56cd05/1.png)
 
-![.exe文件不能执行](uploads/8bb71145ff9da6a46ee0ca7b6c56cd05/2.png)
+![.exe文件不能执行](../uploads/8bb71145ff9da6a46ee0ca7b6c56cd05/2.png)
 
 ### 添加依赖
 
@@ -94,7 +94,7 @@ mingw通常均可用，msvc是否可用取决于是否下载过该版本的vs工
 
 在开始菜单找到Qt的命令行工具，需要和上面用的msvc保持版本和操作系统位数一致，运行打开Qt命令行，
 
-![Qt 5.12.2 (MSVC 2015 64-bit)](uploads/8bb71145ff9da6a46ee0ca7b6c56cd05/3.png)
+![Qt 5.12.2 (MSVC 2015 64-bit)](../uploads/8bb71145ff9da6a46ee0ca7b6c56cd05/3.png)
 
 针对D盘下的crazy2017文件夹，输入命令行： cd D:\crazy2017，切换到crazy2017文件夹目录下。注意，如果Qt命令行和crazy2017文件夹不在同一盘，需要先切换盘符，如 d: 是切换至D盘
 
@@ -110,17 +110,17 @@ mingw通常均可用，msvc是否可用取决于是否下载过该版本的vs工
 
 其中 D:\Crazy2017\src\qml 为我的电脑上Crazy2017中qml文件所在的路径
 
-![命令行指令](uploads/8bb71145ff9da6a46ee0ca7b6c56cd05/4.png)
+![命令行指令](../uploads/8bb71145ff9da6a46ee0ca7b6c56cd05/4.png)
 
 就可以执行拷贝CRAZY2017.exe文件关联的dll文件到crazy2017目录下面了，再看看D盘下的crazy2017文件夹，所需要的dll文件都已经拷贝进去了，
 
-![文件夹多了很多东西](uploads/8bb71145ff9da6a46ee0ca7b6c56cd05/5.png)
+![文件夹多了很多东西](../uploads/8bb71145ff9da6a46ee0ca7b6c56cd05/5.png)
 
 可以打开crazy2017文件夹，里面的Crazy2017.exe可以运行了，此时crazy2017文件夹的总大小约80M，
 
-![.exe可以运行了！](uploads/8bb71145ff9da6a46ee0ca7b6c56cd05/6.png)
+![.exe可以运行了！](../uploads/8bb71145ff9da6a46ee0ca7b6c56cd05/6.png)
 
-![文件夹的大小](uploads/8bb71145ff9da6a46ee0ca7b6c56cd05/7.png)
+![文件夹的大小](../uploads/8bb71145ff9da6a46ee0ca7b6c56cd05/7.png)
 
 现在这个文件夹里的Crazy2017.exe就可以在其他没有装Qt的Win上运行了
 
@@ -130,19 +130,19 @@ mingw通常均可用，msvc是否可用取决于是否下载过该版本的vs工
 
 安装好后的界面如下
 
-![界面](uploads/8bb71145ff9da6a46ee0ca7b6c56cd05/8.png)
+![界面](../uploads/8bb71145ff9da6a46ee0ca7b6c56cd05/8.png)
 
 运行提前安装好的Enigma virtual Box，"Input File Name"项选择可执行文件Crazy2017.exe，“Enter Output File Name”选择待生成的单个可执行文件存放位置。点击“Add...”选择“Add Folder Recursive”添加dll文件所在的文件夹，选择D盘下的crazy2017文件夹。
 
 注意，需要把该文件夹路径下的非dll文件，如参数配置文件（.ini、.xml）、记录文件（.log）提前取出，否则将会编入可执行文件中，增加文件大小且之后无法更改参数。
 
-![我把生成的.exe放在D盘](uploads/8bb71145ff9da6a46ee0ca7b6c56cd05/9.png)
+![我把生成的.exe放在D盘](../uploads/8bb71145ff9da6a46ee0ca7b6c56cd05/9.png)
 
-![Process](uploads/8bb71145ff9da6a46ee0ca7b6c56cd05/10.png)
+![Process](../uploads/8bb71145ff9da6a46ee0ca7b6c56cd05/10.png)
 
 最后一步是点击"Process"，即可自动生成所需的单个可执行文件。生成的单个可执行文件有81.7M大小:
 
-![.exe有点大](uploads/8bb71145ff9da6a46ee0ca7b6c56cd05/11.png)
+![.exe有点大](../uploads/8bb71145ff9da6a46ee0ca7b6c56cd05/11.png)
 
 这样的.exe文件可以跨电脑直接运行，在很多方面都很方便，但我们认为它还是有点大了，所以我们可以对它进行压缩。
 
@@ -160,7 +160,7 @@ mingw通常均可用，msvc是否可用取决于是否下载过该版本的vs工
 
 这样就能将crazy2017下的所有dll文件进行压缩了，下图可以看出压缩后的文件比压缩前的文件小了60%多，
 
-![压缩结果](uploads/8bb71145ff9da6a46ee0ca7b6c56cd05/12.png)
+![压缩结果](../uploads/8bb71145ff9da6a46ee0ca7b6c56cd05/12.png)
 
 当然你也可以如法炮制对iconengines等文件夹下的dll文件进行压缩
 
@@ -168,11 +168,11 @@ mingw通常均可用，msvc是否可用取决于是否下载过该版本的vs工
 
 子文件夹我只压缩了'imageformats'和'virtualkeyboard'内的dll，压缩完后，整个crazy2017文件夹的大小变为43.7M,比原来的80M小了一倍左右。
 
-![压缩后的文件夹大小](uploads/8bb71145ff9da6a46ee0ca7b6c56cd05/13.png)
+![压缩后的文件夹大小](../uploads/8bb71145ff9da6a46ee0ca7b6c56cd05/13.png)
 
 这时重新用Enigma virtual Box将crazy2017文件夹内的Crazy2017.exe进行制作成单个可执行文件，发现制作后的可执行文件大小为45.5M，相比较未压缩dll文件制作的单个可执行文件81.7M小了约一半。
 
-![再次生成的.exe](uploads/8bb71145ff9da6a46ee0ca7b6c56cd05/14.png)
+![再次生成的.exe](../uploads/8bb71145ff9da6a46ee0ca7b6c56cd05/14.png)
 
 写到这里，将自己写的Qt程序生成单个或者是简单压缩以单个文件夹的形式使用基本可以满足需要了。文中最后生成的.exe文件基本满足使用需要，但还是稍大了一些，进一步精简体积还是要从代码入手，减少代码的冗余。
 

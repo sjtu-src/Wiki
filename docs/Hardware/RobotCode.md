@@ -2,7 +2,7 @@
 
 在机器人的硬件代码文件夹中，通过project目录下的SSL_Ctrl_v13.uvprojx打开工程文件。打开之后会看到如下目录，我们主要先关注src文件夹下的，其他大多是一些库。
 
-![figure1](uploads/89a194d7dd8ec565ece025463d59a96a/figure1.png)
+![figure1](../uploads/89a194d7dd8ec565ece025463d59a96a/figure1.png)
 
 先大概介绍各个文件的基本作用，有些文件非常复杂，但是大家并不需要都看懂，按需查看就行，有兴趣的同学可以深入了解。
 

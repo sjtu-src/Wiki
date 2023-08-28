@@ -21,9 +21,9 @@
 + 重要引用：Bruce J.R. Browning B. Skills tactics and plans for multi-robot control in adversarial
 environments. Journal of System and Control Engineering, 2005.
   
-![Decision2009Text](uploads/yujiazousjtu@sjtu.edu.cn/Algorithm/Decision2009Text.png)
+![Decision2009Text](../uploads/yujiazousjtu@sjtu.edu.cn/Algorithm/Decision2009Text.png)
 
-![Decision2009](uploads/yujiazousjtu@sjtu.edu.cn/Algorithm/Decision2009.png)
+![Decision2009](../uploads/yujiazousjtu@sjtu.edu.cn/Algorithm/Decision2009.png)
 
 + 系统延时测量实验，测量从视觉图像捕捉到机器人接到运动指令之间的延时
 + 方法是给机器人发速度，数值呈正弦函数变化，看机器人走到最远距离和发出0指令之间的时间
@@ -36,7 +36,7 @@ environments. Journal of System and Control Engineering, 2005.
 
 - Skill方面，GetBall的雏形，和现在比较像的是都是绕到球后面拿球，有large/smallAngle的雏形
 
-![GetBall](uploads/yujiazousjtu@sjtu.edu.cn/Algorithm/GetBall.png)
+![GetBall](../uploads/yujiazousjtu@sjtu.edu.cn/Algorithm/GetBall.png)
 
 - 开始半智能算点，算力不够（毕竟当时还用Win XP），考虑的因素较少、条件限制太死，搜索的范围也较小
 
@@ -46,7 +46,7 @@ environments. Journal of System and Control Engineering, 2005.
 - 更加详细地说明AI结构，playBook/play/subplay/agent/skill，每个play中的任务是固定的（比如一个车固定向底线跑，然后把球传给他，他再传中），其中的subplay主要分进攻和防守两种，所以新添playBook来完成切换play的作用，丰富决策
 - agent层里面使用状态机处理复杂动作，根据现在的状态调用合适的skill，例如传球给队友，需要先后调用拿球、转向和踢球的skill，期间还要判断能不能传出、多大力传出的问题，所以skill层就是些再基础不过的动作，例如跑点和踢球，不再判断状态，只负责执行
 
-![Decision2011](uploads/yujiazousjtu@sjtu.edu.cn/Algorithm/Decision2011.png)
+![Decision2011](../uploads/yujiazousjtu@sjtu.edu.cn/Algorithm/Decision2011.png)
 
 + 引入贝叶斯理论分析比赛局势，判断进攻还是防守，输出结果更加平稳，结合了历史信息也使得对于一些队伍的战术更有针对性
 + 引用：Sebastian Thrun, Wolfram Burgard, Dieter Fox, Probabilistic Robotics, The MIT
@@ -59,7 +59,7 @@ Press
 - 重要引用：Brett Browning, James Bruce, Michael Bowling and Manuela Veloso, STP: Skills,
 tactics and plays for multi-robot control in adversarial environments
 
-![Decision2012](uploads/yujiazousjtu@sjtu.edu.cn/Algorithm/Decision2012.png)
+![Decision2012](../uploads/yujiazousjtu@sjtu.edu.cn/Algorithm/Decision2012.png)
 
 + 其他部分之前几年的TDP都有提到，唯一的改进是智能算点开始采用CUDA，以一定精度在矩形内取点计算分数
 
@@ -78,13 +78,13 @@ tactics and plays for multi-robot control in adversarial environments
   - Kober, J., M¨ulling, K., Kr¨omer, O., Lampert, C.H., Sch¨olkopf, B., Peters, J.: Movement templates for learning of hitting and batting. In: IEEE International Conference on Robotics and Automation 2010, pp. 1–6 (2010)
   - Pastor, P., Hoffmann, H., Asfour, T., Schaal, S.: Learning and generalization of motor skills by learning from demonstration. In: Proc. of the International Conference on Robotics and Automation (2009)
 
-![Decision2013](uploads/yujiazousjtu@sjtu.edu.cn/Algorithm/Decision2013.png)
+![Decision2013](../uploads/yujiazousjtu@sjtu.edu.cn/Algorithm/Decision2013.png)
 
 #### 2014
 
 - 介绍了Defence Strategy，基本思路沿用至今，如下图，defendKick、Marking经典防守Skill从此诞生
 
-![DefenceStrategy](uploads/yujiazousjtu@sjtu.edu.cn/Algorithm/DefenceStrategy.png)
+![DefenceStrategy](../uploads/yujiazousjtu@sjtu.edu.cn/Algorithm/DefenceStrategy.png)
 
 - 也提到了一个区域联防的概念，大概就是梳理Marking站位，使得一个进攻车摆脱防守后另一个车能快速补位
 
@@ -92,7 +92,7 @@ tactics and plays for multi-robot control in adversarial environments
 
 - 又一次比较系统地介绍了AI框架，说明了各部分的功能和定位，如下图，部分结构我们现在还有(Play/Skill/ControlModule/WorldModule)，主要区别在于我们不使用贝叶斯理论选择脚本，目前也把Agent和Skill两层合并，对Agent感兴趣可以去看看cond.lua，其实我们现在就是把决策树也做到了C++里，成为了更复杂的Skill，如Advance系列
 
-![OldStructure](uploads/yujiazousjtu@sjtu.edu.cn/Algorithm/OldStructure.png)
+![OldStructure](../uploads/yujiazousjtu@sjtu.edu.cn/Algorithm/OldStructure.png)
 
 - 也说了Defence Strategy，和上一年的差不多
 
@@ -103,7 +103,7 @@ tactics and plays for multi-robot control in adversarial environments
 - 新的Normalplay写法，不再使用有限状态机，而是评估场势、生成进攻或防守阵型，并用贝叶斯理论从中选择最合适的执行（我们从未使用过这种方法），里面提到了learning module，但并未介绍
 - 开始简化上述提到的软件结构，主要研究Play-Skill结构
 
-![NormalPlay2016](uploads/yujiazousjtu@sjtu.edu.cn/Algorithm/NormalPlay2016.png)
+![NormalPlay2016](../uploads/yujiazousjtu@sjtu.edu.cn/Algorithm/NormalPlay2016.png)
 
 - 参数动态调整模块，利用真实达到和预期的数值之间的差值计算补偿
 
@@ -123,7 +123,7 @@ tactics and plays for multi-robot control in adversarial environments
 - 策略以球为主，场势估计关注球的控制权、位置，Skill分配也是先保证getBall，其他车跑合适的接球点
 - 持球车(Advance)的决策倾向于转移球，除了Pass和Shoot外，添加了Light Kick or Chip，防止被对方怼住
 
-![PassStrategy](uploads/yujiazousjtu@sjtu.edu.cn/Algorithm/PassStrategy.png)
+![PassStrategy](../uploads/yujiazousjtu@sjtu.edu.cn/Algorithm/PassStrategy.png)
 
 #### 2019
 

@@ -9,7 +9,7 @@
 
 ## 基础操作
 
-![Cray](uploads/yujiazousjtu@sjtu.edu.cn/Comm/Cray.png)
+![Cray](../uploads/yujiazousjtu@sjtu.edu.cn/Comm/Cray.png)
 
 1. 发射机连接的串口，打开软件前先连接好发射机，软件启动时会更新串口信息，如果有多个，需要选择实际连接的，如果都不生效甚至没有，请检查发射机的连接情况，或是有没有安装USB转串口驱动，或者更换串口，最后重启软件
 2. 发射机通讯频率，0~9，请将此频率与小车所选择的频率选择一致
@@ -31,11 +31,11 @@
   - 这些最大值的设置与通讯协议有关
 - 速度的方向与按键的对应关系如下图所示：
   
-![direction](uploads/yujiazousjtu@sjtu.edu.cn/Comm/direction.png)
+![direction](../uploads/yujiazousjtu@sjtu.edu.cn/Comm/direction.png)
 
 - 踢球测试前需要合理放置球，最好是放于嘴的正中间，且需要在吸球装置中被检测到，此时会有一红色LED亮起。建议放置好了开启吸球固定，再踢球
 
-![infrared](uploads/yujiazousjtu@sjtu.edu.cn/Comm/infrared.png)
+![infrared](../uploads/yujiazousjtu@sjtu.edu.cn/Comm/infrared.png)
 
 ## 远程调试
 
@@ -43,7 +43,7 @@
 
 ### PID调节
 
-![pid](uploads/yujiazousjtu@sjtu.edu.cn/Software/pid.png)
+![pid](../uploads/yujiazousjtu@sjtu.edu.cn/Software/pid.png)
 
 Cray里面调试pid的模块，选中pid mode，开启start开始发送指令，在运动的时候也可以修改四个轮子的pid参数。同时，机器人需要调成mode 5
 
@@ -53,7 +53,7 @@ Cray里面调试pid的模块，选中pid mode，开启start开始发送指令，
 
 ### 轮速显示
 
-![wheelSpeed](uploads/yujiazousjtu@sjtu.edu.cn/Software/wheelSpeed.png)
+![wheelSpeed](../uploads/yujiazousjtu@sjtu.edu.cn/Software/wheelSpeed.png)
 
 - 点击Record开始录制，录制结束再次点击Record，然后点击Display显示刚刚录制的内容
 - wheel 1~4 分别对应左前、右前、右后、左后轮

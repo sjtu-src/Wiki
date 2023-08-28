@@ -10,13 +10,13 @@
 - 编辑系统变量，新建 JAVA_HOME 变量，变量名填写jdk的解压文件位置
 - 注：文件地址需填至bin文件夹的上一级     
     
-![system](uploads/yujiazousjtu@sjtu.edu.cn/AutoRef/system.png)
+![system](../uploads/yujiazousjtu@sjtu.edu.cn/AutoRef/system.png)
 
 - 编辑用户变量，编辑Path变量，新建 %JAVA_HOME%\bin;
 - 注：最后的分号“;”必要
 - 新建CLASSPATH变量，变量值如下填写，注意变量值中的“."和”;“
 
-![user](uploads/yujiazousjtu@sjtu.edu.cn/AutoRef/user.png)
+![user](../uploads/yujiazousjtu@sjtu.edu.cn/AutoRef/user.png)
 
 - 确认保存后退出，打开命令行，输出 java -version，如显示版本信息，则配置成功
 
@@ -31,7 +31,7 @@
     - 若显示，则只与AutoRef对接，裁判指令由内置裁判盒发送
     - 否则，裁判指令由GC发送，AutoRef配合形成完整的自动裁判系统
 
-![refbox](uploads/yujiazousjtu@sjtu.edu.cn/AutoRef/refbox.png)
+![refbox](../uploads/yujiazousjtu@sjtu.edu.cn/AutoRef/refbox.png)
 
 ### 参数配置
 
@@ -43,4 +43,4 @@
 - 该文件中还有关于ip地址的配置，一般不需要更改
 - 改动后记得重启owl2或使用快捷键“r”，使新参数生效
 
-![cfg.ini](uploads/yujiazousjtu@sjtu.edu.cn/AutoRef/cfg.ini.png)
+![cfg.ini](../uploads/yujiazousjtu@sjtu.edu.cn/AutoRef/cfg.ini.png)

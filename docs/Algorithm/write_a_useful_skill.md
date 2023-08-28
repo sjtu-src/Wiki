@@ -2,7 +2,7 @@
 ##### 2021/1/21    by yh
 
  写一个可以用skill包括如何写一个skill以及如何让所写的skill能在lua中被调用（如何写接口）。以PlaceBall这个skill为例，我们要做的是如何写一个PlaceBall.cpp，并能够在task.lua中以一个函数被调用。从PlaceBall.cpp到task.lua中间存在多级调用：
-![调用框图](uploads/yujiazousjtu@sjtu.edu.cn/skill/pic2.png "多级调用示意图")
+![调用框图](../uploads/yujiazousjtu@sjtu.edu.cn/skill/pic2.png "多级调用示意图")
 接下来我们主要从cpp代码和lua代码两部分展开（以PlaceBall为例）。
 ## Part 0 准备
 开始写新的skill之前需要准备好一套编译好的RBK_RUN_2015。
@@ -11,7 +11,7 @@
 - 编译方法见[软件使用与编译讲解视频](https://jbox.sjtu.edu.cn/link/view/e20d8bf7c0de4c31959e0e786b6c0803)
 ## Part 1 cpp部分
 ### 1.1 skill类
-![PlaceBall.cpp&h](uploads/yujiazousjtu@sjtu.edu.cn/skill/pic3.png "PlaceBall.cpp&h")
+![PlaceBall.cpp&h](../uploads/yujiazousjtu@sjtu.edu.cn/skill/pic3.png "PlaceBall.cpp&h")
 
 skill本质上是一个类，skill的功能通过这个类的函数实现。PlaceBall所对应的类就是CPlaceBall。我们先来看声明类的头文件PlaceBall.h（源码参见：\RBK_RUN_2015\plugins\SSLStrategy\src\ssl\skill\PlaceBall.h）
 ```cpp
@@ -86,7 +86,7 @@ void CPlaceBall::plan(const CVisionModule* pVision)
 }
 ```
 ### 1.2 cpp中skill类的调用接口
-![PlaceBall.cpp&h](uploads/yujiazousjtu@sjtu.edu.cn/skill/pic4.png "CPlaceBall.cpp&h")
+![PlaceBall.cpp&h](../uploads/yujiazousjtu@sjtu.edu.cn/skill/pic4.png "CPlaceBall.cpp&h")
 
 由于rbk中需要大量的skill，所以为了代码的整洁，需要一个规范统一的通向某个skill的类的接口。在rbk中这个接口是Factory。Factory.h的简化代码（只保留一个skill）如下：（源码参见：\RBK_RUN_2015\plugins\SSLStrategy\src\ssl\skill\Factory.h）
 
@@ -180,7 +180,7 @@ CPlayerTask* CTaskFactoryV2::MakeTask(const TaskT& task )
 2、为新skill添加新函数时需要严格依据Factory中已有的模板
 
 ### 1.3 lua与cpp的接口
-![LuaModule.cpp&h](uploads/yujiazousjtu@sjtu.edu.cn/skill/pic5.png "LuaModule.cpp&h")
+![LuaModule.cpp&h](../uploads/yujiazousjtu@sjtu.edu.cn/skill/pic5.png "LuaModule.cpp&h")
 lua与cpp的接口在LuaModule中实现，LuaModule写在cpp代码中，这意味着这之后的代码就是用lua写的上层代码了。LuaModule作为cpp与lua之间的接口，我们一般不会对它框架做修改。我们只需要知道如何为新写的skill添加对应的符合规范的函数。接下来我们来看LuaModule.cpp的简化代码：
 ```cpp
 //cite from \RBK_RUN_2015\plugins\SSLStrategy\src\LuaModule\LuaModule.cpp
@@ -307,7 +307,7 @@ cpp的代码写完之后，首先进行编译，经过一系列debug编译成功
 
 ## Part 2 lua部分
 ### 2.1 skill函数
-![PlaceBall.lua](uploads/yujiazousjtu@sjtu.edu.cn/skill/pic6.png "PlaceBall.lua")
+![PlaceBall.lua](../uploads/yujiazousjtu@sjtu.edu.cn/skill/pic6.png "PlaceBall.lua")
 lua中的skill函数可以认为是task.lua中琳琅满目（luan qi ba zao）的功能函数所调用的基本函数，也就是说skill函数之间的功能一般不会有高度相似。PlaceBall.lua的代码如下：
 ```lua
 --cite from \RBK_RUN_2015\bin\lua_scripts\ssl\skill\PlaceBall.lua
@@ -357,7 +357,7 @@ gSkill = {
 
 ```
 ### 2.2 task.···()函数
-![task.lua](uploads/yujiazousjtu@sjtu.edu.cn/skill/pic7.png "task.lua")
+![task.lua](../uploads/yujiazousjtu@sjtu.edu.cn/skill/pic7.png "task.lua")
 如上一节所说，task.lua有大量的功能函数，这些函数只是skill函数的部分衍生。task.lua的存在简化了play中对skill的调用。skill的功能往往比较多，而task.lua中的函数则是为了play中的实际需求所写的，能够恰好满足play的需求，从而简化play。task.lua中的placeBall函数如下：
 ```lua
 --cite from 
@@ -379,7 +379,7 @@ end
 对于新写的函数来说，一般需要在task.lua中写一个尽可能简洁的功能函数便于测试代码"test"--"skill_name".lua的调试。在skill的功能完全得到验证之后可以在task.lua中写几个用于分解其功能的函数便于play的调用。
 
 ### 2.3 testplay
-![testplaceball.lua](uploads/yujiazousjtu@sjtu.edu.cn/skill/pic8.png "testplaceball.lua")
+![testplaceball.lua](../uploads/yujiazousjtu@sjtu.edu.cn/skill/pic8.png "testplaceball.lua")
 testplay时用于验证skill的最简单的play，它一般调用task.lua写好的测试函数，TestPlaceBall.lua的部分代码如下：
 ```lua
 --cite from \RBK_RUN_2015\bin\lua_scripts\ssl\play\TestPlaceBall.lua

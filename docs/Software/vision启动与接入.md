@@ -26,27 +26,27 @@ sudo ./bin/graphicalClient
 
 - 先检查交换机是否接通电源，图像机上有没有接网线以及你的电脑上有没有接网线（网口或USB），转接口末端闪烁表示通讯畅通
 
-![](uploads/zhouyunlang@sjtu.edu.cn/netwire.png)
+![](../uploads/zhouyunlang@sjtu.edu.cn/netwire.png)
 
 - 打开电脑控制面板，点击打开网络和Internet，点击打开网络和共享中心；
 
-![](uploads/zhouyunlang@sjtu.edu.cn/20210311210656.png)
+![](../uploads/zhouyunlang@sjtu.edu.cn/20210311210656.png)
 
 - 点击以太网；
 
-![](uploads/zhouyunlang@sjtu.edu.cn/20210311211328.png)
+![](../uploads/zhouyunlang@sjtu.edu.cn/20210311211328.png)
 
 - 在新窗口点击属性；
 
-![](uploads/zhouyunlang@sjtu.edu.cn/20210311211302.png)
+![](../uploads/zhouyunlang@sjtu.edu.cn/20210311211302.png)
 
 - 选中Internet协议版本4（TCP/IP4），点击属性；
 
-![](uploads/zhouyunlang@sjtu.edu.cn/20210311211217.png)
+![](../uploads/zhouyunlang@sjtu.edu.cn/20210311211217.png)
 
 - 现在IP和DNS是自动的；
 
-![](uploads/zhouyunlang@sjtu.edu.cn/20210311211153.png)
+![](../uploads/zhouyunlang@sjtu.edu.cn/20210311211153.png)
 
 - 点击使用下面的ip地址
 
@@ -62,7 +62,7 @@ sudo ./bin/graphicalClient
 
 - 以上步骤可以替代为，使用电脑cmd，输入ping 192.168.0.25，若有字节返回，则配置成功，否则建议重启电脑后再试
 
-![](uploads/zhouyunlang@sjtu.edu.cn/cmd.png)
+![](../uploads/zhouyunlang@sjtu.edu.cn/cmd.png)
 
 - 以上配置在首次连接实车视觉时需要操作，成功接收过视觉说明配置生效，之后无需进行该操作
 

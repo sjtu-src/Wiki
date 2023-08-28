@@ -3,7 +3,7 @@
 
 ## 整体结构
 
-![structure](uploads/yujiazousjtu@sjtu.edu.cn/Algorithm/structure.png)
+![structure](../uploads/yujiazousjtu@sjtu.edu.cn/Algorithm/structure.png)
 
 整个结构是分层的，策略层大概可以这样分层：
 
