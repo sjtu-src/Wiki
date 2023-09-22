@@ -5,14 +5,14 @@ html:
 ---
 
 ## [Home](Home/index.md)
-## [Algorithm](Algorithm/index.md)
-## [Resource](Resource/index.md)
-## [Software](Software/index.md)
-## [Hardware](Hardware/index.md)
 ## [Experience](Experience/index.md)
+## [Resource](Resource/index.md)
+## [Hardware](Hardware/index.md)
+## [Algorithm](Algorithm/index.md)
+## [Software](Software/index.md)
 
 
 ---
 
-created on:2023-08-28 02:03:30
+created on:2023-09-22 06:58:53
 SJTU-SRC-All Rights Reserved
