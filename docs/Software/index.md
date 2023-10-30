@@ -2,6 +2,7 @@
 layout: default 
 title: Software
 ---
+### [SSL外部软件教程](SSL外部软件教程.md)
 ### [Qt多语言切换的实现](Qt多语言切换的实现.md)
 ### [Qt生成可执行文件](Qt生成可执行文件.md)
 ### [Tigers-AutoRef操作手册](Tigers-AutoRef操作手册.md)
