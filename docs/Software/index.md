@@ -21,4 +21,5 @@ title: Software
 ### [Qt生成可执行文件](Qt生成可执行文件.md)
 ### [如何使用Git](如何使用Git.md)
 ### [更多开发工具](更多开发工具.md)
+### [SRC 开发环境搭建教程](SRC 开发环境搭建教程.md)
 ### [Tigers-AutoRef仿真模式下的使用](Tigers-AutoRef仿真模式下的使用.md)
