@@ -77,9 +77,13 @@ $ ./bin/vision
 3. 若出现视觉能够发包且有内容但是图像上没有车显示的情况，需检查global设置中针对球和车的过滤像素数量上下限，保证球和车不被滤掉，能够正常显示。
 4. 经过排查发现以上均正常，可进一步检查摄像头性能，利用lsusb确定摄像头usb位置，进入系统设备管理目录中，对相应的usb利用chmod 777赋予权限，打开spinnaker检查摄像头图像显示，若有问题更换新的摄像头。
 
-附：推荐摄像头参数
+附：推荐摄像头参数（2024.04.26 update: 图一为旧参数，目前暂时采用图2-5的参数，依次对应thread0-3）
 
 ![1f03a2868b6957237017c65b58f4abe.jpg](../uploads/spinnaker-param.jpg)
+![1f03a2868b6957237017c65b58f4abe.jpg](../uploads/spinnaker-param-1.jpg)
+![1f03a2868b6957237017c65b58f4abe.jpg](../uploads/spinnaker-param-2.jpg)
+![1f03a2868b6957237017c65b58f4abe.jpg](../uploads/spinnaker-param-3.jpg)
+![1f03a2868b6957237017c65b58f4abe.jpg](../uploads/spinnaker-param-4.jpg)
 
 # AutoRef & GameController
 
