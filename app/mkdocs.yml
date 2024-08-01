@@ -39,6 +39,24 @@ theme:
     - search.share
     - search.suggest
     - toc.follow
+  icon:
+    logo: logo
+    repo: fontawesome/brands/github
+    edit: material/file-edit-outline
+    admonition:
+      # note: octicons/tag-16
+      # abstract: octicons/checklist-16
+      # info: octicons/info-16
+      # tip: octicons/squirrel-16
+      # success: octicons/check-16
+      # question: octicons/question-16
+      # warning: octicons/alert-16
+      # failure: material/license
+      # danger: octicons/zap-16
+      # bug: octicons/bug-16
+      # example: octicons/beaker-16
+      # quote: octicons/quote-16
+      # champion: fontawesome/solid/champagne-glasses
     # - toc.integrate
   palette:
     - scheme: default
@@ -56,12 +74,9 @@ theme:
   font:
     text: Noto Sans SC
     code: Fira Code
-  favicon: assets/images/favicon.png
+  favicon: assets/images/favicon.svg
   logo: assets/images/logo.jpg
-  icon:
-    logo: logo
-    repo: fontawesome/brands/github
-    edit: material/file-edit-outline
+
 
 extra:
   social:
@@ -72,7 +87,17 @@ extra:
 # Plugins
 plugins:
   - search
-
+  - glightbox:
+      touchNavigation: true
+      loop: false
+      effect: zoom
+      slide_effect: none
+      width: 100%
+      height: auto
+      zoomable: true
+      draggable: false
+      auto_caption: false
+      caption_position: bottom
 # Extensions
 markdown_extensions:
   - abbr
@@ -90,8 +115,11 @@ markdown_extensions:
   - pymdownx.caret
   - pymdownx.details
   # - pymdownx.emoji:
-  #     emoji_index: !!python/name:materialx.emoji.twemoji
-  #     emoji_generator: !!python/name:materialx.emoji.to_svg
+  #     emoji_index: materialx.emoji.twemoji
+  #     emoji_generator: materialx.emoji.to_svg
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
   - pymdownx.highlight:
       anchor_linenums: true
   - pymdownx.inlinehilite
@@ -108,20 +136,51 @@ markdown_extensions:
       alternate_style: true
   - pymdownx.tasklist:
       custom_checkbox: true
-  - pymdownx.tilde
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
 
 extra_javascript:
-  # - javascripts/mathjax.js
+  - javascripts/mathjax.js
   - https://polyfill.io/v3/polyfill.min.js?features=es6
-  # - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
 extra_css:
   - stylesheets/extra.css
-
+# nav:
+#   - 第 0 章:SRC整体框架:    
+#     - 0.1 SJTU_SRC:
+#       - 0.1.1 上海交通大学SRC赛队章程: # 我看原来的wiki做了,但没有放进去
+#       - 0.1.2 SRC名人堂: # 放下历代火影,有贡献的人, 或者每年的奖项之类的
+#       - 0.1.3 各个组的介绍: # 详细的介绍一下每个组的任务之类的
+#     - 0.2 实车调试流程: # 我把原来关于软件之类的全放这里面了
+#       - 0.2.1 falcon:
+#       - 0.2.2 Vision:
+#       - 0.2.3 Cray:
+#       - 0.2.4 发射机:
+#       - 0.2.5 车的拨码,开机之类的:
+#       - 0.2.6 AutoReferee:
+#   - 第 1 章:软件:
+#     - 软件开发统一规范: # 我感觉这是新人入住第一课
+#       - git 统一开发流程:
+#       - 变量命名统一规范:
+#       - 状态机写法:
+#     - 1.1 软件整体流程: # 这得要靠组长
+#     - 1.2 lua: # 可以优先完成这一部分方便校内赛新生
+#     - 1.3 C++:
+#         - 1.3.1 skill:
+#         - 1.3.2 worldmodel: # 这些偏底层的可以稍后完成?(感觉难度也会大一点)
+#         - 1.3.3 motioncontrol:
+#   - 第 2 章:电控:
+#   - 第 3 章:硬件: 
 # Page tree
 nav:
-  - 第零章 &nbsp; &nbsp; 写在前面:
-    - 0.1  &nbsp; 关于本教培系统: chapter_preface/about_the_book.md
-    - 0.2. &nbsp; 如何使用本教培系统: chapter_preface/suggestions.md
+  - 第 0 章 &nbsp;  SJTU_SRC:
+    - chapter_preface/index.md
+    - 0.1. &nbsp; 什么是Robocup SSL: chapter_preface/what_is_ssl.md
+    - 0.2. &nbsp; SRC赛队章程: chapter_preface/上海交通大学SRC赛队章程.md
+    - 0.3. &nbsp; 关于本教培系统: chapter_preface/about_the_book.md
+
   - 第一章 &nbsp; &nbsp; 绪论:
     - 1.1. &nbsp; 什么是Robocup SSL: chapter_introduction/what_is_ssl.md
     - 1.2. &nbsp; RoboCup的更多资料: chapter_introduction/ssl_more_info.md
