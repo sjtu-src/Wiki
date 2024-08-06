@@ -43,7 +43,7 @@ theme:
     logo: logo
     repo: fontawesome/brands/github
     edit: material/file-edit-outline
-    admonition:
+    annotation: material/chevron-right-circle
       # note: octicons/tag-16
       # abstract: octicons/checklist-16
       # info: octicons/info-16
@@ -105,41 +105,47 @@ markdown_extensions:
   - attr_list
   - def_list
   - footnotes
-  - md_in_html
+  - md_in_html  
+  - pymdownx.critic
+  - pymdownx.tilde  
+  - pymdownx.caret
+  - pymdownx.details
+
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
+  - pymdownx.keys  
+  - pymdownx.mark
+  - pymdownx.smartsymbols  
+  - pymdownx.details
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  
   - toc:
       permalink: true
   - pymdownx.arithmatex:
       generic: true
   - pymdownx.betterem:
       smart_enable: all
-  - pymdownx.caret
-  - pymdownx.details
-  # - pymdownx.emoji:
-  #     emoji_index: materialx.emoji.twemoji
-  #     emoji_generator: materialx.emoji.to_svg
   - pymdownx.emoji:
       emoji_index: !!python/name:material.extensions.emoji.twemoji
       emoji_generator: !!python/name:material.extensions.emoji.to_svg
   - pymdownx.highlight:
       anchor_linenums: true
-  - pymdownx.inlinehilite
-  - pymdownx.snippets
-  - pymdownx.superfences
-  - pymdownx.keys
+
   # - pymdownx.magiclink:
   #     repo_url_shorthand: true
   #     user: squidfunk
   #     repo: mkdocs-material
-  - pymdownx.mark
-  - pymdownx.smartsymbols
+
   - pymdownx.tabbed:
       alternate_style: true
   - pymdownx.tasklist:
       custom_checkbox: true
-  - pymdownx.details
-  - pymdownx.superfences
-  - pymdownx.tabbed:
-      alternate_style: true
+
 
 extra_javascript:
   - javascripts/mathjax.js
@@ -155,7 +161,7 @@ extra_css:
 #       - 0.1.3 各个组的介绍: # 详细的介绍一下每个组的任务之类的
 #     - 0.2 实车调试流程: # 我把原来关于软件之类的全放这里面了
 #       - 0.2.1 falcon:
-#       - 0.2.2 Vision:
+#       - 0.2.2 视觉机:
 #       - 0.2.3 Cray:
 #       - 0.2.4 发射机:
 #       - 0.2.5 车的拨码,开机之类的:
@@ -181,9 +187,15 @@ nav:
     - 0.2. &nbsp; SRC赛队章程: chapter_preface/上海交通大学SRC赛队章程.md
     - 0.3. &nbsp; 关于本教培系统: chapter_preface/about_the_book.md
 
-  - 第一章 &nbsp; &nbsp; 绪论:
-    - 1.1. &nbsp; 什么是Robocup SSL: chapter_introduction/what_is_ssl.md
-    - 1.2. &nbsp; RoboCup的更多资料: chapter_introduction/ssl_more_info.md
+  - 第 1 章 &nbsp; &nbsp; 实车调试流程:
+    - chapter_universal_build/index.md
+    - 1.1. &nbsp; 环境搭建: chapter_universal_build/SRC 开发环境搭建教程.md
+    - 1.2. &nbsp; falcon: chapter_universal_build/falcon.md
+    - 1.3. &nbsp; 视觉机: chapter_universal_build/视觉机.md
+    - 1.4. &nbsp; 裁判盒: chapter_universal_build/裁判盒.md
+    - 1.5. &nbsp; 发射机与机器人: chapter_universal_build/发射机与机器人.md
+    
+    # - 1.2. &nbsp; RoboCup的更多资料: chapter_introduction/ssl_more_info.md
   - 第二章 &nbsp; &nbsp; 视觉:
     - 2.1. &nbsp; 基本架构: chapter_vision/vision_frameword.md
     - 2.2. &nbsp; 捕捉图像: chapter_vision/image_capture.md

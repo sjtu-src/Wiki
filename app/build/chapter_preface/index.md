@@ -101,7 +101,7 @@ icon: material/magnify
 ## 学研一体的平台
 
 <div class="grid cards" markdown>
--   :material-school-outline: **学习** 的实践地
+-   :material-school-outline:{ .lg .middle } **学习** 的实践地
 
 
     ---
@@ -112,7 +112,7 @@ icon: material/magnify
     
     🟡 大量的实践机会与丰富的工程/学术经验
 
--   :octicons-light-bulb-16: **创新** 的出发地
+-   :octicons-light-bulb-16:{ .lg .middle } **创新** 的出发地
 
     ---
 
@@ -121,7 +121,7 @@ icon: material/magnify
     🟡 出国交流的平台（公开赛、世界杯等）
 
 
--   :people_holding_hands_tone5: **伙伴** 的聚集地
+-   :people_holding_hands_tone5:{ .lg .middle } **伙伴** 的聚集地
 
     ---
 
@@ -130,7 +130,7 @@ icon: material/magnify
     
     🟡 与SRC团队共享比赛荣誉
 
--   :fontawesome-regular-paper-plane: **梦想** 的发生地
+-   :fontawesome-regular-paper-plane:{ .lg .middle } **梦想** 的发生地
     
     ---
     

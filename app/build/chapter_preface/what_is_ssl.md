@@ -33,7 +33,7 @@ RoboCup的最终目标是在2050年成立一支完全自主的拟人机器人足
 
 ## 更多资料
 
-=== ":fontawesome-brands-youtube:{ .youtube }"
+=== ":fontawesome-brands-youtube:{ .youtube  .lg .middle } 油管博主"
 
 	- RoboTeam Twente
 	
@@ -45,13 +45,13 @@ RoboCup的最终目标是在2050年成立一支完全自主的拟人机器人足
 	
 	- Robotics Erlangen(ERForce)
 
-=== ":fontawesome-brands-bilibili:{.bilibili}"
+=== ":fontawesome-brands-bilibili:{.bilibili .lg .middle } B站博主"
 
 	- Mark_ZJUNlict
 	- Masterlaplace
 	- 南江乐博机器人
 
-=== ":fontawesome-brands-internet-explorer:{.internet}"
+=== ":fontawesome-brands-internet-explorer:{.internet .lg .middle } 网址"
 
 	关注以下网址的消息，获取赛事最新讯息（报名通知、赛制规则……），一般世界赛在年底发布各项流程的ddl，中国赛是在1~3月：
 	
@@ -59,11 +59,11 @@ RoboCup的最终目标是在2050年成立一支完全自主的拟人机器人足
 	- [小型组官方](https://ssl.robocup.org/)
 	- [中国赛官方](http://crc.drct-caa.org.cn/index.php/race?catid=2)
 
-=== ":material-wechat:{.wechat}"
+=== ":material-wechat:{.wechat .lg .middle } 公众号"
 
 	- CAA机器人竞赛与培训部：中国赛组委会（自动化协会），不只有RoboCup中国赛的相关通知
 	- 创非凡未来技术研究院：国内RoboCup小型组的支持公司，有一些入门级教程
 
-=== ":fontawesome-brands-qq:"
+=== ":fontawesome-brands-qq: QQ"
 
 	<img src="what_is_SSL.assets/QQ.jpg" alt="QQ" />
