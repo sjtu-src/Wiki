@@ -1,17 +1,5 @@
 
 
----
-draft: false 
-date: 2023-04-21
-categories:
-
-  - Examples
-authors: 
-  - perpil
----
-
-![](https://c.tribune.com.pk/2017/03/main_1500-12-1489670718.jpg)
-
 # 什么是Robocup SSL
 
 

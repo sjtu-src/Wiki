@@ -84,6 +84,9 @@ extra:
     - icon: fontawesome/brands/github
       link: https://github.com/SY-LG
   generator: false
+  background:
+    homepage: 'assets/background-image.jpg'  # 首页背景图片
+    not_homepage: 'assets/not-background-image.jpg'  # 非首页背景图片
 
 # Plugins
 plugins:

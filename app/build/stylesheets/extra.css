@@ -1,58 +1,70 @@
-
 /* Color Settings */
 /* https://github.com/squidfunk/mkdocs-material/blob/6b5035f5580f97532d664e3d1babf5f320e88ee9/src/assets/stylesheets/main/_colors.scss */
 /* https://squidfunk.github.io/mkdocs-material/setup/changing-the-colors/#custom-colors */
 :root {
-  --md-admonition-icon--prize: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M400 0L176 0c-26.5 0-48.1 21.8-47.1 48.2c.2 5.3 .4 10.6 .7 15.8L24 64C10.7 64 0 74.7 0 88c0 92.6 33.5 157 78.5 200.7c44.3 43.1 98.3 64.8 138.1 75.8c23.4 6.5 39.4 26 39.4 45.6c0 20.9-17 37.9-37.9 37.9L192 448c-17.7 0-32 14.3-32 32s14.3 32 32 32l192 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l-26.1 0C337 448 320 431 320 410.1c0-19.6 15.9-39.2 39.4-45.6c39.9-11 93.9-32.7 138.2-75.8C542.5 245 576 180.6 576 88c0-13.3-10.7-24-24-24L446.4 64c.3-5.2 .5-10.4 .7-15.8C448.1 21.8 426.5 0 400 0zM48.9 112l84.4 0c9.1 90.1 29.2 150.3 51.9 190.6c-24.9-11-50.8-26.5-73.2-48.3c-32-31.1-58-76-63-142.3zM464.1 254.3c-22.4 21.8-48.3 37.3-73.2 48.3c22.7-40.3 42.8-100.5 51.9-190.6l84.4 0c-5.1 66.3-31.1 111.2-63 142.3z"/></svg>');}
+  --md-admonition-icon--prize: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M400 0L176 0c-26.5 0-48.1 21.8-47.1 48.2c.2 5.3 .4 10.6 .7 15.8L24 64C10.7 64 0 74.7 0 88c0 92.6 33.5 157 78.5 200.7c44.3 43.1 98.3 64.8 138.1 75.8c23.4 6.5 39.4 26 39.4 45.6c0 20.9-17 37.9-37.9 37.9L192 448c-17.7 0-32 14.3-32 32s14.3 32 32 32l192 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l-26.1 0C337 448 320 431 320 410.1c0-19.6 15.9-39.2 39.4-45.6c39.9-11 93.9-32.7 138.2-75.8C542.5 245 576 180.6 576 88c0-13.3-10.7-24-24-24L446.4 64c.3-5.2 .5-10.4 .7-15.8C448.1 21.8 426.5 0 400 0zM48.9 112l84.4 0c9.1 90.1 29.2 150.3 51.9 190.6c-24.9-11-50.8-26.5-73.2-48.3c-32-31.1-58-76-63-142.3zM464.1 254.3c-22.4 21.8-48.3 37.3-73.2 48.3c22.7-40.3 42.8-100.5 51.9-190.6l84.4 0c-5.1 66.3-31.1 111.2-63 142.3z"/></svg>');
+}
+
 .md-typeset .admonition.prize,
 .md-typeset details.prize {
   border-color: rgb(251, 182, 55);
 }
-.md-typeset .prize > .admonition-title,
-.md-typeset .prize > summary {
+
+.md-typeset .prize>.admonition-title,
+.md-typeset .prize>summary {
   background-color: rgba(225, 233, 123, 0.1);
 }
-.md-typeset .prize > .admonition-title::before,
-.md-typeset .prize > summary::before {
+
+.md-typeset .prize>.admonition-title::before,
+.md-typeset .prize>summary::before {
   background-color: rgb(251, 182, 55);
   -webkit-mask-image: var(--md-admonition-icon--prize);
-          mask-image: var(--md-admonition-icon--prize);
+  mask-image: var(--md-admonition-icon--prize);
 }
-:root > * {
-    --md-primary-fg-color: #46ffe9fe;
-    /* 顶栏,搜索栏背景色颜色 */
-    --md-primary-bg-color: #ffffff;
-    /* 顶栏,搜索栏图标颜色 */
-    --md-accent-fg-color: #999;
-    /* #faa52e; */
-    /* hover颜色 */
-    --md-typeset-color: #000000;
-    /* 正文字体颜色 */
-    --md-typeset-a-color: #f29007;
-    /* 选中颜色 */
+
+:root>* {
+  --md-primary-fg-color: #46ffe9fe;
+  /* 顶栏,搜索栏背景色颜色 */
+  --md-primary-bg-color: #ffffff;
+  /* 顶栏,搜索栏图标颜色 */
+  --md-accent-fg-color: #999;
+  /* #faa52e; */
+  /* hover颜色 */
+  --md-typeset-color: #000000;
+  /* 正文字体颜色 */
+  --md-typeset-a-color: #f29007;
+  /* 选中颜色 */
+
 }
 
 [data-md-color-scheme="slate"] {
-    --md-primary-fg-color: #2E303E;
-    --md-primary-bg-color: #FEFEFE;
+  --md-primary-fg-color: #2E303E;
+  --md-primary-bg-color: #FEFEFE;
+  
+  --md-accent-fg-color: #999;
 
-    --md-accent-fg-color: #999;
-
-    --md-typeset-color: #FEFEFE;
-    --md-typeset-a-color: #21C8B8;
+  --md-typeset-color: #FEFEFE;
+  --md-typeset-a-color: #21C8B8;
 }
+
 .banner-svg-container {
-  display: flex;           /* 使用Flexbox布局 */
-  align-items: center;     /* 垂直居中对齐 */
-  justify-content: flex-start; /* 水平从开始对齐 */
+  display: flex;
+  /* 使用Flexbox布局 */
+  align-items: center;
+  /* 垂直居中对齐 */
+  justify-content: flex-start;
+  /* 水平从开始对齐 */
   fill: #FEFEFE;
 }
 
 .banner-svg {
   /* 可以添加一些样式来控制SVG图标的大小和边距 */
-  margin-right: 10px;     /* 图标和文字之间的间距 */
-  width: 20px;            /* 图标宽度 */
-  height: 20px;           /* 图标高度 */
+  margin-right: 10px;
+  /* 图标和文字之间的间距 */
+  width: 20px;
+  /* 图标宽度 */
+  height: 20px;
+  /* 图标高度 */
   fill: #ffbb00;
   /* background-color: #FEFEFE; */
 }
@@ -61,6 +73,8 @@
   color: #ffbb00;
   /* 可以添加一些样式来控制文字的显示 */
 }
+
+
 .youtube {
   color: #EE0F0F;
   size: auto;
@@ -68,7 +82,7 @@
 
 .bilibili {
   color: #13bcf5;
-  size:  auto;
+  size: auto;
 }
 
 .wechat {
@@ -85,6 +99,7 @@
   color: #0000FF;
   size: auto;
 }
+
 /* https://github.com/squidfunk/mkdocs-material/issues/4832#issuecomment-1374891676 */
 .md-nav__link[for] {
   color: var(--md-default-fg-color) !important
@@ -96,7 +111,7 @@
 }
 
 /* Reset alignment for table cells */
-.md-typeset .center-table :is(td,th):not([align]) {
+.md-typeset .center-table :is(td, th):not([align]) {
   text-align: initial;
 }
 
@@ -127,6 +142,7 @@
 }
 
 .md-typeset a {
+  color: #ffffff;
   text-decoration: underline;
 }
 
@@ -138,12 +154,17 @@
 
 /* font-family setting for Win10 */
 body {
-  --md-text-font-family: -apple-system,BlinkMacSystemFont,var(--md-text-font,_),Helvetica,Arial,sans-serif;
-  --md-code-font-family: var(--md-code-font,_),SFMono-Regular,Consolas,Menlo,-apple-system,BlinkMacSystemFont,var(--md-text-font,_),monospace;
+  --md-text-font-family: -apple-system, BlinkMacSystemFont, var(--md-text-font, _), Helvetica, Arial, sans-serif;
+  --md-code-font-family: var(--md-code-font, _), SFMono-Regular, Consolas, Menlo, -apple-system, BlinkMacSystemFont, var(--md-text-font, _), monospace;
+
 }
 
 /* max height of code block */
 /* https://github.com/squidfunk/mkdocs-material/issues/3444 */
-.md-typeset pre > code {
+.md-typeset pre>code {
   max-height: 25rem;
 }
+
+
+@import url('https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900&display=swap');
+
