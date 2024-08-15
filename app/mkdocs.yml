@@ -19,6 +19,7 @@ theme:
   features:
     # - announce.dismiss
     - content.action.edit
+    - header.autohide
     # - content.action.view
     - content.code.annotate
     - content.code.copy
@@ -60,13 +61,13 @@ theme:
     # - toc.integrate
   palette:
     - scheme: default
-      primary: white
+      primary: custom
       # accent: indigo
       toggle:
         icon: material/weather-sunny
         name: Switch to dark mode
     - scheme: slate
-      # primary: grey
+      primary: grey
       # accent: indigo
       toggle:
         icon: material/weather-night
@@ -194,33 +195,47 @@ nav:
     - 1.3. &nbsp; 视觉机: chapter_universal_build/视觉机.md
     - 1.4. &nbsp; 裁判盒: chapter_universal_build/裁判盒.md
     - 1.5. &nbsp; 发射机与机器人: chapter_universal_build/发射机与机器人.md
-    
+
+  - 第 2 章 &nbsp; &nbsp; 软件与算法:
+    - chapter_software/index.md
+    - 2.1 &nbsp; cpp:
+      - 2.1.1 &nbsp; 跑一个程序发生了什么: chapter_software/sub_chapter_cpp/跑一个程序发生了什么.md
+      - 2.1.2 &nbsp; 单例与指针: chapter_software/sub_chapter_cpp/单例与指针.md
+    - 2.2 &nbsp; lua:
+      - chapter_software/sub_chapter_lua/index.md
+      - 2.2.1 &nbsp; lua基本语法: chapter_software/sub_chapter_lua/lua基本语法.md
+      - 2.2.2 &nbsp; SRC中的lua: chapter_software/sub_chapter_lua/lua_in_SRC.md
+      - 2.2.3 &nbsp; 特殊的lua: chapter_software/sub_chapter_lua/config.md
+      - 2.2.4 &nbsp; rolematch模块: chapter_software/sub_chapter_lua/Rolematch模块.md
+    - 2.3 &nbsp; skill: 
+      - chapter_software/sub_chapter_skill/index.md
+      - 2.3.1 &nbsp; advance: chapter_software/sub_chapter_skill/advance.md
+      - 2.3.2 &nbsp; marking: chapter_software/sub_chapter_skill/MarkingPosV2.md
+
+  
     # - 1.2. &nbsp; RoboCup的更多资料: chapter_introduction/ssl_more_info.md
-  - 第二章 &nbsp; &nbsp; 视觉:
+  - 第 3 章 &nbsp; &nbsp; 视觉:
     - 2.1. &nbsp; 基本架构: chapter_vision/vision_frameword.md
     - 2.2. &nbsp; 捕捉图像: chapter_vision/image_capture.md
     - 2.3. &nbsp; 从图像到数据: chapter_vision/image2data.md
     - 2.4. &nbsp; 软件上的数据处理: chapter_vision/data_processing.md
-  - 第三章 &nbsp; &nbsp; 战术:
+  - 第 4 章 &nbsp; &nbsp; 战术:
     - 3.1. &nbsp; 基本框架: chapter_strategy/strategy_framework.md
     - 3.2. &nbsp; 场势估计: chapter_strategy/field_estimation.md
     - 3.3. &nbsp; Play: chapter_strategy/play.md
     - 3.4. &nbsp; SKill: chapter_strategy/skill.md
     - 3.5. &nbsp; 运动控制: chapter_strategy/motion.md
-  - 第四章 &nbsp; &nbsp; 通讯:
+  - 第 5 章 &nbsp; &nbsp; 通讯:
     - 4.1. &nbsp; udp通讯: chapter_communicate/udp.md
     - 4.2. &nbsp; 无线串口通讯: chapter_communicate/wireless_serial_port.md
-  - 第五章 &nbsp; &nbsp; 软件:
-    - 5.1. &nbsp; Qt绘制方法: chapter_software/qt.md
-    - 5.2. &nbsp; QML设计语法: chapter_software/qml.md
-  - 第六章 &nbsp; &nbsp; 机械:
-    - 6.1. &nbsp; 底盘及轮子: chapter_mechanics/chassis&wheels.md
-    - 6.2. &nbsp; 控球模块: chapter_mechanics/dribble.md
-    - 6.3. &nbsp; 踢球模块: chapter_mechanics/kick.md
-  - 第七章 &nbsp; &nbsp; 电控:
+  # - 第五章 &nbsp; &nbsp; 软件:
+  #   - 5.1. &nbsp; Qt绘制方法: chapter_software/qt.md
+  #   - 5.2. &nbsp; QML设计语法: chapter_software/qml.md
+
+  - 第 6 章 &nbsp; &nbsp; 电控:
     - 7.1. &nbsp; 主循环: chapter_electronics/main_loop.md
     - 7.1. &nbsp; 功率模块和踢控: chapter_electronics/power_module&kick_control.md
     - 7.2. &nbsp; 电机选型及驱动: chapter_electronics/motor_type&driver.md
     - 7.3. &nbsp; 编码器和电机控制: chapter_electronics/encoders&motor_control.md
-  - 第八章 &nbsp; &nbsp; 其他经验分享: 
+  - 第 7 章 &nbsp; &nbsp; 其他经验分享: 
     - chapter_other_experiences/index.md

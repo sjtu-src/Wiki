@@ -19,13 +19,17 @@
           mask-image: var(--md-admonition-icon--prize);
 }
 :root > * {
-    --md-primary-fg-color: #FFFFFF;
-    --md-primary-bg-color: #1D1D20;
-
+    --md-primary-fg-color: #46ffe9fe;
+    /* 顶栏,搜索栏背景色颜色 */
+    --md-primary-bg-color: #ffffff;
+    /* 顶栏,搜索栏图标颜色 */
     --md-accent-fg-color: #999;
-
-    --md-typeset-color: #1D1D20;
-    --md-typeset-a-color: #2AA996;
+    /* #faa52e; */
+    /* hover颜色 */
+    --md-typeset-color: #000000;
+    /* 正文字体颜色 */
+    --md-typeset-a-color: #f29007;
+    /* 选中颜色 */
 }
 
 [data-md-color-scheme="slate"] {
@@ -37,7 +41,26 @@
     --md-typeset-color: #FEFEFE;
     --md-typeset-a-color: #21C8B8;
 }
+.banner-svg-container {
+  display: flex;           /* 使用Flexbox布局 */
+  align-items: center;     /* 垂直居中对齐 */
+  justify-content: flex-start; /* 水平从开始对齐 */
+  fill: #FEFEFE;
+}
 
+.banner-svg {
+  /* 可以添加一些样式来控制SVG图标的大小和边距 */
+  margin-right: 10px;     /* 图标和文字之间的间距 */
+  width: 20px;            /* 图标宽度 */
+  height: 20px;           /* 图标高度 */
+  fill: #ffbb00;
+  /* background-color: #FEFEFE; */
+}
+
+.banner-announcements {
+  color: #ffbb00;
+  /* 可以添加一些样式来控制文字的显示 */
+}
 .youtube {
   color: #EE0F0F;
   size: auto;
@@ -55,6 +78,11 @@
 
 .internet {
   color: #6cd0f5;
+  size: auto;
+}
+
+.lua {
+  color: #0000FF;
   size: auto;
 }
 /* https://github.com/squidfunk/mkdocs-material/issues/4832#issuecomment-1374891676 */
@@ -85,16 +113,17 @@
 /* Markdown Header */
 /* https://github.com/squidfunk/mkdocs-material/blob/dcab57dd1cced4b77875c1aa1b53467c62709d31/src/assets/stylesheets/main/_typeset.scss */
 .md-typeset h1 {
-  font-weight: 400;
+  font-weight: 600;
   color: var(--md-default-fg-color);
 }
 
 .md-typeset h2 {
-  font-weight: 400;
+  font-weight: 550;
+
 }
 
 .md-typeset h3 {
-  font-weight: 500;
+  font-weight: 400;
 }
 
 .md-typeset a {

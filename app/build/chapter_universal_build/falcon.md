@@ -24,7 +24,7 @@
 === ":material-eye:{ .lg .middle } 视觉显示模式"
 
 	- Origin：裸视觉 
-
+	
 	- Filter B：滤波后视觉，配有蓝方debug
 	
 	- Filter Y：滤波后视觉，配有黄方debug
@@ -32,7 +32,7 @@
 === ":fontawesome-solid-arrow-down-up-across-line:{ .lg .middle } 坐标显示"
 
 	当前鼠标位置的对应坐标
-
+	
 	Left：左边方坐标系（X轴正方向向右，Y轴正方向向下）
 		
 	Right：右边方坐标系（X轴正方向向左，Y轴正方向向上）
@@ -40,29 +40,29 @@
 === ":fontawesome-solid-desktop:{ .lg .middle } FPS"
 
 	由上到下分别为:
-
+	
 	视觉帧率
-
+	
 	蓝方通讯帧率
-
+	
 	黄方通讯帧率
 
 === ":material-scale-balance:{ .lg .middle } 下拉栏"
 	
 	Widget: 调出falcon一系列的组件, 其中Remote Control常常通过其调出
-
+	
 	Layout：界面的布局
 		
 		Save As：保存现在界面的布局
 		Load：引入特定界面的布局
 	*[Layout]: 保存形式为.json文件，在./Layout路径下，可直接更改
-
+	
 	Formation：特定阵型的操作
 		
 		Save As：保存现在场上的机器人站位，快捷键 Ctrl+s
 		Load：引入特定阵型，快捷键 Ctrl+v
 	*[Formation]: 保存形式为.json文件，在./Formations路径下，可直接更改
-
+	
 	Help：查阅软件信息
 		
 		About：展示基本信息，如版本
@@ -93,7 +93,7 @@
  	- Shift + 数字键：控制蓝方特定ID机器人上场/下场
  	- Alt + 数字键：控制黄方特定ID机器人上场/下场
 
-	
+
 ## 控制面板
 
 ![control_board](falcon.assets/control_board.png)
@@ -109,7 +109,7 @@
 <div class = "grid" markdown>
 === "Vision"
 	视觉设置
-		
+
 		选择仿真或实车模式
 		
 		选择使用的相机(id:0~7)
@@ -119,9 +119,9 @@
 	仿真器设置
   	
 		开启或关闭
-  	
+	
 		后台或可视化运行
-  	
+	
 		弹窗，选择仿真器路径
 === "Cray"
 	遥控软件
@@ -152,35 +152,36 @@
 	裁判盒设置
 
 	开启或关闭
-
+	
 	手动或[自动操作](https://gitlab.com/src-ssl/src/-/wikis/Software/Tigers-AutoRef仿真模式下的使用)
 === "Control Command"
 	全局指令，两队的相同
 
 		急停
-
+	
 		停止比赛
-
+	
 		强制开始
-
+	
 		开启开球/点球
 === "Yellow Team Control"
 	黄队进攻指令，蓝方收到后防守.依次为
 		开球
 
 		点球
-
+	
 		直接任意球
-
+	
 		间接任意球
-
+	
 		申请暂停
-
+	
 		自动放球，Alt + 滚轮点击设置放球点
-
+	
 		取得进球
 
-	
+
+​	
 <figure markdown="span">
   ![control_board](falcon.assets/REFEREEBOX.png)
   <figcaption>REFEREEBOX</figcaption>
@@ -210,7 +211,7 @@
 === "Rec"
 	录制log，记录场上显示的所有信息
 		是否录制裸视觉
-	
+
 		开启/关闭录制
 	
 		设置断点，第一次点击暂停录制，第二次恢复
@@ -220,23 +221,23 @@
 		是否播放裸视觉，建议选择，但需保证log中包含裸视觉
 
 		弹窗，选择要播放的log文件
-
+	
 		开启/暂停播放
-
+	
 		终止播放
-
+	
 		快进x帧
-
+	
 		后退x帧
-
+	
 		Steps: 设置自动播放的倍速和快进/后退的步长
-
+	
 		进度条，可点击/拖动至预想的时刻，右侧显示当前时刻/总时长
 
 === "WorldCupLog"
 	专门播放世界赛log，与我们录制的格式不同
 
-	
+
 <figure markdown="span">
   ![control_board](falcon.assets/TOOLKIT.png)
   <figcaption>TOOLKIT</figcaption>
@@ -259,7 +260,7 @@
 	- 其他均为内置仿真器参数，目前未用到
 - 重要参数：
 - owl2.ini
-=== "Alert"
+	=== "Alert"
 	field 场地规模 Division A/B
 
 	framearte 比赛视觉帧率
@@ -272,6 +273,7 @@
 	
 	saoAction 骚操作，小场与大场坐标轴间的转换，适用于实车模式
 	
+
 === "AlertPort"
 	
 	VisionReal 实车模式下的视觉端口
@@ -279,15 +281,15 @@
 	VisionSim 仿真模式下的视觉端口
 		
 		refereePortToBlue 给蓝方发送裁判指令的端口
-
+	
 		refereePortToYellow 给黄方发送裁判指令的端口
 		
 		serialPort 通讯串口
-	
+
 === "Camera"
 
 	total_cameras 全场相机总数，重要，决定了处理视觉时遍历的相机数目
-	
+
 === "Canvas"
 	
 	param_canvasHeight 纵向长度
@@ -295,19 +297,19 @@
 	param_canvasWidth 横向长度
 	
 	以上两个参数更改可以影响画布绘制的比例，建议与场地的相同（如Division A 4:3），数值越大场地相对越小
-	
+
 === "DebugMessages"
 	
 	debug 是否绘制debug
 	
 	type_arc/line/points/robot/text 各种性质的debug是否绘制，与rbk中相同
-	
+
 === "Display"
 	
 	display_height display图表高度，唯一一个更改后重启才能生效的
 	
 	其他的都可以通过弹窗设置
-	
+
 === "Division A/B"
 		
 	if_ellipse_penalty 是否为椭圆禁区
@@ -317,19 +319,22 @@
 	penalty_radius 禁区侧方圆的半径
 	
 	以上的参数用于2017年前的场地配置
-	
+
 === "HeatMap"
 	
 	HeatMap 是否绘制场势热力图
-	
+
 === "Size" 
 	
 	绘制机器人/球的尺寸
-	
+
 === "Team" 
 	
 	队伍信息
-	
+
 === "Vision" 
 	一些视觉的特殊处理
 
+
+
+[:fontawesome-solid-circle-info:{ .lg .middle} 加入CUDA的falcon编译](https://sjtu-src.github.io/Wiki/Algorithm/加入cuda的falcon编译/){ .md-button .md-button--primary}
