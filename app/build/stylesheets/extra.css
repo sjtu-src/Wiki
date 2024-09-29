@@ -23,16 +23,16 @@
 }
 
 :root>* {
-  --md-primary-fg-color: #46ffe9fe;
+  --md-primary-fg-color: #144BB0;
   /* 顶栏,搜索栏背景色颜色 */
-  --md-primary-bg-color: #ffffff;
+  --md-primary-bg-color: #f0f3f8;
   /* 顶栏,搜索栏图标颜色 */
-  --md-accent-fg-color: #999;
+  --md-accent-fg-color: #b5cfd4;
   /* #faa52e; */
   /* hover颜色 */
-  --md-typeset-color: #000000;
+  --md-typeset-color: #18243c;
   /* 正文字体颜色 */
-  --md-typeset-a-color: #f29007;
+  --md-typeset-a-color: #e18b2e;
   /* 选中颜色 */
 
 }
