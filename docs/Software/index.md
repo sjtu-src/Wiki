@@ -23,3 +23,5 @@ title: Software
 ### [SSL外部软件教程](SSL外部软件教程.md)
 ### [gameController操作手册](gameController操作手册.md)
 ### [qml语言入门](qml语言入门.md)
+### [SRC中的lua教程](LuaTutorial.md)
+### [lua基本语法](lua基本语法.md)
