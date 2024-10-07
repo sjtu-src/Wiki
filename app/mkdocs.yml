@@ -1,15 +1,14 @@
 # Project information
-site_name: SSL Wiki
-site_url: https://www.ssl-wiki.com/
+site_name: SJTU-SRC Wiki
+site_url: https://sjtu-src.github.io/Wiki/
 site_author: SYLG
 site_description: Robocup Small Size League 教培系统
 docs_dir: build
 # Repository
-repo_name: SY-LG/SSL-Wiki
-repo_url: https://github.com/SY-LG/SSL-Wiki
-
+repo_name: sjtu-src/Wiki
+repo_url: https://github.com/sjtu-src/Wiki
 # Copyright
-copyright: Copyright &copy; 2023 SYLG
+copyright: Copyright &copy; 2023 SYLG   2024 sasuke-yang
 
 # Configuration
 theme:
