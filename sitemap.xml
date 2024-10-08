@@ -26,17 +26,17 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://sjtu-src.github.io/Wiki/chapter_hardware/body/</loc>
+         <lastmod>2024-10-08</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://sjtu-src.github.io/Wiki/chapter_hardware/chassis%26wheels/</loc>
          <lastmod>2024-10-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sjtu-src.github.io/Wiki/chapter_hardware/dribble/</loc>
-         <lastmod>2024-10-08</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://sjtu-src.github.io/Wiki/chapter_hardware/kick/</loc>
          <lastmod>2024-10-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
