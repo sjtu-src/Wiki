@@ -1,42 +1,236 @@
-/* this button is inspired from this -- s://www.newline.co/pricing */
-button {
-    --width: 150px;
-    --timing: 2s;
-    border: 0;
-    width: var(--width);
-    padding-block: 1em;
+/* From Uiverse.io by WAIOKYERE */
+.example-2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.example-2 .icon-content {
+    margin: 0 10px;
+    position: relative;
+}
+
+.example-2 .icon-content .tooltip {
+    position: absolute;
+    top: -30px;
+    left: 50%;
+    transform: translateX(-50%);
     color: #fff;
-    font-weight: bold;
-    font-size: 1em;
-    background: rgb(64, 192, 87);
-    transition: all 0.2s;
-    border-radius: 3px;
-    cursor: pointer;
+    padding: 6px 10px;
+    border-radius: 15px;
+    opacity: 0;
+    visibility: hidden;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+.example-2 .icon-content:hover .tooltip {
+    opacity: 1;
+    visibility: visible;
+    top: -50px;
+}
+
+.example-2 .icon-content a {
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 20%;
+    color: #4d4d4d;
+    background-color: #ffff;
+    transition: all 0.3s ease-in-out;
+}
+
+.example-2 .icon-content a:hover {
+    box-shadow: 3px 2px 45px 0px rgb(0 0 0 / 50%);
+}
+
+.example-2 .icon-content a svg {
+    position: relative;
+    z-index: 1;
+    width: 30px;
+    height: 30px;
+}
+
+.example-2 .icon-content a:hover {
+    color: white;
+}
+
+.example-2 .icon-content a .filled {
+    position: absolute;
+    top: auto;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 0;
+    background-color: #000;
+    transition: all 0.3s ease-in-out;
+}
+
+.example-2 .icon-content a:hover .filled {
+    height: 100%;
+}
+
+.example-2 .icon-content a[data-social="spotify"] .filled,
+.example-2 .icon-content a[data-social="spotify"]~.tooltip {
+    background-color: #1db954;
+}
+
+.example-2 .icon-content a[data-social="pinterest"] .filled,
+.example-2 .icon-content a[data-social="pinterest"]~.tooltip {
+    background-color: #bd081c;
+}
+
+.example-2 .icon-content a[data-social="dribbble"] .filled,
+.example-2 .icon-content a[data-social="dribbble"]~.tooltip {
+    background-color: #ea4c89;
+}
+
+.example-2 .icon-content a[data-social="telegram"] .filled,
+.example-2 .icon-content a[data-social="telegram"]~.tooltip {
+    background-color: #0088cc;
+}
+
+
+.example-2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.example-2 .icon-content {
+    margin: 0 10px;
+    position: relative;
+}
+
+.example-2 .icon-content .tooltip {
+    position: absolute;
+    top: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #fff;
+    padding: 6px 10px;
+    border-radius: 15px;
+    opacity: 0;
+    visibility: hidden;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+.example-2 .icon-content:hover .tooltip {
+    opacity: 1;
+    visibility: visible;
+    top: 70px;
+}
+
+.example-2 .icon-content a {
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 20%;
+    color: #4d4d4d;
+    background-color: #ffff;
+    transition: all 0.7s ease-in-out;
+}
+
+.example-2 .icon-content a:hover {
+    box-shadow: 3px 2px 45px 0px rgb(0 0 0 / 50%);
+}
+
+.example-2 .icon-content a svg {
+    position: relative;
+    z-index: 1;
+    width: 30px;
+    height: 30px;
+}
+
+.example-2 .icon-content a:hover {
+    color: white;
+}
+
+.example-2 .icon-content a .filled {
+    position: absolute;
+    top: auto;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 0;
+    background-color: #000;
+    transition: all 0.3s ease-in-out;
+}
+
+.example-2 .icon-content a:hover .filled {
+    height: 100%;
+}
+
+.example-2 .icon-content a[data-social="build"] .filled,
+.example-2 .icon-content a[data-social="build"]~.tooltip {
+    background-color: #800020;
+}
+
+.example-2 .icon-content a[data-social="software"] .filled,
+.example-2 .icon-content a[data-social="software"]~.tooltip {
+    background-color: #4a7a6e;
+}
+
+.example-2 .icon-content a[data-social="electronics"] .filled,
+.example-2 .icon-content a[data-social="electronics"]~.tooltip {
+    background-color: #003153;
+}
+
+.example-2 .icon-content a[data-social="hardware"] .filled,
+.example-2 .icon-content a[data-social="hardware"]~.tooltip {
+    background-color: #cbcbcb;
+}
+
+
+button {
+    padding: 0.8em 1.8em;
+    border: 2px solid #17C3B2;
+    position: relative;
+    overflow: hidden;
+    background-color: transparent;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 16px;
+    transition: .3s;
+    z-index: 1;
+    font-family: inherit;
+    color: #144BB0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+button::before {
+    content: '';
+    width: 0;
+    height: 300%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(45deg);
+    background: #144BB0;
+    transition: .5s ease;
+    display: block;
+    z-index: -1;
+}
+
+button:hover::before {
+    width: 105%;
 }
 
 button:hover {
-    background-image: linear-gradient(
-    to right,
-    rgb(250, 82, 82),
-    rgb(250, 82, 82) 16.65%,
-    rgb(190, 75, 219) 16.65%,
-    rgb(190, 75, 219) 33.3%,
-    rgb(76, 110, 245) 33.3%,
-    rgb(76, 110, 245) 49.95%,
-    rgb(64, 192, 87) 49.95%,
-    rgb(64, 192, 87) 66.6%,
-    rgb(250, 176, 5) 66.6%,
-    rgb(250, 176, 5) 83.25%,
-    rgb(253, 126, 20) 83.25%,
-    rgb(253, 126, 20) 100%,
-    rgb(250, 82, 82) 100%
-    );
-    animation: var(--timing) linear dance6123 infinite;
-    transform: scale(1.1) translateY(-1px);
+    color: #111;
 }
 
-@keyframes dance6123 {
-    to {
-    background-position: var(--width);
-}
+.md-typeset a {
+
+    color: #46ffe9fe;
 }

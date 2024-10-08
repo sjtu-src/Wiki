@@ -141,6 +141,7 @@
 	杀死运行的软件
 <figure markdown="span">
   ![control_board](falcon.assets/controlboard.png)
+    <!-- ![control_board](falcon.assets/REFEREEBOX.png) -->
   <figcaption>CONTROLBOARD</figcaption>
 </figure>
 
@@ -179,11 +180,9 @@
 		自动放球，Alt + 滚轮点击设置放球点
 	
 		取得进球
-
-
-​	
 <figure markdown="span">
   ![control_board](falcon.assets/REFEREEBOX.png)
+  <!-- <img src="falcon.assets/REFEREEBOX.png" alt="settings" style="zoom:80%;" /> -->
   <figcaption>REFEREEBOX</figcaption>
 </figure>
 
