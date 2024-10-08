@@ -16,7 +16,7 @@
 
 .example-2 .icon-content .tooltip {
     position: absolute;
-    top: 50px;
+    top: 40px;
     left: 50%;
     transform: translateX(-50%);
     color: #fff;
@@ -31,7 +31,7 @@
 .example-2 .icon-content:hover .tooltip {
     opacity: 1;
     visibility: visible;
-    top: 70px;
+    top: 55px;
 }
 
 .example-2 .icon-content a {
@@ -235,8 +235,6 @@ button:hover {
 ​																	<button>[explore](chapter_preface)</button>
 
 
-<br>
-<br>
 
 
 <div class="example-2">
