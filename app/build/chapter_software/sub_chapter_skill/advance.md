@@ -1,9 +1,11 @@
 ---
 layout: default 
 title: Advance
+
 ---
 
 > Tyh 22.10
+> wjr 24.10
 
 ## 初始工作
 
@@ -39,45 +41,100 @@ cpp中值得作为策略调整的参数已经移至ini：
 	RELIEF_POWER = paramManager->RELIEF_POWER;
     BACK_POWER = paramManager->BACK_POWER;
 	Advance_DEBUG_ENGINE = paramManager->Advance_DEBUG_ENGINE;
+
+	Intercept = paramManager->INTERCEPT;//是否打开getball的拦截球功能（可能导致碰撞）。一般关闭，该功能目前不完善。
+	//touch参数
+	Touch_Get_Bias_Angle = paramManager->TOUCH_GET_BIAS_ANGLE;
+	Touch_Angel = paramManager->TOUCH_ANGEL;//可以touch的角度阈值
+	Touch_Vel = paramManager->TOUCH_VEL;
+	//break开关
+	BreakOn = paramManager->BREAK_OPEN;//是否允许使用break。0为关闭，1为开启BREAKING，2为开启BREAKING和BREAKSHOOT。一般设置为2。
+	//我方半场CHIP解围开关
+	ChipOn = paramManager->CHIPRELIEF_OPEN;//0为关闭，1为开启。打开后，我方半场双方均离球很近时，会使用CHIP解围；关闭后，会使用GET或BREAKING。一般设置为1。
+```
+
+点球参数：
+
+```
+	Penalty = task().player.isPenalty;//判断当前是否为点球，通过外部传入
+	useChip = paramManager->USE_CHIP;//射门是否使用挑射
+	Pushout_power = paramManager->PUSHOUT_POWER;//带球时每次推球力度
+	ChipDist = paramManager->CHIP_DIST;//敌方球员到球距离小于ChipDist时，直接挑射
+	EndPushX = paramManager->END_PUSH_X;//自身位置的x坐标超过EndPushX时不再推球，进行射门
+	Penalty_chipPower_percent = paramManager->PENALTY_CHIPPOWER_PERCENT;//挑射力度百分比，100为原力度（根据距离计算得到）
+	useWait = paramManager->USE_WAIT;//在射门前停顿并射门（增加射门稳定性）
+	waitTime = paramManager->WAIT_TIME;//停顿的帧数
+	PenaltyTime = paramManager->PENALTY_TIME;//点球允许的总时间，超过时间会直接进入射门状态。建议设置短于真实允许的时间。
 ```
 
 ### 状态机设计
 
-第一个swtich作为状态分配，第二个switch作为状态执行。
+(plan函数中)第一个swtich作为状态分配，第二个switch作为状态执行。
 
-1. GET：拿球状态，主要内容为GetBall和RecivePass
+状态转移思路：只有GET状态可以转移到其他状态，其他状态只能保持当前状态或转移到GET。
+
+以下为所有状态，代码中的状态执行部分均有注释解释其功能。
+
+1. GET：拿球状态，主要调用GetBall。
 2. KICK：射门状态，内含Getball和ShootBall
 3. PASS：传球状态，内含FLAT、CHIP、Getball
 4. JUSTCHIPPASS：后场解围，内含CHIP、Getball
 5. BREAKSHOOT：Break射门技术，背身拿球时采用Getball调整朝向
 6. BREAKPASS：Break传球技术
+7. PUSHOUT：推球状态。不断小力向前推球并跟上。目前不再使用，实战作用小且不稳定，仅作为备选状态。
+8. CHASEKICK：追球射门。直接调用ChaseKickV2，目前不使用。
+9. TOUCH：Touch射门。Touch时机器人提前等在球的路径上，碰到球后不吸球直接踢出，速度快。最适用于角球传球射门。
+10. WAIT：原地吸球等待。点球时使用的状态。
 
- 老版advance中对于normalpush的设计引用了太多的pullcnt等参数设计，然而在实际比赛上如果对手采用lose就getball的策略，那么normalpush和lightkick等状态设计是不可靠的，故舍弃。
+注：Break为一个吸球移动的skill。Break进攻效果好，但踢出的球精度不高，且吸球移动时可能丢球。
+
+老版advance中对于normalpush的设计引用了太多的pullcnt等参数设计，然而在实际比赛上如果对手采用lose就getball的策略，那么normalpush和lightkick等状态设计是不可靠的，故舍弃。
+
+常规模式思路：参考Get的状态转移，代码中主要为GenerateNextState()函数，函数中分区域（MeIsInWhichArea）来判断应该转移到什么状态。
+点球模式思路：一直PUSHOUT直到敌方靠近或位置较前时CHIP或KICK射门。设置了计时器，超时则直接射门。Penalty=1时为点球模式。
 
 ### GET
 
 1. 如果有球，在前场时优先考虑射门，其次考虑可能有的break，最后考虑传球
    射门采用tendToShoot判断，传球采用CanSupport判断
-2. 如果无球，考虑防守与进攻两种情景
+2. 如果无球，考虑防守与常规两种情景
    -  防守进行ChaseKick
-   -  进攻时考虑球是否传向我自己，采用isPassBalltoMe判断。
+   -  否则调用Getball，Getball中会区分各种其他情景
 
 ### KICK
 
 1. 采用isDirOK判断此时朝向是否正确
 2. 朝向在误差范围内采用ShootBallV2
-3. 朝向不可接受采用GetBallV3进行调整
+3. 朝向不可接受采用Getball进行调整
 
 ### PASS
 
 1. 优先考虑平传球，仍然采用isDirOK的判断方法，同KICK
 2. 否则考虑挑球，仍然采用isDirOK的判断方法，同KICK
 
+### BREAKSHOOT
+
+吸住球移动一小段距离后射门。
+
+1. 若多人拦截且有合适support队员，传球
+2. 否则调用break
+
+### BREAKING
+
+吸球移动进行突破、传球
+
+1. 若敌方距离很远，向球门方向推球。不常见。
+2. 突破敌方车辆后，挑传给support队员。
+
+### TOUCH
+
+首先调整位置，移动到接球点并面向球门。然后调用touch打门。
+
 ### 补充内容与部分思路
 
 1. 所有射门角度计算采用KickDirection中的getPointShootDir
-2. 所有踢球方式采用ShootBallV2
-3. 所有跑位方式采用GetBallV3
+2. 所有踢球方式采用JustKick
+3. 所有跑位方式采用GetBallV5(NoneTrajGetBall)
 
 #### tendToShoot
 

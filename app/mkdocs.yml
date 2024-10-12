@@ -238,3 +238,6 @@ nav:
     - chapter_hardware/index.md
     - 4.1 &nbsp; 机械结构介绍: chapter_hardware/body.md
     
+  - 第 5 章 &nbsp; &nbsp; 其他:
+    - chapter_other/index.md
+    - 5.1 &nbsp; 2024校内赛软件包说明: chapter_other/SoftwarePackfor2024.md
