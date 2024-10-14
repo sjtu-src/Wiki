@@ -240,4 +240,6 @@ nav:
     
   - 第 5 章 &nbsp; &nbsp; 其他:
     - chapter_other/index.md
-    - 5.1 &nbsp; 2024校内赛软件包说明: chapter_other/SoftwarePackfor2024.md
+    - 5.1 &nbsp; 校内赛说明: 
+      - chapter_other/freshmencup/index.md
+      - 5.1.1 &nbsp; 2024校内赛软件包说明: chapter_other/SoftwarePackfor2024.md
