@@ -220,6 +220,7 @@ nav:
       - chapter_software/sub_chapter_skill/index.md
       - 2.3.1 &nbsp; advance: chapter_software/sub_chapter_skill/advance.md
       - 2.3.2 &nbsp; marking: chapter_software/sub_chapter_skill/MarkingPosV2.md
+      - 2.3.3 &nbsp; bestPlayer: chapter_software/sub_chapter_skill/bestPlayer.md
 
   - 第 3 章 &nbsp; &nbsp; 电控:
     - chapter_electronics/index.md
