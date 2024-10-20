@@ -74,8 +74,7 @@ title: Best Player
             p.x() * p.x() + p.y() * p.y());
     ```
 
-    （费拉里法解四次方程比较繁琐，但适用于所有小于等于四次的方程求解，如需复用，可参考`Core/src/ssl/defenceNew/ChaseTime.cpp`中`std::complex<double> Ferrari(...)
-`）
+    （费拉里法解四次方程比较繁琐，但适用于所有小于等于四次的方程求解，如需复用，可参考`Core/src/ssl/defenceNew/ChaseTime.cpp`中`std::complex<double> Ferrari(...)`）
 
 2. 最优成员筛选。在已知当前所有车到达球最短时间的情况下，对上一轮判断出的最优车辆的时间乘以确定度，保证不会频繁切换。
 
