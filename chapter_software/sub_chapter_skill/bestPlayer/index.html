@@ -2160,39 +2160,37 @@
 </ol>
 <h2 id="_4">实现方法<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
 <ol>
-<li>时间求解：二维运算解得四次方程，取最小正实根。</li>
-</ol>
-<p><code>cpp
-    // p，p0 是机器人和球的初始位置，v和v0是机器人和球的速度，a_max是机器人最大加速度
-    // v0_double是球的速度的模
-    // 追上时纵坐标为0，p.y + v.y*t + 0.5*a.y*t^2 = 0
-    // 横坐标为m, p.x + v.x*t + 0.5*a.x*t^2= v0 * t
-    //|a|^2= a_max^2
-    //  -0.25a * t^4 + (v.x^2 + v.y^2 - 2 v.x * v0 + v0^2) * t^2 - 2 * (p.x * v.x + p.y * v.y ) * t + p.x^2 + p.y^2 = 0
-    //
-    // 费拉里法计算t
-    std::complex&lt;double&gt; t_complex[4];
-    Ferrari(t_complex,
-            -0.25 * a_max * a_max,
-            0,
-            (v.x() - v0_double) * (v.x() - v0_double) + v.y() * v.y(),
-            2 * (p.x() * (v.x() - v0_double) - p.y() * v.y()),
-            p.x() * p.x() + p.y() * p.y());</code></p>
-<div class="highlight"><pre><span></span><code>（费拉里法解四次方程比较繁琐，但适用于所有小于等于四次的方程求解，如需复用，可参考`Core/src/ssl/defenceNew/ChaseTime.cpp`中`std::complex&lt;double&gt; Ferrari(...)
+<li>
+<p>时间求解：二维运算解得四次方程，取最小正实根。</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1">// p，p0 是机器人和球的初始位置，v和v0是机器人和球的速度，a_max是机器人最大加速度</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="c1">// v0_double是球的速度的模</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="c1">// 追上时纵坐标为0，p.y + v.y*t + 0.5*a.y*t^2 = 0</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="c1">// 横坐标为m, p.x + v.x*t + 0.5*a.x*t^2= v0 * t</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="c1">//|a|^2= a_max^2</span>
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="c1">//  -0.25a * t^4 + (v.x^2 + v.y^2 - 2 v.x * v0 + v0^2) * t^2 - 2 * (p.x * v.x + p.y * v.y ) * t + p.x^2 + p.y^2 = 0</span>
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="c1">//</span>
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="c1">// 费拉里法计算t</span>
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="n">std</span><span class="o">::</span><span class="n">complex</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span><span class="w"> </span><span class="n">t_complex</span><span class="p">[</span><span class="mi">4</span><span class="p">];</span>
+<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="n">Ferrari</span><span class="p">(</span><span class="n">t_complex</span><span class="p">,</span>
+<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a><span class="w">        </span><span class="mf">-0.25</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">a_max</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">a_max</span><span class="p">,</span>
+<a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a><span class="w">        </span><span class="mi">0</span><span class="p">,</span>
+<a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a><span class="w">        </span><span class="p">(</span><span class="n">v</span><span class="p">.</span><span class="n">x</span><span class="p">()</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">v0_double</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="n">v</span><span class="p">.</span><span class="n">x</span><span class="p">()</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">v0_double</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">v</span><span class="p">.</span><span class="n">y</span><span class="p">()</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">v</span><span class="p">.</span><span class="n">y</span><span class="p">(),</span>
+<a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a><span class="w">        </span><span class="mi">2</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="n">p</span><span class="p">.</span><span class="n">x</span><span class="p">()</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="n">v</span><span class="p">.</span><span class="n">x</span><span class="p">()</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">v0_double</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">p</span><span class="p">.</span><span class="n">y</span><span class="p">()</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">v</span><span class="p">.</span><span class="n">y</span><span class="p">()),</span>
+<a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a><span class="w">        </span><span class="n">p</span><span class="p">.</span><span class="n">x</span><span class="p">()</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">p</span><span class="p">.</span><span class="n">x</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">p</span><span class="p">.</span><span class="n">y</span><span class="p">()</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">p</span><span class="p">.</span><span class="n">y</span><span class="p">());</span>
 </code></pre></div>
-<p>`）</p>
-<ol>
+<p>（费拉里法解四次方程比较繁琐，但适用于所有小于等于四次的方程求解，如需复用，可参考<code>Core/src/ssl/defenceNew/ChaseTime.cpp</code>中<code>std::complex&lt;double&gt; Ferrari(...)</code>）</p>
+</li>
 <li>
 <p>最优成员筛选。在已知当前所有车到达球最短时间的情况下，对上一轮判断出的最优车辆的时间乘以确定度，保证不会频繁切换。</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="o">&amp;</span><span class="n">pair</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">chaseTimeList</span><span class="p">)</span>
-<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="p">{</span>
-<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">    </span><span class="kt">double</span><span class="w"> </span><span class="n">nextValue</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">pair</span><span class="p">.</span><span class="n">first</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">bestChaser</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="n">pair</span><span class="p">.</span><span class="n">second</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">certainty</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">pair</span><span class="p">.</span><span class="n">second</span><span class="p">;</span><span class="w"> </span><span class="c1">// 如果是上一轮的最优车辆，乘以确定度</span>
-<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">nextValue</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">min_value</span><span class="p">)</span>
-<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="w">    </span><span class="p">{</span>
-<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="w">        </span><span class="n">min_value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nextValue</span><span class="p">;</span>
-<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="w">        </span><span class="n">bestNum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">pair</span><span class="p">.</span><span class="n">first</span><span class="p">;</span><span class="c1">// 记录本轮最优车辆</span>
-<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="p">}</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="o">&amp;</span><span class="n">pair</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">chaseTimeList</span><span class="p">)</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="p">{</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w">    </span><span class="kt">double</span><span class="w"> </span><span class="n">nextValue</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">pair</span><span class="p">.</span><span class="n">first</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">bestChaser</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="n">pair</span><span class="p">.</span><span class="n">second</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">certainty</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">pair</span><span class="p">.</span><span class="n">second</span><span class="p">;</span><span class="w"> </span><span class="c1">// 如果是上一轮的最优车辆，乘以确定度</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">nextValue</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">min_value</span><span class="p">)</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="w">    </span><span class="p">{</span>
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="w">        </span><span class="n">min_value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nextValue</span><span class="p">;</span>
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="w">        </span><span class="n">bestNum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">pair</span><span class="p">.</span><span class="n">first</span><span class="p">;</span><span class="c1">// 记录本轮最优车辆</span>
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="p">}</span>
 </code></pre></div>
 </li>
 </ol>
