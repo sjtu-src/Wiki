@@ -56,7 +56,7 @@ title: Best Player
 
 1. 时间求解：二维运算解得四次方程，取最小正实根。
 
-   ```cpp
+    ```cpp
     // p，p0 是机器人和球的初始位置，v和v0是机器人和球的速度，a_max是机器人最大加速度
     // v0_double是球的速度的模
     // 追上时纵坐标为0，p.y + v.y*t + 0.5*a.y*t^2 = 0
@@ -110,4 +110,3 @@ title: Best Player
 3. `int CChaseTimeCalculator::ourBestChaser(const CVisionModule *pVision)`
 
     循环核心，每帧调用，计算出最佳车辆。
-
