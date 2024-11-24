@@ -13,3 +13,7 @@ docs/overrides/
 site/
 utils/
 **/cmake-build-debug
+
+# commizen
+.json
+node-mudules/
