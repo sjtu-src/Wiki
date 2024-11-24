@@ -204,6 +204,7 @@ nav:
 
   - 第 2 章 &nbsp; &nbsp; 软件与算法:
     - chapter_software/index.md
+    - 2.0 &nbsp; 软件开发统一规范: chapter_software/code-style-guide.md
     - 2.1 &nbsp; cpp:
       - 2.1.1 &nbsp; 跑一个程序发生了什么: chapter_software/sub_chapter_cpp/跑一个程序发生了什么.md
       - 2.1.2 &nbsp; 单例与指针: chapter_software/sub_chapter_cpp/单例与指针.md
