@@ -14,6 +14,6 @@ site/
 utils/
 **/cmake-build-debug
 
-# commizen
-.json
-node-mudules/
+# npm
+node_modules/
+/*.json
