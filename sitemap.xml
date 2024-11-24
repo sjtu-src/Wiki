@@ -2,232 +2,242 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://sjtu-src.github.io/Wiki/</loc>
-         <lastmod>2024-10-28</lastmod>
+         <lastmod>2024-11-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sjtu-src.github.io/Wiki/chapter_electronics/</loc>
-         <lastmod>2024-10-28</lastmod>
+         <lastmod>2024-11-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sjtu-src.github.io/Wiki/chapter_electronics/sub_chapter_circuit/power_board/</loc>
-         <lastmod>2024-10-28</lastmod>
+         <lastmod>2024-11-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sjtu-src.github.io/Wiki/chapter_electronics/sub_chapter_control/%E5%B0%8F%E8%BD%A6%E4%BB%A3%E7%A0%81%E7%83%A7%E5%86%99%E6%96%B9%E6%B3%95/</loc>
-         <lastmod>2024-10-28</lastmod>
+         <lastmod>2024-11-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sjtu-src.github.io/Wiki/chapter_hardware/</loc>
-         <lastmod>2024-10-28</lastmod>
+         <lastmod>2024-11-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sjtu-src.github.io/Wiki/chapter_hardware/body/</loc>
-         <lastmod>2024-10-28</lastmod>
+         <lastmod>2024-11-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sjtu-src.github.io/Wiki/chapter_hardware/chassis%26wheels/</loc>
-         <lastmod>2024-10-28</lastmod>
+         <lastmod>2024-11-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sjtu-src.github.io/Wiki/chapter_hardware/dribble/</loc>
-         <lastmod>2024-10-28</lastmod>
+         <lastmod>2024-11-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sjtu-src.github.io/Wiki/chapter_introduction/ssl_framework/</loc>
-         <lastmod>2024-10-28</lastmod>
+         <lastmod>2024-11-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sjtu-src.github.io/Wiki/chapter_introduction/ssl_more_info/</loc>
-         <lastmod>2024-10-28</lastmod>
+         <lastmod>2024-11-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sjtu-src.github.io/Wiki/chapter_introduction/what_is_ssl/</loc>
-         <lastmod>2024-10-28</lastmod>
+         <lastmod>2024-11-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sjtu-src.github.io/Wiki/chapter_other/</loc>
-         <lastmod>2024-10-28</lastmod>
+         <lastmod>2024-11-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sjtu-src.github.io/Wiki/chapter_other/SoftwarePackfor2024/</loc>
-         <lastmod>2024-10-28</lastmod>
+         <lastmod>2024-11-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sjtu-src.github.io/Wiki/chapter_other/freshmencup/</loc>
-         <lastmod>2024-10-28</lastmod>
+         <lastmod>2024-11-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sjtu-src.github.io/Wiki/chapter_preface/</loc>
-         <lastmod>2024-10-28</lastmod>
+         <lastmod>2024-11-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sjtu-src.github.io/Wiki/chapter_preface/about_the_book/</loc>
-         <lastmod>2024-10-28</lastmod>
+         <lastmod>2024-11-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sjtu-src.github.io/Wiki/chapter_preface/ssl_more_info/</loc>
-         <lastmod>2024-10-28</lastmod>
+         <lastmod>2024-11-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sjtu-src.github.io/Wiki/chapter_preface/suggestions/</loc>
-         <lastmod>2024-10-28</lastmod>
+         <lastmod>2024-11-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sjtu-src.github.io/Wiki/chapter_preface/what_is_ssl/</loc>
-         <lastmod>2024-10-28</lastmod>
+         <lastmod>2024-11-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sjtu-src.github.io/Wiki/chapter_preface/%E4%B8%8A%E6%B5%B7%E4%BA%A4%E9%80%9A%E5%A4%A7%E5%AD%A6SRC%E8%B5%9B%E9%98%9F%E7%AB%A0%E7%A8%8B/</loc>
-         <lastmod>2024-10-28</lastmod>
+         <lastmod>2024-11-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sjtu-src.github.io/Wiki/chapter_software/</loc>
-         <lastmod>2024-10-28</lastmod>
+         <lastmod>2024-11-24</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://sjtu-src.github.io/Wiki/chapter_software/code-style-guide/</loc>
+         <lastmod>2024-11-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sjtu-src.github.io/Wiki/chapter_software/qml/</loc>
-         <lastmod>2024-10-28</lastmod>
+         <lastmod>2024-11-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sjtu-src.github.io/Wiki/chapter_software/qt/</loc>
-         <lastmod>2024-10-28</lastmod>
+         <lastmod>2024-11-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sjtu-src.github.io/Wiki/chapter_software/sub_chapter_cpp/%E5%8D%95%E4%BE%8B%E4%B8%8E%E6%8C%87%E9%92%88/</loc>
-         <lastmod>2024-10-28</lastmod>
+         <lastmod>2024-11-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sjtu-src.github.io/Wiki/chapter_software/sub_chapter_cpp/%E8%B7%91%E4%B8%80%E4%B8%AA%E7%A8%8B%E5%BA%8F%E5%8F%91%E7%94%9F%E4%BA%86%E4%BB%80%E4%B9%88/</loc>
-         <lastmod>2024-10-28</lastmod>
+         <lastmod>2024-11-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sjtu-src.github.io/Wiki/chapter_software/sub_chapter_lua/</loc>
-         <lastmod>2024-10-28</lastmod>
+         <lastmod>2024-11-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sjtu-src.github.io/Wiki/chapter_software/sub_chapter_lua/Rolematch%E6%A8%A1%E5%9D%97/</loc>
-         <lastmod>2024-10-28</lastmod>
+         <lastmod>2024-11-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sjtu-src.github.io/Wiki/chapter_software/sub_chapter_lua/config/</loc>
-         <lastmod>2024-10-28</lastmod>
+         <lastmod>2024-11-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sjtu-src.github.io/Wiki/chapter_software/sub_chapter_lua/lua_in_SRC/</loc>
-         <lastmod>2024-10-28</lastmod>
+         <lastmod>2024-11-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sjtu-src.github.io/Wiki/chapter_software/sub_chapter_lua/lua%E4%B8%AD%E7%9A%84skill/</loc>
-         <lastmod>2024-10-28</lastmod>
+         <lastmod>2024-11-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sjtu-src.github.io/Wiki/chapter_software/sub_chapter_lua/lua%E4%B8%AD%E7%9A%84%E5%B7%A5%E5%85%B7%E5%87%BD%E6%95%B0/</loc>
-         <lastmod>2024-10-28</lastmod>
+         <lastmod>2024-11-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sjtu-src.github.io/Wiki/chapter_software/sub_chapter_lua/lua%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/</loc>
-         <lastmod>2024-10-28</lastmod>
+         <lastmod>2024-11-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sjtu-src.github.io/Wiki/chapter_software/sub_chapter_lua/%E5%85%B6%E5%AE%83/</loc>
-         <lastmod>2024-10-28</lastmod>
+         <lastmod>2024-11-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sjtu-src.github.io/Wiki/chapter_software/sub_chapter_lua/%E8%84%9A%E6%9C%AC%E9%80%89%E6%8B%A9/</loc>
-         <lastmod>2024-10-28</lastmod>
+         <lastmod>2024-11-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sjtu-src.github.io/Wiki/chapter_software/sub_chapter_skill/</loc>
-         <lastmod>2024-10-28</lastmod>
+         <lastmod>2024-11-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sjtu-src.github.io/Wiki/chapter_software/sub_chapter_skill/MarkingPosV2/</loc>
-         <lastmod>2024-10-28</lastmod>
+         <lastmod>2024-11-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sjtu-src.github.io/Wiki/chapter_software/sub_chapter_skill/advance/</loc>
-         <lastmod>2024-10-28</lastmod>
+         <lastmod>2024-11-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sjtu-src.github.io/Wiki/chapter_software/sub_chapter_skill/bestPlayer/</loc>
-         <lastmod>2024-10-28</lastmod>
+         <lastmod>2024-11-24</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://sjtu-src.github.io/Wiki/chapter_software/sub_chapter_skill/getBall/</loc>
+         <lastmod>2024-11-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sjtu-src.github.io/Wiki/chapter_universal_build/</loc>
-         <lastmod>2024-10-28</lastmod>
+         <lastmod>2024-11-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sjtu-src.github.io/Wiki/chapter_universal_build/SRC%20%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%E6%95%99%E7%A8%8B/</loc>
-         <lastmod>2024-10-28</lastmod>
+         <lastmod>2024-11-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sjtu-src.github.io/Wiki/chapter_universal_build/falcon/</loc>
-         <lastmod>2024-10-28</lastmod>
+         <lastmod>2024-11-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sjtu-src.github.io/Wiki/chapter_universal_build/%E5%8F%91%E5%B0%84%E6%9C%BA%E4%B8%8E%E6%9C%BA%E5%99%A8%E4%BA%BA/</loc>
-         <lastmod>2024-10-28</lastmod>
+         <lastmod>2024-11-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sjtu-src.github.io/Wiki/chapter_universal_build/%E5%BF%AB%E9%80%9F%E5%BC%80%E5%A7%8B/</loc>
-         <lastmod>2024-10-28</lastmod>
+         <lastmod>2024-11-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sjtu-src.github.io/Wiki/chapter_universal_build/%E8%A3%81%E5%88%A4%E7%9B%92/</loc>
-         <lastmod>2024-10-28</lastmod>
+         <lastmod>2024-11-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sjtu-src.github.io/Wiki/chapter_universal_build/%E8%A3%81%E5%88%A4%E7%9B%92%E4%BD%BF%E7%94%A8%E9%80%9F%E6%88%90/</loc>
-         <lastmod>2024-10-28</lastmod>
+         <lastmod>2024-11-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sjtu-src.github.io/Wiki/chapter_universal_build/%E8%A7%86%E8%A7%89%E6%9C%BA/</loc>
-         <lastmod>2024-10-28</lastmod>
+         <lastmod>2024-11-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
 </urlset>
