@@ -216,12 +216,13 @@ nav:
       - 2.2.5 &nbsp; lua中的skill: chapter_software/sub_chapter_lua/lua中的skill.md
       - 2.2.6 &nbsp; lua中的工具函数: chapter_software/sub_chapter_lua/lua中的工具函数.md
       - 2.2.7 &nbsp; rolematch模块: chapter_software/sub_chapter_lua/Rolematch模块.md
-      - 2.2.8 &nbsp; debug: chapter_software/sub_chapter_lua/其他.md
+      - 2.2.8 &nbsp; debug: chapter_software\sub_chapter_lua\其它.md
     - 2.3 &nbsp; skill: 
       - chapter_software/sub_chapter_skill/index.md
       - 2.3.1 &nbsp; advance: chapter_software/sub_chapter_skill/advance.md
       - 2.3.2 &nbsp; marking: chapter_software/sub_chapter_skill/MarkingPosV2.md
       - 2.3.3 &nbsp; bestPlayer: chapter_software/sub_chapter_skill/bestPlayer.md
+      - 2.3.4 &nbsp; getBall: chapter_software/sub_chapter_skill/getBall.md
 
   - 第 3 章 &nbsp; &nbsp; 电控:
     - chapter_electronics/index.md
