@@ -13,3 +13,7 @@ docs/overrides/
 site/
 utils/
 **/cmake-build-debug
+
+# npm
+node_modules/
+/*.json
