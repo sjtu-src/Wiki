@@ -39,6 +39,13 @@ ___
     
 
     ![](SRC开发环境搭建.assets/3.png)
+    重要提醒：如果你的电脑有invida显卡，将会选择安装CUDA（参见第3节），那么在安装Visual Studio时需要考虑与CUDA的版本适配问题，参考https://mwell.tech/archives/12662
+
+    因此我们建议安装时注意安装17.9.2以前的版本，参考解决方案https://answers.microsoft.com/zh-hans/msoffice/forum/all/%E5%A6%82%E4%BD%95%E4%B8%8B%E8%BD%BDms-visual/576e8cab-00b3-4371-9824-3eb698903a19
+    
+    否则cmake编译时会报错
+
+    如果不选择安装CUDA则应该不用考虑版本问题
 ---
 ## 2.Falcon环境配置
 ### 编译准备
@@ -56,8 +63,13 @@ ___
     - 点击 下一步
     - 根据个人习惯选择是否提交信息给Qt官方，完成后单击 下一步
     - 根据个人习惯，确定软件的安装目录，这里勾选 Custom Installation 即可，同时根据个人习惯确认是否将文件建立关联，完成后单击 下一步
+    - 如图选择右侧的Archive,点击筛选
+    ![](SRC开发环境搭建.assets//32.png)
+    - 等待
+    ![](SRC开发环境搭建.assets//29.png)
     - 如图勾选安装组件，只需要勾选Qt/Qt 5.15.2/MSVC 2019 64-bit，其余全部取消勾选，完成后单击 下一步
-    ![](SRC开发环境搭建.assets//5.png)
+    ![](SRC开发环境搭建.assets//30.png)
+    ![](SRC开发环境搭建.assets//31.png)
     - 勾选同意许可协议，完成后单击 下一步
     - 默认即可，单击 下一步
     - 单击 安装 开始安装，接下来等待其安装完成
