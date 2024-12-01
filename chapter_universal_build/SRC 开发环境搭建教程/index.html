@@ -587,9 +587,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
+  <a href="#cuda" class="md-nav__link">
     <span class="md-ellipsis">
-      
+      如果不选择安装CUDA则应该不用考虑版本问题
     </span>
   </a>
   
@@ -606,7 +606,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
+  <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
       编译准备
     </span>
@@ -615,7 +615,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       编译方法
     </span>
@@ -2089,9 +2089,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
+  <a href="#cuda" class="md-nav__link">
     <span class="md-ellipsis">
-      
+      如果不选择安装CUDA则应该不用考虑版本问题
     </span>
   </a>
   
@@ -2108,7 +2108,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
+  <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
       编译准备
     </span>
@@ -2117,7 +2117,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       编译方法
     </span>
@@ -2202,9 +2202,13 @@
 <ol>
 <li>完成界面<a class="glightbox" href="../SRC%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA.assets/4.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="../SRC%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA.assets/4.png" /></a></li>
 </ol>
-<h2 id="_1"><a class="glightbox" href="../SRC%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA.assets/3.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="../SRC%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA.assets/3.png" /></a><a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p><a class="glightbox" href="../SRC%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA.assets/3.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="../SRC%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA.assets/3.png" /></a>
+重要提醒：如果你的电脑有invida显卡，将会选择安装CUDA（参见第3节），那么在安装Visual Studio时需要考虑与CUDA的版本适配问题，参考https://mwell.tech/archives/12662</p>
+<p>因此我们建议安装时注意安装17.9.2以前的版本，参考解决方案https://answers.microsoft.com/zh-hans/msoffice/forum/all/%E5%A6%82%E4%BD%95%E4%B8%8B%E8%BD%BDms-visual/576e8cab-00b3-4371-9824-3eb698903a19</p>
+<p>否则cmake编译时会报错</p>
+<h2 id="cuda">如果不选择安装CUDA则应该不用考虑版本问题<a class="headerlink" href="#cuda" title="Permanent link">&para;</a></h2>
 <h2 id="2falcon">2.Falcon环境配置<a class="headerlink" href="#2falcon" title="Permanent link">&para;</a></h2>
-<h3 id="_2">编译准备<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<h3 id="_1">编译准备<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
 <p><strong>Qt:</strong></p>
 <ul>
 <li><a href="https://jbox.sjtu.edu.cn/v/link/view/da696e5c2f7c40aa9c797437aada7f06">Qt安装器下载</a></li>
@@ -2218,15 +2222,20 @@
 <li>点击 下一步</li>
 <li>根据个人习惯选择是否提交信息给Qt官方，完成后单击 下一步</li>
 <li>根据个人习惯，确定软件的安装目录，这里勾选 Custom Installation 即可，同时根据个人习惯确认是否将文件建立关联，完成后单击 下一步</li>
+<li>如图选择右侧的Archive,点击筛选
+<a class="glightbox" href="SRC开发环境搭建.assets//32.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="SRC开发环境搭建.assets//32.png" /></a></li>
+<li>等待
+<a class="glightbox" href="SRC开发环境搭建.assets//29.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="SRC开发环境搭建.assets//29.png" /></a></li>
 <li>如图勾选安装组件，只需要勾选Qt/Qt 5.15.2/MSVC 2019 64-bit，其余全部取消勾选，完成后单击 下一步
-<a class="glightbox" href="../SRC%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA.assets/5.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="../SRC%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA.assets/5.png" /></a></li>
+<a class="glightbox" href="SRC开发环境搭建.assets//30.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="SRC开发环境搭建.assets//30.png" /></a>
+<a class="glightbox" href="SRC开发环境搭建.assets//31.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="SRC开发环境搭建.assets//31.png" /></a></li>
 <li>勾选同意许可协议，完成后单击 下一步</li>
 <li>默认即可，单击 下一步</li>
 <li>单击 安装 开始安装，接下来等待其安装完成</li>
 <li>安装完成，单击 完成 即可</li>
 </ul>
 <hr />
-<h3 id="_3">编译方法<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<h3 id="_2">编译方法<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
 <p><strong>Windows :</strong></p>
 </li>
 <li>
