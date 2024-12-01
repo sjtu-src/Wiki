@@ -39,9 +39,10 @@ ___
     
 
     ![](SRC开发环境搭建.assets/3.png)
-    重要提醒：如果你的电脑有invida显卡，将会选择安装CUDA（参见第3节），那么在安装Visual Studio时需要考虑与CUDA的版本适配问题，参考https://mwell.tech/archives/12662
+!!! warning "重要提醒"
+    如果你的电脑有invida显卡，将会选择安装CUDA（参见第3节），那么在安装Visual Studio时需要考虑与CUDA的版本适配问题，[参考](https://mwell.tech/archives/12662)
 
-    因此我们建议安装时注意安装17.9.2以前的版本，参考解决方案https://answers.microsoft.com/zh-hans/msoffice/forum/all/%E5%A6%82%E4%BD%95%E4%B8%8B%E8%BD%BDms-visual/576e8cab-00b3-4371-9824-3eb698903a19
+    因此我们建议安装时注意安装17.9.2以前的版本，参考[解决方案](https://answers.microsoft.com/zh-hans/msoffice/forum/all/%E5%A6%82%E4%BD%95%E4%B8%8B%E8%BD%BDms-visual/576e8cab-00b3-4371-9824-3eb698903a19)
     
     否则cmake编译时会报错
 
