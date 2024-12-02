@@ -2198,30 +2198,30 @@
 <h2 id="2falcon">2.Falcon环境配置<a class="headerlink" href="#2falcon" title="Permanent link">&para;</a></h2>
 <h3 id="_1">编译准备<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
 <p><strong>Qt:</strong></p>
-<div class="highlight"><pre><span></span><code>- [Qt安装器下载](https://jbox.sjtu.edu.cn/v/link/view/da696e5c2f7c40aa9c797437aada7f06)
-- 进入到 Qt 安装器所在的文件夹内，打开终端
-- 输入以下命令 （使用清华镜像源下载比较快）
-    ```
-    .\qt-unified-windows-x64-4.5.1-online.exe --mirror https://mirrors.tuna.tsinghua.edu.cn/qt
-    ```
-- 回车之后，开始进入到 Qt 安装阶段。
-- 在窗口内输入个人的 Qt 账号和密码（如果没有的话，需要先注册，否则无法进行下一步），完成后单击 下一步
-- 勾选界面中的同意协议及声明是个人账号，完成后单击 下一步
-- 点击 下一步
-- 根据个人习惯选择是否提交信息给Qt官方，完成后单击 下一步
-- 根据个人习惯，确定软件的安装目录，这里勾选 Custom Installation 即可，同时根据个人习惯确认是否将文件建立关联，完成后单击 下一步
-- 如图选择右侧的Archive,点击筛选
-![](SRC开发环境搭建.assets//32.png)
-- 等待
-![](SRC开发环境搭建.assets//29.png)
-- 如图勾选安装组件，只需要勾选Qt/Qt 5.15.2/MSVC 2019 64-bit，其余全部取消勾选，完成后单击 下一步
-![](SRC开发环境搭建.assets//30.png)
-![](SRC开发环境搭建.assets//31.png)
-- 勾选同意许可协议，完成后单击 下一步
-- 默认即可，单击 下一步
-- 单击 安装 开始安装，接下来等待其安装完成
-- 安装完成，单击 完成 即可
-</code></pre></div>
+<ul>
+<li><a href="https://jbox.sjtu.edu.cn/v/link/view/da696e5c2f7c40aa9c797437aada7f06">Qt安装器下载</a></li>
+<li>进入到 Qt 安装器所在的文件夹内，打开终端</li>
+<li>输入以下命令 （使用清华镜像源下载比较快）
+    <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>.\qt-unified-windows-x64-4.5.1-online.exe --mirror https://mirrors.tuna.tsinghua.edu.cn/qt
+</code></pre></div></li>
+<li>回车之后，开始进入到 Qt 安装阶段。</li>
+<li>在窗口内输入个人的 Qt 账号和密码（如果没有的话，需要先注册，否则无法进行下一步），完成后单击 下一步</li>
+<li>勾选界面中的同意协议及声明是个人账号，完成后单击 下一步</li>
+<li>点击 下一步</li>
+<li>根据个人习惯选择是否提交信息给Qt官方，完成后单击 下一步</li>
+<li>根据个人习惯，确定软件的安装目录，这里勾选 Custom Installation 即可，同时根据个人习惯确认是否将文件建立关联，完成后单击 下一步</li>
+<li>如图选择右侧的Archive,点击筛选
+<a class="glightbox" href="SRC开发环境搭建.assets//32.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="SRC开发环境搭建.assets//32.png" /></a></li>
+<li>等待
+<a class="glightbox" href="SRC开发环境搭建.assets//29.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="SRC开发环境搭建.assets//29.png" /></a></li>
+<li>如图勾选安装组件，只需要勾选Qt/Qt 5.15.2/MSVC 2019 64-bit，其余全部取消勾选，完成后单击 下一步
+<a class="glightbox" href="SRC开发环境搭建.assets//30.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="SRC开发环境搭建.assets//30.png" /></a>
+<a class="glightbox" href="SRC开发环境搭建.assets//31.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="SRC开发环境搭建.assets//31.png" /></a></li>
+<li>勾选同意许可协议，完成后单击 下一步</li>
+<li>默认即可，单击 下一步</li>
+<li>单击 安装 开始安装，接下来等待其安装完成</li>
+<li>安装完成，单击 完成 即可</li>
+</ul>
 <hr />
 <h3 id="_2">编译方法<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
 <p><strong>Windows :</strong></p>
@@ -2257,26 +2257,23 @@
 </li>
 <li>如果发现 cmake 载入路径有误，则先点击菜单栏中的 File/Delete Cache，做有必要的调整后再重新 Configure 和 Generate
     <a class="glightbox" href="../SRC%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA.assets/12.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="../SRC%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA.assets/12.png" /></a></li>
-<li>
-<p>如果觉得生成过慢，可以更改 cmake/Utils.cmake，之后重新 Configure 和 Generate。下述用了4核并行编译，可以查看电脑有几核，适当设置多些，但不建议给满
-    ```
-    ProcessorCount(N)
-    if(N GREATER_EQUAL 4)</p>
-<div class="highlight"><pre><span></span><code>    set(N 4)
-endif()
-```
-</code></pre></div>
-<ul>
-<li>ubuntu :</li>
+<li>如果觉得生成过慢，可以更改 cmake/Utils.cmake，之后重新 Configure 和 Generate。下述用了4核并行编译，可以查看电脑有几核，适当设置多些，但不建议给满
+    <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>ProcessorCount(N)
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>if(N GREATER_EQUAL 4)
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>        set(N 4)
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>endif()
+</code></pre></div></li>
+<li>ubuntu :<ul>
 <li>具体编译方法见B站，搜索"Rocos环境配置"</li>
+</ul>
+</li>
 </ul>
 <hr />
 <h2 id="3cuda">3.CUDA配置<a class="headerlink" href="#3cuda" title="Permanent link">&para;</a></h2>
 <p><a href="https://github.com/sjtu-src/Wiki/blob/master/docs/Algorithm/%E5%8A%A0%E5%85%A5cuda%E7%9A%84falcon%E7%BC%96%E8%AF%91.md">参考文档</a></p>
-</li>
-<li>
-<p>CUDA下载</p>
 <ul>
+<li>CUDA下载<ul>
 <li>首先电脑得有NVIDIA显卡，然后命令行输入nvidia-smi查看当前驱动支持的最高CUDA版本
     <a class="glightbox" href="../SRC%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA.assets/13.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="../SRC%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA.assets/13.png" /></a>
     如果低于12.0就需要升级显卡驱动</li>
@@ -2311,7 +2308,7 @@ endif()
 <p><a class="glightbox" href="../SRC%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA.assets/23.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="../SRC%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA.assets/23.png" /></a></p>
 <p><a class="glightbox" href="../SRC%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA.assets/24.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="../SRC%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA.assets/24.png" /></a>
     - 右键Core-&gt;属性-&gt;配置属性-&gt;CUDA C/C++-&gt;Common，在CUDA Toolkit Custom Dir处填入CUDA路径即可，如：
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.0
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.0
 </code></pre></div></p>
 <p><a class="glightbox" href="../SRC%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA.assets/25.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="../SRC%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA.assets/25.png" /></a>
     - 生成解决方案，可能会报错</p>
