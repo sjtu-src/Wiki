@@ -12,7 +12,7 @@ function AdvanceBallV4(task) --函数名
 		return gRoleNum["Special"]
 	end
 
-	execute = function(runner)
+	execute = function(runner) --此函数返回一个与C++接口的函数
 		if runner >= 0 and runner < param.maxPlayer then
 			...
 		else
@@ -22,7 +22,7 @@ function AdvanceBallV4(task) --函数名
 		return CAdvanceBallV4(runner, mflag, tandemNum)  --调用C++中的底层skill
 	end
 
-	matchPos = function()
+	matchPos = function() --此函数返回一个匹配点，用于机器人的匹配，在把此任务匹配给机器人时以mpos为目标点。
 		if type(task.pos) == "function" then
 			mpos = task.pos()
 		else
@@ -32,11 +32,24 @@ function AdvanceBallV4(task) --函数名
 	end
 	return execute, matchPos
 end
-
+--结束skill，把skill加到gSkillTable中
 gSkillTable.CreateSkill{
 	name = "AdvanceBallV4", --skill名
 	execute = function (self)
 		print("This is in skill"..self.name)
 	end
 }
+```
+
+此处的`CreateSkill`函数在`Skill.lua`中定义如下：
+```lua
+gSkillTable = {}
+
+function gSkillTable.CreateSkill(spec)
+	assert(type(spec.name) == "string") --确保skill名合规
+	--print("Init Skill: "..spec.name)	
+	gSkillTable[spec.name] = spec --把skill加入gSkillTable
+	return spec
+end
+
 ```
