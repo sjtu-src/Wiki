@@ -206,10 +206,12 @@ nav:
   - 第 2 章 &nbsp; &nbsp; 软件与算法:
     - chapter_software/index.md
     - 2.0 &nbsp; 软件开发统一规范: chapter_software/code-style-guide.md
-    - 2.1 &nbsp; cpp:
+    - 2.1 &nbsp; core:
       - 2.1.1 &nbsp; 跑一个程序发生了什么: chapter_software/sub_chapter_cpp/跑一个程序发生了什么.md
       - 2.1.2 &nbsp; 单例与指针: chapter_software/sub_chapter_cpp/单例与指针.md
-    - 2.2 &nbsp; lua:
+      - 2.1.3 &nbsp; 一切的开始: chapter_software/sub_chapter_cpp/ssl_strategy.md
+      - 2.1.4 &nbsp; 信息处理: chapter_software/sub_chapter_cpp/DataReceive.md
+    - 2.2 &nbsp; LuaModule:
       - chapter_software/sub_chapter_lua/index.md
       - 2.2.1 &nbsp; lua基本语法: chapter_software/sub_chapter_lua/lua基本语法.md
       - 2.2.2 &nbsp; 特殊的lua: chapter_software/sub_chapter_lua/config.md
@@ -224,7 +226,7 @@ nav:
         - 2.2.6.3 &nbsp; dir.lua中的工具函数: chapter_software/sub_chapter_lua/dir.lua中的工具函数.md
       - 2.2.7 &nbsp; rolematch模块: chapter_software/sub_chapter_lua/Rolematch模块.md
       - 2.2.8 &nbsp; debug: chapter_software\sub_chapter_lua\其它.md
-    - 2.3 &nbsp; skill: 
+    - 2.3 &nbsp; 策略框架: 
       - chapter_software/sub_chapter_skill/index.md
       - 2.3.1 &nbsp; advance: chapter_software/sub_chapter_skill/advance.md
       - 2.3.2 &nbsp; marking: chapter_software/sub_chapter_skill/MarkingPosV2.md
