@@ -18,44 +18,27 @@
 由于接受信息的方式大同小异,我们以 Vision 信息为例,展示其具体实现。
 ```cpp
 void CDataReceiver4rbk::receiveVision() {
-    // 定义一个QByteArray类型的buffer用于存储接收到的数据
     QByteArray buffer;
-    // 无限循环，持续接收数据
     while (true) {
-        // 每次循环开始时，线程休眠2毫秒，避免CPU资源占用过高
         std::this_thread::sleep_for(std::chrono::milliseconds(2));
-        // 检查UDP套接字是否处于绑定状态，并且是否有待处理的数据报
         while (receive_vision_socket->state() == QUdpSocket::BoundState && receive_vision_socket->hasPendingDatagrams()) {
-            // 调整buffer的大小以适应待处理的数据报的大小
             buffer.resize(receive_vision_socket->pendingDatagramSize());
             // 从UDP套接字读取数据报，存储到buffer中
             receive_vision_socket->readDatagram(buffer.data(), buffer.size());
             // 锁定互斥锁，确保数据解析的线程安全
             receive_vision_mutex.lock();
-            // 使用ParseFromArray方法解析buffer中的数据到rec_vision对象
+            // 解析buffer中的数据到rec_vision对象
             rec_vision.ParseFromArray(buffer, buffer.size());
             // 解锁互斥锁，释放资源
             receive_vision_mutex.unlock();
-            // 触发visionEvent事件，通知其他部分有新的视觉数据可用
             visionEvent.Signal();
         }
     }
 }
 ```
 ### RobotStatus
-```cpp
-// 仅展示核心代码,详情见RobotSensor.cpp
-    // 创建一个新的QUdpSocket对象，用于处理UDP通信
-    robot_status_socket = new QUdpSocket();
-    // 绑定该UDP套接字到所有可用的IPv4地址，并指定端口号
-    // QUdpSocket::ShareAddress允许与其他套接字共享相同的地址和端口
-    robot_status_socket->bind(QHostAddress::AnyIPv4, port, QUdpSocket::ShareAddress);
-    // 创建一个新的线程，用于接收机器人状态信息
-    robot_status_thread = new std::thread([=] {receiveRobotStatus();});
-    // 将新创建的线程从主线程中分离，使其独立运行
-    robot_status_thread->detach();
-```
-此时robot_status_thread 已经在后台独立运行,调用```receiveRobotStatus()```函数,从而不断获取机器人状态信息。需要注意的是与vision和referee信息不同的是，机器人状态信息是直接通过机器人得到的,而vision和referee信息是通过client接收到的。
+- 详情见RobotSensor.cpp
+- 此时robot_status_thread 已经在后台独立运行,调用```receiveRobotStatus()```函数,从而不断获取机器人状态信息。需要注意的是与vision和referee信息不同的是，机器人状态信息是直接通过机器人得到的,而vision和referee信息是通过client接收到的。
 
 ??? summary 
     此时获得的所有信息都是client或机器人发来的原始数据.分别保存在```rec_vision,ssl_referee```,```robot_status```对象中,需要经过处理才能得到我们想要的数据。
