@@ -15,6 +15,10 @@
         <link rel="canonical" href="https://sjtu-src.github.io/Wiki/chapter_software/sub_chapter_lua/enemy.lua%E4%B8%AD%E7%9A%84%E5%B7%A5%E5%85%B7%E5%87%BD%E6%95%B0/">
       
       
+        <link rel="prev" href="../player.lua%E4%B8%AD%E7%9A%84%E5%B7%A5%E5%85%B7%E5%87%BD%E6%95%B0/">
+      
+      
+        <link rel="next" href="../Rolematch%E6%A8%A1%E5%9D%97/">
       
       
       <link rel="icon" href="../../../assets/images/favicon.svg">
@@ -22,7 +26,7 @@
     
     
       
-        <title>Enemy.lua中的工具函数 - SJTU-SRC Wiki</title>
+        <title>2.2.6.5   enemy.lua中的工具函数 - SJTU-SRC Wiki</title>
       
     
     
@@ -145,7 +149,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Enemy.lua中的工具函数
+              2.2.6.5 &nbsp; enemy.lua中的工具函数
             
           </span>
         </div>
@@ -723,6 +727,8 @@
       
   
   
+    
+  
   
   
     
@@ -748,11 +754,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
         
           
           
@@ -776,7 +782,7 @@
             
           </div>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             第 2 章 &nbsp; &nbsp; 软件与算法
@@ -949,6 +955,8 @@
                 
   
   
+    
+  
   
   
     
@@ -981,11 +989,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4" checked>
         
           
           
@@ -1007,7 +1015,7 @@
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3_4">
             <span class="md-nav__icon md-icon"></span>
             2.2 &nbsp; LuaModule
@@ -1146,8 +1154,10 @@
                 
   
   
+    
   
   
+  
     
     
       
@@ -1161,16 +1171,18 @@
       
         
       
+        
+      
     
     
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4_8" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4_8" checked>
         
           
           <label class="md-nav__link" for="__nav_3_4_8" id="__nav_3_4_8_label" tabindex="0">
@@ -1184,7 +1196,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_4_8_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_4_8_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3_4_8">
             <span class="md-nav__icon md-icon"></span>
             2.2.6 &nbsp; lua中的工具函数
@@ -1291,6 +1303,35 @@
   
 
       </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    2.2.6.5 &nbsp; enemy.lua中的工具函数
+  </span>
+  
+
+      </a>
+      
     </li>
   
 
@@ -2191,594 +2232,105 @@
   
 
 
-  <h1>Enemy.lua中的工具函数</h1>
+  <h1>2.2.6.5 &nbsp; enemy.lua中的工具函数</h1>
 
-<p>ball.lua脚本包含了一系列与球有关的函数，用于计算球的位置、速度、方向以及与球员和球门的距离等信息。以下是对各个函数：</p>
+<p>enemy.lua脚本包含了一系列与敌方车辆有关的函数，包括但不限于我方的坐标，速度，到我方车辆的距离，运动方向等等。以下是对各个函数的详细解释：</p>
 <ul>
 <li>
-<p><code>pos()</code>函数：返回球在场上的坐标。
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kr">function</span> <span class="nf">pos</span><span class="p">()</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>    <span class="kr">return</span> <span class="n">vision</span><span class="p">:</span><span class="n">Ball</span><span class="p">():</span><span class="n">Pos</span><span class="p">()</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="kr">end</span>
+<p><code>instance(role)</code>函数：返回该敌方role在场上的实体，用于参数调用。
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kr">function</span> <span class="nf">instance</span><span class="p">(</span><span class="n">role</span><span class="p">)</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>    <span class="kr">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">role</span><span class="p">)</span> <span class="o">==</span> <span class="s2">&quot;number&quot;</span> <span class="kr">then</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>        <span class="kr">return</span> <span class="n">vision</span><span class="p">:</span><span class="n">TheirPlayer</span><span class="p">(</span><span class="n">role</span><span class="p">)</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>    <span class="kr">else</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Invalid role in enemy.instance!!!&quot;</span><span class="p">)</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>    <span class="kr">end</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="kr">end</span>
 </code></pre></div></p>
 </li>
 <li>
-<p><code>posX()</code>函数：返回球在场上的x坐标值。
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kr">function</span> <span class="nf">posX</span><span class="p">()</span>
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>    <span class="kr">return</span> <span class="n">vision</span><span class="p">:</span><span class="n">Ball</span><span class="p">():</span><span class="n">X</span><span class="p">()</span>
+<p><code>pos(role)</code>函数：返回role在场上的坐标值。也可以通过调用<code>posX(role)</code>与<code>posY(role)</code>直接获取坐标X, Y值。
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kr">function</span> <span class="nf">pos</span><span class="p">(</span><span class="n">role</span><span class="p">)</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>    <span class="kr">return</span> <span class="n">instance</span><span class="p">(</span><span class="n">role</span><span class="p">):</span><span class="n">Pos</span><span class="p">()</span>
 <a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="kr">end</span>
 </code></pre></div></p>
 </li>
 <li>
-<p><code>posY()</code>函数：返回球在场上的y坐标值。
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="kr">function</span> <span class="nf">posY</span><span class="p">()</span>
-<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>    <span class="kr">return</span> <span class="n">vision</span><span class="p">:</span><span class="n">Ball</span><span class="p">():</span><span class="n">Y</span><span class="p">()</span>
+<p><code>vel()</code>函数：返回车辆的速度（一个向量）
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="kr">function</span> <span class="nf">vel</span><span class="p">(</span><span class="n">role</span><span class="p">)</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>    <span class="kr">return</span> <span class="n">instance</span><span class="p">(</span><span class="n">role</span><span class="p">):</span><span class="n">Vel</span><span class="p">()</span>
 <a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="kr">end</span>
 </code></pre></div></p>
 </li>
 <li>
-<p><code>vel()</code>函数：返回球的速度（一个向量）
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="kr">function</span> <span class="nf">vel</span><span class="p">()</span>
-<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>    <span class="kr">return</span> <span class="n">vision</span><span class="p">:</span><span class="n">Ball</span><span class="p">():</span><span class="n">Vel</span><span class="p">()</span>
+<p><code>dir()</code>函数：返回车辆的朝向（一个向量）
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="kr">function</span> <span class="nf">dir</span><span class="p">(</span><span class="n">role</span><span class="p">)</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>    <span class="kr">return</span> <span class="n">instance</span><span class="p">(</span><span class="n">role</span><span class="p">):</span><span class="n">Dir</span><span class="p">()</span>
 <a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="kr">end</span>
 </code></pre></div></p>
 </li>
 <li>
-<p><code>velX()</code>函数：返回球速的x分量。（有方向，朝x正向为正）
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="kr">function</span> <span class="nf">velX</span><span class="p">()</span>
-<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>    <span class="kr">return</span> <span class="n">vision</span><span class="p">:</span><span class="n">Ball</span><span class="p">():</span><span class="n">VelX</span><span class="p">()</span>
+<p><code>velDir()</code>函数：返回车辆的速度方向。
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="kr">function</span> <span class="nf">velDir</span><span class="p">(</span><span class="n">role</span><span class="p">)</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>    <span class="kr">return</span> <span class="n">vel</span><span class="p">(</span><span class="n">role</span><span class="p">):</span><span class="n">dir</span><span class="p">()</span>
 <a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="kr">end</span>
 </code></pre></div></p>
 </li>
 <li>
-<p><code>velY()</code>函数：返回球速的y分量。（有方向，朝y正向为正）
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="kr">function</span> <span class="nf">velY</span><span class="p">()</span>
-<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>    <span class="kr">return</span> <span class="n">vision</span><span class="p">:</span><span class="n">Ball</span><span class="p">():</span><span class="n">VelY</span><span class="p">()</span>
+<p><code>velMod()</code>函数：返回车辆在场上的速率。
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="kr">function</span> <span class="nf">velMod</span><span class="p">(</span><span class="n">role</span><span class="p">)</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>    <span class="kr">return</span> <span class="n">vel</span><span class="p">(</span><span class="n">role</span><span class="p">):</span><span class="n">mod</span><span class="p">()</span>
 <a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="kr">end</span>
 </code></pre></div></p>
 </li>
 <li>
-<p><code>velDir()</code>函数：返回球速的方向。
-<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="kr">function</span> <span class="nf">velDir</span><span class="p">()</span>
-<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>    <span class="kr">return</span> <span class="n">vision</span><span class="p">:</span><span class="n">Ball</span><span class="p">():</span><span class="n">Vel</span><span class="p">():</span><span class="n">dir</span><span class="p">()</span>
+<p><code>valid()</code>函数：返回是否能在场上看到该车辆。
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="kr">function</span> <span class="nf">valid</span><span class="p">(</span><span class="n">role</span><span class="p">)</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>    <span class="kr">return</span> <span class="n">instance</span><span class="p">(</span><span class="n">role</span><span class="p">):</span><span class="n">Valid</span><span class="p">()</span>
 <a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="kr">end</span>
 </code></pre></div></p>
 </li>
 <li>
-<p><code>velMod()</code>函数：返回球在场上的速率。
-<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="kr">function</span> <span class="nf">velMod</span><span class="p">()</span>
-<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>    <span class="kr">return</span> <span class="n">vision</span><span class="p">:</span><span class="n">Ball</span><span class="p">():</span><span class="n">Vel</span><span class="p">():</span><span class="n">mod</span><span class="p">()</span>
+<p><code>oppoNum()</code>函数：用于获取对方车辆的数量。
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="kr">function</span> <span class="nf">oppoNum</span><span class="p">()</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>    <span class="kr">return</span> <span class="n">defenceInfo</span><span class="p">:</span><span class="n">getOppoNum</span><span class="p">()</span>
 <a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="kr">end</span>
 </code></pre></div></p>
 </li>
 <li>
-<p><code>valid()</code>函数：返回是否能在场上看到球。
-<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="kr">function</span> <span class="nf">valid</span><span class="p">()</span>
-<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>    <span class="kr">return</span> <span class="n">vision</span><span class="p">:</span><span class="n">Ball</span><span class="p">():</span><span class="n">Valid</span><span class="p">()</span>
+<p><code>attackNum()</code>函数：用于获取对方车辆在进攻时投入的数量。
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="kr">function</span> <span class="nf">attackNum</span><span class="p">()</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>    <span class="kr">return</span> <span class="n">defenceInfo</span><span class="p">:</span><span class="n">getAttackNum</span><span class="p">()</span>
 <a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="kr">end</span>
 </code></pre></div></p>
 </li>
 <li>
-<p><code>toPlayerDir(role)</code>函数：返回球到角色为role的球员的方向。
-<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="kr">function</span> <span class="nf">toPlayerDir</span><span class="p">(</span><span class="n">role</span><span class="p">)</span>
-<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>    <span class="kr">return</span> <span class="p">(</span><span class="n">player</span><span class="p">.</span><span class="n">pos</span><span class="p">(</span><span class="n">role</span><span class="p">)</span><span class="o">-</span> <span class="n">pos</span><span class="p">()):</span><span class="n">dir</span><span class="p">()</span>
+<p><code>hasReceiver()</code>函数：用于判断对方车辆中是否有receiver角色。
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="kr">function</span> <span class="nf">hasReceiver</span><span class="p">()</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>    <span class="kr">return</span> <span class="n">CEnemyHasReceiver</span><span class="p">()</span>
 <a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="kr">end</span>
 </code></pre></div></p>
 </li>
 <li>
-<p><code>toEnemyDir(role)</code>函数：返回球到车号/角色为role的敌方球员的方向。
-<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="kr">function</span> <span class="nf">toEnemyDir</span><span class="p">(</span><span class="n">role</span><span class="p">)</span>
-<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>    <span class="kr">return</span> <span class="p">(</span><span class="n">enemy</span><span class="p">.</span><span class="n">pos</span><span class="p">(</span><span class="n">role</span><span class="p">)</span><span class="o">-</span><span class="n">pos</span><span class="p">()):</span><span class="n">dir</span><span class="p">()</span>
+<p><code>best()</code>函数：用于返回对方车辆中最佳的球追逐者，即最有可能造成威胁的车辆。
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="kr">function</span> <span class="nf">best</span><span class="p">()</span>
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>    <span class="kr">return</span> <span class="n">defenceInfoNew</span><span class="p">:</span><span class="n">getBestBallChaser</span><span class="p">()</span>
 <a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="kr">end</span>
 </code></pre></div></p>
 </li>
 <li>
-<p><code>toPlayerHeadDir(recver)</code>函数：返回球到角色为recver的接球球员头部的方向。
-<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="kr">function</span> <span class="nf">toPlayerHeadDir</span><span class="p">(</span><span class="n">recver</span><span class="p">)</span>
-<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>    <span class="kr">return</span> <span class="kr">function</span> <span class="p">(</span><span class="n">passer</span><span class="p">)</span>
-<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>        <span class="kd">local</span> <span class="n">tmpPlayerHead</span> <span class="o">=</span> <span class="n">player</span><span class="p">.</span><span class="n">pos</span><span class="p">(</span><span class="n">recver</span><span class="p">)</span> <span class="o">+</span> <span class="n">Utils</span><span class="p">.</span><span class="n">Polar2Vector</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="n">player</span><span class="p">.</span><span class="n">dir</span><span class="p">(</span><span class="n">recver</span><span class="p">))</span> <span class="c1">--此处加上一个从recver中心到recver头部的向量：Utils.Polar2Vector(10, player.dir(recver)</span>
-<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>        <span class="kr">return</span> <span class="p">(</span><span class="n">tmpPlayerHead</span> <span class="o">-</span> <span class="n">player</span><span class="p">.</span><span class="n">pos</span><span class="p">(</span><span class="n">passer</span><span class="p">)):</span><span class="n">dir</span><span class="p">()</span>
-<a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a>    <span class="kr">end</span>
-<a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a><span class="kr">end</span>
-</code></pre></div></p>
-</li>
-<li>
-<p><code>toPlayerHeadDist(role)</code>函数：返回球到角色为role的球员头部的距离。
-<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="kr">function</span> <span class="nf">toPlayerHeadDist</span><span class="p">(</span><span class="n">role</span><span class="p">)</span>
-<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>    <span class="kd">local</span> <span class="n">tmpPlayerHead</span> <span class="o">=</span> <span class="n">player</span><span class="p">.</span><span class="n">pos</span><span class="p">(</span><span class="n">role</span><span class="p">)</span> <span class="o">+</span> <span class="n">Utils</span><span class="p">.</span><span class="n">Polar2Vector</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="n">player</span><span class="p">.</span><span class="n">dir</span><span class="p">(</span><span class="n">role</span><span class="p">))</span>
-<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>    <span class="kr">return</span> <span class="p">(</span><span class="n">ball</span><span class="p">.</span><span class="n">pos</span><span class="p">()</span> <span class="o">-</span> <span class="n">tmpPlayerHead</span><span class="p">):</span><span class="n">mod</span><span class="p">()</span>
-<a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="kr">end</span>
-</code></pre></div></p>
-</li>
-<li>
-<p><code>toPlayerDist(role)</code>函数：返回球到角色为role的指定球员中心的距离。
-<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="kr">function</span> <span class="nf">toPlayerDist</span><span class="p">(</span><span class="n">role</span><span class="p">)</span>
-<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>    <span class="kr">return</span> <span class="p">(</span><span class="n">player</span><span class="p">.</span><span class="n">pos</span><span class="p">(</span><span class="n">role</span><span class="p">)</span><span class="o">-</span> <span class="n">pos</span><span class="p">()):</span><span class="n">mod</span><span class="p">()</span>
-<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="kr">end</span>
-</code></pre></div></p>
-</li>
-<li>
-<p><code>toEnemyDist(role)</code>函数：返回球到角色为role的指定敌方球员的距离。
-<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="kr">function</span> <span class="nf">toEnemyDist</span><span class="p">(</span><span class="n">role</span><span class="p">)</span>
-<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>    <span class="kr">return</span> <span class="p">(</span><span class="n">enemy</span><span class="p">.</span><span class="n">pos</span><span class="p">(</span><span class="n">role</span><span class="p">)</span> <span class="o">-</span> <span class="n">pos</span><span class="p">()):</span><span class="n">mod</span><span class="p">()</span>
-<a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a><span class="kr">end</span>
-</code></pre></div></p>
-</li>
-<li>
-<p><code>toTheirGoalDist()</code>函数：返回球到对方球门的距离。
-<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="kr">function</span> <span class="nf">toTheirGoalDist</span><span class="p">()</span>
-<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>    <span class="kr">return</span> <span class="n">pos</span><span class="p">():</span><span class="n">dist</span><span class="p">(</span><span class="n">CGeoPoint</span><span class="p">:</span><span class="n">new_local</span><span class="p">(</span><span class="n">param</span><span class="p">.</span><span class="n">pitchLength</span> <span class="o">/</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
-<a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a><span class="kr">end</span>
-</code></pre></div></p>
-</li>
-<li>
-<p><code>toTheirGoalDir()</code>函数：返回球到对方球门的方向。
-<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="kr">function</span> <span class="nf">toTheirGoalDir</span><span class="p">()</span>
-<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>    <span class="kr">return</span> <span class="p">(</span><span class="n">CGeoPoint</span><span class="p">:</span><span class="n">new_local</span><span class="p">(</span><span class="n">param</span><span class="p">.</span><span class="n">pitchLength</span> <span class="o">/</span> <span class="mf">2.0</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span> <span class="o">-</span> <span class="n">ball</span><span class="p">.</span><span class="n">pos</span><span class="p">()):</span><span class="n">dir</span><span class="p">()</span>
-<a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a><span class="kr">end</span>
-</code></pre></div></p>
-</li>
-<li>
-<p><code>toOurGoalDist()</code>函数：返回球到我方球门的距离。
-<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="kr">function</span> <span class="nf">toOurGoalDist</span><span class="p">()</span>
-<a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>    <span class="kr">return</span> <span class="n">pos</span><span class="p">():</span><span class="n">dist</span><span class="p">(</span><span class="n">CGeoPoint</span><span class="p">:</span><span class="n">new_local</span><span class="p">(</span><span class="o">-</span><span class="n">param</span><span class="p">.</span><span class="n">pitchLength</span> <span class="o">/</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
-<a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a><span class="kr">end</span>
-</code></pre></div></p>
-</li>
-<li>
-<p><code>toOurGoalPostDistSum()</code>函数：返回球到我方球门两个门柱距离之和。
-<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="kr">function</span> <span class="nf">toOurGoalPostDistSum</span><span class="p">()</span>
-<a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a>    <span class="kd">local</span> <span class="n">dist1</span> <span class="o">=</span> <span class="n">pos</span><span class="p">():</span><span class="n">dist</span><span class="p">(</span><span class="n">CGeoPoint</span><span class="p">:</span><span class="n">new_local</span><span class="p">(</span><span class="o">-</span><span class="n">param</span><span class="p">.</span><span class="n">pitchLength</span> <span class="o">/</span> <span class="mf">2.0</span><span class="p">,</span> <span class="o">-</span><span class="n">param</span><span class="p">.</span><span class="n">goalWidth</span> <span class="o">/</span> <span class="mf">2.0</span><span class="p">))</span>
-<a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a>    <span class="kd">local</span> <span class="n">dist2</span> <span class="o">=</span> <span class="n">pos</span><span class="p">():</span><span class="n">dist</span><span class="p">(</span><span class="n">CGeoPoint</span><span class="p">:</span><span class="n">new_local</span><span class="p">(</span><span class="o">-</span><span class="n">param</span><span class="p">.</span><span class="n">pitchLength</span> <span class="o">/</span> <span class="mf">2.0</span><span class="p">,</span> <span class="n">param</span><span class="p">.</span><span class="n">goalWidth</span> <span class="o">/</span> <span class="mf">2.0</span><span class="p">))</span>
-<a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a>    <span class="kr">return</span> <span class="p">(</span><span class="n">dist1</span> <span class="o">+</span> <span class="n">dist2</span><span class="p">)</span>
-<a id="__codelineno-18-5" name="__codelineno-18-5" href="#__codelineno-18-5"></a><span class="kr">end</span>
-</code></pre></div></p>
-</li>
-<li>
-<p><code>toOurGoalDir()</code>函数：返回球到我方球门的方向。
-<div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="kr">function</span> <span class="nf">toOurGoalDir</span><span class="p">()</span>
-<a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a>    <span class="kr">return</span> <span class="p">(</span><span class="n">CGeoPoint</span><span class="p">:</span><span class="n">new_local</span><span class="p">(</span><span class="o">-</span><span class="n">param</span><span class="p">.</span><span class="n">pitchLength</span> <span class="o">/</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="o">-</span> <span class="n">ball</span><span class="p">.</span><span class="n">pos</span><span class="p">()):</span><span class="n">dir</span><span class="p">()</span>
-<a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a><span class="kr">end</span>
-</code></pre></div></p>
-</li>
-<li>
-<p><code>toPointDir(p)</code>函数：返回球到指定点p的方向。
-<div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="kr">function</span> <span class="nf">toPointDir</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
-<a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a>    <span class="kr">return</span> <span class="kr">function</span> <span class="p">()</span>
-<a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a>        <span class="kr">return</span> <span class="p">(</span><span class="n">p</span> <span class="o">-</span> <span class="n">pos</span><span class="p">()):</span><span class="n">dir</span><span class="p">()</span>
-<a id="__codelineno-20-4" name="__codelineno-20-4" href="#__codelineno-20-4"></a>    <span class="kr">end</span>
-<a id="__codelineno-20-5" name="__codelineno-20-5" href="#__codelineno-20-5"></a><span class="kr">end</span>
-</code></pre></div></p>
-</li>
-<li>
-<p><code>toPointDist(p)</code>函数：返回球到指定点p的距离。
-<div class="highlight"><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="kr">function</span> <span class="nf">toPointDist</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
-<a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a>    <span class="kr">return</span> <span class="n">pos</span><span class="p">():</span><span class="n">dist</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
-<a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a><span class="kr">end</span>
-</code></pre></div></p>
-</li>
-<li>
-<p><code>antiY()</code>函数：根据球的y坐标返回-1或1。若y&gt;0，返回-1；若y&lt;0，返回1
-<div class="highlight"><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a><span class="kr">function</span> <span class="nf">antiY</span><span class="p">()</span>
-<a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a>    <span class="kr">if</span> <span class="n">posY</span><span class="p">()</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="kr">then</span>
-<a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a>        <span class="kr">return</span> <span class="o">-</span><span class="mi">1</span>
-<a id="__codelineno-22-4" name="__codelineno-22-4" href="#__codelineno-22-4"></a>    <span class="kr">else</span>
-<a id="__codelineno-22-5" name="__codelineno-22-5" href="#__codelineno-22-5"></a>        <span class="kr">return</span> <span class="mi">1</span>
-<a id="__codelineno-22-6" name="__codelineno-22-6" href="#__codelineno-22-6"></a>    <span class="kr">end</span>
-<a id="__codelineno-22-7" name="__codelineno-22-7" href="#__codelineno-22-7"></a><span class="kr">end</span>
-</code></pre></div></p>
-</li>
-<li>
-<p><code>syntY()</code>函数：返回antiY()的相反数。
-<div class="highlight"><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a><span class="kr">function</span> <span class="nf">syntY</span><span class="p">()</span>
-<a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a>    <span class="kr">return</span> <span class="o">-</span><span class="mi">1</span><span class="o">*</span><span class="n">antiY</span><span class="p">()</span>
-<a id="__codelineno-23-3" name="__codelineno-23-3" href="#__codelineno-23-3"></a><span class="kr">end</span>
-</code></pre></div></p>
-</li>
-<li>
-<p><code>antiYPos(p)</code>函数：返回指定点p及其对称点中y坐标小于0的那一个
-<div class="highlight"><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a><span class="kr">function</span> <span class="nf">antiYPos</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
-<a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a>    <span class="kr">return</span> <span class="kr">function</span> <span class="p">()</span>
-<a id="__codelineno-24-3" name="__codelineno-24-3" href="#__codelineno-24-3"></a>        <span class="kr">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">p</span><span class="p">)</span> <span class="o">==</span> <span class="s2">&quot;function&quot;</span> <span class="kr">then</span>
-<a id="__codelineno-24-4" name="__codelineno-24-4" href="#__codelineno-24-4"></a>            <span class="kr">return</span> <span class="n">CGeoPoint</span><span class="p">(</span><span class="n">p</span><span class="p">():</span><span class="n">x</span><span class="p">(),</span> <span class="n">antiY</span><span class="p">()</span><span class="o">*</span><span class="n">p</span><span class="p">():</span><span class="n">y</span><span class="p">())</span>
-<a id="__codelineno-24-5" name="__codelineno-24-5" href="#__codelineno-24-5"></a>        <span class="kr">else</span>
-<a id="__codelineno-24-6" name="__codelineno-24-6" href="#__codelineno-24-6"></a>            <span class="kr">return</span> <span class="n">CGeoPoint</span><span class="p">(</span><span class="n">p</span><span class="p">:</span><span class="n">x</span><span class="p">(),</span> <span class="n">antiY</span><span class="p">()</span><span class="o">*</span><span class="n">p</span><span class="p">:</span><span class="n">y</span><span class="p">())</span>
-<a id="__codelineno-24-7" name="__codelineno-24-7" href="#__codelineno-24-7"></a>        <span class="kr">end</span>
-<a id="__codelineno-24-8" name="__codelineno-24-8" href="#__codelineno-24-8"></a>    <span class="kr">end</span>
-<a id="__codelineno-24-9" name="__codelineno-24-9" href="#__codelineno-24-9"></a><span class="kr">end</span>
-</code></pre></div></p>
-</li>
-<li>
-<p><code>syntYPos(p)</code>函数：返回指定点p及其对称点中y坐标大于0的那一个
-<div class="highlight"><pre><span></span><code><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a><span class="kr">function</span> <span class="nf">syntYPos</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
-<a id="__codelineno-25-2" name="__codelineno-25-2" href="#__codelineno-25-2"></a>    <span class="kr">return</span> <span class="kr">function</span> <span class="p">()</span>
-<a id="__codelineno-25-3" name="__codelineno-25-3" href="#__codelineno-25-3"></a>        <span class="kr">return</span> <span class="n">CGeoPoint</span><span class="p">(</span><span class="n">p</span><span class="p">:</span><span class="n">x</span><span class="p">(),</span> <span class="n">syntY</span><span class="p">()</span><span class="o">*</span><span class="n">p</span><span class="p">:</span><span class="n">y</span><span class="p">())</span>
-<a id="__codelineno-25-4" name="__codelineno-25-4" href="#__codelineno-25-4"></a>    <span class="kr">end</span>
-<a id="__codelineno-25-5" name="__codelineno-25-5" href="#__codelineno-25-5"></a><span class="kr">end</span>
-</code></pre></div></p>
-</li>
-<li>
-<p><code>toFuncDir(f)</code>函数：返回球到指定函数f的返回点的方向。
-<div class="highlight"><pre><span></span><code><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a><span class="kr">function</span> <span class="nf">toFuncDir</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
-<a id="__codelineno-26-2" name="__codelineno-26-2" href="#__codelineno-26-2"></a>    <span class="kr">return</span> <span class="kr">function</span> <span class="p">()</span>
-<a id="__codelineno-26-3" name="__codelineno-26-3" href="#__codelineno-26-3"></a>        <span class="kr">return</span> <span class="p">(</span><span class="n">f</span><span class="p">()</span> <span class="o">-</span> <span class="n">pos</span><span class="p">()):</span><span class="n">dir</span><span class="p">()</span>
-<a id="__codelineno-26-4" name="__codelineno-26-4" href="#__codelineno-26-4"></a>    <span class="kr">end</span>
-<a id="__codelineno-26-5" name="__codelineno-26-5" href="#__codelineno-26-5"></a><span class="kr">end</span>
-</code></pre></div></p>
-</li>
-<li>
-<p><code>antiYDir(p)</code>函数：返回球到指定点p及其对称点中y坐标小于0的那一个的方向
-<div class="highlight"><pre><span></span><code><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a><span class="kr">function</span> <span class="nf">antiYDir</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
-<a id="__codelineno-27-2" name="__codelineno-27-2" href="#__codelineno-27-2"></a>    <span class="kr">return</span> <span class="kr">function</span> <span class="p">()</span>
-<a id="__codelineno-27-3" name="__codelineno-27-3" href="#__codelineno-27-3"></a>        <span class="kr">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">p</span><span class="p">)</span> <span class="o">==</span> <span class="s2">&quot;userdata&quot;</span> <span class="kr">then</span>
-<a id="__codelineno-27-4" name="__codelineno-27-4" href="#__codelineno-27-4"></a>            <span class="kr">return</span> <span class="p">(</span><span class="n">antiYPos</span><span class="p">(</span><span class="n">p</span><span class="p">)()</span> <span class="o">-</span> <span class="n">pos</span><span class="p">()):</span><span class="n">dir</span><span class="p">()</span>
-<a id="__codelineno-27-5" name="__codelineno-27-5" href="#__codelineno-27-5"></a>        <span class="kr">elseif</span> <span class="nb">type</span><span class="p">(</span><span class="n">p</span><span class="p">)</span> <span class="o">==</span> <span class="s2">&quot;number&quot;</span> <span class="kr">then</span>
-<a id="__codelineno-27-6" name="__codelineno-27-6" href="#__codelineno-27-6"></a>            <span class="kr">return</span> <span class="n">ball</span><span class="p">.</span><span class="n">antiY</span><span class="p">()</span><span class="o">*</span><span class="n">p</span>
-<a id="__codelineno-27-7" name="__codelineno-27-7" href="#__codelineno-27-7"></a>        <span class="kr">elseif</span> <span class="nb">type</span><span class="p">(</span><span class="n">p</span><span class="p">)</span> <span class="o">==</span> <span class="s2">&quot;function&quot;</span> <span class="kr">then</span>
-<a id="__codelineno-27-8" name="__codelineno-27-8" href="#__codelineno-27-8"></a>            <span class="kr">return</span> <span class="p">(</span><span class="n">antiYPos</span><span class="p">(</span><span class="n">p</span><span class="p">())()</span> <span class="o">-</span> <span class="n">pos</span><span class="p">()):</span><span class="n">dir</span><span class="p">()</span>
-<a id="__codelineno-27-9" name="__codelineno-27-9" href="#__codelineno-27-9"></a>        <span class="kr">end</span>
-<a id="__codelineno-27-10" name="__codelineno-27-10" href="#__codelineno-27-10"></a>    <span class="kr">end</span>
-<a id="__codelineno-27-11" name="__codelineno-27-11" href="#__codelineno-27-11"></a><span class="kr">end</span>
-</code></pre></div></p>
-</li>
-<li>
-<p><code>syntYDir(p)</code>函数：返回球到指定点p及其对称点中y坐标大于0的那一个的方向
-<div class="highlight"><pre><span></span><code><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a><span class="kr">function</span> <span class="nf">syntYDir</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
-<a id="__codelineno-28-2" name="__codelineno-28-2" href="#__codelineno-28-2"></a>    <span class="kr">return</span> <span class="kr">function</span> <span class="p">()</span>
-<a id="__codelineno-28-3" name="__codelineno-28-3" href="#__codelineno-28-3"></a>        <span class="kr">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">p</span><span class="p">)</span> <span class="o">==</span> <span class="s2">&quot;userdata&quot;</span> <span class="kr">then</span>
-<a id="__codelineno-28-4" name="__codelineno-28-4" href="#__codelineno-28-4"></a>            <span class="kr">return</span> <span class="p">(</span><span class="n">syntYPos</span><span class="p">(</span><span class="n">p</span><span class="p">)()</span> <span class="o">-</span> <span class="n">pos</span><span class="p">()):</span><span class="n">dir</span><span class="p">()</span>
-<a id="__codelineno-28-5" name="__codelineno-28-5" href="#__codelineno-28-5"></a>        <span class="kr">elseif</span> <span class="nb">type</span><span class="p">(</span><span class="n">p</span><span class="p">)</span> <span class="o">==</span> <span class="s2">&quot;number&quot;</span> <span class="kr">then</span>
-<a id="__codelineno-28-6" name="__codelineno-28-6" href="#__codelineno-28-6"></a>            <span class="kr">return</span> <span class="n">ball</span><span class="p">.</span><span class="n">syntY</span><span class="p">()</span><span class="o">*</span><span class="n">p</span>
-<a id="__codelineno-28-7" name="__codelineno-28-7" href="#__codelineno-28-7"></a>        <span class="kr">end</span>
-<a id="__codelineno-28-8" name="__codelineno-28-8" href="#__codelineno-28-8"></a>    <span class="kr">end</span>
-<a id="__codelineno-28-9" name="__codelineno-28-9" href="#__codelineno-28-9"></a><span class="kr">end</span>
-</code></pre></div></p>
-</li>
-<li>
-<p><code>toBestEnemyDist()</code>函数：返回球到最近敌方球员的距离。
-<div class="highlight"><pre><span></span><code><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a><span class="kr">function</span> <span class="nf">toBestEnemyDist</span><span class="p">()</span>
-<a id="__codelineno-29-2" name="__codelineno-29-2" href="#__codelineno-29-2"></a>    <span class="kd">local</span> <span class="n">enemyNum</span> <span class="o">=</span> <span class="n">defenceInfoNew</span><span class="p">:</span><span class="n">getBestBallChaser</span><span class="p">()</span>
-<a id="__codelineno-29-3" name="__codelineno-29-3" href="#__codelineno-29-3"></a>    <span class="kr">if</span> <span class="n">Utils</span><span class="p">.</span><span class="n">PlayerNumValid</span><span class="p">(</span><span class="n">enemyNum</span><span class="p">)</span> <span class="kr">then</span> <span class="c1">--如果场上有这辆敌方车</span>
-<a id="__codelineno-29-4" name="__codelineno-29-4" href="#__codelineno-29-4"></a>        <span class="kr">return</span> <span class="n">toEnemyDist</span><span class="p">(</span><span class="n">enemyNum</span><span class="p">)</span>
-<a id="__codelineno-29-5" name="__codelineno-29-5" href="#__codelineno-29-5"></a>    <span class="kr">else</span>
-<a id="__codelineno-29-6" name="__codelineno-29-6" href="#__codelineno-29-6"></a>        <span class="kr">return</span> <span class="mi">1000</span>
-<a id="__codelineno-29-7" name="__codelineno-29-7" href="#__codelineno-29-7"></a>    <span class="kr">end</span>
-</code></pre></div></p>
-</li>
-<li>
-<p><code>enemyDistMinusPlayerDist(role)</code>函数：返回球到最近敌方球员与到指定球员role的距离的差值。
-<div class="highlight"><pre><span></span><code><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a><span class="kr">function</span> <span class="nf">enemyDistMinusPlayerDist</span><span class="p">(</span><span class="n">role</span><span class="p">)</span>
-<a id="__codelineno-30-2" name="__codelineno-30-2" href="#__codelineno-30-2"></a>    <span class="kr">return</span> <span class="n">toBestEnemyDist</span><span class="p">()</span> <span class="o">-</span> <span class="n">toPlayerDist</span><span class="p">(</span><span class="n">role</span><span class="p">)</span>
-<a id="__codelineno-30-3" name="__codelineno-30-3" href="#__codelineno-30-3"></a><span class="kr">end</span>
-</code></pre></div></p>
-</li>
-<li>
-<p><code>goRush()</code>函数：定位球时返回一个指定的点，用于冲向该点。
-<div class="highlight"><pre><span></span><code><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a><span class="kr">function</span> <span class="nf">goRush</span><span class="p">()</span>
-<a id="__codelineno-31-2" name="__codelineno-31-2" href="#__codelineno-31-2"></a>    <span class="kr">return</span> <span class="kr">function</span> <span class="p">()</span>
-<a id="__codelineno-31-3" name="__codelineno-31-3" href="#__codelineno-31-3"></a>        <span class="c1">-- changed to Brazil by zhyaic</span>
-<a id="__codelineno-31-4" name="__codelineno-31-4" href="#__codelineno-31-4"></a>        <span class="kr">return</span> <span class="n">CGeoPoint</span><span class="p">:</span><span class="n">new_local</span><span class="p">(</span><span class="n">refPosX</span><span class="p">()</span> <span class="o">-</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">150</span> <span class="o">*</span> <span class="n">refAntiY</span><span class="p">())</span>
-<a id="__codelineno-31-5" name="__codelineno-31-5" href="#__codelineno-31-5"></a>    <span class="kr">end</span>
-<a id="__codelineno-31-6" name="__codelineno-31-6" href="#__codelineno-31-6"></a><span class="kr">end</span>
-</code></pre></div></p>
-</li>
-<li>
-<p><code>backDir(p, anti)</code>函数：返回球到指定点的方向。根据anti的bool值来决定是否对结果执行anti处理（即类似之前antiYDir的那种处理）
-<div class="highlight"><pre><span></span><code><a id="__codelineno-32-1" name="__codelineno-32-1" href="#__codelineno-32-1"></a><span class="kr">function</span> <span class="nf">backDir</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">anti</span><span class="p">)</span>
-<a id="__codelineno-32-2" name="__codelineno-32-2" href="#__codelineno-32-2"></a>    <span class="kr">return</span> <span class="kr">function</span> <span class="p">()</span>
-<a id="__codelineno-32-3" name="__codelineno-32-3" href="#__codelineno-32-3"></a>        <span class="kd">local</span> <span class="n">idir</span>
-<a id="__codelineno-32-4" name="__codelineno-32-4" href="#__codelineno-32-4"></a>        <span class="kr">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">p</span><span class="p">)</span> <span class="o">==</span> <span class="s2">&quot;function&quot;</span> <span class="kr">then</span>
-<a id="__codelineno-32-5" name="__codelineno-32-5" href="#__codelineno-32-5"></a>            <span class="n">idir</span> <span class="o">=</span> <span class="n">p</span><span class="p">()</span>
-<a id="__codelineno-32-6" name="__codelineno-32-6" href="#__codelineno-32-6"></a>        <span class="kr">elseif</span> <span class="nb">type</span><span class="p">(</span><span class="n">p</span><span class="p">)</span> <span class="o">==</span> <span class="s2">&quot;number&quot;</span> <span class="kr">then</span>
-<a id="__codelineno-32-7" name="__codelineno-32-7" href="#__codelineno-32-7"></a>            <span class="n">idir</span> <span class="o">=</span> <span class="n">p</span>
-<a id="__codelineno-32-8" name="__codelineno-32-8" href="#__codelineno-32-8"></a>        <span class="kr">elseif</span> <span class="nb">type</span><span class="p">(</span><span class="n">p</span><span class="p">)</span> <span class="o">==</span> <span class="s2">&quot;userdata&quot;</span> <span class="kr">then</span>
-<a id="__codelineno-32-9" name="__codelineno-32-9" href="#__codelineno-32-9"></a>            <span class="kr">if</span> <span class="n">anti</span> <span class="o">==</span> <span class="kc">false</span> <span class="kr">then</span>
-<a id="__codelineno-32-10" name="__codelineno-32-10" href="#__codelineno-32-10"></a>                <span class="n">idir</span> <span class="o">=</span> <span class="n">Utils</span><span class="p">.</span><span class="n">Normalize</span><span class="p">((</span><span class="n">p</span> <span class="o">-</span> <span class="n">ball</span><span class="p">.</span><span class="n">pos</span><span class="p">()):</span><span class="n">dir</span><span class="p">())</span>
-<a id="__codelineno-32-11" name="__codelineno-32-11" href="#__codelineno-32-11"></a>            <span class="kr">else</span>
-<a id="__codelineno-32-12" name="__codelineno-32-12" href="#__codelineno-32-12"></a>                <span class="kd">local</span> <span class="n">targetP</span> <span class="o">=</span> <span class="n">CGeoPoint</span><span class="p">:</span><span class="n">new_local</span><span class="p">(</span><span class="n">p</span><span class="p">:</span><span class="n">x</span><span class="p">(),</span> <span class="n">ball</span><span class="p">.</span><span class="n">antiY</span><span class="p">()</span><span class="o">*</span><span class="n">p</span><span class="p">:</span><span class="n">y</span><span class="p">())</span>
-<a id="__codelineno-32-13" name="__codelineno-32-13" href="#__codelineno-32-13"></a>                <span class="n">idir</span> <span class="o">=</span> <span class="n">Utils</span><span class="p">.</span><span class="n">Normalize</span><span class="p">((</span><span class="n">targetP</span> <span class="o">-</span> <span class="n">ball</span><span class="p">.</span><span class="n">pos</span><span class="p">()):</span><span class="n">dir</span><span class="p">())</span>
-<a id="__codelineno-32-14" name="__codelineno-32-14" href="#__codelineno-32-14"></a>            <span class="kr">end</span>
-<a id="__codelineno-32-15" name="__codelineno-32-15" href="#__codelineno-32-15"></a>        <span class="kr">elseif</span> <span class="nb">type</span><span class="p">(</span><span class="n">p</span><span class="p">)</span> <span class="o">==</span> <span class="s2">&quot;string&quot;</span> <span class="kr">then</span>
-<a id="__codelineno-32-16" name="__codelineno-32-16" href="#__codelineno-32-16"></a>            <span class="n">idir</span> <span class="o">=</span> <span class="n">Utils</span><span class="p">.</span><span class="n">Normalize</span><span class="p">((</span><span class="n">player</span><span class="p">.</span><span class="n">pos</span><span class="p">(</span><span class="n">p</span><span class="p">)</span> <span class="o">-</span> <span class="n">ball</span><span class="p">.</span><span class="n">pos</span><span class="p">()):</span><span class="n">dir</span><span class="p">())</span>
-<a id="__codelineno-32-17" name="__codelineno-32-17" href="#__codelineno-32-17"></a>        <span class="kr">end</span>
-<a id="__codelineno-32-18" name="__codelineno-32-18" href="#__codelineno-32-18"></a>
-<a id="__codelineno-32-19" name="__codelineno-32-19" href="#__codelineno-32-19"></a>        <span class="kr">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">idir</span><span class="p">)</span> <span class="o">==</span> <span class="s2">&quot;userdata&quot;</span> <span class="kr">then</span>
-<a id="__codelineno-32-20" name="__codelineno-32-20" href="#__codelineno-32-20"></a>            <span class="kr">if</span> <span class="n">anti</span> <span class="o">==</span> <span class="kc">false</span> <span class="kr">then</span>
-<a id="__codelineno-32-21" name="__codelineno-32-21" href="#__codelineno-32-21"></a>                <span class="n">idir</span> <span class="o">=</span> <span class="n">Utils</span><span class="p">.</span><span class="n">Normalize</span><span class="p">((</span><span class="n">idir</span> <span class="o">-</span> <span class="n">ball</span><span class="p">.</span><span class="n">pos</span><span class="p">()):</span><span class="n">dir</span><span class="p">())</span>
-<a id="__codelineno-32-22" name="__codelineno-32-22" href="#__codelineno-32-22"></a>            <span class="kr">else</span>
-<a id="__codelineno-32-23" name="__codelineno-32-23" href="#__codelineno-32-23"></a>                <span class="kd">local</span> <span class="n">temP</span> <span class="o">=</span> <span class="n">CGeoPoint</span><span class="p">:</span><span class="n">new_local</span><span class="p">(</span><span class="n">idir</span><span class="p">:</span><span class="n">x</span><span class="p">(),</span> <span class="n">ball</span><span class="p">.</span><span class="n">antiY</span><span class="p">()</span><span class="o">*</span><span class="n">idir</span><span class="p">:</span><span class="n">y</span><span class="p">())</span>
-<a id="__codelineno-32-24" name="__codelineno-32-24" href="#__codelineno-32-24"></a>                <span class="n">idir</span> <span class="o">=</span> <span class="n">Utils</span><span class="p">.</span><span class="n">Normalize</span><span class="p">((</span><span class="n">temP</span> <span class="o">-</span> <span class="n">ball</span><span class="p">.</span><span class="n">pos</span><span class="p">()):</span><span class="n">dir</span><span class="p">())</span>
-<a id="__codelineno-32-25" name="__codelineno-32-25" href="#__codelineno-32-25"></a>            <span class="kr">end</span>
-<a id="__codelineno-32-26" name="__codelineno-32-26" href="#__codelineno-32-26"></a>        <span class="kr">end</span>
-<a id="__codelineno-32-27" name="__codelineno-32-27" href="#__codelineno-32-27"></a>        <span class="kr">return</span> <span class="n">idir</span>
-<a id="__codelineno-32-28" name="__codelineno-32-28" href="#__codelineno-32-28"></a>    <span class="kr">end</span>
-<a id="__codelineno-32-29" name="__codelineno-32-29" href="#__codelineno-32-29"></a><span class="kr">end</span>
-</code></pre></div></p>
-</li>
-<li>
-<p><code>backPos(p, d, s, anti)</code>函数：返回球相对于指定点p进行横向、纵向偏移后的坐标，d为纵向偏移量，s为横向偏移量。
-<div class="highlight"><pre><span></span><code><a id="__codelineno-33-1" name="__codelineno-33-1" href="#__codelineno-33-1"></a><span class="kr">function</span> <span class="nf">backPos</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">d</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">anti</span><span class="p">)</span>
-<a id="__codelineno-33-2" name="__codelineno-33-2" href="#__codelineno-33-2"></a>    <span class="kr">return</span> <span class="kr">function</span> <span class="p">()</span>
-<a id="__codelineno-33-3" name="__codelineno-33-3" href="#__codelineno-33-3"></a>        <span class="kd">local</span> <span class="n">idir</span> <span class="o">=</span> <span class="n">backDir</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">anti</span><span class="p">)()</span>
-<a id="__codelineno-33-4" name="__codelineno-33-4" href="#__codelineno-33-4"></a>        <span class="kr">if</span> <span class="n">d</span> <span class="o">==</span> <span class="kc">nil</span> <span class="kr">then</span>
-<a id="__codelineno-33-5" name="__codelineno-33-5" href="#__codelineno-33-5"></a>            <span class="n">d</span> <span class="o">=</span> <span class="mi">18</span>
-<a id="__codelineno-33-6" name="__codelineno-33-6" href="#__codelineno-33-6"></a>        <span class="kr">end</span>
-<a id="__codelineno-33-7" name="__codelineno-33-7" href="#__codelineno-33-7"></a>
-<a id="__codelineno-33-8" name="__codelineno-33-8" href="#__codelineno-33-8"></a>        <span class="kd">local</span> <span class="n">ipos</span>
-<a id="__codelineno-33-9" name="__codelineno-33-9" href="#__codelineno-33-9"></a>        <span class="kr">if</span> <span class="n">s</span> <span class="o">==</span> <span class="kc">nil</span> <span class="kr">then</span>
-<a id="__codelineno-33-10" name="__codelineno-33-10" href="#__codelineno-33-10"></a>            <span class="n">s</span> <span class="o">=</span> <span class="mi">0</span>
-<a id="__codelineno-33-11" name="__codelineno-33-11" href="#__codelineno-33-11"></a>        <span class="kr">end</span>
-<a id="__codelineno-33-12" name="__codelineno-33-12" href="#__codelineno-33-12"></a>        <span class="kd">local</span> <span class="n">shiftVec</span> <span class="o">=</span> <span class="n">Utils</span><span class="p">.</span><span class="n">Polar2Vector</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">idir</span><span class="p">):</span><span class="n">rotate</span><span class="p">(</span><span class="n">syntY</span><span class="p">()</span><span class="o">*</span><span class="nb">math.pi</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span><span class="c1">--横向偏移向量</span>
-<a id="__codelineno-33-13" name="__codelineno-33-13" href="#__codelineno-33-13"></a>        <span class="kd">local</span> <span class="n">ipos</span> <span class="o">=</span> <span class="n">ball</span><span class="p">.</span><span class="n">pos</span><span class="p">()</span> <span class="o">+</span> <span class="n">shiftVec</span> <span class="o">+</span> <span class="n">Utils</span><span class="p">.</span><span class="n">Polar2Vector</span><span class="p">(</span><span class="n">d</span><span class="p">,</span> <span class="n">Utils</span><span class="p">.</span><span class="n">Normalize</span><span class="p">(</span><span class="n">idir</span> <span class="o">+</span> <span class="nb">math.pi</span><span class="p">))</span> <span class="c1">--Utils.Polar2Vector(d, Utils.Normalize(idir + math.pi))为纵向偏移方向</span>
-<a id="__codelineno-33-14" name="__codelineno-33-14" href="#__codelineno-33-14"></a>        <span class="kr">return</span> <span class="n">ipos</span>
-<a id="__codelineno-33-15" name="__codelineno-33-15" href="#__codelineno-33-15"></a>    <span class="kr">end</span>
-<a id="__codelineno-33-16" name="__codelineno-33-16" href="#__codelineno-33-16"></a><span class="kr">end</span>
-</code></pre></div></p>
-</li>
-<li>
-<p>初始化gRefMsg
-<div class="highlight"><pre><span></span><code><a id="__codelineno-34-1" name="__codelineno-34-1" href="#__codelineno-34-1"></a><span class="n">gRefMsg</span> <span class="o">=</span> <span class="p">{</span>
-<a id="__codelineno-34-2" name="__codelineno-34-2" href="#__codelineno-34-2"></a>    <span class="c1">-- 上一次定位球的Cycle</span>
-<a id="__codelineno-34-3" name="__codelineno-34-3" href="#__codelineno-34-3"></a>    <span class="n">lastCycle</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
-<a id="__codelineno-34-4" name="__codelineno-34-4" href="#__codelineno-34-4"></a>    <span class="c1">-- 本次定位球开始时球的X位置</span>
-<a id="__codelineno-34-5" name="__codelineno-34-5" href="#__codelineno-34-5"></a>    <span class="n">ballX</span>     <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
-<a id="__codelineno-34-6" name="__codelineno-34-6" href="#__codelineno-34-6"></a>    <span class="c1">-- 本次定位球开始时球的Y位置</span>
-<a id="__codelineno-34-7" name="__codelineno-34-7" href="#__codelineno-34-7"></a>    <span class="n">ballY</span>     <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
-<a id="__codelineno-34-8" name="__codelineno-34-8" href="#__codelineno-34-8"></a>    <span class="c1">-- 本次定位球的antiY参数</span>
-<a id="__codelineno-34-9" name="__codelineno-34-9" href="#__codelineno-34-9"></a>    <span class="n">antiY</span>     <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
-<a id="__codelineno-34-10" name="__codelineno-34-10" href="#__codelineno-34-10"></a>    <span class="c1">-- 本次定位球是不是我方的球</span>
-<a id="__codelineno-34-11" name="__codelineno-34-11" href="#__codelineno-34-11"></a>    <span class="n">isOurBall</span> <span class="o">=</span> <span class="kc">false</span>
-<a id="__codelineno-34-12" name="__codelineno-34-12" href="#__codelineno-34-12"></a><span class="p">}</span>
-</code></pre></div></p>
-</li>
-<li>
-<p><code>updateRefMsg()</code>函数：当有裁判盒信息切换时进行更新的信息。
-<div class="highlight"><pre><span></span><code><a id="__codelineno-35-1" name="__codelineno-35-1" href="#__codelineno-35-1"></a><span class="kr">function</span> <span class="nf">updateRefMsg</span><span class="p">()</span>
-<a id="__codelineno-35-2" name="__codelineno-35-2" href="#__codelineno-35-2"></a>    <span class="kr">if</span> <span class="p">(</span><span class="n">vision</span><span class="p">:</span><span class="n">Cycle</span><span class="p">()</span> <span class="o">-</span> <span class="n">gRefMsg</span><span class="p">.</span><span class="n">lastCycle</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">6</span> <span class="kr">then</span> <span class="c1">--更新球信息</span>
-<a id="__codelineno-35-3" name="__codelineno-35-3" href="#__codelineno-35-3"></a>        <span class="n">gRefMsg</span><span class="p">.</span><span class="n">ballX</span> <span class="o">=</span> <span class="n">posX</span><span class="p">()</span>
-<a id="__codelineno-35-4" name="__codelineno-35-4" href="#__codelineno-35-4"></a>        <span class="n">gRefMsg</span><span class="p">.</span><span class="n">ballY</span> <span class="o">=</span> <span class="n">posY</span><span class="p">()</span>
-<a id="__codelineno-35-5" name="__codelineno-35-5" href="#__codelineno-35-5"></a>        <span class="n">gRefMsg</span><span class="p">.</span><span class="n">antiY</span> <span class="o">=</span> <span class="n">antiY</span><span class="p">()</span>
-<a id="__codelineno-35-6" name="__codelineno-35-6" href="#__codelineno-35-6"></a>        <span class="n">gRefMsg</span><span class="p">.</span><span class="n">isOurBall</span> <span class="o">=</span> <span class="n">world</span><span class="p">:</span><span class="n">IsOurBallByAutoReferee</span><span class="p">()</span>
-<a id="__codelineno-35-7" name="__codelineno-35-7" href="#__codelineno-35-7"></a>    <span class="kr">else</span> <span class="c1">--若球有明显移动，更新球信息</span>
-<a id="__codelineno-35-8" name="__codelineno-35-8" href="#__codelineno-35-8"></a>        <span class="kr">if</span> <span class="nb">math.abs</span><span class="p">(</span><span class="n">gRefMsg</span><span class="p">.</span><span class="n">ballX</span> <span class="o">-</span> <span class="n">posX</span><span class="p">())</span> <span class="o">&gt;</span> <span class="mi">10</span> <span class="kr">then</span>
-<a id="__codelineno-35-9" name="__codelineno-35-9" href="#__codelineno-35-9"></a>            <span class="n">gRefMsg</span><span class="p">.</span><span class="n">ballX</span> <span class="o">=</span> <span class="n">posX</span><span class="p">()</span>
-<a id="__codelineno-35-10" name="__codelineno-35-10" href="#__codelineno-35-10"></a>        <span class="kr">end</span>
-<a id="__codelineno-35-11" name="__codelineno-35-11" href="#__codelineno-35-11"></a>        <span class="kr">if</span> <span class="nb">math.abs</span><span class="p">(</span><span class="n">gRefMsg</span><span class="p">.</span><span class="n">ballY</span> <span class="o">-</span> <span class="n">posY</span><span class="p">())</span> <span class="o">&gt;</span> <span class="mi">10</span> <span class="kr">then</span>
-<a id="__codelineno-35-12" name="__codelineno-35-12" href="#__codelineno-35-12"></a>            <span class="n">gRefMsg</span><span class="p">.</span><span class="n">ballY</span> <span class="o">=</span> <span class="n">posY</span><span class="p">()</span>
-<a id="__codelineno-35-13" name="__codelineno-35-13" href="#__codelineno-35-13"></a>        <span class="kr">end</span>
-<a id="__codelineno-35-14" name="__codelineno-35-14" href="#__codelineno-35-14"></a>        <span class="n">gRefMsg</span><span class="p">.</span><span class="n">antiY</span> <span class="o">=</span> <span class="n">antiY</span><span class="p">()</span>
-<a id="__codelineno-35-15" name="__codelineno-35-15" href="#__codelineno-35-15"></a>    <span class="kr">end</span>
-<a id="__codelineno-35-16" name="__codelineno-35-16" href="#__codelineno-35-16"></a>    <span class="c1">--更新cycle值</span>
-<a id="__codelineno-35-17" name="__codelineno-35-17" href="#__codelineno-35-17"></a>    <span class="n">gRefMsg</span><span class="p">.</span><span class="n">lastCycle</span> <span class="o">=</span> <span class="n">vision</span><span class="p">:</span><span class="n">Cycle</span><span class="p">()</span>
-<a id="__codelineno-35-18" name="__codelineno-35-18" href="#__codelineno-35-18"></a><span class="kr">end</span>
-</code></pre></div></p>
-</li>
-<li>
-<p><code>refPosX()</code>函数：返回球时球的x坐标。
-<div class="highlight"><pre><span></span><code><a id="__codelineno-36-1" name="__codelineno-36-1" href="#__codelineno-36-1"></a><span class="kr">function</span> <span class="nf">refPosX</span><span class="p">()</span>
-<a id="__codelineno-36-2" name="__codelineno-36-2" href="#__codelineno-36-2"></a>    <span class="kr">return</span> <span class="n">gRefMsg</span><span class="p">.</span><span class="n">ballX</span>
-<a id="__codelineno-36-3" name="__codelineno-36-3" href="#__codelineno-36-3"></a><span class="kr">end</span>
-</code></pre></div></p>
-</li>
-<li>
-<p><code>refPosY()</code>函数：返回定位球时球的的y坐标。
-<div class="highlight"><pre><span></span><code><a id="__codelineno-37-1" name="__codelineno-37-1" href="#__codelineno-37-1"></a><span class="kr">function</span> <span class="nf">refPosY</span><span class="p">()</span>
-<a id="__codelineno-37-2" name="__codelineno-37-2" href="#__codelineno-37-2"></a>    <span class="kr">return</span> <span class="n">gRefMsg</span><span class="p">.</span><span class="n">ballY</span>
-<a id="__codelineno-37-3" name="__codelineno-37-3" href="#__codelineno-37-3"></a><span class="kr">end</span>
-</code></pre></div></p>
-</li>
-<li>
-<p><code>refAntiY()</code>函数：返回定位球时的antiY参数。
-<div class="highlight"><pre><span></span><code><a id="__codelineno-38-1" name="__codelineno-38-1" href="#__codelineno-38-1"></a><span class="kr">function</span> <span class="nf">refAntiY</span><span class="p">()</span>
-<a id="__codelineno-38-2" name="__codelineno-38-2" href="#__codelineno-38-2"></a>    <span class="kr">return</span> <span class="n">gRefMsg</span><span class="p">.</span><span class="n">antiY</span>
-<a id="__codelineno-38-3" name="__codelineno-38-3" href="#__codelineno-38-3"></a><span class="kr">end</span>
-</code></pre></div></p>
-</li>
-<li>
-<p><code>refAntiYPos(p)</code>函数：返回指定点在定位球中使用的反向点(参考之前的antiY操作)
-<div class="highlight"><pre><span></span><code><a id="__codelineno-39-1" name="__codelineno-39-1" href="#__codelineno-39-1"></a><span class="kr">function</span> <span class="nf">refAntiYPos</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
-<a id="__codelineno-39-2" name="__codelineno-39-2" href="#__codelineno-39-2"></a>    <span class="kr">return</span> <span class="kr">function</span> <span class="p">()</span>
-<a id="__codelineno-39-3" name="__codelineno-39-3" href="#__codelineno-39-3"></a>        <span class="kr">return</span> <span class="n">CGeoPoint</span><span class="p">(</span><span class="n">p</span><span class="p">:</span><span class="n">x</span><span class="p">(),</span> <span class="n">gRefMsg</span><span class="p">.</span><span class="n">antiY</span><span class="o">*</span><span class="n">p</span><span class="p">:</span><span class="n">y</span><span class="p">())</span>
-<a id="__codelineno-39-4" name="__codelineno-39-4" href="#__codelineno-39-4"></a>    <span class="kr">end</span>
-<a id="__codelineno-39-5" name="__codelineno-39-5" href="#__codelineno-39-5"></a><span class="kr">end</span>
-</code></pre></div></p>
-</li>
-<li>
-<p><code>refSyntYPos(p)</code>函数：返回指定点在定位球中使用的同向点
-<div class="highlight"><pre><span></span><code><a id="__codelineno-40-1" name="__codelineno-40-1" href="#__codelineno-40-1"></a><span class="kr">function</span> <span class="nf">refSyntYPos</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
-<a id="__codelineno-40-2" name="__codelineno-40-2" href="#__codelineno-40-2"></a>    <span class="kr">return</span> <span class="kr">function</span> <span class="p">()</span>
-<a id="__codelineno-40-3" name="__codelineno-40-3" href="#__codelineno-40-3"></a>        <span class="kr">return</span> <span class="n">CGeoPoint</span><span class="p">(</span><span class="n">p</span><span class="p">:</span><span class="n">x</span><span class="p">(),</span> <span class="o">-</span><span class="mi">1</span><span class="o">*</span><span class="n">gRefMsg</span><span class="p">.</span><span class="n">antiY</span><span class="o">*</span><span class="n">p</span><span class="p">:</span><span class="n">y</span><span class="p">())</span>
-<a id="__codelineno-40-4" name="__codelineno-40-4" href="#__codelineno-40-4"></a>    <span class="kr">end</span>
-<a id="__codelineno-40-5" name="__codelineno-40-5" href="#__codelineno-40-5"></a><span class="kr">end</span>
-</code></pre></div></p>
-</li>
-<li>
-<p><code>refAntiYDir(p)</code>函数：指定方向在定位球中使用的反向朝向
-<div class="highlight"><pre><span></span><code><a id="__codelineno-41-1" name="__codelineno-41-1" href="#__codelineno-41-1"></a><span class="kr">function</span> <span class="nf">refAntiYDir</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
-<a id="__codelineno-41-2" name="__codelineno-41-2" href="#__codelineno-41-2"></a>    <span class="kr">return</span> <span class="kr">function</span> <span class="p">()</span>
-<a id="__codelineno-41-3" name="__codelineno-41-3" href="#__codelineno-41-3"></a>        <span class="kr">return</span> <span class="n">gRefMsg</span><span class="p">.</span><span class="n">antiY</span><span class="o">*</span><span class="n">p</span>
-<a id="__codelineno-41-4" name="__codelineno-41-4" href="#__codelineno-41-4"></a>    <span class="kr">end</span>
-<a id="__codelineno-41-5" name="__codelineno-41-5" href="#__codelineno-41-5"></a><span class="kr">end</span>
-</code></pre></div></p>
-</li>
-<li>
-<p><code>refSyntYDir(p)</code>函数：指定方向在定位球中使用的同向朝向
-<div class="highlight"><pre><span></span><code><a id="__codelineno-42-1" name="__codelineno-42-1" href="#__codelineno-42-1"></a><span class="kr">function</span> <span class="nf">refSyntYDir</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
-<a id="__codelineno-42-2" name="__codelineno-42-2" href="#__codelineno-42-2"></a>    <span class="kr">return</span> <span class="kr">function</span> <span class="p">()</span>
-<a id="__codelineno-42-3" name="__codelineno-42-3" href="#__codelineno-42-3"></a>        <span class="kr">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">p</span><span class="p">)</span> <span class="o">==</span> <span class="s2">&quot;function&quot;</span> <span class="kr">then</span>
-<a id="__codelineno-42-4" name="__codelineno-42-4" href="#__codelineno-42-4"></a>            <span class="kr">return</span> <span class="o">-</span><span class="mi">1</span><span class="o">*</span><span class="n">gRefMsg</span><span class="p">.</span><span class="n">antiY</span><span class="o">*</span><span class="n">p</span><span class="p">()</span>
-<a id="__codelineno-42-5" name="__codelineno-42-5" href="#__codelineno-42-5"></a>        <span class="kr">else</span>
-<a id="__codelineno-42-6" name="__codelineno-42-6" href="#__codelineno-42-6"></a>            <span class="kr">return</span> <span class="o">-</span><span class="mi">1</span><span class="o">*</span><span class="n">gRefMsg</span><span class="p">.</span><span class="n">antiY</span><span class="o">*</span><span class="n">p</span>
-<a id="__codelineno-42-7" name="__codelineno-42-7" href="#__codelineno-42-7"></a>        <span class="kr">end</span>
-<a id="__codelineno-42-8" name="__codelineno-42-8" href="#__codelineno-42-8"></a>    <span class="kr">end</span>
-<a id="__codelineno-42-9" name="__codelineno-42-9" href="#__codelineno-42-9"></a><span class="kr">end</span>
-</code></pre></div></p>
-</li>
-<li>
-<p><code>refIsOurBall(p)</code>函数：返回是否我方开定位球
-<div class="highlight"><pre><span></span><code><a id="__codelineno-43-1" name="__codelineno-43-1" href="#__codelineno-43-1"></a><span class="kr">function</span> <span class="nf">refIsOurBall</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
-<a id="__codelineno-43-2" name="__codelineno-43-2" href="#__codelineno-43-2"></a>    <span class="kr">return</span> <span class="n">gRefMsg</span><span class="p">.</span><span class="n">isOurBall</span>
-<a id="__codelineno-43-3" name="__codelineno-43-3" href="#__codelineno-43-3"></a><span class="kr">end</span>
-</code></pre></div></p>
-</li>
-<li>
-<p><code>supportPassPos(num)</code>函数：返回在num区域一个用于传球的最佳点。
-<div class="highlight"><pre><span></span><code><a id="__codelineno-44-1" name="__codelineno-44-1" href="#__codelineno-44-1"></a><span class="kr">function</span> <span class="nf">supportPassPos</span><span class="p">(</span><span class="n">num</span><span class="p">)</span>
-<a id="__codelineno-44-2" name="__codelineno-44-2" href="#__codelineno-44-2"></a>    <span class="kr">return</span> <span class="kr">function</span> <span class="p">()</span>
-<a id="__codelineno-44-3" name="__codelineno-44-3" href="#__codelineno-44-3"></a>        <span class="c1">--local passPos = bestAlg:getBestPointFromArea(num)</span>
-<a id="__codelineno-44-4" name="__codelineno-44-4" href="#__codelineno-44-4"></a>        <span class="kd">local</span> <span class="n">areaNum</span> <span class="o">=</span> <span class="n">num</span>
-<a id="__codelineno-44-5" name="__codelineno-44-5" href="#__codelineno-44-5"></a>        <span class="kr">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">areaNum</span><span class="p">)</span> <span class="o">==</span> <span class="s2">&quot;function&quot;</span> <span class="kr">then</span>
-<a id="__codelineno-44-6" name="__codelineno-44-6" href="#__codelineno-44-6"></a>            <span class="n">areaNum</span> <span class="o">=</span> <span class="n">areaNum</span><span class="p">()</span>
-<a id="__codelineno-44-7" name="__codelineno-44-7" href="#__codelineno-44-7"></a>        <span class="kr">end</span>
-<a id="__codelineno-44-8" name="__codelineno-44-8" href="#__codelineno-44-8"></a>        <span class="kd">local</span> <span class="n">passPos</span> <span class="o">=</span> <span class="n">bestAlg</span><span class="p">:</span><span class="n">getBestPointFromArea</span><span class="p">(</span><span class="n">areaNum</span><span class="p">)</span>
-<a id="__codelineno-44-9" name="__codelineno-44-9" href="#__codelineno-44-9"></a>        <span class="kr">return</span> <span class="n">passPos</span>
-<a id="__codelineno-44-10" name="__codelineno-44-10" href="#__codelineno-44-10"></a>    <span class="kr">end</span>
-<a id="__codelineno-44-11" name="__codelineno-44-11" href="#__codelineno-44-11"></a><span class="kr">end</span>
-</code></pre></div></p>
-</li>
-<li>
-<p><code>LWPassPos()</code>函数：返回一个用于左路传球的最佳点。
-<div class="highlight"><pre><span></span><code><a id="__codelineno-45-1" name="__codelineno-45-1" href="#__codelineno-45-1"></a><span class="kr">function</span> <span class="nf">LWPassPos</span><span class="p">()</span>
-<a id="__codelineno-45-2" name="__codelineno-45-2" href="#__codelineno-45-2"></a>    <span class="kr">return</span> <span class="kr">function</span> <span class="p">()</span>
-<a id="__codelineno-45-3" name="__codelineno-45-3" href="#__codelineno-45-3"></a>        <span class="kd">local</span> <span class="n">passPos</span> <span class="o">=</span> <span class="n">bestAlg</span><span class="p">:</span><span class="n">getBestPointFromArea</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
-<a id="__codelineno-45-4" name="__codelineno-45-4" href="#__codelineno-45-4"></a>        <span class="kr">return</span> <span class="n">passPos</span>
-<a id="__codelineno-45-5" name="__codelineno-45-5" href="#__codelineno-45-5"></a>    <span class="kr">end</span>
-<a id="__codelineno-45-6" name="__codelineno-45-6" href="#__codelineno-45-6"></a><span class="kr">end</span>
-</code></pre></div></p>
-</li>
-<li>
-<p><code>MWPassPos()</code>函数：返回一个用于中路传球的最佳点。
-<div class="highlight"><pre><span></span><code><a id="__codelineno-46-1" name="__codelineno-46-1" href="#__codelineno-46-1"></a><span class="kr">function</span> <span class="nf">MWPassPos</span><span class="p">()</span>
-<a id="__codelineno-46-2" name="__codelineno-46-2" href="#__codelineno-46-2"></a>    <span class="kr">return</span> <span class="kr">function</span> <span class="p">()</span>
-<a id="__codelineno-46-3" name="__codelineno-46-3" href="#__codelineno-46-3"></a>        <span class="kd">local</span> <span class="n">passPos</span> <span class="o">=</span> <span class="n">bestAlg</span><span class="p">:</span><span class="n">getBestPointFromArea</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-<a id="__codelineno-46-4" name="__codelineno-46-4" href="#__codelineno-46-4"></a>        <span class="kr">return</span> <span class="n">passPos</span>
-<a id="__codelineno-46-5" name="__codelineno-46-5" href="#__codelineno-46-5"></a>    <span class="kr">end</span>
-<a id="__codelineno-46-6" name="__codelineno-46-6" href="#__codelineno-46-6"></a><span class="kr">end</span>
-</code></pre></div></p>
-</li>
-<li>
-<p><code>RWPassPos()</code>函数：返回一个用于右路传球的最佳点。
-<div class="highlight"><pre><span></span><code><a id="__codelineno-47-1" name="__codelineno-47-1" href="#__codelineno-47-1"></a><span class="kr">function</span> <span class="nf">RWPassPos</span><span class="p">()</span>
-<a id="__codelineno-47-2" name="__codelineno-47-2" href="#__codelineno-47-2"></a>    <span class="kr">return</span> <span class="kr">function</span> <span class="p">()</span>
-<a id="__codelineno-47-3" name="__codelineno-47-3" href="#__codelineno-47-3"></a>        <span class="kd">local</span> <span class="n">passPos</span> <span class="o">=</span> <span class="n">bestAlg</span><span class="p">:</span><span class="n">getBestPointFromArea</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-<a id="__codelineno-47-4" name="__codelineno-47-4" href="#__codelineno-47-4"></a>        <span class="kr">return</span> <span class="n">passPos</span>
-<a id="__codelineno-47-5" name="__codelineno-47-5" href="#__codelineno-47-5"></a>    <span class="kr">end</span>
-<a id="__codelineno-47-6" name="__codelineno-47-6" href="#__codelineno-47-6"></a><span class="kr">end</span>
-</code></pre></div></p>
-</li>
-<li>
-<p><code>LMPassPos()</code>函数：返回一个用于左中场传球的最佳点。
-<div class="highlight"><pre><span></span><code><a id="__codelineno-48-1" name="__codelineno-48-1" href="#__codelineno-48-1"></a><span class="kr">function</span> <span class="nf">LMPassPos</span><span class="p">()</span>
-<a id="__codelineno-48-2" name="__codelineno-48-2" href="#__codelineno-48-2"></a>    <span class="kr">return</span> <span class="kr">function</span> <span class="p">()</span>
-<a id="__codelineno-48-3" name="__codelineno-48-3" href="#__codelineno-48-3"></a>        <span class="kd">local</span> <span class="n">passPos</span> <span class="o">=</span> <span class="n">bestAlg</span><span class="p">:</span><span class="n">getBestPointFromArea</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
-<a id="__codelineno-48-4" name="__codelineno-48-4" href="#__codelineno-48-4"></a>        <span class="kr">return</span> <span class="n">passPos</span>
-<a id="__codelineno-48-5" name="__codelineno-48-5" href="#__codelineno-48-5"></a>    <span class="kr">end</span>
-<a id="__codelineno-48-6" name="__codelineno-48-6" href="#__codelineno-48-6"></a><span class="kr">end</span>
-</code></pre></div></p>
-</li>
-<li>
-<p><code>MMPassPos()</code>函数：返回一个用于中中场传球的最佳点。
-<div class="highlight"><pre><span></span><code><a id="__codelineno-49-1" name="__codelineno-49-1" href="#__codelineno-49-1"></a><span class="kr">function</span> <span class="nf">MMPassPos</span><span class="p">()</span>
-<a id="__codelineno-49-2" name="__codelineno-49-2" href="#__codelineno-49-2"></a>    <span class="kr">return</span> <span class="kr">function</span> <span class="p">()</span>
-<a id="__codelineno-49-3" name="__codelineno-49-3" href="#__codelineno-49-3"></a>        <span class="kd">local</span> <span class="n">passPos</span> <span class="o">=</span> <span class="n">bestAlg</span><span class="p">:</span><span class="n">getBestPointFromArea</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
-<a id="__codelineno-49-4" name="__codelineno-49-4" href="#__codelineno-49-4"></a>        <span class="kr">return</span> <span class="n">passPos</span>
-<a id="__codelineno-49-5" name="__codelineno-49-5" href="#__codelineno-49-5"></a>    <span class="kr">end</span>
-<a id="__codelineno-49-6" name="__codelineno-49-6" href="#__codelineno-49-6"></a><span class="kr">end</span>
-</code></pre></div></p>
-</li>
-<li>
-<p><code>RMPassPos()</code>函数：返回一个用于右中场传球的最佳点。
-<div class="highlight"><pre><span></span><code><a id="__codelineno-50-1" name="__codelineno-50-1" href="#__codelineno-50-1"></a><span class="kr">function</span> <span class="nf">RMPassPos</span><span class="p">()</span>
-<a id="__codelineno-50-2" name="__codelineno-50-2" href="#__codelineno-50-2"></a>    <span class="kr">return</span> <span class="kr">function</span> <span class="p">()</span>
-<a id="__codelineno-50-3" name="__codelineno-50-3" href="#__codelineno-50-3"></a>        <span class="kd">local</span> <span class="n">passPos</span> <span class="o">=</span> <span class="n">bestAlg</span><span class="p">:</span><span class="n">getBestPointFromArea</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
-<a id="__codelineno-50-4" name="__codelineno-50-4" href="#__codelineno-50-4"></a>        <span class="kr">return</span> <span class="n">passPos</span>
-<a id="__codelineno-50-5" name="__codelineno-50-5" href="#__codelineno-50-5"></a>    <span class="kr">end</span>
-<a id="__codelineno-50-6" name="__codelineno-50-6" href="#__codelineno-50-6"></a><span class="kr">end</span>
-</code></pre></div></p>
-</li>
-<li>
-<p><code>isMovingTo(role)</code>函数：返回球是否朝着指定角色运动。
-<div class="highlight"><pre><span></span><code><a id="__codelineno-51-1" name="__codelineno-51-1" href="#__codelineno-51-1"></a><span class="kr">function</span> <span class="nf">isMovingTo</span><span class="p">(</span><span class="n">role</span><span class="p">)</span>
-<a id="__codelineno-51-2" name="__codelineno-51-2" href="#__codelineno-51-2"></a>    <span class="kr">if</span> <span class="n">ball</span><span class="p">.</span><span class="n">valid</span><span class="p">()</span> <span class="ow">and</span> <span class="n">ball</span><span class="p">.</span><span class="n">velMod</span><span class="p">()</span> <span class="o">&gt;</span> <span class="mi">1</span> <span class="ow">and</span> <span class="nb">math.abs</span><span class="p">(</span><span class="n">Utils</span><span class="p">.</span><span class="n">Normalize</span><span class="p">(</span><span class="n">ball</span><span class="p">.</span><span class="n">velDir</span><span class="p">()</span> <span class="o">-</span> <span class="n">ball</span><span class="p">.</span><span class="n">toPlayerDir</span><span class="p">(</span><span class="n">role</span><span class="p">)))</span> <span class="o">&lt;</span> <span class="nb">math.pi</span> <span class="o">/</span> <span class="mi">9</span> <span class="kr">then</span>
-<a id="__codelineno-51-3" name="__codelineno-51-3" href="#__codelineno-51-3"></a>        <span class="kr">return</span> <span class="kc">true</span>
-<a id="__codelineno-51-4" name="__codelineno-51-4" href="#__codelineno-51-4"></a>    <span class="kr">end</span>
-<a id="__codelineno-51-5" name="__codelineno-51-5" href="#__codelineno-51-5"></a>    <span class="kr">return</span> <span class="kc">false</span>
-<a id="__codelineno-51-6" name="__codelineno-51-6" href="#__codelineno-51-6"></a><span class="kr">end</span>
-</code></pre></div></p>
-</li>
-<li>
-<p><code>placementPos()</code>函数：返回球的放置位置。
-<div class="highlight"><pre><span></span><code><a id="__codelineno-52-1" name="__codelineno-52-1" href="#__codelineno-52-1"></a><span class="kr">function</span> <span class="nf">placementPos</span><span class="p">()</span>
-<a id="__codelineno-52-2" name="__codelineno-52-2" href="#__codelineno-52-2"></a>    <span class="kr">return</span> <span class="n">vision</span><span class="p">:</span><span class="n">getBallPlacementPosition</span><span class="p">()</span>
-<a id="__codelineno-52-3" name="__codelineno-52-3" href="#__codelineno-52-3"></a><span class="kr">end</span>
-</code></pre></div></p>
-</li>
-<li>
-<p><code>readyplacementPos()</code>函数：返回一个放置球时车准备的位置。
-<div class="highlight"><pre><span></span><code><a id="__codelineno-53-1" name="__codelineno-53-1" href="#__codelineno-53-1"></a><span class="kr">function</span> <span class="nf">readyplacementPos</span><span class="p">()</span> 
-<a id="__codelineno-53-2" name="__codelineno-53-2" href="#__codelineno-53-2"></a>        <span class="kr">return</span> <span class="kr">function</span> <span class="p">()</span>
-<a id="__codelineno-53-3" name="__codelineno-53-3" href="#__codelineno-53-3"></a>               <span class="c1">--放球点在左上</span>
-<a id="__codelineno-53-4" name="__codelineno-53-4" href="#__codelineno-53-4"></a>               <span class="kr">if</span> <span class="n">ball</span><span class="p">.</span><span class="n">posX</span><span class="p">()</span> <span class="o">&gt;</span> <span class="n">ball</span><span class="p">.</span><span class="n">placementPos</span><span class="p">():</span><span class="n">x</span><span class="p">()</span> <span class="ow">and</span>  <span class="n">ball</span><span class="p">.</span><span class="n">posY</span><span class="p">()</span> <span class="o">&gt;</span><span class="n">ball</span><span class="p">.</span><span class="n">placementPos</span><span class="p">():</span><span class="n">y</span><span class="p">()</span> <span class="ow">and</span> <span class="n">ball</span><span class="p">.</span><span class="n">posX</span><span class="p">()</span><span class="o">-</span><span class="n">ball</span><span class="p">.</span><span class="n">placementPos</span><span class="p">():</span><span class="n">x</span><span class="p">()</span><span class="o">&gt;</span> <span class="n">ball</span><span class="p">.</span><span class="n">posY</span><span class="p">()</span><span class="o">-</span><span class="n">ball</span><span class="p">.</span><span class="n">placementPos</span><span class="p">():</span><span class="n">y</span><span class="p">()</span>  <span class="kr">then</span>
-<a id="__codelineno-53-5" name="__codelineno-53-5" href="#__codelineno-53-5"></a>                 <span class="kr">if</span> <span class="n">ball</span><span class="p">.</span><span class="n">placementPos</span><span class="p">():</span><span class="n">y</span><span class="p">()</span><span class="o">+</span><span class="mi">250</span><span class="o">&lt;</span><span class="mi">450</span> <span class="kr">then</span>
-<a id="__codelineno-53-6" name="__codelineno-53-6" href="#__codelineno-53-6"></a>                   <span class="kr">return</span> <span class="n">CGeoPoint</span><span class="p">(</span><span class="n">ball</span><span class="p">.</span><span class="n">placementPos</span><span class="p">():</span><span class="n">x</span><span class="p">(),</span> <span class="n">ball</span><span class="p">.</span><span class="n">placementPos</span><span class="p">():</span><span class="n">y</span><span class="p">()</span><span class="o">+</span><span class="mi">250</span><span class="p">)</span>
-<a id="__codelineno-53-7" name="__codelineno-53-7" href="#__codelineno-53-7"></a>                 <span class="kr">else</span> 
-<a id="__codelineno-53-8" name="__codelineno-53-8" href="#__codelineno-53-8"></a>                   <span class="kr">return</span> <span class="n">CGeoPoint</span><span class="p">(</span><span class="n">ball</span><span class="p">.</span><span class="n">placementPos</span><span class="p">():</span><span class="n">x</span><span class="p">(),</span> <span class="n">ball</span><span class="p">.</span><span class="n">placementPos</span><span class="p">():</span><span class="n">y</span><span class="p">()</span><span class="o">-</span><span class="mi">250</span><span class="p">)</span>
-<a id="__codelineno-53-9" name="__codelineno-53-9" href="#__codelineno-53-9"></a>                 <span class="kr">end</span>
-<a id="__codelineno-53-10" name="__codelineno-53-10" href="#__codelineno-53-10"></a>               <span class="kr">end</span>
-<a id="__codelineno-53-11" name="__codelineno-53-11" href="#__codelineno-53-11"></a>               <span class="kr">if</span> <span class="n">ball</span><span class="p">.</span><span class="n">posX</span><span class="p">()</span> <span class="o">&gt;</span> <span class="n">ball</span><span class="p">.</span><span class="n">placementPos</span><span class="p">():</span><span class="n">x</span><span class="p">()</span> <span class="ow">and</span>  <span class="n">ball</span><span class="p">.</span><span class="n">posY</span><span class="p">()</span> <span class="o">&gt;</span><span class="n">ball</span><span class="p">.</span><span class="n">placementPos</span><span class="p">():</span><span class="n">y</span><span class="p">()</span> <span class="ow">and</span> <span class="n">ball</span><span class="p">.</span><span class="n">posX</span><span class="p">()</span><span class="o">-</span><span class="n">ball</span><span class="p">.</span><span class="n">placementPos</span><span class="p">():</span><span class="n">x</span><span class="p">()</span><span class="o">&lt;=</span> <span class="n">ball</span><span class="p">.</span><span class="n">posY</span><span class="p">()</span><span class="o">-</span><span class="n">ball</span><span class="p">.</span><span class="n">placementPos</span><span class="p">():</span><span class="n">y</span><span class="p">()</span>  <span class="kr">then</span>
-<a id="__codelineno-53-12" name="__codelineno-53-12" href="#__codelineno-53-12"></a>                 <span class="kr">if</span> <span class="n">ball</span><span class="p">.</span><span class="n">placementPos</span><span class="p">():</span><span class="n">x</span><span class="p">()</span><span class="o">+</span><span class="mi">250</span><span class="o">&lt;</span><span class="mi">600</span> <span class="kr">then</span>
-<a id="__codelineno-53-13" name="__codelineno-53-13" href="#__codelineno-53-13"></a>                   <span class="kr">return</span> <span class="n">CGeoPoint</span><span class="p">(</span><span class="n">ball</span><span class="p">.</span><span class="n">placementPos</span><span class="p">():</span><span class="n">x</span><span class="p">()</span><span class="o">+</span><span class="mi">250</span><span class="p">,</span> <span class="n">ball</span><span class="p">.</span><span class="n">placementPos</span><span class="p">():</span><span class="n">y</span><span class="p">())</span>
-<a id="__codelineno-53-14" name="__codelineno-53-14" href="#__codelineno-53-14"></a>                 <span class="kr">else</span>
-<a id="__codelineno-53-15" name="__codelineno-53-15" href="#__codelineno-53-15"></a>                   <span class="kr">return</span> <span class="n">CGeoPoint</span><span class="p">(</span><span class="n">ball</span><span class="p">.</span><span class="n">placementPos</span><span class="p">():</span><span class="n">x</span><span class="p">()</span><span class="o">-</span><span class="mi">250</span><span class="p">,</span> <span class="n">ball</span><span class="p">.</span><span class="n">placementPos</span><span class="p">():</span><span class="n">y</span><span class="p">())</span>
-<a id="__codelineno-53-16" name="__codelineno-53-16" href="#__codelineno-53-16"></a>                 <span class="kr">end</span>
-<a id="__codelineno-53-17" name="__codelineno-53-17" href="#__codelineno-53-17"></a>               <span class="kr">end</span>
-<a id="__codelineno-53-18" name="__codelineno-53-18" href="#__codelineno-53-18"></a>               <span class="c1">--放球点在右上</span>
-<a id="__codelineno-53-19" name="__codelineno-53-19" href="#__codelineno-53-19"></a>               <span class="kr">if</span> <span class="n">ball</span><span class="p">.</span><span class="n">posX</span><span class="p">()</span> <span class="o">&lt;=</span> <span class="n">ball</span><span class="p">.</span><span class="n">placementPos</span><span class="p">():</span><span class="n">x</span><span class="p">()</span> <span class="ow">and</span>  <span class="n">ball</span><span class="p">.</span><span class="n">posY</span><span class="p">()</span> <span class="o">&gt;</span><span class="n">ball</span><span class="p">.</span><span class="n">placementPos</span><span class="p">():</span><span class="n">y</span><span class="p">()</span> <span class="ow">and</span> <span class="n">ball</span><span class="p">.</span><span class="n">placementPos</span><span class="p">():</span><span class="n">x</span><span class="p">()</span><span class="o">-</span><span class="n">ball</span><span class="p">.</span><span class="n">posX</span><span class="p">()</span><span class="o">&gt;</span> <span class="n">ball</span><span class="p">.</span><span class="n">posY</span><span class="p">()</span><span class="o">-</span><span class="n">ball</span><span class="p">.</span><span class="n">placementPos</span><span class="p">():</span><span class="n">y</span><span class="p">()</span>  <span class="kr">then</span>
-<a id="__codelineno-53-20" name="__codelineno-53-20" href="#__codelineno-53-20"></a>                  <span class="kr">if</span> <span class="n">ball</span><span class="p">.</span><span class="n">placementPos</span><span class="p">():</span><span class="n">y</span><span class="p">()</span><span class="o">+</span><span class="mi">250</span><span class="o">&lt;</span><span class="mi">450</span> <span class="kr">then</span> 
-<a id="__codelineno-53-21" name="__codelineno-53-21" href="#__codelineno-53-21"></a>                    <span class="kr">return</span> <span class="n">CGeoPoint</span><span class="p">(</span><span class="n">ball</span><span class="p">.</span><span class="n">placementPos</span><span class="p">():</span><span class="n">x</span><span class="p">(),</span> <span class="n">ball</span><span class="p">.</span><span class="n">placementPos</span><span class="p">():</span><span class="n">y</span><span class="p">()</span><span class="o">+</span><span class="mi">250</span><span class="p">)</span>
-<a id="__codelineno-53-22" name="__codelineno-53-22" href="#__codelineno-53-22"></a>                  <span class="kr">else</span> 
-<a id="__codelineno-53-23" name="__codelineno-53-23" href="#__codelineno-53-23"></a>                    <span class="kr">return</span> <span class="n">CGeoPoint</span><span class="p">(</span><span class="n">ball</span><span class="p">.</span><span class="n">placementPos</span><span class="p">():</span><span class="n">x</span><span class="p">(),</span> <span class="n">ball</span><span class="p">.</span><span class="n">placementPos</span><span class="p">():</span><span class="n">y</span><span class="p">()</span><span class="o">-</span><span class="mi">250</span><span class="p">)</span>
-<a id="__codelineno-53-24" name="__codelineno-53-24" href="#__codelineno-53-24"></a>                  <span class="kr">end</span>
-<a id="__codelineno-53-25" name="__codelineno-53-25" href="#__codelineno-53-25"></a>               <span class="kr">end</span>
-<a id="__codelineno-53-26" name="__codelineno-53-26" href="#__codelineno-53-26"></a>               <span class="kr">if</span> <span class="n">ball</span><span class="p">.</span><span class="n">posX</span><span class="p">()</span> <span class="o">&lt;=</span> <span class="n">ball</span><span class="p">.</span><span class="n">placementPos</span><span class="p">():</span><span class="n">x</span><span class="p">()</span> <span class="ow">and</span>  <span class="n">ball</span><span class="p">.</span><span class="n">posY</span><span class="p">()</span> <span class="o">&gt;</span><span class="n">ball</span><span class="p">.</span><span class="n">placementPos</span><span class="p">():</span><span class="n">y</span><span class="p">()</span> <span class="ow">and</span> <span class="n">ball</span><span class="p">.</span><span class="n">placementPos</span><span class="p">():</span><span class="n">x</span><span class="p">()</span><span class="o">-</span><span class="n">ball</span><span class="p">.</span><span class="n">posX</span><span class="p">()</span><span class="o">&lt;=</span> <span class="n">ball</span><span class="p">.</span><span class="n">posY</span><span class="p">()</span><span class="o">-</span><span class="n">ball</span><span class="p">.</span><span class="n">placementPos</span><span class="p">():</span><span class="n">y</span><span class="p">()</span>  <span class="kr">then</span>
-<a id="__codelineno-53-27" name="__codelineno-53-27" href="#__codelineno-53-27"></a>                  <span class="kr">if</span> <span class="n">ball</span><span class="p">.</span><span class="n">placementPos</span><span class="p">():</span><span class="n">x</span><span class="p">()</span><span class="o">-</span><span class="mi">250</span><span class="o">&gt;-</span><span class="mi">600</span> <span class="kr">then</span>
-<a id="__codelineno-53-28" name="__codelineno-53-28" href="#__codelineno-53-28"></a>                    <span class="kr">return</span> <span class="n">CGeoPoint</span><span class="p">(</span><span class="n">ball</span><span class="p">.</span><span class="n">placementPos</span><span class="p">():</span><span class="n">x</span><span class="p">()</span><span class="o">-</span><span class="mi">250</span><span class="p">,</span> <span class="n">ball</span><span class="p">.</span><span class="n">placementPos</span><span class="p">():</span><span class="n">y</span><span class="p">())</span>
-<a id="__codelineno-53-29" name="__codelineno-53-29" href="#__codelineno-53-29"></a>                  <span class="kr">else</span>
-<a id="__codelineno-53-30" name="__codelineno-53-30" href="#__codelineno-53-30"></a>                    <span class="kr">return</span> <span class="n">CGeoPoint</span><span class="p">(</span><span class="n">ball</span><span class="p">.</span><span class="n">placementPos</span><span class="p">():</span><span class="n">x</span><span class="p">()</span><span class="o">+</span><span class="mi">250</span><span class="p">,</span> <span class="n">ball</span><span class="p">.</span><span class="n">placementPos</span><span class="p">():</span><span class="n">y</span><span class="p">())</span>
-<a id="__codelineno-53-31" name="__codelineno-53-31" href="#__codelineno-53-31"></a>                  <span class="kr">end</span>
-<a id="__codelineno-53-32" name="__codelineno-53-32" href="#__codelineno-53-32"></a>               <span class="kr">end</span>
-<a id="__codelineno-53-33" name="__codelineno-53-33" href="#__codelineno-53-33"></a>               <span class="c1">--放球点在左下</span>
-<a id="__codelineno-53-34" name="__codelineno-53-34" href="#__codelineno-53-34"></a>               <span class="kr">if</span> <span class="n">ball</span><span class="p">.</span><span class="n">posX</span><span class="p">()</span> <span class="o">&gt;</span> <span class="n">ball</span><span class="p">.</span><span class="n">placementPos</span><span class="p">():</span><span class="n">x</span><span class="p">()</span> <span class="ow">and</span>  <span class="n">ball</span><span class="p">.</span><span class="n">posY</span><span class="p">()</span> <span class="o">&lt;=</span><span class="n">ball</span><span class="p">.</span><span class="n">placementPos</span><span class="p">():</span><span class="n">y</span><span class="p">()</span> <span class="ow">and</span> <span class="n">ball</span><span class="p">.</span><span class="n">posX</span><span class="p">()</span><span class="o">-</span><span class="n">ball</span><span class="p">.</span><span class="n">placementPos</span><span class="p">():</span><span class="n">x</span><span class="p">()</span><span class="o">&gt;</span> <span class="n">ball</span><span class="p">.</span><span class="n">placementPos</span><span class="p">():</span><span class="n">y</span><span class="p">()</span><span class="o">-</span><span class="n">ball</span><span class="p">.</span><span class="n">posY</span><span class="p">()</span>  <span class="kr">then</span>
-<a id="__codelineno-53-35" name="__codelineno-53-35" href="#__codelineno-53-35"></a>                 <span class="kr">if</span> <span class="n">ball</span><span class="p">.</span><span class="n">placementPos</span><span class="p">():</span><span class="n">y</span><span class="p">()</span><span class="o">-</span><span class="mi">250</span><span class="o">&gt;-</span><span class="mi">450</span> <span class="kr">then</span> 
-<a id="__codelineno-53-36" name="__codelineno-53-36" href="#__codelineno-53-36"></a>                    <span class="kr">return</span> <span class="n">CGeoPoint</span><span class="p">(</span><span class="n">ball</span><span class="p">.</span><span class="n">placementPos</span><span class="p">():</span><span class="n">x</span><span class="p">(),</span> <span class="n">ball</span><span class="p">.</span><span class="n">placementPos</span><span class="p">():</span><span class="n">y</span><span class="p">()</span><span class="o">-</span><span class="mi">250</span><span class="p">)</span>
-<a id="__codelineno-53-37" name="__codelineno-53-37" href="#__codelineno-53-37"></a>                 <span class="kr">else</span> 
-<a id="__codelineno-53-38" name="__codelineno-53-38" href="#__codelineno-53-38"></a>                    <span class="kr">return</span> <span class="n">CGeoPoint</span><span class="p">(</span><span class="n">ball</span><span class="p">.</span><span class="n">placementPos</span><span class="p">():</span><span class="n">x</span><span class="p">(),</span> <span class="n">ball</span><span class="p">.</span><span class="n">placementPos</span><span class="p">():</span><span class="n">y</span><span class="p">()</span><span class="o">+</span><span class="mi">250</span><span class="p">)</span>
-<a id="__codelineno-53-39" name="__codelineno-53-39" href="#__codelineno-53-39"></a>                 <span class="kr">end</span>
-<a id="__codelineno-53-40" name="__codelineno-53-40" href="#__codelineno-53-40"></a>               <span class="kr">end</span>
-<a id="__codelineno-53-41" name="__codelineno-53-41" href="#__codelineno-53-41"></a>               <span class="kr">if</span> <span class="n">ball</span><span class="p">.</span><span class="n">posX</span><span class="p">()</span> <span class="o">&gt;</span> <span class="n">ball</span><span class="p">.</span><span class="n">placementPos</span><span class="p">():</span><span class="n">x</span><span class="p">()</span> <span class="ow">and</span>  <span class="n">ball</span><span class="p">.</span><span class="n">posY</span><span class="p">()</span> <span class="o">&lt;=</span><span class="n">ball</span><span class="p">.</span><span class="n">placementPos</span><span class="p">():</span><span class="n">y</span><span class="p">()</span> <span class="ow">and</span> <span class="n">ball</span><span class="p">.</span><span class="n">posX</span><span class="p">()</span><span class="o">-</span><span class="n">ball</span><span class="p">.</span><span class="n">placementPos</span><span class="p">():</span><span class="n">x</span><span class="p">()</span><span class="o">&lt;=</span> <span class="n">ball</span><span class="p">.</span><span class="n">placementPos</span><span class="p">():</span><span class="n">y</span><span class="p">()</span><span class="o">-</span><span class="n">ball</span><span class="p">.</span><span class="n">posY</span><span class="p">()</span>  <span class="kr">then</span>
-<a id="__codelineno-53-42" name="__codelineno-53-42" href="#__codelineno-53-42"></a>                 <span class="kr">if</span> <span class="n">ball</span><span class="p">.</span><span class="n">placementPos</span><span class="p">():</span><span class="n">x</span><span class="p">()</span><span class="o">+</span><span class="mi">250</span><span class="o">&lt;</span><span class="mi">600</span> <span class="kr">then</span>
-<a id="__codelineno-53-43" name="__codelineno-53-43" href="#__codelineno-53-43"></a>                    <span class="kr">return</span> <span class="n">CGeoPoint</span><span class="p">(</span><span class="n">ball</span><span class="p">.</span><span class="n">placementPos</span><span class="p">():</span><span class="n">x</span><span class="p">()</span><span class="o">+</span><span class="mi">250</span><span class="p">,</span> <span class="n">ball</span><span class="p">.</span><span class="n">placementPos</span><span class="p">():</span><span class="n">y</span><span class="p">())</span>
-<a id="__codelineno-53-44" name="__codelineno-53-44" href="#__codelineno-53-44"></a>                 <span class="kr">else</span>
-<a id="__codelineno-53-45" name="__codelineno-53-45" href="#__codelineno-53-45"></a>                    <span class="kr">return</span> <span class="n">CGeoPoint</span><span class="p">(</span><span class="n">ball</span><span class="p">.</span><span class="n">placementPos</span><span class="p">():</span><span class="n">x</span><span class="p">()</span><span class="o">-</span><span class="mi">250</span><span class="p">,</span> <span class="n">ball</span><span class="p">.</span><span class="n">placementPos</span><span class="p">():</span><span class="n">y</span><span class="p">())</span>
-<a id="__codelineno-53-46" name="__codelineno-53-46" href="#__codelineno-53-46"></a>                 <span class="kr">end</span>
-<a id="__codelineno-53-47" name="__codelineno-53-47" href="#__codelineno-53-47"></a>               <span class="kr">end</span>
-<a id="__codelineno-53-48" name="__codelineno-53-48" href="#__codelineno-53-48"></a>               <span class="c1">--放球点在右下</span>
-<a id="__codelineno-53-49" name="__codelineno-53-49" href="#__codelineno-53-49"></a>               <span class="kr">if</span> <span class="n">ball</span><span class="p">.</span><span class="n">posX</span><span class="p">()</span> <span class="o">&lt;=</span> <span class="n">ball</span><span class="p">.</span><span class="n">placementPos</span><span class="p">():</span><span class="n">x</span><span class="p">()</span> <span class="ow">and</span>  <span class="n">ball</span><span class="p">.</span><span class="n">posY</span><span class="p">()</span> <span class="o">&lt;=</span><span class="n">ball</span><span class="p">.</span><span class="n">placementPos</span><span class="p">():</span><span class="n">y</span><span class="p">()</span> <span class="ow">and</span> <span class="n">ball</span><span class="p">.</span><span class="n">posX</span><span class="p">()</span><span class="o">-</span><span class="n">ball</span><span class="p">.</span><span class="n">placementPos</span><span class="p">():</span><span class="n">x</span><span class="p">()</span><span class="o">&gt;</span> <span class="n">ball</span><span class="p">.</span><span class="n">placementPos</span><span class="p">():</span><span class="n">y</span><span class="p">()</span><span class="o">-</span><span class="n">ball</span><span class="p">.</span><span class="n">posY</span><span class="p">()</span>  <span class="kr">then</span>
-<a id="__codelineno-53-50" name="__codelineno-53-50" href="#__codelineno-53-50"></a>                 <span class="kr">if</span>  <span class="n">ball</span><span class="p">.</span><span class="n">placementPos</span><span class="p">():</span><span class="n">y</span><span class="p">()</span><span class="o">-</span><span class="mi">250</span><span class="o">&gt;-</span><span class="mi">450</span> <span class="kr">then</span>
-<a id="__codelineno-53-51" name="__codelineno-53-51" href="#__codelineno-53-51"></a>                   <span class="kr">return</span> <span class="n">CGeoPoint</span><span class="p">(</span><span class="n">ball</span><span class="p">.</span><span class="n">placementPos</span><span class="p">():</span><span class="n">x</span><span class="p">(),</span> <span class="n">ball</span><span class="p">.</span><span class="n">placementPos</span><span class="p">():</span><span class="n">y</span><span class="p">()</span><span class="o">-</span><span class="mi">250</span><span class="p">)</span>
-<a id="__codelineno-53-52" name="__codelineno-53-52" href="#__codelineno-53-52"></a>                 <span class="kr">else</span>
-<a id="__codelineno-53-53" name="__codelineno-53-53" href="#__codelineno-53-53"></a>                   <span class="kr">return</span> <span class="n">CGeoPoint</span><span class="p">(</span><span class="n">ball</span><span class="p">.</span><span class="n">placementPos</span><span class="p">():</span><span class="n">x</span><span class="p">(),</span> <span class="n">ball</span><span class="p">.</span><span class="n">placementPos</span><span class="p">():</span><span class="n">y</span><span class="p">()</span><span class="o">+</span><span class="mi">250</span><span class="p">)</span>
-<a id="__codelineno-53-54" name="__codelineno-53-54" href="#__codelineno-53-54"></a>                 <span class="kr">end</span>
-<a id="__codelineno-53-55" name="__codelineno-53-55" href="#__codelineno-53-55"></a>               <span class="kr">end</span>
-<a id="__codelineno-53-56" name="__codelineno-53-56" href="#__codelineno-53-56"></a>               <span class="kr">if</span> <span class="n">ball</span><span class="p">.</span><span class="n">posX</span><span class="p">()</span> <span class="o">&lt;=</span> <span class="n">ball</span><span class="p">.</span><span class="n">placementPos</span><span class="p">():</span><span class="n">x</span><span class="p">()</span> <span class="ow">and</span>  <span class="n">ball</span><span class="p">.</span><span class="n">posY</span><span class="p">()</span> <span class="o">&lt;=</span><span class="n">ball</span><span class="p">.</span><span class="n">placementPos</span><span class="p">():</span><span class="n">y</span><span class="p">()</span> <span class="ow">and</span> <span class="n">ball</span><span class="p">.</span><span class="n">posX</span><span class="p">()</span><span class="o">-</span><span class="n">ball</span><span class="p">.</span><span class="n">placementPos</span><span class="p">():</span><span class="n">x</span><span class="p">()</span><span class="o">&lt;=</span> <span class="n">ball</span><span class="p">.</span><span class="n">placementPos</span><span class="p">():</span><span class="n">y</span><span class="p">()</span><span class="o">-</span><span class="n">ball</span><span class="p">.</span><span class="n">posY</span><span class="p">()</span>  <span class="kr">then</span>
-<a id="__codelineno-53-57" name="__codelineno-53-57" href="#__codelineno-53-57"></a>                 <span class="kr">if</span> <span class="n">ball</span><span class="p">.</span><span class="n">placementPos</span><span class="p">():</span><span class="n">x</span><span class="p">()</span><span class="o">-</span><span class="mi">250</span><span class="o">&gt;-</span><span class="mi">600</span> <span class="kr">then</span>
-<a id="__codelineno-53-58" name="__codelineno-53-58" href="#__codelineno-53-58"></a>                   <span class="kr">return</span> <span class="n">CGeoPoint</span><span class="p">(</span><span class="n">ball</span><span class="p">.</span><span class="n">placementPos</span><span class="p">():</span><span class="n">x</span><span class="p">()</span><span class="o">-</span><span class="mi">250</span><span class="p">,</span> <span class="n">ball</span><span class="p">.</span><span class="n">placementPos</span><span class="p">():</span><span class="n">y</span><span class="p">())</span>
-<a id="__codelineno-53-59" name="__codelineno-53-59" href="#__codelineno-53-59"></a>                 <span class="kr">else</span>
-<a id="__codelineno-53-60" name="__codelineno-53-60" href="#__codelineno-53-60"></a>                   <span class="kr">return</span> <span class="n">CGeoPoint</span><span class="p">(</span><span class="n">ball</span><span class="p">.</span><span class="n">placementPos</span><span class="p">():</span><span class="n">x</span><span class="p">()</span><span class="o">+</span><span class="mi">250</span><span class="p">,</span> <span class="n">ball</span><span class="p">.</span><span class="n">placementPos</span><span class="p">():</span><span class="n">y</span><span class="p">())</span>
-<a id="__codelineno-53-61" name="__codelineno-53-61" href="#__codelineno-53-61"></a>                 <span class="kr">end</span>
-<a id="__codelineno-53-62" name="__codelineno-53-62" href="#__codelineno-53-62"></a>               <span class="kr">end</span>
-<a id="__codelineno-53-63" name="__codelineno-53-63" href="#__codelineno-53-63"></a>        <span class="kr">end</span>
-<a id="__codelineno-53-64" name="__codelineno-53-64" href="#__codelineno-53-64"></a><span class="kr">end</span>
+<p><code>nearest()</code>函数：用于返回对方车辆中距离球最近的车辆的位置与方向。
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="kr">function</span> <span class="nf">nearest</span><span class="p">()</span>
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>    <span class="kd">local</span> <span class="n">nearDist</span> <span class="o">=</span> <span class="mi">99999</span>
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>    <span class="kd">local</span> <span class="n">nearNum</span> <span class="o">=</span> <span class="mi">0</span>
+<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>    <span class="kr">for</span> <span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="mi">6</span> <span class="kr">do</span>
+<a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a>        <span class="kd">local</span> <span class="n">theDist</span> <span class="o">=</span> <span class="n">enemy</span><span class="p">.</span><span class="n">pos</span><span class="p">(</span><span class="n">i</span><span class="p">):</span><span class="n">dist</span><span class="p">(</span><span class="n">ball</span><span class="p">.</span><span class="n">pos</span><span class="p">())</span>
+<a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a>        <span class="kr">if</span> <span class="n">enemy</span><span class="p">.</span><span class="n">valid</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="ow">and</span> <span class="n">nearDist</span> <span class="o">&gt;</span> <span class="n">theDist</span> <span class="kr">then</span>
+<a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a>            <span class="n">nearDist</span> <span class="o">=</span> <span class="n">theDist</span>
+<a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a>            <span class="n">nearNum</span> <span class="o">=</span> <span class="n">i</span>
+<a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a>        <span class="kr">end</span>
+<a id="__codelineno-11-10" name="__codelineno-11-10" href="#__codelineno-11-10"></a>    <span class="kr">end</span>
+<a id="__codelineno-11-11" name="__codelineno-11-11" href="#__codelineno-11-11"></a>    <span class="kr">return</span> <span class="n">pos</span><span class="p">(</span><span class="n">nearNum</span><span class="p">),</span> <span class="n">dir</span><span class="p">(</span><span class="n">nearNum</span><span class="p">)</span>
+<a id="__codelineno-11-12" name="__codelineno-11-12" href="#__codelineno-11-12"></a><span class="kr">end</span>
 </code></pre></div></p>
 </li>
 </ul>
@@ -2814,6 +2366,44 @@
       
         <footer class="md-footer">
   
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="页脚" >
+        
+          
+          <a href="../player.lua%E4%B8%AD%E7%9A%84%E5%B7%A5%E5%85%B7%E5%87%BD%E6%95%B0/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 2.2.6.4 &amp;nbsp; player.lua中的工具函数">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                上一页
+              </span>
+              <div class="md-ellipsis">
+                2.2.6.4 &nbsp; player.lua中的工具函数
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../Rolematch%E6%A8%A1%E5%9D%97/" class="md-footer__link md-footer__link--next" aria-label="下一页: 2.2.7 &amp;nbsp; rolematch模块">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                下一页
+              </span>
+              <div class="md-ellipsis">
+                2.2.7 &nbsp; rolematch模块
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
     
   
   <div class="md-footer-meta md-typeset">
