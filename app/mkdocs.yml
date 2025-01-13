@@ -217,17 +217,17 @@ nav:
       - 2.2.2 &nbsp; 特殊的lua: chapter_software/sub_chapter_lua/config.md
       - 2.2.3 &nbsp; 脚本选择: chapter_software/sub_chapter_lua/脚本选择.md
       - 2.2.4 &nbsp; 脚本运行: chapter_software/sub_chapter_lua/脚本运行.md
-      - 2.2.4 &nbsp; SRC中的lua: chapter_software/sub_chapter_lua/lua_in_SRC.md
-      - 2.2.5 &nbsp; lua中的skill: chapter_software/sub_chapter_lua/lua中的skill.md
-      - 2.2.6 &nbsp; lua中的工具函数: 
+      - 2.2.5 &nbsp; SRC中的lua: chapter_software/sub_chapter_lua/lua_in_SRC.md
+      - 2.2.6 &nbsp; lua中的skill: chapter_software/sub_chapter_lua/lua中的skill.md
+      - 2.2.7 &nbsp; lua中的工具函数: 
         - chapter_software/sub_chapter_lua/lua中的工具函数.md
-        - 2.2.6.1 &nbsp; ball.lua中的工具函数: chapter_software/sub_chapter_lua/ball.lua中的工具函数.md
-        - 2.2.6.2 &nbsp; cond.lua中的工具函数: chapter_software/sub_chapter_lua/cond.lua中的工具函数.md
-        - 2.2.6.3 &nbsp; dir.lua中的工具函数: chapter_software/sub_chapter_lua/dir.lua中的工具函数.md
-        - 2.2.6.4 &nbsp; player.lua中的工具函数: chapter_software/sub_chapter_lua/player.lua中的工具函数.md
-        - 2.2.6.5 &nbsp; enemy.lua中的工具函数: chapter_software/sub_chapter_lua/enemy.lua中的工具函数.md
-      - 2.2.7 &nbsp; rolematch模块: chapter_software/sub_chapter_lua/Rolematch模块.md
-      - 2.2.8 &nbsp; debug: chapter_software\sub_chapter_lua\其它.md
+        - 2.2.7.1 &nbsp; ball.lua中的工具函数: chapter_software/sub_chapter_lua/ball.lua中的工具函数.md
+        - 2.2.7.2 &nbsp; cond.lua中的工具函数: chapter_software/sub_chapter_lua/cond.lua中的工具函数.md
+        - 2.2.7.3 &nbsp; dir.lua中的工具函数: chapter_software/sub_chapter_lua/dir.lua中的工具函数.md
+        - 2.2.7.4 &nbsp; player.lua中的工具函数: chapter_software/sub_chapter_lua/player.lua中的工具函数.md
+        - 2.2.7.5 &nbsp; enemy.lua中的工具函数: chapter_software/sub_chapter_lua/enemy.lua中的工具函数.md
+      - 2.2.8 &nbsp; rolematch模块: chapter_software/sub_chapter_lua/Rolematch模块.md
+      - 2.2.9 &nbsp; debug: chapter_software\sub_chapter_lua\其它.md
     - 2.3 &nbsp; 策略框架: 
       - chapter_software/sub_chapter_skill/index.md
       - 2.3.1 &nbsp; advance: chapter_software/sub_chapter_skill/advance.md
