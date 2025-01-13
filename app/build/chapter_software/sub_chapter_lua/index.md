@@ -1,6 +1,6 @@
 # Introduction
 首先，我们简单介绍一下lua部分的大致框架
-![](lua_in_SRC.assets\index(2).png)
+![](lua_in_SRC.assets\index.png)
 
 2.2.1小节会简单介绍lua的基本语法，属于开始学习前的预备知识
 
