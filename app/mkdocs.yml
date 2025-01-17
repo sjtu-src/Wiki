@@ -220,7 +220,7 @@ nav:
       - 2.2.5 &nbsp; SRC中的lua: chapter_software/sub_chapter_lua/lua_in_SRC.md
       - 2.2.6 &nbsp; lua中的skill: chapter_software/sub_chapter_lua/lua中的skill.md
       - 2.2.7 &nbsp; lua中的工具函数: 
-          chapter_software/sub_chapter_lua/lua中的工具函数.md
+        - chapter_software/sub_chapter_lua/lua中的工具函数.md
         - 2.2.7.1 &nbsp; ball.lua中的工具函数: chapter_software/sub_chapter_lua/ball.lua中的工具函数.md
         - 2.2.7.2 &nbsp; cond.lua中的工具函数: chapter_software/sub_chapter_lua/cond.lua中的工具函数.md
         - 2.2.7.3 &nbsp; dir.lua中的工具函数: chapter_software/sub_chapter_lua/dir.lua中的工具函数.md
