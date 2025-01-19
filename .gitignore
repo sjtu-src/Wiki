@@ -8,6 +8,7 @@
 # mkdocs files
 .cache/
 docs/overrides/
+.obsidian/
 
 # build
 site/

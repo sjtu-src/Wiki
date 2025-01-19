@@ -24,6 +24,7 @@ theme:
     - content.code.copy
     - content.tabs.link
     - content.tooltips
+    - content.footnote.tooltips
     # - header.autohide
     # - navigation.expand
     - navigation.indexes
@@ -205,7 +206,7 @@ nav:
 
   - 第 2 章 &nbsp; &nbsp; 软件与算法:
     - chapter_software/index.md
-    - 2.0 &nbsp; 软件开发统一规范: chapter_software/code-style-guide.md
+    - 2.0 &nbsp; 软件开发统一规范: chapter_software/软件开发统一规范.md
     - 2.1 &nbsp; core:
       - 2.1.1 &nbsp; 跑一个程序发生了什么: chapter_software/sub_chapter_cpp/跑一个程序发生了什么.md
       - 2.1.2 &nbsp; 单例与指针: chapter_software/sub_chapter_cpp/单例与指针.md
@@ -220,7 +221,7 @@ nav:
       - 2.2.5 &nbsp; SRC中的lua: chapter_software/sub_chapter_lua/lua_in_SRC.md
       - 2.2.6 &nbsp; lua中的skill: chapter_software/sub_chapter_lua/lua中的skill.md
       - 2.2.7 &nbsp; lua中的工具函数: 
-        - chapter_software/sub_chapter_lua/lua中的工具函数.md
+        - chapter_software/sub_chapter_lua/index.md
         - 2.2.7.1 &nbsp; ball.lua中的工具函数: chapter_software/sub_chapter_lua/ball.lua中的工具函数.md
         - 2.2.7.2 &nbsp; cond.lua中的工具函数: chapter_software/sub_chapter_lua/cond.lua中的工具函数.md
         - 2.2.7.3 &nbsp; dir.lua中的工具函数: chapter_software/sub_chapter_lua/dir.lua中的工具函数.md

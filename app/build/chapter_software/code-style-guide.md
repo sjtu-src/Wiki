@@ -6,7 +6,7 @@
 
 ## 变量
 
-*  **Classes, structures, namespaces, unions, enumerates, "typename"-type template parameters, and typedefs** names uses `CamelCase` with a capital letter.
+* **Classes, structures, namespaces, unions, enumerates, "typename"-type template parameters, and typedefs** names uses `CamelCase` with a capital letter.
 
   ```cpp
   // Incorrect
@@ -19,7 +19,7 @@
   class EventHandler;
   ```
 
-*  **Constant variables** uses `ALL_CAPS_WITH_UNDERSCORES`. Constant variables include _static const_, _const class members_, _const_ global variables, and _const_ enumerations.
+* **Constant variables** uses `ALL_CAPS_WITH_UNDERSCORES`. Constant variables include _static const_, _const class members_, _const_ global variables, and _const_ enumerations.
 
 * **All variable** names are `lowercase_with_underscores`
   
