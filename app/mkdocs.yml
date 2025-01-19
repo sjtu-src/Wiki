@@ -226,6 +226,7 @@ nav:
         - 2.2.7.3 &nbsp; dir.lua中的工具函数: chapter_software/sub_chapter_lua/dir.lua中的工具函数.md
         - 2.2.7.4 &nbsp; player.lua中的工具函数: chapter_software/sub_chapter_lua/player.lua中的工具函数.md
         - 2.2.7.5 &nbsp; enemy.lua中的工具函数: chapter_software/sub_chapter_lua/enemy.lua中的工具函数.md
+        - 2.2.7.6 &nbsp; pos.lua中的工具函数: chapter_software/sub_chapter_lua/pos.lua中的工具函数.md
       - 2.2.8 &nbsp; rolematch模块: chapter_software/sub_chapter_lua/Rolematch模块.md
       - 2.2.9 &nbsp; debug: chapter_software\sub_chapter_lua\其它.md
     - 2.3 &nbsp; 策略框架: 
