@@ -1,7 +1,7 @@
-# config.lua
+# Config.lua
 
 !!! abstract
-	config.lua作为特殊的lua文件,是整个框架的 **核心**
+	Config.lua作为特殊的lua文件,是整个框架的 **核心**
 
 可以理解为控制台。
 
