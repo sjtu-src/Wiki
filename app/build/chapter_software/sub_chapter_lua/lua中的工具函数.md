@@ -12,16 +12,19 @@ bit.lua文件定义了一个名为`bit`的表（在Lua中类似类的概念）�
 
 1. 初始化`bit.data32`
    - 在这段代码开始部分：
+
    ```lua
    bit = {data32 = {}}
    for i = 1,32 do
        bit.data32[i]=2^(32 - i)
    end
    ```
+
    - 这里创建了一个名为`bit`的表，其中包含一个名为`data32`的子表。这个子表用于后续的二进制到十进制转换。通过循环，计算并存储了从`2^31`到`2^0`的值到`bit.data32`表中。这些值将在二进制到十进制转换时作为权重使用。
 
 2. `d2b`函数（十进制到二进制转换）
    - 代码如下：
+
    ```lua
    function bit:d2b(arg)
        local tr = {}
@@ -36,10 +39,12 @@ bit.lua文件定义了一个名为`bit`的表（在Lua中类似类的概念）�
        return tr
    end
    ```
+
    - 这个函数接受一个十进制数`arg`作为参数。它通过与`bit.data32`中的值进行比较，将十进制数转换为一个32位的二进制表示形式存储在表`tr`中。如果`arg`大于等于当前的权重值（`self.data32[i]`），则相应位设为1，并从`arg`中减去该权重值；否则设为0。
 
 3. `b2d`函数（二进制到十进制转换）
    - 代码如下：
+
    ```lua
    function bit:b2d(arg)
        local nr = 0
@@ -51,10 +56,12 @@ bit.lua文件定义了一个名为`bit`的表（在Lua中类似类的概念）�
        return nr
    end
    ```
+
    - 这个函数接受一个表示二进制数的表`arg`作为参数。它通过遍历这个表，如果表中的元素为1，则将对应的权重值（`2^(32 - i)`）累加到`nr`中，最后返回转换后的十进制数。
 
 4. `_xor`函数（异或操作）
    - 代码如下：
+
    ```lua
    function bit:_xor(a,b)
        local op1 = self:d2b(a)
@@ -71,10 +78,12 @@ bit.lua文件定义了一个名为`bit`的表（在Lua中类似类的概念）�
        return self:b2d(r)
    end
    ```
+
    - 这个函数接受两个十进制数`a`和`b`作为参数。首先将`a`和`b`转换为二进制形式（使用`d2b`函数），然后对这两个二进制数的每一位进行异或操作（如果对应位相同则结果为0，不同则为1），最后将得到的二进制结果转换回十进制数并返回。
 
 5. `_and`函数（与操作）
    - 代码如下：
+
    ```lua
    function bit:_and(a,b)
        local op1 = self:d2b(a)
@@ -91,10 +100,12 @@ bit.lua文件定义了一个名为`bit`的表（在Lua中类似类的概念）�
        return self:b2d(r)
    end
    ```
+
    - 这个函数接受两个十进制数`a`和`b`作为参数。将`a`和`b`转换为二进制后，对每一位进行与操作（只有当两位都为1时结果为1），最后将二进制结果转换回十进制数返回。
 
 6. `_or`函数（或操作）
    - 代码如下：
+
    ```lua
    function bit:_or(a,b)
        local op1 = self:d2b(a)
@@ -111,10 +122,12 @@ bit.lua文件定义了一个名为`bit`的表（在Lua中类似类的概念）�
        return self:b2d(r)
    end
    ```
+
    - 这个函数接受两个十进制数`a`和`b`作为参数。将`a`和`b`转换为二进制后，对每一位进行或操作（只要有一位为1结果就为1），最后将二进制结果转换回十进制数返回。
 
 7. `_not`函数（非操作）
    - 代码如下：
+
    ```lua
    function bit:_not(a)
        local op1 = self:d2b(a)
@@ -130,10 +143,12 @@ bit.lua文件定义了一个名为`bit`的表（在Lua中类似类的概念）�
        return self:b2d(r)
    end
    ```
+
    - 这个函数接受一个十进制数`a`作为参数。将`a`转换为二进制后，对每一位进行非操作（1变为0，0变为1），然后将二进制结果转换回十进制数返回。
 
 8. `_rshift`函数（右移操作）
    - 代码如下：
+
    ```lua
    function bit:_rshift(a,n)
        local op1 = self:d2b(a)
@@ -151,10 +166,12 @@ bit.lua文件定义了一个名为`bit`的表（在Lua中类似类的概念）�
        return self:b2d(r)
    end
    ```
+
    - 这个函数接受一个十进制数`a`和一个位移量`n`作为参数。将`a`转换为二进制后，循环`n`次，每次将二进制数的每一位向右移动一位（最左边的位补0），最后将得到的二进制结果转换回十进制数返回。
 
 9. `_lshift`函数（左移操作）
    - 代码如下：
+
    ```lua
    function bit:_lshift(a,n)
        local op1 = self:d2b(a)
@@ -172,10 +189,12 @@ bit.lua文件定义了一个名为`bit`的表（在Lua中类似类的概念）�
        return self:b2d(r)
    end
    ```
+
    - 这个函数接受一个十进制数`a`和一个位移量`n`作为参数。将`a`转换为二进制后，循环`n`次，每次将二进制数的每一位向左移动一位（最右边的位补0），最后将得到的二进制结果转换回十进制数返回。
 
 10. `print`函数
    - 代码如下：
+
    ```lua
    function bit:print(ta)
        local sr = ""
@@ -185,6 +204,7 @@ bit.lua文件定义了一个名为`bit`的表（在Lua中类似类的概念）�
        print(sr)
    end
    ```
+
    - 这个函数接受一个表示二进制数的表`ta`作为参数。它将表中的元素连接成一个字符串，并打印这个字符串，从而以二进制形式输出这个数。
 
 ### bufcunt
@@ -218,6 +238,7 @@ file.lua文件主要定义了一些用于文件操作和打印表结构的函数
 
 1. **`open`函数**
    - 代码如下：
+
    ```lua
    function open(file_name, mode)
        -- local recFile
@@ -227,28 +248,34 @@ file.lua文件主要定义了一些用于文件操作和打印表结构的函数
        -- end
    end
    ```
+
    - 这个函数用于打开一个文件。它接受文件名`file_name`和打开模式`mode`作为参数。函数内部直接使用`io.open`来打开文件，并返回打开后的文件句柄。原本代码中有一个函数嵌套的结构，但注释掉了多余部分，实际功能就是直接打开文件并返回文件句柄。如果打开文件失败，将会返回`nil`以及错误信息（这是`io.open`的默认行为）。
 
 2. **`write`函数**
    - 代码如下：
+
    ```lua
    function write(rec_file, fmt,...)
        rec_file:write(string.format(fmt,...))
    end
    ```
+
    - 这个函数用于向已打开的文件写入内容。它接受文件句柄`rec_file`、格式化字符串`fmt`以及可变参数`...`。首先使用`string.format`根据给定的格式化字符串和参数生成要写入的字符串，然后通过文件句柄的`write`方法将内容写入文件。
 
 3. **`close`函数**
    - 代码如下：
+
    ```lua
    function close(rec_file)
        rec_file:close()
    end
    ```
+
    - 这个函数用于关闭已打开的文件。它接受文件句柄`rec_file`作为参数，并调用文件句柄的`close`方法来关闭文件，释放相关资源。
 
 4. **`print_r`函数（用于打印表结构）**
    - 代码如下：
+
    ```lua
    function print_r ( t )  
        local print_r_cache={}
@@ -284,6 +311,7 @@ file.lua文件主要定义了一些用于文件操作和打印表结构的函数
        print()
    end
    ```
+
    - 这个函数用于递归地打印表结构。
      - 首先，它创建了一个空表`print_r_cache`用于缓存已经处理过的表的字符串表示，避免循环引用时无限递归。
      - 然后定义了内部函数`sub_print_r`，这个函数接受一个表`t`和缩进字符串`indent`作为参数。如果表的字符串表示已经在缓存中，则只打印一个带`*`标记的表的字符串表示，表示已经处理过。否则，将表的字符串表示添加到缓存中。如果表是一个普通表，就遍历表中的键值对。如果值是一个表，则递归调用`sub_print_r`来打印嵌套表，并添加适当的缩进和括号来表示表的结构；如果值是一个字符串，则打印带有双引号的字符串；否则直接打印值的字符串表示。
@@ -291,9 +319,11 @@ file.lua文件主要定义了一些用于文件操作和打印表结构的函数
 
 5. **`table.print`的赋值**
    - 代码如下：
+
    ```lua
    table.print = print_r
    ```
+
    - 这行代码将`print_r`函数赋值给`table.print`，使得可以通过`table.print`来调用这个用于打印表结构的函数，这是一种方便的命名约定，让使用者可以更直观地知道这个函数是用于打印表的。
 
 ## worldmodel
@@ -370,6 +400,7 @@ end
 * kick.lua：与踢球有关的函数，用于判定是挑球还是平射等等
 
 * kp.lua：与平射有关的函数，可提供不同的平射力度，包括：
+
 ```lua
 function specified(p)--返回p的精确值
 function full()--全力，返回500
@@ -475,6 +506,7 @@ function fieldDefender() --返回防守清球时的角度精度
 * task.lua：与车所执行的任务有关的函数，包含了在opponent，play，skill的各个脚本中车辆调用的task函数，如射门、传球、防守、盯人等等
 
 这里简单介绍一下task中函数的基本架构，以传球函数pass()为例：
+
 ```lua
 function pass(role, power) --函数名
 	local idir,ikp
@@ -522,6 +554,7 @@ task.defendMiddle()
 
 
 ### 进攻型
+
 ```lua
 --跑位函数，CGeoPoint为要走的点, dir默认为射门朝向, ACC为加速度, flag为相关的任务标签。
 task.goCumRush(CGeoPoint, dir, ACC, flag)
