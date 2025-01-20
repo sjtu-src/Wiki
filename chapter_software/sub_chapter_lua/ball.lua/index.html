@@ -1,0 +1,2949 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Robocup Small Size League 教培系统">
+      
+      
+        <meta name="author" content="SYLG">
+      
+      
+        <link rel="canonical" href="https://sjtu-src.github.io/Wiki/chapter_software/sub_chapter_lua/ball.lua/">
+      
+      
+        <link rel="prev" href="../skill/">
+      
+      
+        <link rel="next" href="../cond.lua/">
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.svg">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.50">
+    
+    
+      
+        <title>2.2.7.1   ball.lua - SJTU-SRC Wiki</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.a40c8224.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+  
+  
+  
+  
+  <style>:root{--md-annotation-icon:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M22 12a10 10 0 0 1-10 10A10 10 0 0 1 2 12 10 10 0 0 1 12 2a10 10 0 0 1 10 10m-12 6 6-6-6-6-1.4 1.4 4.6 4.6-4.6 4.6z"/></svg>');}</style>
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+SC:300,300i,400,400i,700,700i%7CFira+Code:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Noto Sans SC";--md-code-font:"Fira Code"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+   <link href="../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../../assets/javascripts/glightbox.min.js"></script></head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+    </div>
+    <div data-md-component="announce">
+      
+        <aside class="md-banner">
+          <div class="md-banner__inner md-grid md-typeset">
+            
+            
+
+    
+
+<div class="banner-svg-container">
+    <div class="banner-svg">
+        <!-- SVG 图标 -->
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+            <path d="M480 32c0-12.9-7.8-24.6-19.8-29.6s-25.7-2.2-34.9 6.9L381.7 53c-48 48-113.1 75-181 75l-8.7 0-32 0-96 0c-35.3 0-64 28.7-64 64l0 96c0 35.3 28.7 64 64 64l0 128c0 17.7 14.3 32 32 32l64 0c17.7 0 32-14.3 32-32l0-128 8.7 0c67.9 0 133 27 181 75l43.6 43.6c9.2 9.2 22.9 11.9 34.9 6.9s19.8-16.6 19.8-29.6l0-147.6c18.6-8.8 32-32.5 32-60.4s-13.4-51.6-32-60.4L480 32zm-64 76.7L416 240l0 131.3C357.2 317.8 280.5 288 200.7 288l-8.7 0 0-96 8.7 0c79.8 0 156.5-29.8 215.3-83.3z"/></svg>
+    </div>
+    <div class="banner-announcements">
+        <span>2024秋季招新! QQ招新群号190085671</span>
+    </div>
+</div>
+
+
+
+          </div>
+          
+        </aside>
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../../.." title="SJTU-SRC Wiki" class="md-header__button md-logo" aria-label="SJTU-SRC Wiki" data-md-component="logo">
+      
+  <img src="../../../assets/images/logo.jpg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            SJTU-SRC Wiki
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              2.2.7.1 &nbsp; ball.lua
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="grey" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="分享" aria-label="分享" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/sjtu-src/Wiki" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8M97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    sjtu-src/Wiki
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="SJTU-SRC Wiki" class="md-nav__button md-logo" aria-label="SJTU-SRC Wiki" data-md-component="logo">
+      
+  <img src="../../../assets/images/logo.jpg" alt="logo">
+
+    </a>
+    SJTU-SRC Wiki
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/sjtu-src/Wiki" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8M97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    sjtu-src/Wiki
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../chapter_preface/" class="md-nav__link ">
+              
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+  
+  <span class="md-ellipsis">
+    第 0 章 &nbsp;  SJTU_SRC
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_1" id="__nav_1_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            第 0 章 &nbsp;  SJTU_SRC
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../chapter_preface/what_is_ssl/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    0.1. &nbsp; 什么是Robocup SSL
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../chapter_preface/%E4%B8%8A%E6%B5%B7%E4%BA%A4%E9%80%9A%E5%A4%A7%E5%AD%A6SRC%E8%B5%9B%E9%98%9F%E7%AB%A0%E7%A8%8B/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    0.2. &nbsp; SRC赛队章程
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../chapter_preface/about_the_book/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    0.3. &nbsp; 关于本教培系统
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../chapter_universal_build/" class="md-nav__link ">
+              
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m20.2 5.9.8-.8C19.6 3.7 17.8 3 16 3s-3.6.7-5 2.1l.8.8C13 4.8 14.5 4.2 16 4.2s3 .6 4.2 1.7m-.9.8c-.9-.9-2.1-1.4-3.3-1.4s-2.4.5-3.3 1.4l.8.8c.7-.7 1.6-1 2.5-1s1.8.3 2.5 1zM19 13h-2V9h-2v4H5a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-4a2 2 0 0 0-2-2M8 18H6v-2h2zm3.5 0h-2v-2h2zm3.5 0h-2v-2h2z"/></svg>
+  
+  <span class="md-ellipsis">
+    第 1 章 &nbsp; &nbsp; 实车调试流程
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            第 1 章 &nbsp; &nbsp; 实车调试流程
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../chapter_universal_build/%E5%BF%AB%E9%80%9F%E5%BC%80%E5%A7%8B/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1.1 &nbsp; 快速开始
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../chapter_universal_build/SRC%20%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%E6%95%99%E7%A8%8B/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1.2 &nbsp; 环境搭建
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../chapter_universal_build/falcon/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1.3 &nbsp; falcon
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../chapter_universal_build/%E8%A7%86%E8%A7%89%E6%9C%BA/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1.4 &nbsp; 视觉机
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_6" id="__nav_2_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    1.5 &nbsp; 裁判盒
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_6">
+            <span class="md-nav__icon md-icon"></span>
+            1.5 &nbsp; 裁判盒
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../chapter_universal_build/%E8%A3%81%E5%88%A4%E7%9B%92/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1.5.1 &nbsp; 裁判盒
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../chapter_universal_build/%E8%A3%81%E5%88%A4%E7%9B%92%E4%BD%BF%E7%94%A8%E9%80%9F%E6%88%90/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1.5.2 &nbsp; 裁判盒使用速成
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../chapter_universal_build/%E5%8F%91%E5%B0%84%E6%9C%BA%E4%B8%8E%E6%9C%BA%E5%99%A8%E4%BA%BA/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1.6 &nbsp; 发射机与机器人
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../chapter_universal_build/参数标定.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1.7 &nbsp; 参数标定
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../" class="md-nav__link ">
+              
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 9h5.5L13 3.5zM6 2h8l6 6v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4c0-1.11.89-2 2-2m.12 13.5 3.74 3.74 1.42-1.41-2.33-2.33 2.33-2.33-1.42-1.41zm11.16 0-3.74-3.74-1.42 1.41 2.33 2.33-2.33 2.33 1.42 1.41z"/></svg>
+  
+  <span class="md-ellipsis">
+    第 2 章 &nbsp; &nbsp; 软件与算法
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            第 2 章 &nbsp; &nbsp; 软件与算法
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91%E7%BB%9F%E4%B8%80%E8%A7%84%E8%8C%83/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2.0 &nbsp; 软件开发统一规范
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    2.1 &nbsp; core
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            2.1 &nbsp; core
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sub_chapter_cpp/%E8%B7%91%E4%B8%80%E4%B8%AA%E7%A8%8B%E5%BA%8F%E5%8F%91%E7%94%9F%E4%BA%86%E4%BB%80%E4%B9%88/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2.1.1 &nbsp; 跑一个程序发生了什么
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sub_chapter_cpp/%E5%8D%95%E4%BE%8B%E4%B8%8E%E6%8C%87%E9%92%88/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2.1.2 &nbsp; 单例与指针
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sub_chapter_cpp/ssl_strategy/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2.1.3 &nbsp; 一切的开始
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sub_chapter_cpp/DataReceive/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2.1.4 &nbsp; 信息处理
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4" checked>
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    2.2 &nbsp; lua
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_4" id="__nav_3_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3_4">
+            <span class="md-nav__icon md-icon"></span>
+            2.2 &nbsp; lua
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lua%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2.2.1 &nbsp; lua基本语法
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Config/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2.2.2 &nbsp; Config.lua
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E8%84%9A%E6%9C%AC%E9%80%89%E6%8B%A9/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2.2.3 &nbsp; 脚本选择
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E8%84%9A%E6%9C%AC%E8%BF%90%E8%A1%8C/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2.2.4 &nbsp; 脚本运行
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E7%8A%B6%E6%80%81%E6%9C%BA/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2.2.5 &nbsp; 状态机与跳转
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../skill/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2.2.6 &nbsp; skill
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4_8" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3_4_8" id="__nav_3_4_8_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    2.2.7 &nbsp; worldmodel(工具函数集)
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_4_8_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3_4_8">
+            <span class="md-nav__icon md-icon"></span>
+            2.2.7 &nbsp; worldmodel(工具函数集)
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    2.2.7.1 &nbsp; ball.lua
+  </span>
+  
+
+      </a>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cond.lua/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2.2.7.2 &nbsp; cond.lua
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dir.lua/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2.2.7.3 &nbsp; dir.lua
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../player.lua/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2.2.7.4 &nbsp; player.lua
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../enemy.lua/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2.2.7.5 &nbsp; enemy.lua
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pos.lua/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2.2.7.6 &nbsp; pos.lua
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Rolematch%E6%A8%A1%E5%9D%97/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2.2.8 &nbsp; rolematch模块
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%85%B6%E5%AE%83/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2.2.9 &nbsp; debug
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_5" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../sub_chapter_skill/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    2.3 &nbsp; 策略框架
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_5" id="__nav_3_5_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_5">
+            <span class="md-nav__icon md-icon"></span>
+            2.3 &nbsp; 策略框架
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sub_chapter_skill/advance/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2.3.1 &nbsp; advance
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sub_chapter_skill/MarkingPosV2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2.3.2 &nbsp; marking
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sub_chapter_skill/bestPlayer/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2.3.3 &nbsp; bestPlayer
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sub_chapter_skill/getBall/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2.3.4 &nbsp; getBall
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../chapter_electronics/" class="md-nav__link ">
+              
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m16.56 5.44-1.45 1.45A5.97 5.97 0 0 1 18 12a6 6 0 0 1-6 6 6 6 0 0 1-6-6c0-2.17 1.16-4.06 2.88-5.12L7.44 5.44A7.96 7.96 0 0 0 4 12a8 8 0 0 0 8 8 8 8 0 0 0 8-8c0-2.72-1.36-5.12-3.44-6.56M13 3h-2v10h2"/></svg>
+  
+  <span class="md-ellipsis">
+    第 3 章 &nbsp; &nbsp; 电控
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            第 3 章 &nbsp; &nbsp; 电控
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    3.1 &nbsp; 电机驱动
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            3.1 &nbsp; 电机驱动
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../chapter_electronics/sub_chapter_motor/index.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    None
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_3" id="__nav_4_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    3.2 &nbsp; 电路
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_3">
+            <span class="md-nav__icon md-icon"></span>
+            3.2 &nbsp; 电路
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../chapter_electronics/sub_chapter_circuit/index.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    None
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../chapter_electronics/sub_chapter_circuit/power_board/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3.2.1 &nbsp; 功率板
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_4" id="__nav_4_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    3.3 &nbsp; 控制算法
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_4">
+            <span class="md-nav__icon md-icon"></span>
+            3.3 &nbsp; 控制算法
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../chapter_electronics/sub_chapter_control/index.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    None
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../chapter_electronics/sub_chapter_control/%E5%B0%8F%E8%BD%A6%E4%BB%A3%E7%A0%81%E7%83%A7%E5%86%99%E6%96%B9%E6%B3%95/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3.3.1 &nbsp; 代码烧写
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_5" id="__nav_4_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    3.4 &nbsp; 通信
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_5">
+            <span class="md-nav__icon md-icon"></span>
+            3.4 &nbsp; 通信
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../chapter_electronics/sub_chapter_communication/index.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    None
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../chapter_hardware/" class="md-nav__link ">
+              
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a2 2 0 0 1 2 2c0 .74-.4 1.39-1 1.73V7h1a7 7 0 0 1 7 7h1a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1v1a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-1H2a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h1a7 7 0 0 1 7-7h1V5.73c-.6-.34-1-.99-1-1.73a2 2 0 0 1 2-2M7.5 13A2.5 2.5 0 0 0 5 15.5 2.5 2.5 0 0 0 7.5 18a2.5 2.5 0 0 0 2.5-2.5A2.5 2.5 0 0 0 7.5 13m9 0a2.5 2.5 0 0 0-2.5 2.5 2.5 2.5 0 0 0 2.5 2.5 2.5 2.5 0 0 0 2.5-2.5 2.5 2.5 0 0 0-2.5-2.5"/></svg>
+  
+  <span class="md-ellipsis">
+    第 4 章 &nbsp; &nbsp; 硬件
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            第 4 章 &nbsp; &nbsp; 硬件
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../chapter_hardware/body/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4.1 &nbsp; 机械结构介绍
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../chapter_other/" class="md-nav__link ">
+              
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m15 19-6-2.11V5l6 2.11M20.5 3h-.16L15 5.1 9 3 3.36 4.9c-.21.07-.36.25-.36.48V20.5a.5.5 0 0 0 .5.5c.05 0 .11 0 .16-.03L9 18.9l6 2.1 5.64-1.9c.21-.1.36-.25.36-.48V3.5a.5.5 0 0 0-.5-.5"/></svg>
+  
+  <span class="md-ellipsis">
+    第 5 章 &nbsp; &nbsp; 其他
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_6" id="__nav_6_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            第 5 章 &nbsp; &nbsp; 其他
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_2" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../chapter_other/freshmencup/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    5.1 &nbsp; 校内赛说明
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_6_2" id="__nav_6_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_2">
+            <span class="md-nav__icon md-icon"></span>
+            5.1 &nbsp; 校内赛说明
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../chapter_other/SoftwarePackfor2024/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    5.1.1 &nbsp; 2024校内赛软件包说明
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+    <a href="https://github.com/sjtu-src/Wiki/edit/master/docs/chapter_software/sub_chapter_lua/ball.lua.md" title="编辑此页" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+
+
+  <h1>2.2.7.1 &nbsp; ball.lua</h1>
+
+<p>ball.lua脚本包含了一系列与球有关的函数，用于计算球的位置、速度、方向以及与球员和球门的距离等信息。以下是对各个函数：</p>
+<ul>
+<li>
+<p><code>pos()</code>函数：返回球在场上的坐标。
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kr">function</span><span class="w"> </span><span class="nf">pos</span><span class="p">()</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">    </span><span class="kr">return</span><span class="w"> </span><span class="nv">vision</span><span class="p">:</span><span class="nf">Ball</span><span class="p">():</span><span class="nf">Pos</span><span class="p">()</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="kr">end</span>
+</code></pre></div></p>
+</li>
+<li>
+<p><code>posX()</code>函数：返回球在场上的x坐标值。
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kr">function</span><span class="w"> </span><span class="nf">posX</span><span class="p">()</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">    </span><span class="kr">return</span><span class="w"> </span><span class="nv">vision</span><span class="p">:</span><span class="nf">Ball</span><span class="p">():</span><span class="nf">X</span><span class="p">()</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="kr">end</span>
+</code></pre></div></p>
+</li>
+<li>
+<p><code>posY()</code>函数：返回球在场上的y坐标值。
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="kr">function</span><span class="w"> </span><span class="nf">posY</span><span class="p">()</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">    </span><span class="kr">return</span><span class="w"> </span><span class="nv">vision</span><span class="p">:</span><span class="nf">Ball</span><span class="p">():</span><span class="nf">Y</span><span class="p">()</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="kr">end</span>
+</code></pre></div></p>
+</li>
+<li>
+<p><code>vel()</code>函数：返回球的速度（一个向量）
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="kr">function</span><span class="w"> </span><span class="nf">vel</span><span class="p">()</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">    </span><span class="kr">return</span><span class="w"> </span><span class="nv">vision</span><span class="p">:</span><span class="nf">Ball</span><span class="p">():</span><span class="nf">Vel</span><span class="p">()</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="kr">end</span>
+</code></pre></div></p>
+</li>
+<li>
+<p><code>velX()</code>函数：返回球速的x分量。（有方向，朝x正向为正）
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="kr">function</span><span class="w"> </span><span class="nf">velX</span><span class="p">()</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="w">    </span><span class="kr">return</span><span class="w"> </span><span class="nv">vision</span><span class="p">:</span><span class="nf">Ball</span><span class="p">():</span><span class="nf">VelX</span><span class="p">()</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="kr">end</span>
+</code></pre></div></p>
+</li>
+<li>
+<p><code>velY()</code>函数：返回球速的y分量。（有方向，朝y正向为正）
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="kr">function</span><span class="w"> </span><span class="nf">velY</span><span class="p">()</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="w">    </span><span class="kr">return</span><span class="w"> </span><span class="nv">vision</span><span class="p">:</span><span class="nf">Ball</span><span class="p">():</span><span class="nf">VelY</span><span class="p">()</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="kr">end</span>
+</code></pre></div></p>
+</li>
+<li>
+<p><code>velDir()</code>函数：返回球速的方向。
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="kr">function</span><span class="w"> </span><span class="nf">velDir</span><span class="p">()</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="w">    </span><span class="kr">return</span><span class="w"> </span><span class="nv">vision</span><span class="p">:</span><span class="nf">Ball</span><span class="p">():</span><span class="nf">Vel</span><span class="p">():</span><span class="nf">dir</span><span class="p">()</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="kr">end</span>
+</code></pre></div></p>
+</li>
+<li>
+<p><code>velMod()</code>函数：返回球在场上的速率。
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="kr">function</span><span class="w"> </span><span class="nf">velMod</span><span class="p">()</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="w">    </span><span class="kr">return</span><span class="w"> </span><span class="nv">vision</span><span class="p">:</span><span class="nf">Ball</span><span class="p">():</span><span class="nf">Vel</span><span class="p">():</span><span class="nf">mod</span><span class="p">()</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="kr">end</span>
+</code></pre></div></p>
+</li>
+<li>
+<p><code>valid()</code>函数：返回是否能在场上看到球。
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="kr">function</span><span class="w"> </span><span class="nf">valid</span><span class="p">()</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="w">    </span><span class="kr">return</span><span class="w"> </span><span class="nv">vision</span><span class="p">:</span><span class="nf">Ball</span><span class="p">():</span><span class="nf">Valid</span><span class="p">()</span>
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="kr">end</span>
+</code></pre></div></p>
+</li>
+<li>
+<p><code>toPlayerDir(role)</code>函数：返回球到角色为role的球员的方向。
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="kr">function</span><span class="w"> </span><span class="nf">toPlayerDir</span><span class="p">(</span><span class="nv">role</span><span class="p">)</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="w">    </span><span class="kr">return</span><span class="w"> </span><span class="p">(</span><span class="nv">player</span><span class="p">.</span><span class="nf">pos</span><span class="p">(</span><span class="nv">role</span><span class="p">)</span><span class="o">-</span><span class="w"> </span><span class="nf">pos</span><span class="p">()):</span><span class="nf">dir</span><span class="p">()</span>
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="kr">end</span>
+</code></pre></div></p>
+</li>
+<li>
+<p><code>toEnemyDir(role)</code>函数：返回球到车号/角色为role的敌方球员的方向。
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="kr">function</span><span class="w"> </span><span class="nf">toEnemyDir</span><span class="p">(</span><span class="nv">role</span><span class="p">)</span>
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="w">    </span><span class="kr">return</span><span class="w"> </span><span class="p">(</span><span class="nv">enemy</span><span class="p">.</span><span class="nf">pos</span><span class="p">(</span><span class="nv">role</span><span class="p">)</span><span class="o">-</span><span class="nf">pos</span><span class="p">()):</span><span class="nf">dir</span><span class="p">()</span>
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="kr">end</span>
+</code></pre></div></p>
+</li>
+<li>
+<p><code>toPlayerHeadDir(recver)</code>函数：返回球到角色为recver的接球球员头部的方向。
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="kr">function</span><span class="w"> </span><span class="nf">toPlayerHeadDir</span><span class="p">(</span><span class="nv">recver</span><span class="p">)</span>
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="w">    </span><span class="kr">return</span><span class="w"> </span><span class="kr">function</span><span class="w"> </span><span class="p">(</span><span class="nv">passer</span><span class="p">)</span>
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="w">        </span><span class="kd">local</span><span class="w"> </span><span class="nv">tmpPlayerHead</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">player</span><span class="p">.</span><span class="nf">pos</span><span class="p">(</span><span class="nv">recver</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nv">Utils</span><span class="p">.</span><span class="nf">Polar2Vector</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="nv">player</span><span class="p">.</span><span class="nf">dir</span><span class="p">(</span><span class="nv">recver</span><span class="p">))</span><span class="w"> </span><span class="c1">--此处加上一个从recver中心到recver头部的向量：Utils.Polar2Vector(10, player.dir(recver)</span>
+<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="w">        </span><span class="kr">return</span><span class="w"> </span><span class="p">(</span><span class="nv">tmpPlayerHead</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nv">player</span><span class="p">.</span><span class="nf">pos</span><span class="p">(</span><span class="nv">passer</span><span class="p">)):</span><span class="nf">dir</span><span class="p">()</span>
+<a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a><span class="w">    </span><span class="kr">end</span>
+<a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a><span class="kr">end</span>
+</code></pre></div></p>
+</li>
+<li>
+<p><code>toPlayerHeadDist(role)</code>函数：返回球到角色为role的球员头部的距离。
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="kr">function</span><span class="w"> </span><span class="nf">toPlayerHeadDist</span><span class="p">(</span><span class="nv">role</span><span class="p">)</span>
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="w">    </span><span class="kd">local</span><span class="w"> </span><span class="nv">tmpPlayerHead</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">player</span><span class="p">.</span><span class="nf">pos</span><span class="p">(</span><span class="nv">role</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nv">Utils</span><span class="p">.</span><span class="nf">Polar2Vector</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="nv">player</span><span class="p">.</span><span class="nf">dir</span><span class="p">(</span><span class="nv">role</span><span class="p">))</span>
+<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="w">    </span><span class="kr">return</span><span class="w"> </span><span class="p">(</span><span class="nv">ball</span><span class="p">.</span><span class="nf">pos</span><span class="p">()</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nv">tmpPlayerHead</span><span class="p">):</span><span class="nf">mod</span><span class="p">()</span>
+<a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="kr">end</span>
+</code></pre></div></p>
+</li>
+<li>
+<p><code>toPlayerDist(role)</code>函数：返回球到角色为role的指定球员中心的距离。
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="kr">function</span><span class="w"> </span><span class="nf">toPlayerDist</span><span class="p">(</span><span class="nv">role</span><span class="p">)</span>
+<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="w">    </span><span class="kr">return</span><span class="w"> </span><span class="p">(</span><span class="nv">player</span><span class="p">.</span><span class="nf">pos</span><span class="p">(</span><span class="nv">role</span><span class="p">)</span><span class="o">-</span><span class="w"> </span><span class="nf">pos</span><span class="p">()):</span><span class="nf">mod</span><span class="p">()</span>
+<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="kr">end</span>
+</code></pre></div></p>
+</li>
+<li>
+<p><code>toEnemyDist(role)</code>函数：返回球到角色为role的指定敌方球员的距离。
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="kr">function</span><span class="w"> </span><span class="nf">toEnemyDist</span><span class="p">(</span><span class="nv">role</span><span class="p">)</span>
+<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="w">    </span><span class="kr">return</span><span class="w"> </span><span class="p">(</span><span class="nv">enemy</span><span class="p">.</span><span class="nf">pos</span><span class="p">(</span><span class="nv">role</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nf">pos</span><span class="p">()):</span><span class="nf">mod</span><span class="p">()</span>
+<a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a><span class="kr">end</span>
+</code></pre></div></p>
+</li>
+<li>
+<p><code>toTheirGoalDist()</code>函数：返回球到对方球门的距离。
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="kr">function</span><span class="w"> </span><span class="nf">toTheirGoalDist</span><span class="p">()</span>
+<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="w">    </span><span class="kr">return</span><span class="w"> </span><span class="nf">pos</span><span class="p">():</span><span class="nf">dist</span><span class="p">(</span><span class="nv">CGeoPoint</span><span class="p">:</span><span class="nf">new_local</span><span class="p">(</span><span class="nv">param</span><span class="p">.</span><span class="py">pitchLength</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mf">2.0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">))</span>
+<a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a><span class="kr">end</span>
+</code></pre></div></p>
+</li>
+<li>
+<p><code>toTheirGoalDir()</code>函数：返回球到对方球门的方向。
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="kr">function</span><span class="w"> </span><span class="nf">toTheirGoalDir</span><span class="p">()</span>
+<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a><span class="w">    </span><span class="kr">return</span><span class="w"> </span><span class="p">(</span><span class="nv">CGeoPoint</span><span class="p">:</span><span class="nf">new_local</span><span class="p">(</span><span class="nv">param</span><span class="p">.</span><span class="py">pitchLength</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mf">2.0</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nv">ball</span><span class="p">.</span><span class="nf">pos</span><span class="p">()):</span><span class="nf">dir</span><span class="p">()</span>
+<a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a><span class="kr">end</span>
+</code></pre></div></p>
+</li>
+<li>
+<p><code>toOurGoalDist()</code>函数：返回球到我方球门的距离。
+<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="kr">function</span><span class="w"> </span><span class="nf">toOurGoalDist</span><span class="p">()</span>
+<a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a><span class="w">    </span><span class="kr">return</span><span class="w"> </span><span class="nf">pos</span><span class="p">():</span><span class="nf">dist</span><span class="p">(</span><span class="nv">CGeoPoint</span><span class="p">:</span><span class="nf">new_local</span><span class="p">(</span><span class="o">-</span><span class="nv">param</span><span class="p">.</span><span class="py">pitchLength</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mf">2.0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">))</span>
+<a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a><span class="kr">end</span>
+</code></pre></div></p>
+</li>
+<li>
+<p><code>toOurGoalPostDistSum()</code>函数：返回球到我方球门两个门柱距离之和。
+<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="kr">function</span><span class="w"> </span><span class="nf">toOurGoalPostDistSum</span><span class="p">()</span>
+<a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a><span class="w">    </span><span class="kd">local</span><span class="w"> </span><span class="nv">dist1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">pos</span><span class="p">():</span><span class="nf">dist</span><span class="p">(</span><span class="nv">CGeoPoint</span><span class="p">:</span><span class="nf">new_local</span><span class="p">(</span><span class="o">-</span><span class="nv">param</span><span class="p">.</span><span class="py">pitchLength</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mf">2.0</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="nv">param</span><span class="p">.</span><span class="py">goalWidth</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mf">2.0</span><span class="p">))</span>
+<a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a><span class="w">    </span><span class="kd">local</span><span class="w"> </span><span class="nv">dist2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">pos</span><span class="p">():</span><span class="nf">dist</span><span class="p">(</span><span class="nv">CGeoPoint</span><span class="p">:</span><span class="nf">new_local</span><span class="p">(</span><span class="o">-</span><span class="nv">param</span><span class="p">.</span><span class="py">pitchLength</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mf">2.0</span><span class="p">,</span><span class="w"> </span><span class="nv">param</span><span class="p">.</span><span class="py">goalWidth</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mf">2.0</span><span class="p">))</span>
+<a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a><span class="w">    </span><span class="kr">return</span><span class="w"> </span><span class="p">(</span><span class="nv">dist1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nv">dist2</span><span class="p">)</span>
+<a id="__codelineno-18-5" name="__codelineno-18-5" href="#__codelineno-18-5"></a><span class="kr">end</span>
+</code></pre></div></p>
+</li>
+<li>
+<p><code>toOurGoalDir()</code>函数：返回球到我方球门的方向。
+<div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="kr">function</span><span class="w"> </span><span class="nf">toOurGoalDir</span><span class="p">()</span>
+<a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a><span class="w">    </span><span class="kr">return</span><span class="w"> </span><span class="p">(</span><span class="nv">CGeoPoint</span><span class="p">:</span><span class="nf">new_local</span><span class="p">(</span><span class="o">-</span><span class="nv">param</span><span class="p">.</span><span class="py">pitchLength</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mf">2.0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nv">ball</span><span class="p">.</span><span class="nf">pos</span><span class="p">()):</span><span class="nf">dir</span><span class="p">()</span>
+<a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a><span class="kr">end</span>
+</code></pre></div></p>
+</li>
+<li>
+<p><code>toPointDir(p)</code>函数：返回球到指定点p的方向。
+<div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="kr">function</span><span class="w"> </span><span class="nf">toPointDir</span><span class="p">(</span><span class="nv">p</span><span class="p">)</span>
+<a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a><span class="w">    </span><span class="kr">return</span><span class="w"> </span><span class="kr">function</span><span class="w"> </span><span class="p">()</span>
+<a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a><span class="w">        </span><span class="kr">return</span><span class="w"> </span><span class="p">(</span><span class="nv">p</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nf">pos</span><span class="p">()):</span><span class="nf">dir</span><span class="p">()</span>
+<a id="__codelineno-20-4" name="__codelineno-20-4" href="#__codelineno-20-4"></a><span class="w">    </span><span class="kr">end</span>
+<a id="__codelineno-20-5" name="__codelineno-20-5" href="#__codelineno-20-5"></a><span class="kr">end</span>
+</code></pre></div></p>
+</li>
+<li>
+<p><code>toPointDist(p)</code>函数：返回球到指定点p的距离。
+<div class="highlight"><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="kr">function</span><span class="w"> </span><span class="nf">toPointDist</span><span class="p">(</span><span class="nv">p</span><span class="p">)</span>
+<a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a><span class="w">    </span><span class="kr">return</span><span class="w"> </span><span class="nf">pos</span><span class="p">():</span><span class="nf">dist</span><span class="p">(</span><span class="nv">p</span><span class="p">)</span>
+<a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a><span class="kr">end</span>
+</code></pre></div></p>
+</li>
+<li>
+<p><code>antiY()</code>函数：根据球的y坐标返回-1或1。若y&gt;0，返回-1；若y&lt;0，返回1
+<div class="highlight"><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a><span class="kr">function</span><span class="w"> </span><span class="nf">antiY</span><span class="p">()</span>
+<a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a><span class="w">    </span><span class="kr">if</span><span class="w"> </span><span class="nf">posY</span><span class="p">()</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="kr">then</span>
+<a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a><span class="w">        </span><span class="kr">return</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span>
+<a id="__codelineno-22-4" name="__codelineno-22-4" href="#__codelineno-22-4"></a><span class="w">    </span><span class="kr">else</span>
+<a id="__codelineno-22-5" name="__codelineno-22-5" href="#__codelineno-22-5"></a><span class="w">        </span><span class="kr">return</span><span class="w"> </span><span class="mi">1</span>
+<a id="__codelineno-22-6" name="__codelineno-22-6" href="#__codelineno-22-6"></a><span class="w">    </span><span class="kr">end</span>
+<a id="__codelineno-22-7" name="__codelineno-22-7" href="#__codelineno-22-7"></a><span class="kr">end</span>
+</code></pre></div></p>
+</li>
+<li>
+<p><code>syntY()</code>函数：返回antiY()的相反数。
+<div class="highlight"><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a><span class="kr">function</span><span class="w"> </span><span class="nf">syntY</span><span class="p">()</span>
+<a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a><span class="w">    </span><span class="kr">return</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span><span class="o">*</span><span class="nf">antiY</span><span class="p">()</span>
+<a id="__codelineno-23-3" name="__codelineno-23-3" href="#__codelineno-23-3"></a><span class="kr">end</span>
+</code></pre></div></p>
+</li>
+<li>
+<p><code>antiYPos(p)</code>函数：返回指定点p及其对称点中y坐标小于0的那一个
+<div class="highlight"><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a><span class="kr">function</span><span class="w"> </span><span class="nf">antiYPos</span><span class="p">(</span><span class="nv">p</span><span class="p">)</span>
+<a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a><span class="w">    </span><span class="kr">return</span><span class="w"> </span><span class="kr">function</span><span class="w"> </span><span class="p">()</span>
+<a id="__codelineno-24-3" name="__codelineno-24-3" href="#__codelineno-24-3"></a><span class="w">        </span><span class="kr">if</span><span class="w"> </span><span class="nb">type</span><span class="p">(</span><span class="nv">p</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s2">&quot;function&quot;</span><span class="w"> </span><span class="kr">then</span>
+<a id="__codelineno-24-4" name="__codelineno-24-4" href="#__codelineno-24-4"></a><span class="w">            </span><span class="kr">return</span><span class="w"> </span><span class="nf">CGeoPoint</span><span class="p">(</span><span class="nf">p</span><span class="p">():</span><span class="nf">x</span><span class="p">(),</span><span class="w"> </span><span class="nf">antiY</span><span class="p">()</span><span class="o">*</span><span class="nf">p</span><span class="p">():</span><span class="nf">y</span><span class="p">())</span>
+<a id="__codelineno-24-5" name="__codelineno-24-5" href="#__codelineno-24-5"></a><span class="w">        </span><span class="kr">else</span>
+<a id="__codelineno-24-6" name="__codelineno-24-6" href="#__codelineno-24-6"></a><span class="w">            </span><span class="kr">return</span><span class="w"> </span><span class="nf">CGeoPoint</span><span class="p">(</span><span class="nv">p</span><span class="p">:</span><span class="nf">x</span><span class="p">(),</span><span class="w"> </span><span class="nf">antiY</span><span class="p">()</span><span class="o">*</span><span class="nv">p</span><span class="p">:</span><span class="nf">y</span><span class="p">())</span>
+<a id="__codelineno-24-7" name="__codelineno-24-7" href="#__codelineno-24-7"></a><span class="w">        </span><span class="kr">end</span>
+<a id="__codelineno-24-8" name="__codelineno-24-8" href="#__codelineno-24-8"></a><span class="w">    </span><span class="kr">end</span>
+<a id="__codelineno-24-9" name="__codelineno-24-9" href="#__codelineno-24-9"></a><span class="kr">end</span>
+</code></pre></div></p>
+</li>
+<li>
+<p><code>syntYPos(p)</code>函数：返回指定点p及其对称点中y坐标大于0的那一个
+<div class="highlight"><pre><span></span><code><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a><span class="kr">function</span><span class="w"> </span><span class="nf">syntYPos</span><span class="p">(</span><span class="nv">p</span><span class="p">)</span>
+<a id="__codelineno-25-2" name="__codelineno-25-2" href="#__codelineno-25-2"></a><span class="w">    </span><span class="kr">return</span><span class="w"> </span><span class="kr">function</span><span class="w"> </span><span class="p">()</span>
+<a id="__codelineno-25-3" name="__codelineno-25-3" href="#__codelineno-25-3"></a><span class="w">        </span><span class="kr">return</span><span class="w"> </span><span class="nf">CGeoPoint</span><span class="p">(</span><span class="nv">p</span><span class="p">:</span><span class="nf">x</span><span class="p">(),</span><span class="w"> </span><span class="nf">syntY</span><span class="p">()</span><span class="o">*</span><span class="nv">p</span><span class="p">:</span><span class="nf">y</span><span class="p">())</span>
+<a id="__codelineno-25-4" name="__codelineno-25-4" href="#__codelineno-25-4"></a><span class="w">    </span><span class="kr">end</span>
+<a id="__codelineno-25-5" name="__codelineno-25-5" href="#__codelineno-25-5"></a><span class="kr">end</span>
+</code></pre></div></p>
+</li>
+<li>
+<p><code>toFuncDir(f)</code>函数：返回球到指定函数f的返回点的方向。
+<div class="highlight"><pre><span></span><code><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a><span class="kr">function</span><span class="w"> </span><span class="nf">toFuncDir</span><span class="p">(</span><span class="nv">f</span><span class="p">)</span>
+<a id="__codelineno-26-2" name="__codelineno-26-2" href="#__codelineno-26-2"></a><span class="w">    </span><span class="kr">return</span><span class="w"> </span><span class="kr">function</span><span class="w"> </span><span class="p">()</span>
+<a id="__codelineno-26-3" name="__codelineno-26-3" href="#__codelineno-26-3"></a><span class="w">        </span><span class="kr">return</span><span class="w"> </span><span class="p">(</span><span class="nf">f</span><span class="p">()</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nf">pos</span><span class="p">()):</span><span class="nf">dir</span><span class="p">()</span>
+<a id="__codelineno-26-4" name="__codelineno-26-4" href="#__codelineno-26-4"></a><span class="w">    </span><span class="kr">end</span>
+<a id="__codelineno-26-5" name="__codelineno-26-5" href="#__codelineno-26-5"></a><span class="kr">end</span>
+</code></pre></div></p>
+</li>
+<li>
+<p><code>antiYDir(p)</code>函数：返回球到指定点p及其对称点中y坐标小于0的那一个的方向
+<div class="highlight"><pre><span></span><code><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a><span class="kr">function</span><span class="w"> </span><span class="nf">antiYDir</span><span class="p">(</span><span class="nv">p</span><span class="p">)</span>
+<a id="__codelineno-27-2" name="__codelineno-27-2" href="#__codelineno-27-2"></a><span class="w">    </span><span class="kr">return</span><span class="w"> </span><span class="kr">function</span><span class="w"> </span><span class="p">()</span>
+<a id="__codelineno-27-3" name="__codelineno-27-3" href="#__codelineno-27-3"></a><span class="w">        </span><span class="kr">if</span><span class="w"> </span><span class="nb">type</span><span class="p">(</span><span class="nv">p</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s2">&quot;userdata&quot;</span><span class="w"> </span><span class="kr">then</span>
+<a id="__codelineno-27-4" name="__codelineno-27-4" href="#__codelineno-27-4"></a><span class="w">            </span><span class="kr">return</span><span class="w"> </span><span class="p">(</span><span class="nf">antiYPos</span><span class="p">(</span><span class="nv">p</span><span class="p">)()</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nf">pos</span><span class="p">()):</span><span class="nf">dir</span><span class="p">()</span>
+<a id="__codelineno-27-5" name="__codelineno-27-5" href="#__codelineno-27-5"></a><span class="w">        </span><span class="kr">elseif</span><span class="w"> </span><span class="nb">type</span><span class="p">(</span><span class="nv">p</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s2">&quot;number&quot;</span><span class="w"> </span><span class="kr">then</span>
+<a id="__codelineno-27-6" name="__codelineno-27-6" href="#__codelineno-27-6"></a><span class="w">            </span><span class="kr">return</span><span class="w"> </span><span class="nv">ball</span><span class="p">.</span><span class="nf">antiY</span><span class="p">()</span><span class="o">*</span><span class="nv">p</span>
+<a id="__codelineno-27-7" name="__codelineno-27-7" href="#__codelineno-27-7"></a><span class="w">        </span><span class="kr">elseif</span><span class="w"> </span><span class="nb">type</span><span class="p">(</span><span class="nv">p</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s2">&quot;function&quot;</span><span class="w"> </span><span class="kr">then</span>
+<a id="__codelineno-27-8" name="__codelineno-27-8" href="#__codelineno-27-8"></a><span class="w">            </span><span class="kr">return</span><span class="w"> </span><span class="p">(</span><span class="nf">antiYPos</span><span class="p">(</span><span class="nf">p</span><span class="p">())()</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nf">pos</span><span class="p">()):</span><span class="nf">dir</span><span class="p">()</span>
+<a id="__codelineno-27-9" name="__codelineno-27-9" href="#__codelineno-27-9"></a><span class="w">        </span><span class="kr">end</span>
+<a id="__codelineno-27-10" name="__codelineno-27-10" href="#__codelineno-27-10"></a><span class="w">    </span><span class="kr">end</span>
+<a id="__codelineno-27-11" name="__codelineno-27-11" href="#__codelineno-27-11"></a><span class="kr">end</span>
+</code></pre></div></p>
+</li>
+<li>
+<p><code>syntYDir(p)</code>函数：返回球到指定点p及其对称点中y坐标大于0的那一个的方向
+<div class="highlight"><pre><span></span><code><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a><span class="kr">function</span><span class="w"> </span><span class="nf">syntYDir</span><span class="p">(</span><span class="nv">p</span><span class="p">)</span>
+<a id="__codelineno-28-2" name="__codelineno-28-2" href="#__codelineno-28-2"></a><span class="w">    </span><span class="kr">return</span><span class="w"> </span><span class="kr">function</span><span class="w"> </span><span class="p">()</span>
+<a id="__codelineno-28-3" name="__codelineno-28-3" href="#__codelineno-28-3"></a><span class="w">        </span><span class="kr">if</span><span class="w"> </span><span class="nb">type</span><span class="p">(</span><span class="nv">p</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s2">&quot;userdata&quot;</span><span class="w"> </span><span class="kr">then</span>
+<a id="__codelineno-28-4" name="__codelineno-28-4" href="#__codelineno-28-4"></a><span class="w">            </span><span class="kr">return</span><span class="w"> </span><span class="p">(</span><span class="nf">syntYPos</span><span class="p">(</span><span class="nv">p</span><span class="p">)()</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nf">pos</span><span class="p">()):</span><span class="nf">dir</span><span class="p">()</span>
+<a id="__codelineno-28-5" name="__codelineno-28-5" href="#__codelineno-28-5"></a><span class="w">        </span><span class="kr">elseif</span><span class="w"> </span><span class="nb">type</span><span class="p">(</span><span class="nv">p</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s2">&quot;number&quot;</span><span class="w"> </span><span class="kr">then</span>
+<a id="__codelineno-28-6" name="__codelineno-28-6" href="#__codelineno-28-6"></a><span class="w">            </span><span class="kr">return</span><span class="w"> </span><span class="nv">ball</span><span class="p">.</span><span class="nf">syntY</span><span class="p">()</span><span class="o">*</span><span class="nv">p</span>
+<a id="__codelineno-28-7" name="__codelineno-28-7" href="#__codelineno-28-7"></a><span class="w">        </span><span class="kr">end</span>
+<a id="__codelineno-28-8" name="__codelineno-28-8" href="#__codelineno-28-8"></a><span class="w">    </span><span class="kr">end</span>
+<a id="__codelineno-28-9" name="__codelineno-28-9" href="#__codelineno-28-9"></a><span class="kr">end</span>
+</code></pre></div></p>
+</li>
+<li>
+<p><code>toBestEnemyDist()</code>函数：返回球到最近敌方球员的距离。
+<div class="highlight"><pre><span></span><code><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a><span class="kr">function</span><span class="w"> </span><span class="nf">toBestEnemyDist</span><span class="p">()</span>
+<a id="__codelineno-29-2" name="__codelineno-29-2" href="#__codelineno-29-2"></a><span class="w">    </span><span class="kd">local</span><span class="w"> </span><span class="nv">enemyNum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">defenceInfoNew</span><span class="p">:</span><span class="nf">getBestBallChaser</span><span class="p">()</span>
+<a id="__codelineno-29-3" name="__codelineno-29-3" href="#__codelineno-29-3"></a><span class="w">    </span><span class="kr">if</span><span class="w"> </span><span class="nv">Utils</span><span class="p">.</span><span class="nf">PlayerNumValid</span><span class="p">(</span><span class="nv">enemyNum</span><span class="p">)</span><span class="w"> </span><span class="kr">then</span><span class="w"> </span><span class="c1">--如果场上有这辆敌方车</span>
+<a id="__codelineno-29-4" name="__codelineno-29-4" href="#__codelineno-29-4"></a><span class="w">        </span><span class="kr">return</span><span class="w"> </span><span class="nf">toEnemyDist</span><span class="p">(</span><span class="nv">enemyNum</span><span class="p">)</span>
+<a id="__codelineno-29-5" name="__codelineno-29-5" href="#__codelineno-29-5"></a><span class="w">    </span><span class="kr">else</span>
+<a id="__codelineno-29-6" name="__codelineno-29-6" href="#__codelineno-29-6"></a><span class="w">        </span><span class="kr">return</span><span class="w"> </span><span class="mi">1000</span>
+<a id="__codelineno-29-7" name="__codelineno-29-7" href="#__codelineno-29-7"></a><span class="w">    </span><span class="kr">end</span>
+</code></pre></div></p>
+</li>
+<li>
+<p><code>enemyDistMinusPlayerDist(role)</code>函数：返回球到最近敌方球员与到指定球员role的距离的差值。
+<div class="highlight"><pre><span></span><code><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a><span class="kr">function</span><span class="w"> </span><span class="nf">enemyDistMinusPlayerDist</span><span class="p">(</span><span class="nv">role</span><span class="p">)</span>
+<a id="__codelineno-30-2" name="__codelineno-30-2" href="#__codelineno-30-2"></a><span class="w">    </span><span class="kr">return</span><span class="w"> </span><span class="nf">toBestEnemyDist</span><span class="p">()</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nf">toPlayerDist</span><span class="p">(</span><span class="nv">role</span><span class="p">)</span>
+<a id="__codelineno-30-3" name="__codelineno-30-3" href="#__codelineno-30-3"></a><span class="kr">end</span>
+</code></pre></div></p>
+</li>
+<li>
+<p><code>goRush()</code>函数：定位球时返回一个指定的点，用于冲向该点。
+<div class="highlight"><pre><span></span><code><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a><span class="kr">function</span><span class="w"> </span><span class="nf">goRush</span><span class="p">()</span>
+<a id="__codelineno-31-2" name="__codelineno-31-2" href="#__codelineno-31-2"></a><span class="w">    </span><span class="kr">return</span><span class="w"> </span><span class="kr">function</span><span class="w"> </span><span class="p">()</span>
+<a id="__codelineno-31-3" name="__codelineno-31-3" href="#__codelineno-31-3"></a><span class="w">        </span><span class="c1">-- changed to Brazil by zhyaic</span>
+<a id="__codelineno-31-4" name="__codelineno-31-4" href="#__codelineno-31-4"></a><span class="w">        </span><span class="kr">return</span><span class="w"> </span><span class="nv">CGeoPoint</span><span class="p">:</span><span class="nf">new_local</span><span class="p">(</span><span class="nf">refPosX</span><span class="p">()</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w"> </span><span class="mi">150</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nf">refAntiY</span><span class="p">())</span>
+<a id="__codelineno-31-5" name="__codelineno-31-5" href="#__codelineno-31-5"></a><span class="w">    </span><span class="kr">end</span>
+<a id="__codelineno-31-6" name="__codelineno-31-6" href="#__codelineno-31-6"></a><span class="kr">end</span>
+</code></pre></div></p>
+</li>
+<li>
+<p><code>backDir(p, anti)</code>函数：返回球到指定点的方向。根据anti的bool值来决定是否对结果执行anti处理（即类似之前antiYDir的那种处理）
+<div class="highlight"><pre><span></span><code><a id="__codelineno-32-1" name="__codelineno-32-1" href="#__codelineno-32-1"></a><span class="kr">function</span><span class="w"> </span><span class="nf">backDir</span><span class="p">(</span><span class="nv">p</span><span class="p">,</span><span class="w"> </span><span class="nv">anti</span><span class="p">)</span>
+<a id="__codelineno-32-2" name="__codelineno-32-2" href="#__codelineno-32-2"></a><span class="w">    </span><span class="kr">return</span><span class="w"> </span><span class="kr">function</span><span class="w"> </span><span class="p">()</span>
+<a id="__codelineno-32-3" name="__codelineno-32-3" href="#__codelineno-32-3"></a><span class="w">        </span><span class="kd">local</span><span class="w"> </span><span class="nv">idir</span>
+<a id="__codelineno-32-4" name="__codelineno-32-4" href="#__codelineno-32-4"></a><span class="w">        </span><span class="kr">if</span><span class="w"> </span><span class="nb">type</span><span class="p">(</span><span class="nv">p</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s2">&quot;function&quot;</span><span class="w"> </span><span class="kr">then</span>
+<a id="__codelineno-32-5" name="__codelineno-32-5" href="#__codelineno-32-5"></a><span class="w">            </span><span class="nv">idir</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">p</span><span class="p">()</span>
+<a id="__codelineno-32-6" name="__codelineno-32-6" href="#__codelineno-32-6"></a><span class="w">        </span><span class="kr">elseif</span><span class="w"> </span><span class="nb">type</span><span class="p">(</span><span class="nv">p</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s2">&quot;number&quot;</span><span class="w"> </span><span class="kr">then</span>
+<a id="__codelineno-32-7" name="__codelineno-32-7" href="#__codelineno-32-7"></a><span class="w">            </span><span class="nv">idir</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">p</span>
+<a id="__codelineno-32-8" name="__codelineno-32-8" href="#__codelineno-32-8"></a><span class="w">        </span><span class="kr">elseif</span><span class="w"> </span><span class="nb">type</span><span class="p">(</span><span class="nv">p</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s2">&quot;userdata&quot;</span><span class="w"> </span><span class="kr">then</span>
+<a id="__codelineno-32-9" name="__codelineno-32-9" href="#__codelineno-32-9"></a><span class="w">            </span><span class="kr">if</span><span class="w"> </span><span class="nv">anti</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">false</span><span class="w"> </span><span class="kr">then</span>
+<a id="__codelineno-32-10" name="__codelineno-32-10" href="#__codelineno-32-10"></a><span class="w">                </span><span class="nv">idir</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">Utils</span><span class="p">.</span><span class="nf">Normalize</span><span class="p">((</span><span class="nv">p</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nv">ball</span><span class="p">.</span><span class="nf">pos</span><span class="p">()):</span><span class="nf">dir</span><span class="p">())</span>
+<a id="__codelineno-32-11" name="__codelineno-32-11" href="#__codelineno-32-11"></a><span class="w">            </span><span class="kr">else</span>
+<a id="__codelineno-32-12" name="__codelineno-32-12" href="#__codelineno-32-12"></a><span class="w">                </span><span class="kd">local</span><span class="w"> </span><span class="nv">targetP</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">CGeoPoint</span><span class="p">:</span><span class="nf">new_local</span><span class="p">(</span><span class="nv">p</span><span class="p">:</span><span class="nf">x</span><span class="p">(),</span><span class="w"> </span><span class="nv">ball</span><span class="p">.</span><span class="nf">antiY</span><span class="p">()</span><span class="o">*</span><span class="nv">p</span><span class="p">:</span><span class="nf">y</span><span class="p">())</span>
+<a id="__codelineno-32-13" name="__codelineno-32-13" href="#__codelineno-32-13"></a><span class="w">                </span><span class="nv">idir</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">Utils</span><span class="p">.</span><span class="nf">Normalize</span><span class="p">((</span><span class="nv">targetP</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nv">ball</span><span class="p">.</span><span class="nf">pos</span><span class="p">()):</span><span class="nf">dir</span><span class="p">())</span>
+<a id="__codelineno-32-14" name="__codelineno-32-14" href="#__codelineno-32-14"></a><span class="w">            </span><span class="kr">end</span>
+<a id="__codelineno-32-15" name="__codelineno-32-15" href="#__codelineno-32-15"></a><span class="w">        </span><span class="kr">elseif</span><span class="w"> </span><span class="nb">type</span><span class="p">(</span><span class="nv">p</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s2">&quot;string&quot;</span><span class="w"> </span><span class="kr">then</span>
+<a id="__codelineno-32-16" name="__codelineno-32-16" href="#__codelineno-32-16"></a><span class="w">            </span><span class="nv">idir</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">Utils</span><span class="p">.</span><span class="nf">Normalize</span><span class="p">((</span><span class="nv">player</span><span class="p">.</span><span class="nf">pos</span><span class="p">(</span><span class="nv">p</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nv">ball</span><span class="p">.</span><span class="nf">pos</span><span class="p">()):</span><span class="nf">dir</span><span class="p">())</span>
+<a id="__codelineno-32-17" name="__codelineno-32-17" href="#__codelineno-32-17"></a><span class="w">        </span><span class="kr">end</span>
+<a id="__codelineno-32-18" name="__codelineno-32-18" href="#__codelineno-32-18"></a>
+<a id="__codelineno-32-19" name="__codelineno-32-19" href="#__codelineno-32-19"></a><span class="w">        </span><span class="kr">if</span><span class="w"> </span><span class="nb">type</span><span class="p">(</span><span class="nv">idir</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s2">&quot;userdata&quot;</span><span class="w"> </span><span class="kr">then</span>
+<a id="__codelineno-32-20" name="__codelineno-32-20" href="#__codelineno-32-20"></a><span class="w">            </span><span class="kr">if</span><span class="w"> </span><span class="nv">anti</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">false</span><span class="w"> </span><span class="kr">then</span>
+<a id="__codelineno-32-21" name="__codelineno-32-21" href="#__codelineno-32-21"></a><span class="w">                </span><span class="nv">idir</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">Utils</span><span class="p">.</span><span class="nf">Normalize</span><span class="p">((</span><span class="nv">idir</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nv">ball</span><span class="p">.</span><span class="nf">pos</span><span class="p">()):</span><span class="nf">dir</span><span class="p">())</span>
+<a id="__codelineno-32-22" name="__codelineno-32-22" href="#__codelineno-32-22"></a><span class="w">            </span><span class="kr">else</span>
+<a id="__codelineno-32-23" name="__codelineno-32-23" href="#__codelineno-32-23"></a><span class="w">                </span><span class="kd">local</span><span class="w"> </span><span class="nv">temP</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">CGeoPoint</span><span class="p">:</span><span class="nf">new_local</span><span class="p">(</span><span class="nv">idir</span><span class="p">:</span><span class="nf">x</span><span class="p">(),</span><span class="w"> </span><span class="nv">ball</span><span class="p">.</span><span class="nf">antiY</span><span class="p">()</span><span class="o">*</span><span class="nv">idir</span><span class="p">:</span><span class="nf">y</span><span class="p">())</span>
+<a id="__codelineno-32-24" name="__codelineno-32-24" href="#__codelineno-32-24"></a><span class="w">                </span><span class="nv">idir</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">Utils</span><span class="p">.</span><span class="nf">Normalize</span><span class="p">((</span><span class="nv">temP</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nv">ball</span><span class="p">.</span><span class="nf">pos</span><span class="p">()):</span><span class="nf">dir</span><span class="p">())</span>
+<a id="__codelineno-32-25" name="__codelineno-32-25" href="#__codelineno-32-25"></a><span class="w">            </span><span class="kr">end</span>
+<a id="__codelineno-32-26" name="__codelineno-32-26" href="#__codelineno-32-26"></a><span class="w">        </span><span class="kr">end</span>
+<a id="__codelineno-32-27" name="__codelineno-32-27" href="#__codelineno-32-27"></a><span class="w">        </span><span class="kr">return</span><span class="w"> </span><span class="nv">idir</span>
+<a id="__codelineno-32-28" name="__codelineno-32-28" href="#__codelineno-32-28"></a><span class="w">    </span><span class="kr">end</span>
+<a id="__codelineno-32-29" name="__codelineno-32-29" href="#__codelineno-32-29"></a><span class="kr">end</span>
+</code></pre></div></p>
+</li>
+<li>
+<p><code>backPos(p, d, s, anti)</code>函数：返回球相对于指定点p进行横向、纵向偏移后的坐标，d为纵向偏移量，s为横向偏移量。
+<div class="highlight"><pre><span></span><code><a id="__codelineno-33-1" name="__codelineno-33-1" href="#__codelineno-33-1"></a><span class="kr">function</span><span class="w"> </span><span class="nf">backPos</span><span class="p">(</span><span class="nv">p</span><span class="p">,</span><span class="w"> </span><span class="nv">d</span><span class="p">,</span><span class="w"> </span><span class="nv">s</span><span class="p">,</span><span class="w"> </span><span class="nv">anti</span><span class="p">)</span>
+<a id="__codelineno-33-2" name="__codelineno-33-2" href="#__codelineno-33-2"></a><span class="w">    </span><span class="kr">return</span><span class="w"> </span><span class="kr">function</span><span class="w"> </span><span class="p">()</span>
+<a id="__codelineno-33-3" name="__codelineno-33-3" href="#__codelineno-33-3"></a><span class="w">        </span><span class="kd">local</span><span class="w"> </span><span class="nv">idir</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">backDir</span><span class="p">(</span><span class="nv">p</span><span class="p">,</span><span class="w"> </span><span class="nv">anti</span><span class="p">)()</span>
+<a id="__codelineno-33-4" name="__codelineno-33-4" href="#__codelineno-33-4"></a><span class="w">        </span><span class="kr">if</span><span class="w"> </span><span class="nv">d</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">nil</span><span class="w"> </span><span class="kr">then</span>
+<a id="__codelineno-33-5" name="__codelineno-33-5" href="#__codelineno-33-5"></a><span class="w">            </span><span class="nv">d</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">18</span>
+<a id="__codelineno-33-6" name="__codelineno-33-6" href="#__codelineno-33-6"></a><span class="w">        </span><span class="kr">end</span>
+<a id="__codelineno-33-7" name="__codelineno-33-7" href="#__codelineno-33-7"></a>
+<a id="__codelineno-33-8" name="__codelineno-33-8" href="#__codelineno-33-8"></a><span class="w">        </span><span class="kd">local</span><span class="w"> </span><span class="nv">ipos</span>
+<a id="__codelineno-33-9" name="__codelineno-33-9" href="#__codelineno-33-9"></a><span class="w">        </span><span class="kr">if</span><span class="w"> </span><span class="nv">s</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">nil</span><span class="w"> </span><span class="kr">then</span>
+<a id="__codelineno-33-10" name="__codelineno-33-10" href="#__codelineno-33-10"></a><span class="w">            </span><span class="nv">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
+<a id="__codelineno-33-11" name="__codelineno-33-11" href="#__codelineno-33-11"></a><span class="w">        </span><span class="kr">end</span>
+<a id="__codelineno-33-12" name="__codelineno-33-12" href="#__codelineno-33-12"></a><span class="w">        </span><span class="kd">local</span><span class="w"> </span><span class="nv">shiftVec</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">Utils</span><span class="p">.</span><span class="nf">Polar2Vector</span><span class="p">(</span><span class="nv">s</span><span class="p">,</span><span class="w"> </span><span class="nv">idir</span><span class="p">):</span><span class="nf">rotate</span><span class="p">(</span><span class="nf">syntY</span><span class="p">()</span><span class="o">*</span><span class="nb">math.pi</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span><span class="c1">--横向偏移向量</span>
+<a id="__codelineno-33-13" name="__codelineno-33-13" href="#__codelineno-33-13"></a><span class="w">        </span><span class="kd">local</span><span class="w"> </span><span class="nv">ipos</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">ball</span><span class="p">.</span><span class="nf">pos</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nv">shiftVec</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nv">Utils</span><span class="p">.</span><span class="nf">Polar2Vector</span><span class="p">(</span><span class="nv">d</span><span class="p">,</span><span class="w"> </span><span class="nv">Utils</span><span class="p">.</span><span class="nf">Normalize</span><span class="p">(</span><span class="nv">idir</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nb">math.pi</span><span class="p">))</span><span class="w"> </span><span class="c1">--Utils.Polar2Vector(d, Utils.Normalize(idir + math.pi))为纵向偏移方向</span>
+<a id="__codelineno-33-14" name="__codelineno-33-14" href="#__codelineno-33-14"></a><span class="w">        </span><span class="kr">return</span><span class="w"> </span><span class="nv">ipos</span>
+<a id="__codelineno-33-15" name="__codelineno-33-15" href="#__codelineno-33-15"></a><span class="w">    </span><span class="kr">end</span>
+<a id="__codelineno-33-16" name="__codelineno-33-16" href="#__codelineno-33-16"></a><span class="kr">end</span>
+</code></pre></div></p>
+</li>
+<li>
+<p>初始化gRefMsg
+<div class="highlight"><pre><span></span><code><a id="__codelineno-34-1" name="__codelineno-34-1" href="#__codelineno-34-1"></a><span class="nv">gRefMsg</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-34-2" name="__codelineno-34-2" href="#__codelineno-34-2"></a><span class="w">    </span><span class="c1">-- 上一次定位球的Cycle</span>
+<a id="__codelineno-34-3" name="__codelineno-34-3" href="#__codelineno-34-3"></a><span class="w">    </span><span class="nv">lastCycle</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+<a id="__codelineno-34-4" name="__codelineno-34-4" href="#__codelineno-34-4"></a><span class="w">    </span><span class="c1">-- 本次定位球开始时球的X位置</span>
+<a id="__codelineno-34-5" name="__codelineno-34-5" href="#__codelineno-34-5"></a><span class="w">    </span><span class="nv">ballX</span><span class="w">     </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+<a id="__codelineno-34-6" name="__codelineno-34-6" href="#__codelineno-34-6"></a><span class="w">    </span><span class="c1">-- 本次定位球开始时球的Y位置</span>
+<a id="__codelineno-34-7" name="__codelineno-34-7" href="#__codelineno-34-7"></a><span class="w">    </span><span class="nv">ballY</span><span class="w">     </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+<a id="__codelineno-34-8" name="__codelineno-34-8" href="#__codelineno-34-8"></a><span class="w">    </span><span class="c1">-- 本次定位球的antiY参数</span>
+<a id="__codelineno-34-9" name="__codelineno-34-9" href="#__codelineno-34-9"></a><span class="w">    </span><span class="nv">antiY</span><span class="w">     </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<a id="__codelineno-34-10" name="__codelineno-34-10" href="#__codelineno-34-10"></a><span class="w">    </span><span class="c1">-- 本次定位球是不是我方的球</span>
+<a id="__codelineno-34-11" name="__codelineno-34-11" href="#__codelineno-34-11"></a><span class="w">    </span><span class="nv">isOurBall</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span>
+<a id="__codelineno-34-12" name="__codelineno-34-12" href="#__codelineno-34-12"></a><span class="p">}</span>
+</code></pre></div></p>
+</li>
+<li>
+<p><code>updateRefMsg()</code>函数：当有裁判盒信息切换时进行更新的信息。
+<div class="highlight"><pre><span></span><code><a id="__codelineno-35-1" name="__codelineno-35-1" href="#__codelineno-35-1"></a><span class="kr">function</span><span class="w"> </span><span class="nf">updateRefMsg</span><span class="p">()</span>
+<a id="__codelineno-35-2" name="__codelineno-35-2" href="#__codelineno-35-2"></a><span class="w">    </span><span class="kr">if</span><span class="w"> </span><span class="p">(</span><span class="nv">vision</span><span class="p">:</span><span class="nf">Cycle</span><span class="p">()</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nv">gRefMsg</span><span class="p">.</span><span class="py">lastCycle</span><span class="p">)</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">6</span><span class="w"> </span><span class="kr">then</span><span class="w"> </span><span class="c1">--更新球信息</span>
+<a id="__codelineno-35-3" name="__codelineno-35-3" href="#__codelineno-35-3"></a><span class="w">        </span><span class="nv">gRefMsg</span><span class="p">.</span><span class="py">ballX</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">posX</span><span class="p">()</span>
+<a id="__codelineno-35-4" name="__codelineno-35-4" href="#__codelineno-35-4"></a><span class="w">        </span><span class="nv">gRefMsg</span><span class="p">.</span><span class="py">ballY</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">posY</span><span class="p">()</span>
+<a id="__codelineno-35-5" name="__codelineno-35-5" href="#__codelineno-35-5"></a><span class="w">        </span><span class="nv">gRefMsg</span><span class="p">.</span><span class="py">antiY</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">antiY</span><span class="p">()</span>
+<a id="__codelineno-35-6" name="__codelineno-35-6" href="#__codelineno-35-6"></a><span class="w">        </span><span class="nv">gRefMsg</span><span class="p">.</span><span class="py">isOurBall</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">world</span><span class="p">:</span><span class="nf">IsOurBallByAutoReferee</span><span class="p">()</span>
+<a id="__codelineno-35-7" name="__codelineno-35-7" href="#__codelineno-35-7"></a><span class="w">    </span><span class="kr">else</span><span class="w"> </span><span class="c1">--若球有明显移动，更新球信息</span>
+<a id="__codelineno-35-8" name="__codelineno-35-8" href="#__codelineno-35-8"></a><span class="w">        </span><span class="kr">if</span><span class="w"> </span><span class="nb">math.abs</span><span class="p">(</span><span class="nv">gRefMsg</span><span class="p">.</span><span class="py">ballX</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nf">posX</span><span class="p">())</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">10</span><span class="w"> </span><span class="kr">then</span>
+<a id="__codelineno-35-9" name="__codelineno-35-9" href="#__codelineno-35-9"></a><span class="w">            </span><span class="nv">gRefMsg</span><span class="p">.</span><span class="py">ballX</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">posX</span><span class="p">()</span>
+<a id="__codelineno-35-10" name="__codelineno-35-10" href="#__codelineno-35-10"></a><span class="w">        </span><span class="kr">end</span>
+<a id="__codelineno-35-11" name="__codelineno-35-11" href="#__codelineno-35-11"></a><span class="w">        </span><span class="kr">if</span><span class="w"> </span><span class="nb">math.abs</span><span class="p">(</span><span class="nv">gRefMsg</span><span class="p">.</span><span class="py">ballY</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nf">posY</span><span class="p">())</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">10</span><span class="w"> </span><span class="kr">then</span>
+<a id="__codelineno-35-12" name="__codelineno-35-12" href="#__codelineno-35-12"></a><span class="w">            </span><span class="nv">gRefMsg</span><span class="p">.</span><span class="py">ballY</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">posY</span><span class="p">()</span>
+<a id="__codelineno-35-13" name="__codelineno-35-13" href="#__codelineno-35-13"></a><span class="w">        </span><span class="kr">end</span>
+<a id="__codelineno-35-14" name="__codelineno-35-14" href="#__codelineno-35-14"></a><span class="w">        </span><span class="nv">gRefMsg</span><span class="p">.</span><span class="py">antiY</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">antiY</span><span class="p">()</span>
+<a id="__codelineno-35-15" name="__codelineno-35-15" href="#__codelineno-35-15"></a><span class="w">    </span><span class="kr">end</span>
+<a id="__codelineno-35-16" name="__codelineno-35-16" href="#__codelineno-35-16"></a><span class="w">    </span><span class="c1">--更新cycle值</span>
+<a id="__codelineno-35-17" name="__codelineno-35-17" href="#__codelineno-35-17"></a><span class="w">    </span><span class="nv">gRefMsg</span><span class="p">.</span><span class="py">lastCycle</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">vision</span><span class="p">:</span><span class="nf">Cycle</span><span class="p">()</span>
+<a id="__codelineno-35-18" name="__codelineno-35-18" href="#__codelineno-35-18"></a><span class="kr">end</span>
+</code></pre></div></p>
+</li>
+<li>
+<p><code>refPosX()</code>函数：返回球时球的x坐标。
+<div class="highlight"><pre><span></span><code><a id="__codelineno-36-1" name="__codelineno-36-1" href="#__codelineno-36-1"></a><span class="kr">function</span><span class="w"> </span><span class="nf">refPosX</span><span class="p">()</span>
+<a id="__codelineno-36-2" name="__codelineno-36-2" href="#__codelineno-36-2"></a><span class="w">    </span><span class="kr">return</span><span class="w"> </span><span class="nv">gRefMsg</span><span class="p">.</span><span class="py">ballX</span>
+<a id="__codelineno-36-3" name="__codelineno-36-3" href="#__codelineno-36-3"></a><span class="kr">end</span>
+</code></pre></div></p>
+</li>
+<li>
+<p><code>refPosY()</code>函数：返回定位球时球的的y坐标。
+<div class="highlight"><pre><span></span><code><a id="__codelineno-37-1" name="__codelineno-37-1" href="#__codelineno-37-1"></a><span class="kr">function</span><span class="w"> </span><span class="nf">refPosY</span><span class="p">()</span>
+<a id="__codelineno-37-2" name="__codelineno-37-2" href="#__codelineno-37-2"></a><span class="w">    </span><span class="kr">return</span><span class="w"> </span><span class="nv">gRefMsg</span><span class="p">.</span><span class="py">ballY</span>
+<a id="__codelineno-37-3" name="__codelineno-37-3" href="#__codelineno-37-3"></a><span class="kr">end</span>
+</code></pre></div></p>
+</li>
+<li>
+<p><code>refAntiY()</code>函数：返回定位球时的antiY参数。
+<div class="highlight"><pre><span></span><code><a id="__codelineno-38-1" name="__codelineno-38-1" href="#__codelineno-38-1"></a><span class="kr">function</span><span class="w"> </span><span class="nf">refAntiY</span><span class="p">()</span>
+<a id="__codelineno-38-2" name="__codelineno-38-2" href="#__codelineno-38-2"></a><span class="w">    </span><span class="kr">return</span><span class="w"> </span><span class="nv">gRefMsg</span><span class="p">.</span><span class="py">antiY</span>
+<a id="__codelineno-38-3" name="__codelineno-38-3" href="#__codelineno-38-3"></a><span class="kr">end</span>
+</code></pre></div></p>
+</li>
+<li>
+<p><code>refAntiYPos(p)</code>函数：返回指定点在定位球中使用的反向点(参考之前的antiY操作)
+<div class="highlight"><pre><span></span><code><a id="__codelineno-39-1" name="__codelineno-39-1" href="#__codelineno-39-1"></a><span class="kr">function</span><span class="w"> </span><span class="nf">refAntiYPos</span><span class="p">(</span><span class="nv">p</span><span class="p">)</span>
+<a id="__codelineno-39-2" name="__codelineno-39-2" href="#__codelineno-39-2"></a><span class="w">    </span><span class="kr">return</span><span class="w"> </span><span class="kr">function</span><span class="w"> </span><span class="p">()</span>
+<a id="__codelineno-39-3" name="__codelineno-39-3" href="#__codelineno-39-3"></a><span class="w">        </span><span class="kr">return</span><span class="w"> </span><span class="nf">CGeoPoint</span><span class="p">(</span><span class="nv">p</span><span class="p">:</span><span class="nf">x</span><span class="p">(),</span><span class="w"> </span><span class="nv">gRefMsg</span><span class="p">.</span><span class="py">antiY</span><span class="o">*</span><span class="nv">p</span><span class="p">:</span><span class="nf">y</span><span class="p">())</span>
+<a id="__codelineno-39-4" name="__codelineno-39-4" href="#__codelineno-39-4"></a><span class="w">    </span><span class="kr">end</span>
+<a id="__codelineno-39-5" name="__codelineno-39-5" href="#__codelineno-39-5"></a><span class="kr">end</span>
+</code></pre></div></p>
+</li>
+<li>
+<p><code>refSyntYPos(p)</code>函数：返回指定点在定位球中使用的同向点
+<div class="highlight"><pre><span></span><code><a id="__codelineno-40-1" name="__codelineno-40-1" href="#__codelineno-40-1"></a><span class="kr">function</span><span class="w"> </span><span class="nf">refSyntYPos</span><span class="p">(</span><span class="nv">p</span><span class="p">)</span>
+<a id="__codelineno-40-2" name="__codelineno-40-2" href="#__codelineno-40-2"></a><span class="w">    </span><span class="kr">return</span><span class="w"> </span><span class="kr">function</span><span class="w"> </span><span class="p">()</span>
+<a id="__codelineno-40-3" name="__codelineno-40-3" href="#__codelineno-40-3"></a><span class="w">        </span><span class="kr">return</span><span class="w"> </span><span class="nf">CGeoPoint</span><span class="p">(</span><span class="nv">p</span><span class="p">:</span><span class="nf">x</span><span class="p">(),</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span><span class="o">*</span><span class="nv">gRefMsg</span><span class="p">.</span><span class="py">antiY</span><span class="o">*</span><span class="nv">p</span><span class="p">:</span><span class="nf">y</span><span class="p">())</span>
+<a id="__codelineno-40-4" name="__codelineno-40-4" href="#__codelineno-40-4"></a><span class="w">    </span><span class="kr">end</span>
+<a id="__codelineno-40-5" name="__codelineno-40-5" href="#__codelineno-40-5"></a><span class="kr">end</span>
+</code></pre></div></p>
+</li>
+<li>
+<p><code>refAntiYDir(p)</code>函数：指定方向在定位球中使用的反向朝向
+<div class="highlight"><pre><span></span><code><a id="__codelineno-41-1" name="__codelineno-41-1" href="#__codelineno-41-1"></a><span class="kr">function</span><span class="w"> </span><span class="nf">refAntiYDir</span><span class="p">(</span><span class="nv">p</span><span class="p">)</span>
+<a id="__codelineno-41-2" name="__codelineno-41-2" href="#__codelineno-41-2"></a><span class="w">    </span><span class="kr">return</span><span class="w"> </span><span class="kr">function</span><span class="w"> </span><span class="p">()</span>
+<a id="__codelineno-41-3" name="__codelineno-41-3" href="#__codelineno-41-3"></a><span class="w">        </span><span class="kr">return</span><span class="w"> </span><span class="nv">gRefMsg</span><span class="p">.</span><span class="py">antiY</span><span class="o">*</span><span class="nv">p</span>
+<a id="__codelineno-41-4" name="__codelineno-41-4" href="#__codelineno-41-4"></a><span class="w">    </span><span class="kr">end</span>
+<a id="__codelineno-41-5" name="__codelineno-41-5" href="#__codelineno-41-5"></a><span class="kr">end</span>
+</code></pre></div></p>
+</li>
+<li>
+<p><code>refSyntYDir(p)</code>函数：指定方向在定位球中使用的同向朝向
+<div class="highlight"><pre><span></span><code><a id="__codelineno-42-1" name="__codelineno-42-1" href="#__codelineno-42-1"></a><span class="kr">function</span><span class="w"> </span><span class="nf">refSyntYDir</span><span class="p">(</span><span class="nv">p</span><span class="p">)</span>
+<a id="__codelineno-42-2" name="__codelineno-42-2" href="#__codelineno-42-2"></a><span class="w">    </span><span class="kr">return</span><span class="w"> </span><span class="kr">function</span><span class="w"> </span><span class="p">()</span>
+<a id="__codelineno-42-3" name="__codelineno-42-3" href="#__codelineno-42-3"></a><span class="w">        </span><span class="kr">if</span><span class="w"> </span><span class="nb">type</span><span class="p">(</span><span class="nv">p</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s2">&quot;function&quot;</span><span class="w"> </span><span class="kr">then</span>
+<a id="__codelineno-42-4" name="__codelineno-42-4" href="#__codelineno-42-4"></a><span class="w">            </span><span class="kr">return</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span><span class="o">*</span><span class="nv">gRefMsg</span><span class="p">.</span><span class="py">antiY</span><span class="o">*</span><span class="nf">p</span><span class="p">()</span>
+<a id="__codelineno-42-5" name="__codelineno-42-5" href="#__codelineno-42-5"></a><span class="w">        </span><span class="kr">else</span>
+<a id="__codelineno-42-6" name="__codelineno-42-6" href="#__codelineno-42-6"></a><span class="w">            </span><span class="kr">return</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span><span class="o">*</span><span class="nv">gRefMsg</span><span class="p">.</span><span class="py">antiY</span><span class="o">*</span><span class="nv">p</span>
+<a id="__codelineno-42-7" name="__codelineno-42-7" href="#__codelineno-42-7"></a><span class="w">        </span><span class="kr">end</span>
+<a id="__codelineno-42-8" name="__codelineno-42-8" href="#__codelineno-42-8"></a><span class="w">    </span><span class="kr">end</span>
+<a id="__codelineno-42-9" name="__codelineno-42-9" href="#__codelineno-42-9"></a><span class="kr">end</span>
+</code></pre></div></p>
+</li>
+<li>
+<p><code>refIsOurBall(p)</code>函数：返回是否我方开定位球
+<div class="highlight"><pre><span></span><code><a id="__codelineno-43-1" name="__codelineno-43-1" href="#__codelineno-43-1"></a><span class="kr">function</span><span class="w"> </span><span class="nf">refIsOurBall</span><span class="p">(</span><span class="nv">p</span><span class="p">)</span>
+<a id="__codelineno-43-2" name="__codelineno-43-2" href="#__codelineno-43-2"></a><span class="w">    </span><span class="kr">return</span><span class="w"> </span><span class="nv">gRefMsg</span><span class="p">.</span><span class="py">isOurBall</span>
+<a id="__codelineno-43-3" name="__codelineno-43-3" href="#__codelineno-43-3"></a><span class="kr">end</span>
+</code></pre></div></p>
+</li>
+<li>
+<p><code>supportPassPos(num)</code>函数：返回在num区域一个用于传球的最佳点。
+<div class="highlight"><pre><span></span><code><a id="__codelineno-44-1" name="__codelineno-44-1" href="#__codelineno-44-1"></a><span class="kr">function</span><span class="w"> </span><span class="nf">supportPassPos</span><span class="p">(</span><span class="nv">num</span><span class="p">)</span>
+<a id="__codelineno-44-2" name="__codelineno-44-2" href="#__codelineno-44-2"></a><span class="w">    </span><span class="kr">return</span><span class="w"> </span><span class="kr">function</span><span class="w"> </span><span class="p">()</span>
+<a id="__codelineno-44-3" name="__codelineno-44-3" href="#__codelineno-44-3"></a><span class="w">        </span><span class="c1">--local passPos = bestAlg:getBestPointFromArea(num)</span>
+<a id="__codelineno-44-4" name="__codelineno-44-4" href="#__codelineno-44-4"></a><span class="w">        </span><span class="kd">local</span><span class="w"> </span><span class="nv">areaNum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">num</span>
+<a id="__codelineno-44-5" name="__codelineno-44-5" href="#__codelineno-44-5"></a><span class="w">        </span><span class="kr">if</span><span class="w"> </span><span class="nb">type</span><span class="p">(</span><span class="nv">areaNum</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s2">&quot;function&quot;</span><span class="w"> </span><span class="kr">then</span>
+<a id="__codelineno-44-6" name="__codelineno-44-6" href="#__codelineno-44-6"></a><span class="w">            </span><span class="nv">areaNum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">areaNum</span><span class="p">()</span>
+<a id="__codelineno-44-7" name="__codelineno-44-7" href="#__codelineno-44-7"></a><span class="w">        </span><span class="kr">end</span>
+<a id="__codelineno-44-8" name="__codelineno-44-8" href="#__codelineno-44-8"></a><span class="w">        </span><span class="kd">local</span><span class="w"> </span><span class="nv">passPos</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">bestAlg</span><span class="p">:</span><span class="nf">getBestPointFromArea</span><span class="p">(</span><span class="nv">areaNum</span><span class="p">)</span>
+<a id="__codelineno-44-9" name="__codelineno-44-9" href="#__codelineno-44-9"></a><span class="w">        </span><span class="kr">return</span><span class="w"> </span><span class="nv">passPos</span>
+<a id="__codelineno-44-10" name="__codelineno-44-10" href="#__codelineno-44-10"></a><span class="w">    </span><span class="kr">end</span>
+<a id="__codelineno-44-11" name="__codelineno-44-11" href="#__codelineno-44-11"></a><span class="kr">end</span>
+</code></pre></div></p>
+</li>
+<li>
+<p><code>LWPassPos()</code>函数：返回一个用于左路传球的最佳点。
+<div class="highlight"><pre><span></span><code><a id="__codelineno-45-1" name="__codelineno-45-1" href="#__codelineno-45-1"></a><span class="kr">function</span><span class="w"> </span><span class="nf">LWPassPos</span><span class="p">()</span>
+<a id="__codelineno-45-2" name="__codelineno-45-2" href="#__codelineno-45-2"></a><span class="w">    </span><span class="kr">return</span><span class="w"> </span><span class="kr">function</span><span class="w"> </span><span class="p">()</span>
+<a id="__codelineno-45-3" name="__codelineno-45-3" href="#__codelineno-45-3"></a><span class="w">        </span><span class="kd">local</span><span class="w"> </span><span class="nv">passPos</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">bestAlg</span><span class="p">:</span><span class="nf">getBestPointFromArea</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<a id="__codelineno-45-4" name="__codelineno-45-4" href="#__codelineno-45-4"></a><span class="w">        </span><span class="kr">return</span><span class="w"> </span><span class="nv">passPos</span>
+<a id="__codelineno-45-5" name="__codelineno-45-5" href="#__codelineno-45-5"></a><span class="w">    </span><span class="kr">end</span>
+<a id="__codelineno-45-6" name="__codelineno-45-6" href="#__codelineno-45-6"></a><span class="kr">end</span>
+</code></pre></div></p>
+</li>
+<li>
+<p><code>MWPassPos()</code>函数：返回一个用于中路传球的最佳点。
+<div class="highlight"><pre><span></span><code><a id="__codelineno-46-1" name="__codelineno-46-1" href="#__codelineno-46-1"></a><span class="kr">function</span><span class="w"> </span><span class="nf">MWPassPos</span><span class="p">()</span>
+<a id="__codelineno-46-2" name="__codelineno-46-2" href="#__codelineno-46-2"></a><span class="w">    </span><span class="kr">return</span><span class="w"> </span><span class="kr">function</span><span class="w"> </span><span class="p">()</span>
+<a id="__codelineno-46-3" name="__codelineno-46-3" href="#__codelineno-46-3"></a><span class="w">        </span><span class="kd">local</span><span class="w"> </span><span class="nv">passPos</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">bestAlg</span><span class="p">:</span><span class="nf">getBestPointFromArea</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<a id="__codelineno-46-4" name="__codelineno-46-4" href="#__codelineno-46-4"></a><span class="w">        </span><span class="kr">return</span><span class="w"> </span><span class="nv">passPos</span>
+<a id="__codelineno-46-5" name="__codelineno-46-5" href="#__codelineno-46-5"></a><span class="w">    </span><span class="kr">end</span>
+<a id="__codelineno-46-6" name="__codelineno-46-6" href="#__codelineno-46-6"></a><span class="kr">end</span>
+</code></pre></div></p>
+</li>
+<li>
+<p><code>RWPassPos()</code>函数：返回一个用于右路传球的最佳点。
+<div class="highlight"><pre><span></span><code><a id="__codelineno-47-1" name="__codelineno-47-1" href="#__codelineno-47-1"></a><span class="kr">function</span><span class="w"> </span><span class="nf">RWPassPos</span><span class="p">()</span>
+<a id="__codelineno-47-2" name="__codelineno-47-2" href="#__codelineno-47-2"></a><span class="w">    </span><span class="kr">return</span><span class="w"> </span><span class="kr">function</span><span class="w"> </span><span class="p">()</span>
+<a id="__codelineno-47-3" name="__codelineno-47-3" href="#__codelineno-47-3"></a><span class="w">        </span><span class="kd">local</span><span class="w"> </span><span class="nv">passPos</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">bestAlg</span><span class="p">:</span><span class="nf">getBestPointFromArea</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<a id="__codelineno-47-4" name="__codelineno-47-4" href="#__codelineno-47-4"></a><span class="w">        </span><span class="kr">return</span><span class="w"> </span><span class="nv">passPos</span>
+<a id="__codelineno-47-5" name="__codelineno-47-5" href="#__codelineno-47-5"></a><span class="w">    </span><span class="kr">end</span>
+<a id="__codelineno-47-6" name="__codelineno-47-6" href="#__codelineno-47-6"></a><span class="kr">end</span>
+</code></pre></div></p>
+</li>
+<li>
+<p><code>LMPassPos()</code>函数：返回一个用于左中场传球的最佳点。
+<div class="highlight"><pre><span></span><code><a id="__codelineno-48-1" name="__codelineno-48-1" href="#__codelineno-48-1"></a><span class="kr">function</span><span class="w"> </span><span class="nf">LMPassPos</span><span class="p">()</span>
+<a id="__codelineno-48-2" name="__codelineno-48-2" href="#__codelineno-48-2"></a><span class="w">    </span><span class="kr">return</span><span class="w"> </span><span class="kr">function</span><span class="w"> </span><span class="p">()</span>
+<a id="__codelineno-48-3" name="__codelineno-48-3" href="#__codelineno-48-3"></a><span class="w">        </span><span class="kd">local</span><span class="w"> </span><span class="nv">passPos</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">bestAlg</span><span class="p">:</span><span class="nf">getBestPointFromArea</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<a id="__codelineno-48-4" name="__codelineno-48-4" href="#__codelineno-48-4"></a><span class="w">        </span><span class="kr">return</span><span class="w"> </span><span class="nv">passPos</span>
+<a id="__codelineno-48-5" name="__codelineno-48-5" href="#__codelineno-48-5"></a><span class="w">    </span><span class="kr">end</span>
+<a id="__codelineno-48-6" name="__codelineno-48-6" href="#__codelineno-48-6"></a><span class="kr">end</span>
+</code></pre></div></p>
+</li>
+<li>
+<p><code>MMPassPos()</code>函数：返回一个用于中中场传球的最佳点。
+<div class="highlight"><pre><span></span><code><a id="__codelineno-49-1" name="__codelineno-49-1" href="#__codelineno-49-1"></a><span class="kr">function</span><span class="w"> </span><span class="nf">MMPassPos</span><span class="p">()</span>
+<a id="__codelineno-49-2" name="__codelineno-49-2" href="#__codelineno-49-2"></a><span class="w">    </span><span class="kr">return</span><span class="w"> </span><span class="kr">function</span><span class="w"> </span><span class="p">()</span>
+<a id="__codelineno-49-3" name="__codelineno-49-3" href="#__codelineno-49-3"></a><span class="w">        </span><span class="kd">local</span><span class="w"> </span><span class="nv">passPos</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">bestAlg</span><span class="p">:</span><span class="nf">getBestPointFromArea</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<a id="__codelineno-49-4" name="__codelineno-49-4" href="#__codelineno-49-4"></a><span class="w">        </span><span class="kr">return</span><span class="w"> </span><span class="nv">passPos</span>
+<a id="__codelineno-49-5" name="__codelineno-49-5" href="#__codelineno-49-5"></a><span class="w">    </span><span class="kr">end</span>
+<a id="__codelineno-49-6" name="__codelineno-49-6" href="#__codelineno-49-6"></a><span class="kr">end</span>
+</code></pre></div></p>
+</li>
+<li>
+<p><code>RMPassPos()</code>函数：返回一个用于右中场传球的最佳点。
+<div class="highlight"><pre><span></span><code><a id="__codelineno-50-1" name="__codelineno-50-1" href="#__codelineno-50-1"></a><span class="kr">function</span><span class="w"> </span><span class="nf">RMPassPos</span><span class="p">()</span>
+<a id="__codelineno-50-2" name="__codelineno-50-2" href="#__codelineno-50-2"></a><span class="w">    </span><span class="kr">return</span><span class="w"> </span><span class="kr">function</span><span class="w"> </span><span class="p">()</span>
+<a id="__codelineno-50-3" name="__codelineno-50-3" href="#__codelineno-50-3"></a><span class="w">        </span><span class="kd">local</span><span class="w"> </span><span class="nv">passPos</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">bestAlg</span><span class="p">:</span><span class="nf">getBestPointFromArea</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<a id="__codelineno-50-4" name="__codelineno-50-4" href="#__codelineno-50-4"></a><span class="w">        </span><span class="kr">return</span><span class="w"> </span><span class="nv">passPos</span>
+<a id="__codelineno-50-5" name="__codelineno-50-5" href="#__codelineno-50-5"></a><span class="w">    </span><span class="kr">end</span>
+<a id="__codelineno-50-6" name="__codelineno-50-6" href="#__codelineno-50-6"></a><span class="kr">end</span>
+</code></pre></div></p>
+</li>
+<li>
+<p><code>isMovingTo(role)</code>函数：返回球是否朝着指定角色运动。
+<div class="highlight"><pre><span></span><code><a id="__codelineno-51-1" name="__codelineno-51-1" href="#__codelineno-51-1"></a><span class="kr">function</span><span class="w"> </span><span class="nf">isMovingTo</span><span class="p">(</span><span class="nv">role</span><span class="p">)</span>
+<a id="__codelineno-51-2" name="__codelineno-51-2" href="#__codelineno-51-2"></a><span class="w">    </span><span class="kr">if</span><span class="w"> </span><span class="nv">ball</span><span class="p">.</span><span class="nf">valid</span><span class="p">()</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="nv">ball</span><span class="p">.</span><span class="nf">velMod</span><span class="p">()</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="nb">math.abs</span><span class="p">(</span><span class="nv">Utils</span><span class="p">.</span><span class="nf">Normalize</span><span class="p">(</span><span class="nv">ball</span><span class="p">.</span><span class="nf">velDir</span><span class="p">()</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nv">ball</span><span class="p">.</span><span class="nf">toPlayerDir</span><span class="p">(</span><span class="nv">role</span><span class="p">)))</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nb">math.pi</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">9</span><span class="w"> </span><span class="kr">then</span>
+<a id="__codelineno-51-3" name="__codelineno-51-3" href="#__codelineno-51-3"></a><span class="w">        </span><span class="kr">return</span><span class="w"> </span><span class="kc">true</span>
+<a id="__codelineno-51-4" name="__codelineno-51-4" href="#__codelineno-51-4"></a><span class="w">    </span><span class="kr">end</span>
+<a id="__codelineno-51-5" name="__codelineno-51-5" href="#__codelineno-51-5"></a><span class="w">    </span><span class="kr">return</span><span class="w"> </span><span class="kc">false</span>
+<a id="__codelineno-51-6" name="__codelineno-51-6" href="#__codelineno-51-6"></a><span class="kr">end</span>
+</code></pre></div></p>
+</li>
+<li>
+<p><code>placementPos()</code>函数：返回球的放置位置。
+<div class="highlight"><pre><span></span><code><a id="__codelineno-52-1" name="__codelineno-52-1" href="#__codelineno-52-1"></a><span class="kr">function</span><span class="w"> </span><span class="nf">placementPos</span><span class="p">()</span>
+<a id="__codelineno-52-2" name="__codelineno-52-2" href="#__codelineno-52-2"></a><span class="w">    </span><span class="kr">return</span><span class="w"> </span><span class="nv">vision</span><span class="p">:</span><span class="nf">getBallPlacementPosition</span><span class="p">()</span>
+<a id="__codelineno-52-3" name="__codelineno-52-3" href="#__codelineno-52-3"></a><span class="kr">end</span>
+</code></pre></div></p>
+</li>
+<li>
+<p><code>readyplacementPos()</code>函数：返回一个放置球时车准备的位置。
+<div class="highlight"><pre><span></span><code><a id="__codelineno-53-1" name="__codelineno-53-1" href="#__codelineno-53-1"></a><span class="kr">function</span><span class="w"> </span><span class="nf">readyplacementPos</span><span class="p">()</span><span class="w"> </span>
+<a id="__codelineno-53-2" name="__codelineno-53-2" href="#__codelineno-53-2"></a><span class="w">        </span><span class="kr">return</span><span class="w"> </span><span class="kr">function</span><span class="w"> </span><span class="p">()</span>
+<a id="__codelineno-53-3" name="__codelineno-53-3" href="#__codelineno-53-3"></a><span class="w">               </span><span class="c1">--放球点在左上</span>
+<a id="__codelineno-53-4" name="__codelineno-53-4" href="#__codelineno-53-4"></a><span class="w">               </span><span class="kr">if</span><span class="w"> </span><span class="nv">ball</span><span class="p">.</span><span class="nf">posX</span><span class="p">()</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="nv">ball</span><span class="p">.</span><span class="nf">placementPos</span><span class="p">():</span><span class="nf">x</span><span class="p">()</span><span class="w"> </span><span class="ow">and</span><span class="w">  </span><span class="nv">ball</span><span class="p">.</span><span class="nf">posY</span><span class="p">()</span><span class="w"> </span><span class="o">&gt;</span><span class="nv">ball</span><span class="p">.</span><span class="nf">placementPos</span><span class="p">():</span><span class="nf">y</span><span class="p">()</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="nv">ball</span><span class="p">.</span><span class="nf">posX</span><span class="p">()</span><span class="o">-</span><span class="nv">ball</span><span class="p">.</span><span class="nf">placementPos</span><span class="p">():</span><span class="nf">x</span><span class="p">()</span><span class="o">&gt;</span><span class="w"> </span><span class="nv">ball</span><span class="p">.</span><span class="nf">posY</span><span class="p">()</span><span class="o">-</span><span class="nv">ball</span><span class="p">.</span><span class="nf">placementPos</span><span class="p">():</span><span class="nf">y</span><span class="p">()</span><span class="w">  </span><span class="kr">then</span>
+<a id="__codelineno-53-5" name="__codelineno-53-5" href="#__codelineno-53-5"></a><span class="w">                 </span><span class="kr">if</span><span class="w"> </span><span class="nv">ball</span><span class="p">.</span><span class="nf">placementPos</span><span class="p">():</span><span class="nf">y</span><span class="p">()</span><span class="o">+</span><span class="mi">250</span><span class="o">&lt;</span><span class="mi">450</span><span class="w"> </span><span class="kr">then</span>
+<a id="__codelineno-53-6" name="__codelineno-53-6" href="#__codelineno-53-6"></a><span class="w">                   </span><span class="kr">return</span><span class="w"> </span><span class="nf">CGeoPoint</span><span class="p">(</span><span class="nv">ball</span><span class="p">.</span><span class="nf">placementPos</span><span class="p">():</span><span class="nf">x</span><span class="p">(),</span><span class="w"> </span><span class="nv">ball</span><span class="p">.</span><span class="nf">placementPos</span><span class="p">():</span><span class="nf">y</span><span class="p">()</span><span class="o">+</span><span class="mi">250</span><span class="p">)</span>
+<a id="__codelineno-53-7" name="__codelineno-53-7" href="#__codelineno-53-7"></a><span class="w">                 </span><span class="kr">else</span><span class="w"> </span>
+<a id="__codelineno-53-8" name="__codelineno-53-8" href="#__codelineno-53-8"></a><span class="w">                   </span><span class="kr">return</span><span class="w"> </span><span class="nf">CGeoPoint</span><span class="p">(</span><span class="nv">ball</span><span class="p">.</span><span class="nf">placementPos</span><span class="p">():</span><span class="nf">x</span><span class="p">(),</span><span class="w"> </span><span class="nv">ball</span><span class="p">.</span><span class="nf">placementPos</span><span class="p">():</span><span class="nf">y</span><span class="p">()</span><span class="o">-</span><span class="mi">250</span><span class="p">)</span>
+<a id="__codelineno-53-9" name="__codelineno-53-9" href="#__codelineno-53-9"></a><span class="w">                 </span><span class="kr">end</span>
+<a id="__codelineno-53-10" name="__codelineno-53-10" href="#__codelineno-53-10"></a><span class="w">               </span><span class="kr">end</span>
+<a id="__codelineno-53-11" name="__codelineno-53-11" href="#__codelineno-53-11"></a><span class="w">               </span><span class="kr">if</span><span class="w"> </span><span class="nv">ball</span><span class="p">.</span><span class="nf">posX</span><span class="p">()</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="nv">ball</span><span class="p">.</span><span class="nf">placementPos</span><span class="p">():</span><span class="nf">x</span><span class="p">()</span><span class="w"> </span><span class="ow">and</span><span class="w">  </span><span class="nv">ball</span><span class="p">.</span><span class="nf">posY</span><span class="p">()</span><span class="w"> </span><span class="o">&gt;</span><span class="nv">ball</span><span class="p">.</span><span class="nf">placementPos</span><span class="p">():</span><span class="nf">y</span><span class="p">()</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="nv">ball</span><span class="p">.</span><span class="nf">posX</span><span class="p">()</span><span class="o">-</span><span class="nv">ball</span><span class="p">.</span><span class="nf">placementPos</span><span class="p">():</span><span class="nf">x</span><span class="p">()</span><span class="o">&lt;=</span><span class="w"> </span><span class="nv">ball</span><span class="p">.</span><span class="nf">posY</span><span class="p">()</span><span class="o">-</span><span class="nv">ball</span><span class="p">.</span><span class="nf">placementPos</span><span class="p">():</span><span class="nf">y</span><span class="p">()</span><span class="w">  </span><span class="kr">then</span>
+<a id="__codelineno-53-12" name="__codelineno-53-12" href="#__codelineno-53-12"></a><span class="w">                 </span><span class="kr">if</span><span class="w"> </span><span class="nv">ball</span><span class="p">.</span><span class="nf">placementPos</span><span class="p">():</span><span class="nf">x</span><span class="p">()</span><span class="o">+</span><span class="mi">250</span><span class="o">&lt;</span><span class="mi">600</span><span class="w"> </span><span class="kr">then</span>
+<a id="__codelineno-53-13" name="__codelineno-53-13" href="#__codelineno-53-13"></a><span class="w">                   </span><span class="kr">return</span><span class="w"> </span><span class="nf">CGeoPoint</span><span class="p">(</span><span class="nv">ball</span><span class="p">.</span><span class="nf">placementPos</span><span class="p">():</span><span class="nf">x</span><span class="p">()</span><span class="o">+</span><span class="mi">250</span><span class="p">,</span><span class="w"> </span><span class="nv">ball</span><span class="p">.</span><span class="nf">placementPos</span><span class="p">():</span><span class="nf">y</span><span class="p">())</span>
+<a id="__codelineno-53-14" name="__codelineno-53-14" href="#__codelineno-53-14"></a><span class="w">                 </span><span class="kr">else</span>
+<a id="__codelineno-53-15" name="__codelineno-53-15" href="#__codelineno-53-15"></a><span class="w">                   </span><span class="kr">return</span><span class="w"> </span><span class="nf">CGeoPoint</span><span class="p">(</span><span class="nv">ball</span><span class="p">.</span><span class="nf">placementPos</span><span class="p">():</span><span class="nf">x</span><span class="p">()</span><span class="o">-</span><span class="mi">250</span><span class="p">,</span><span class="w"> </span><span class="nv">ball</span><span class="p">.</span><span class="nf">placementPos</span><span class="p">():</span><span class="nf">y</span><span class="p">())</span>
+<a id="__codelineno-53-16" name="__codelineno-53-16" href="#__codelineno-53-16"></a><span class="w">                 </span><span class="kr">end</span>
+<a id="__codelineno-53-17" name="__codelineno-53-17" href="#__codelineno-53-17"></a><span class="w">               </span><span class="kr">end</span>
+<a id="__codelineno-53-18" name="__codelineno-53-18" href="#__codelineno-53-18"></a><span class="w">               </span><span class="c1">--放球点在右上</span>
+<a id="__codelineno-53-19" name="__codelineno-53-19" href="#__codelineno-53-19"></a><span class="w">               </span><span class="kr">if</span><span class="w"> </span><span class="nv">ball</span><span class="p">.</span><span class="nf">posX</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="nv">ball</span><span class="p">.</span><span class="nf">placementPos</span><span class="p">():</span><span class="nf">x</span><span class="p">()</span><span class="w"> </span><span class="ow">and</span><span class="w">  </span><span class="nv">ball</span><span class="p">.</span><span class="nf">posY</span><span class="p">()</span><span class="w"> </span><span class="o">&gt;</span><span class="nv">ball</span><span class="p">.</span><span class="nf">placementPos</span><span class="p">():</span><span class="nf">y</span><span class="p">()</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="nv">ball</span><span class="p">.</span><span class="nf">placementPos</span><span class="p">():</span><span class="nf">x</span><span class="p">()</span><span class="o">-</span><span class="nv">ball</span><span class="p">.</span><span class="nf">posX</span><span class="p">()</span><span class="o">&gt;</span><span class="w"> </span><span class="nv">ball</span><span class="p">.</span><span class="nf">posY</span><span class="p">()</span><span class="o">-</span><span class="nv">ball</span><span class="p">.</span><span class="nf">placementPos</span><span class="p">():</span><span class="nf">y</span><span class="p">()</span><span class="w">  </span><span class="kr">then</span>
+<a id="__codelineno-53-20" name="__codelineno-53-20" href="#__codelineno-53-20"></a><span class="w">                  </span><span class="kr">if</span><span class="w"> </span><span class="nv">ball</span><span class="p">.</span><span class="nf">placementPos</span><span class="p">():</span><span class="nf">y</span><span class="p">()</span><span class="o">+</span><span class="mi">250</span><span class="o">&lt;</span><span class="mi">450</span><span class="w"> </span><span class="kr">then</span><span class="w"> </span>
+<a id="__codelineno-53-21" name="__codelineno-53-21" href="#__codelineno-53-21"></a><span class="w">                    </span><span class="kr">return</span><span class="w"> </span><span class="nf">CGeoPoint</span><span class="p">(</span><span class="nv">ball</span><span class="p">.</span><span class="nf">placementPos</span><span class="p">():</span><span class="nf">x</span><span class="p">(),</span><span class="w"> </span><span class="nv">ball</span><span class="p">.</span><span class="nf">placementPos</span><span class="p">():</span><span class="nf">y</span><span class="p">()</span><span class="o">+</span><span class="mi">250</span><span class="p">)</span>
+<a id="__codelineno-53-22" name="__codelineno-53-22" href="#__codelineno-53-22"></a><span class="w">                  </span><span class="kr">else</span><span class="w"> </span>
+<a id="__codelineno-53-23" name="__codelineno-53-23" href="#__codelineno-53-23"></a><span class="w">                    </span><span class="kr">return</span><span class="w"> </span><span class="nf">CGeoPoint</span><span class="p">(</span><span class="nv">ball</span><span class="p">.</span><span class="nf">placementPos</span><span class="p">():</span><span class="nf">x</span><span class="p">(),</span><span class="w"> </span><span class="nv">ball</span><span class="p">.</span><span class="nf">placementPos</span><span class="p">():</span><span class="nf">y</span><span class="p">()</span><span class="o">-</span><span class="mi">250</span><span class="p">)</span>
+<a id="__codelineno-53-24" name="__codelineno-53-24" href="#__codelineno-53-24"></a><span class="w">                  </span><span class="kr">end</span>
+<a id="__codelineno-53-25" name="__codelineno-53-25" href="#__codelineno-53-25"></a><span class="w">               </span><span class="kr">end</span>
+<a id="__codelineno-53-26" name="__codelineno-53-26" href="#__codelineno-53-26"></a><span class="w">               </span><span class="kr">if</span><span class="w"> </span><span class="nv">ball</span><span class="p">.</span><span class="nf">posX</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="nv">ball</span><span class="p">.</span><span class="nf">placementPos</span><span class="p">():</span><span class="nf">x</span><span class="p">()</span><span class="w"> </span><span class="ow">and</span><span class="w">  </span><span class="nv">ball</span><span class="p">.</span><span class="nf">posY</span><span class="p">()</span><span class="w"> </span><span class="o">&gt;</span><span class="nv">ball</span><span class="p">.</span><span class="nf">placementPos</span><span class="p">():</span><span class="nf">y</span><span class="p">()</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="nv">ball</span><span class="p">.</span><span class="nf">placementPos</span><span class="p">():</span><span class="nf">x</span><span class="p">()</span><span class="o">-</span><span class="nv">ball</span><span class="p">.</span><span class="nf">posX</span><span class="p">()</span><span class="o">&lt;=</span><span class="w"> </span><span class="nv">ball</span><span class="p">.</span><span class="nf">posY</span><span class="p">()</span><span class="o">-</span><span class="nv">ball</span><span class="p">.</span><span class="nf">placementPos</span><span class="p">():</span><span class="nf">y</span><span class="p">()</span><span class="w">  </span><span class="kr">then</span>
+<a id="__codelineno-53-27" name="__codelineno-53-27" href="#__codelineno-53-27"></a><span class="w">                  </span><span class="kr">if</span><span class="w"> </span><span class="nv">ball</span><span class="p">.</span><span class="nf">placementPos</span><span class="p">():</span><span class="nf">x</span><span class="p">()</span><span class="o">-</span><span class="mi">250</span><span class="o">&gt;-</span><span class="mi">600</span><span class="w"> </span><span class="kr">then</span>
+<a id="__codelineno-53-28" name="__codelineno-53-28" href="#__codelineno-53-28"></a><span class="w">                    </span><span class="kr">return</span><span class="w"> </span><span class="nf">CGeoPoint</span><span class="p">(</span><span class="nv">ball</span><span class="p">.</span><span class="nf">placementPos</span><span class="p">():</span><span class="nf">x</span><span class="p">()</span><span class="o">-</span><span class="mi">250</span><span class="p">,</span><span class="w"> </span><span class="nv">ball</span><span class="p">.</span><span class="nf">placementPos</span><span class="p">():</span><span class="nf">y</span><span class="p">())</span>
+<a id="__codelineno-53-29" name="__codelineno-53-29" href="#__codelineno-53-29"></a><span class="w">                  </span><span class="kr">else</span>
+<a id="__codelineno-53-30" name="__codelineno-53-30" href="#__codelineno-53-30"></a><span class="w">                    </span><span class="kr">return</span><span class="w"> </span><span class="nf">CGeoPoint</span><span class="p">(</span><span class="nv">ball</span><span class="p">.</span><span class="nf">placementPos</span><span class="p">():</span><span class="nf">x</span><span class="p">()</span><span class="o">+</span><span class="mi">250</span><span class="p">,</span><span class="w"> </span><span class="nv">ball</span><span class="p">.</span><span class="nf">placementPos</span><span class="p">():</span><span class="nf">y</span><span class="p">())</span>
+<a id="__codelineno-53-31" name="__codelineno-53-31" href="#__codelineno-53-31"></a><span class="w">                  </span><span class="kr">end</span>
+<a id="__codelineno-53-32" name="__codelineno-53-32" href="#__codelineno-53-32"></a><span class="w">               </span><span class="kr">end</span>
+<a id="__codelineno-53-33" name="__codelineno-53-33" href="#__codelineno-53-33"></a><span class="w">               </span><span class="c1">--放球点在左下</span>
+<a id="__codelineno-53-34" name="__codelineno-53-34" href="#__codelineno-53-34"></a><span class="w">               </span><span class="kr">if</span><span class="w"> </span><span class="nv">ball</span><span class="p">.</span><span class="nf">posX</span><span class="p">()</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="nv">ball</span><span class="p">.</span><span class="nf">placementPos</span><span class="p">():</span><span class="nf">x</span><span class="p">()</span><span class="w"> </span><span class="ow">and</span><span class="w">  </span><span class="nv">ball</span><span class="p">.</span><span class="nf">posY</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;=</span><span class="nv">ball</span><span class="p">.</span><span class="nf">placementPos</span><span class="p">():</span><span class="nf">y</span><span class="p">()</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="nv">ball</span><span class="p">.</span><span class="nf">posX</span><span class="p">()</span><span class="o">-</span><span class="nv">ball</span><span class="p">.</span><span class="nf">placementPos</span><span class="p">():</span><span class="nf">x</span><span class="p">()</span><span class="o">&gt;</span><span class="w"> </span><span class="nv">ball</span><span class="p">.</span><span class="nf">placementPos</span><span class="p">():</span><span class="nf">y</span><span class="p">()</span><span class="o">-</span><span class="nv">ball</span><span class="p">.</span><span class="nf">posY</span><span class="p">()</span><span class="w">  </span><span class="kr">then</span>
+<a id="__codelineno-53-35" name="__codelineno-53-35" href="#__codelineno-53-35"></a><span class="w">                 </span><span class="kr">if</span><span class="w"> </span><span class="nv">ball</span><span class="p">.</span><span class="nf">placementPos</span><span class="p">():</span><span class="nf">y</span><span class="p">()</span><span class="o">-</span><span class="mi">250</span><span class="o">&gt;-</span><span class="mi">450</span><span class="w"> </span><span class="kr">then</span><span class="w"> </span>
+<a id="__codelineno-53-36" name="__codelineno-53-36" href="#__codelineno-53-36"></a><span class="w">                    </span><span class="kr">return</span><span class="w"> </span><span class="nf">CGeoPoint</span><span class="p">(</span><span class="nv">ball</span><span class="p">.</span><span class="nf">placementPos</span><span class="p">():</span><span class="nf">x</span><span class="p">(),</span><span class="w"> </span><span class="nv">ball</span><span class="p">.</span><span class="nf">placementPos</span><span class="p">():</span><span class="nf">y</span><span class="p">()</span><span class="o">-</span><span class="mi">250</span><span class="p">)</span>
+<a id="__codelineno-53-37" name="__codelineno-53-37" href="#__codelineno-53-37"></a><span class="w">                 </span><span class="kr">else</span><span class="w"> </span>
+<a id="__codelineno-53-38" name="__codelineno-53-38" href="#__codelineno-53-38"></a><span class="w">                    </span><span class="kr">return</span><span class="w"> </span><span class="nf">CGeoPoint</span><span class="p">(</span><span class="nv">ball</span><span class="p">.</span><span class="nf">placementPos</span><span class="p">():</span><span class="nf">x</span><span class="p">(),</span><span class="w"> </span><span class="nv">ball</span><span class="p">.</span><span class="nf">placementPos</span><span class="p">():</span><span class="nf">y</span><span class="p">()</span><span class="o">+</span><span class="mi">250</span><span class="p">)</span>
+<a id="__codelineno-53-39" name="__codelineno-53-39" href="#__codelineno-53-39"></a><span class="w">                 </span><span class="kr">end</span>
+<a id="__codelineno-53-40" name="__codelineno-53-40" href="#__codelineno-53-40"></a><span class="w">               </span><span class="kr">end</span>
+<a id="__codelineno-53-41" name="__codelineno-53-41" href="#__codelineno-53-41"></a><span class="w">               </span><span class="kr">if</span><span class="w"> </span><span class="nv">ball</span><span class="p">.</span><span class="nf">posX</span><span class="p">()</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="nv">ball</span><span class="p">.</span><span class="nf">placementPos</span><span class="p">():</span><span class="nf">x</span><span class="p">()</span><span class="w"> </span><span class="ow">and</span><span class="w">  </span><span class="nv">ball</span><span class="p">.</span><span class="nf">posY</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;=</span><span class="nv">ball</span><span class="p">.</span><span class="nf">placementPos</span><span class="p">():</span><span class="nf">y</span><span class="p">()</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="nv">ball</span><span class="p">.</span><span class="nf">posX</span><span class="p">()</span><span class="o">-</span><span class="nv">ball</span><span class="p">.</span><span class="nf">placementPos</span><span class="p">():</span><span class="nf">x</span><span class="p">()</span><span class="o">&lt;=</span><span class="w"> </span><span class="nv">ball</span><span class="p">.</span><span class="nf">placementPos</span><span class="p">():</span><span class="nf">y</span><span class="p">()</span><span class="o">-</span><span class="nv">ball</span><span class="p">.</span><span class="nf">posY</span><span class="p">()</span><span class="w">  </span><span class="kr">then</span>
+<a id="__codelineno-53-42" name="__codelineno-53-42" href="#__codelineno-53-42"></a><span class="w">                 </span><span class="kr">if</span><span class="w"> </span><span class="nv">ball</span><span class="p">.</span><span class="nf">placementPos</span><span class="p">():</span><span class="nf">x</span><span class="p">()</span><span class="o">+</span><span class="mi">250</span><span class="o">&lt;</span><span class="mi">600</span><span class="w"> </span><span class="kr">then</span>
+<a id="__codelineno-53-43" name="__codelineno-53-43" href="#__codelineno-53-43"></a><span class="w">                    </span><span class="kr">return</span><span class="w"> </span><span class="nf">CGeoPoint</span><span class="p">(</span><span class="nv">ball</span><span class="p">.</span><span class="nf">placementPos</span><span class="p">():</span><span class="nf">x</span><span class="p">()</span><span class="o">+</span><span class="mi">250</span><span class="p">,</span><span class="w"> </span><span class="nv">ball</span><span class="p">.</span><span class="nf">placementPos</span><span class="p">():</span><span class="nf">y</span><span class="p">())</span>
+<a id="__codelineno-53-44" name="__codelineno-53-44" href="#__codelineno-53-44"></a><span class="w">                 </span><span class="kr">else</span>
+<a id="__codelineno-53-45" name="__codelineno-53-45" href="#__codelineno-53-45"></a><span class="w">                    </span><span class="kr">return</span><span class="w"> </span><span class="nf">CGeoPoint</span><span class="p">(</span><span class="nv">ball</span><span class="p">.</span><span class="nf">placementPos</span><span class="p">():</span><span class="nf">x</span><span class="p">()</span><span class="o">-</span><span class="mi">250</span><span class="p">,</span><span class="w"> </span><span class="nv">ball</span><span class="p">.</span><span class="nf">placementPos</span><span class="p">():</span><span class="nf">y</span><span class="p">())</span>
+<a id="__codelineno-53-46" name="__codelineno-53-46" href="#__codelineno-53-46"></a><span class="w">                 </span><span class="kr">end</span>
+<a id="__codelineno-53-47" name="__codelineno-53-47" href="#__codelineno-53-47"></a><span class="w">               </span><span class="kr">end</span>
+<a id="__codelineno-53-48" name="__codelineno-53-48" href="#__codelineno-53-48"></a><span class="w">               </span><span class="c1">--放球点在右下</span>
+<a id="__codelineno-53-49" name="__codelineno-53-49" href="#__codelineno-53-49"></a><span class="w">               </span><span class="kr">if</span><span class="w"> </span><span class="nv">ball</span><span class="p">.</span><span class="nf">posX</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="nv">ball</span><span class="p">.</span><span class="nf">placementPos</span><span class="p">():</span><span class="nf">x</span><span class="p">()</span><span class="w"> </span><span class="ow">and</span><span class="w">  </span><span class="nv">ball</span><span class="p">.</span><span class="nf">posY</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;=</span><span class="nv">ball</span><span class="p">.</span><span class="nf">placementPos</span><span class="p">():</span><span class="nf">y</span><span class="p">()</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="nv">ball</span><span class="p">.</span><span class="nf">posX</span><span class="p">()</span><span class="o">-</span><span class="nv">ball</span><span class="p">.</span><span class="nf">placementPos</span><span class="p">():</span><span class="nf">x</span><span class="p">()</span><span class="o">&gt;</span><span class="w"> </span><span class="nv">ball</span><span class="p">.</span><span class="nf">placementPos</span><span class="p">():</span><span class="nf">y</span><span class="p">()</span><span class="o">-</span><span class="nv">ball</span><span class="p">.</span><span class="nf">posY</span><span class="p">()</span><span class="w">  </span><span class="kr">then</span>
+<a id="__codelineno-53-50" name="__codelineno-53-50" href="#__codelineno-53-50"></a><span class="w">                 </span><span class="kr">if</span><span class="w">  </span><span class="nv">ball</span><span class="p">.</span><span class="nf">placementPos</span><span class="p">():</span><span class="nf">y</span><span class="p">()</span><span class="o">-</span><span class="mi">250</span><span class="o">&gt;-</span><span class="mi">450</span><span class="w"> </span><span class="kr">then</span>
+<a id="__codelineno-53-51" name="__codelineno-53-51" href="#__codelineno-53-51"></a><span class="w">                   </span><span class="kr">return</span><span class="w"> </span><span class="nf">CGeoPoint</span><span class="p">(</span><span class="nv">ball</span><span class="p">.</span><span class="nf">placementPos</span><span class="p">():</span><span class="nf">x</span><span class="p">(),</span><span class="w"> </span><span class="nv">ball</span><span class="p">.</span><span class="nf">placementPos</span><span class="p">():</span><span class="nf">y</span><span class="p">()</span><span class="o">-</span><span class="mi">250</span><span class="p">)</span>
+<a id="__codelineno-53-52" name="__codelineno-53-52" href="#__codelineno-53-52"></a><span class="w">                 </span><span class="kr">else</span>
+<a id="__codelineno-53-53" name="__codelineno-53-53" href="#__codelineno-53-53"></a><span class="w">                   </span><span class="kr">return</span><span class="w"> </span><span class="nf">CGeoPoint</span><span class="p">(</span><span class="nv">ball</span><span class="p">.</span><span class="nf">placementPos</span><span class="p">():</span><span class="nf">x</span><span class="p">(),</span><span class="w"> </span><span class="nv">ball</span><span class="p">.</span><span class="nf">placementPos</span><span class="p">():</span><span class="nf">y</span><span class="p">()</span><span class="o">+</span><span class="mi">250</span><span class="p">)</span>
+<a id="__codelineno-53-54" name="__codelineno-53-54" href="#__codelineno-53-54"></a><span class="w">                 </span><span class="kr">end</span>
+<a id="__codelineno-53-55" name="__codelineno-53-55" href="#__codelineno-53-55"></a><span class="w">               </span><span class="kr">end</span>
+<a id="__codelineno-53-56" name="__codelineno-53-56" href="#__codelineno-53-56"></a><span class="w">               </span><span class="kr">if</span><span class="w"> </span><span class="nv">ball</span><span class="p">.</span><span class="nf">posX</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="nv">ball</span><span class="p">.</span><span class="nf">placementPos</span><span class="p">():</span><span class="nf">x</span><span class="p">()</span><span class="w"> </span><span class="ow">and</span><span class="w">  </span><span class="nv">ball</span><span class="p">.</span><span class="nf">posY</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;=</span><span class="nv">ball</span><span class="p">.</span><span class="nf">placementPos</span><span class="p">():</span><span class="nf">y</span><span class="p">()</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="nv">ball</span><span class="p">.</span><span class="nf">posX</span><span class="p">()</span><span class="o">-</span><span class="nv">ball</span><span class="p">.</span><span class="nf">placementPos</span><span class="p">():</span><span class="nf">x</span><span class="p">()</span><span class="o">&lt;=</span><span class="w"> </span><span class="nv">ball</span><span class="p">.</span><span class="nf">placementPos</span><span class="p">():</span><span class="nf">y</span><span class="p">()</span><span class="o">-</span><span class="nv">ball</span><span class="p">.</span><span class="nf">posY</span><span class="p">()</span><span class="w">  </span><span class="kr">then</span>
+<a id="__codelineno-53-57" name="__codelineno-53-57" href="#__codelineno-53-57"></a><span class="w">                 </span><span class="kr">if</span><span class="w"> </span><span class="nv">ball</span><span class="p">.</span><span class="nf">placementPos</span><span class="p">():</span><span class="nf">x</span><span class="p">()</span><span class="o">-</span><span class="mi">250</span><span class="o">&gt;-</span><span class="mi">600</span><span class="w"> </span><span class="kr">then</span>
+<a id="__codelineno-53-58" name="__codelineno-53-58" href="#__codelineno-53-58"></a><span class="w">                   </span><span class="kr">return</span><span class="w"> </span><span class="nf">CGeoPoint</span><span class="p">(</span><span class="nv">ball</span><span class="p">.</span><span class="nf">placementPos</span><span class="p">():</span><span class="nf">x</span><span class="p">()</span><span class="o">-</span><span class="mi">250</span><span class="p">,</span><span class="w"> </span><span class="nv">ball</span><span class="p">.</span><span class="nf">placementPos</span><span class="p">():</span><span class="nf">y</span><span class="p">())</span>
+<a id="__codelineno-53-59" name="__codelineno-53-59" href="#__codelineno-53-59"></a><span class="w">                 </span><span class="kr">else</span>
+<a id="__codelineno-53-60" name="__codelineno-53-60" href="#__codelineno-53-60"></a><span class="w">                   </span><span class="kr">return</span><span class="w"> </span><span class="nf">CGeoPoint</span><span class="p">(</span><span class="nv">ball</span><span class="p">.</span><span class="nf">placementPos</span><span class="p">():</span><span class="nf">x</span><span class="p">()</span><span class="o">+</span><span class="mi">250</span><span class="p">,</span><span class="w"> </span><span class="nv">ball</span><span class="p">.</span><span class="nf">placementPos</span><span class="p">():</span><span class="nf">y</span><span class="p">())</span>
+<a id="__codelineno-53-61" name="__codelineno-53-61" href="#__codelineno-53-61"></a><span class="w">                 </span><span class="kr">end</span>
+<a id="__codelineno-53-62" name="__codelineno-53-62" href="#__codelineno-53-62"></a><span class="w">               </span><span class="kr">end</span>
+<a id="__codelineno-53-63" name="__codelineno-53-63" href="#__codelineno-53-63"></a><span class="w">        </span><span class="kr">end</span>
+<a id="__codelineno-53-64" name="__codelineno-53-64" href="#__codelineno-53-64"></a><span class="kr">end</span>
+</code></pre></div></p>
+</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  回到页面顶部
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="页脚" >
+        
+          
+          <a href="../skill/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 2.2.6 &amp;nbsp; skill">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                上一页
+              </span>
+              <div class="md-ellipsis">
+                2.2.6 &nbsp; skill
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../cond.lua/" class="md-footer__link md-footer__link--next" aria-label="下一页: 2.2.7.2 &amp;nbsp; cond.lua">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                下一页
+              </span>
+              <div class="md-ellipsis">
+                2.2.7.2 &nbsp; cond.lua
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2023 SYLG   2024 sasuke-yang
+    </div>
+  
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/SY-LG" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8M97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.action.edit", "header.autohide", "content.code.annotate", "content.code.copy", "content.tabs.link", "content.tooltips", "content.footnote.tooltips", "navigation.indexes", "navigation.sections", "navigation.top", "navigation.footer", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.60a45f97.min.js"></script>
+      
+        <script src="../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": false, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "none"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body>
+</html>
