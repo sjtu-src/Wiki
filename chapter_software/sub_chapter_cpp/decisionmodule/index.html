@@ -12,26 +12,28 @@
         <meta name="author" content="SYLG">
       
       
-        <link rel="canonical" href="https://sjtu-src.github.io/Wiki/chapter_other/SoftwarePackfor2024/">
+        <link rel="canonical" href="https://sjtu-src.github.io/Wiki/chapter_software/sub_chapter_cpp/decisionmodule/">
       
       
-        <link rel="prev" href="../freshmencup/">
+        <link rel="prev" href="../DataReceive/">
       
       
+        <link rel="next" href="../../sub_chapter_lua/">
       
-      <link rel="icon" href="../../assets/images/favicon.svg">
+      
+      <link rel="icon" href="../../../assets/images/favicon.svg">
       <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.28">
     
     
       
-        <title>5.1.1   2024校内赛软件包说明 - SJTU-SRC Wiki</title>
+        <title>2.1.5   DecisionModule - SJTU-SRC Wiki</title>
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.6543a935.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.6543a935.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
       
       
 
@@ -56,16 +58,16 @@
       
     
     
-      <link rel="stylesheet" href="../../stylesheets/extra.css">
+      <link rel="stylesheet" href="../../../stylesheets/extra.css">
     
-    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
     
     
     
-   <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+   <link href="../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
     html.glightbox-open { overflow: initial; height: 100%; }
     .gslide-title { margin-top: 0px; user-select: text; }
     .gslide-desc { color: #666; user-select: text; }
@@ -74,7 +76,7 @@
     .gdesc-inner { font-size: 0.75rem; }
     body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
     body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
-    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../../assets/javascripts/glightbox.min.js"></script></head>
   
   
     
@@ -93,7 +95,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#2024" class="md-skip">
+        <a href="#cplayertask" class="md-skip">
           跳转至
         </a>
       
@@ -133,9 +135,9 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="页眉">
-    <a href="../.." title="SJTU-SRC Wiki" class="md-header__button md-logo" aria-label="SJTU-SRC Wiki" data-md-component="logo">
+    <a href="../../.." title="SJTU-SRC Wiki" class="md-header__button md-logo" aria-label="SJTU-SRC Wiki" data-md-component="logo">
       
-  <img src="../../assets/images/logo.jpg" alt="logo">
+  <img src="../../../assets/images/logo.jpg" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -152,7 +154,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              5.1.1 &nbsp; 2024校内赛软件包说明
+              2.1.5 &nbsp; DecisionModule
             
           </span>
         </div>
@@ -272,9 +274,9 @@
 
 <nav class="md-nav md-nav--primary" aria-label="导航栏" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="SJTU-SRC Wiki" class="md-nav__button md-logo" aria-label="SJTU-SRC Wiki" data-md-component="logo">
+    <a href="../../.." title="SJTU-SRC Wiki" class="md-nav__button md-logo" aria-label="SJTU-SRC Wiki" data-md-component="logo">
       
-  <img src="../../assets/images/logo.jpg" alt="logo">
+  <img src="../../../assets/images/logo.jpg" alt="logo">
 
     </a>
     SJTU-SRC Wiki
@@ -330,7 +332,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../chapter_preface/" class="md-nav__link ">
+            <a href="../../../chapter_preface/" class="md-nav__link ">
               
   
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
@@ -365,7 +367,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../chapter_preface/what_is_ssl/" class="md-nav__link">
+      <a href="../../../chapter_preface/what_is_ssl/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -386,7 +388,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../chapter_preface/%E4%B8%8A%E6%B5%B7%E4%BA%A4%E9%80%9A%E5%A4%A7%E5%AD%A6SRC%E8%B5%9B%E9%98%9F%E7%AB%A0%E7%A8%8B/" class="md-nav__link">
+      <a href="../../../chapter_preface/%E4%B8%8A%E6%B5%B7%E4%BA%A4%E9%80%9A%E5%A4%A7%E5%AD%A6SRC%E8%B5%9B%E9%98%9F%E7%AB%A0%E7%A8%8B/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -407,7 +409,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../chapter_preface/about_the_book/" class="md-nav__link">
+      <a href="../../../chapter_preface/about_the_book/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -472,7 +474,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../chapter_universal_build/" class="md-nav__link ">
+            <a href="../../../chapter_universal_build/" class="md-nav__link ">
               
   
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m20.2 5.9.8-.8C19.6 3.7 17.8 3 16 3c-1.8 0-3.6.7-5 2.1l.8.8C13 4.8 14.5 4.2 16 4.2s3 .6 4.2 1.7m-.9.8c-.9-.9-2.1-1.4-3.3-1.4-1.2 0-2.4.5-3.3 1.4l.8.8c.7-.7 1.6-1 2.5-1 .9 0 1.8.3 2.5 1l.8-.8M19 13h-2V9h-2v4H5a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-4a2 2 0 0 0-2-2M8 18H6v-2h2v2m3.5 0h-2v-2h2v2m3.5 0h-2v-2h2v2Z"/></svg>
@@ -507,7 +509,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../chapter_universal_build/%E5%BF%AB%E9%80%9F%E5%BC%80%E5%A7%8B/" class="md-nav__link">
+      <a href="../../../chapter_universal_build/%E5%BF%AB%E9%80%9F%E5%BC%80%E5%A7%8B/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -528,7 +530,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../chapter_universal_build/SRC%20%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%E6%95%99%E7%A8%8B/" class="md-nav__link">
+      <a href="../../../chapter_universal_build/SRC%20%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%E6%95%99%E7%A8%8B/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -549,7 +551,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../chapter_universal_build/falcon/" class="md-nav__link">
+      <a href="../../../chapter_universal_build/falcon/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -570,7 +572,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../chapter_universal_build/%E8%A7%86%E8%A7%89%E6%9C%BA/" class="md-nav__link">
+      <a href="../../../chapter_universal_build/%E8%A7%86%E8%A7%89%E6%9C%BA/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -634,7 +636,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../chapter_universal_build/%E8%A3%81%E5%88%A4%E7%9B%92/" class="md-nav__link">
+      <a href="../../../chapter_universal_build/%E8%A3%81%E5%88%A4%E7%9B%92/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -655,7 +657,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../chapter_universal_build/%E8%A3%81%E5%88%A4%E7%9B%92%E4%BD%BF%E7%94%A8%E9%80%9F%E6%88%90/" class="md-nav__link">
+      <a href="../../../chapter_universal_build/%E8%A3%81%E5%88%A4%E7%9B%92%E4%BD%BF%E7%94%A8%E9%80%9F%E6%88%90/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -684,7 +686,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../chapter_universal_build/%E5%8F%91%E5%B0%84%E6%9C%BA%E4%B8%8E%E6%9C%BA%E5%99%A8%E4%BA%BA/" class="md-nav__link">
+      <a href="../../../chapter_universal_build/%E5%8F%91%E5%B0%84%E6%9C%BA%E4%B8%8E%E6%9C%BA%E5%99%A8%E4%BA%BA/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -705,7 +707,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../chapter_universal_build/参数标定.md" class="md-nav__link">
+      <a href="../../../chapter_universal_build/参数标定.md" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -730,6 +732,8 @@
       
   
   
+    
+  
   
   
     
@@ -755,16 +759,16 @@
       
     
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
         
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../chapter_software/" class="md-nav__link ">
+            <a href="../../" class="md-nav__link ">
               
   
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 9h5.5L13 3.5V9M6 2h8l6 6v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4c0-1.11.89-2 2-2m.12 13.5 3.74 3.74 1.42-1.41-2.33-2.33 2.33-2.33-1.42-1.41-3.74 3.74m11.16 0-3.74-3.74-1.42 1.41 2.33 2.33-2.33 2.33 1.42 1.41 3.74-3.74Z"/></svg>
@@ -783,7 +787,7 @@
             
           </div>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             第 2 章 &nbsp; &nbsp; 软件与算法
@@ -799,7 +803,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../chapter_software/%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91%E7%BB%9F%E4%B8%80%E8%A7%84%E8%8C%83/" class="md-nav__link">
+      <a href="../../%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91%E7%BB%9F%E4%B8%80%E8%A7%84%E8%8C%83/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -817,8 +821,10 @@
                 
   
   
+    
   
   
+  
     
     
       
@@ -837,11 +843,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" checked>
         
           
           <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
@@ -855,7 +861,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3_3">
             <span class="md-nav__icon md-icon"></span>
             2.1 &nbsp; core
@@ -869,7 +875,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../chapter_software/sub_chapter_cpp/%E8%B7%91%E4%B8%80%E4%B8%AA%E7%A8%8B%E5%BA%8F%E5%8F%91%E7%94%9F%E4%BA%86%E4%BB%80%E4%B9%88/" class="md-nav__link">
+      <a href="../%E8%B7%91%E4%B8%80%E4%B8%AA%E7%A8%8B%E5%BA%8F%E5%8F%91%E7%94%9F%E4%BA%86%E4%BB%80%E4%B9%88/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -890,7 +896,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../chapter_software/sub_chapter_cpp/%E5%8D%95%E4%BE%8B%E4%B8%8E%E6%8C%87%E9%92%88/" class="md-nav__link">
+      <a href="../%E5%8D%95%E4%BE%8B%E4%B8%8E%E6%8C%87%E9%92%88/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -911,7 +917,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../chapter_software/sub_chapter_cpp/ssl_strategy/" class="md-nav__link">
+      <a href="../ssl_strategy/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -932,7 +938,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../chapter_software/sub_chapter_cpp/DataReceive/" class="md-nav__link">
+      <a href="../DataReceive/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -950,10 +956,19 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../chapter_software/sub_chapter_cpp/decisionmodule/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -962,6 +977,7 @@
   
 
       </a>
+      
     </li>
   
 
@@ -1020,7 +1036,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../chapter_software/sub_chapter_lua/" class="md-nav__link ">
+            <a href="../../sub_chapter_lua/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -1053,7 +1069,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../chapter_software/sub_chapter_lua/lua%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/" class="md-nav__link">
+      <a href="../../sub_chapter_lua/lua%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1074,7 +1090,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../chapter_software/sub_chapter_lua/Config/" class="md-nav__link">
+      <a href="../../sub_chapter_lua/Config/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1095,7 +1111,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../chapter_software/sub_chapter_lua/%E8%84%9A%E6%9C%AC%E9%80%89%E6%8B%A9/" class="md-nav__link">
+      <a href="../../sub_chapter_lua/%E8%84%9A%E6%9C%AC%E9%80%89%E6%8B%A9/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1116,7 +1132,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../chapter_software/sub_chapter_lua/%E8%84%9A%E6%9C%AC%E8%BF%90%E8%A1%8C/" class="md-nav__link">
+      <a href="../../sub_chapter_lua/%E8%84%9A%E6%9C%AC%E8%BF%90%E8%A1%8C/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1137,7 +1153,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../chapter_software/sub_chapter_lua/%E7%8A%B6%E6%80%81%E6%9C%BA/" class="md-nav__link">
+      <a href="../../sub_chapter_lua/%E7%8A%B6%E6%80%81%E6%9C%BA/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1158,7 +1174,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../chapter_software/sub_chapter_lua/skill/" class="md-nav__link">
+      <a href="../../sub_chapter_lua/skill/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1230,7 +1246,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../chapter_software/sub_chapter_lua/ball.lua/" class="md-nav__link">
+      <a href="../../sub_chapter_lua/ball.lua/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1251,7 +1267,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../chapter_software/sub_chapter_lua/cond.lua/" class="md-nav__link">
+      <a href="../../sub_chapter_lua/cond.lua/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1272,7 +1288,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../chapter_software/sub_chapter_lua/dir.lua/" class="md-nav__link">
+      <a href="../../sub_chapter_lua/dir.lua/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1293,7 +1309,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../chapter_software/sub_chapter_lua/player.lua/" class="md-nav__link">
+      <a href="../../sub_chapter_lua/player.lua/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1314,7 +1330,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../chapter_software/sub_chapter_lua/enemy.lua/" class="md-nav__link">
+      <a href="../../sub_chapter_lua/enemy.lua/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1335,7 +1351,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../chapter_software/sub_chapter_lua/pos.lua/" class="md-nav__link">
+      <a href="../../sub_chapter_lua/pos.lua/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1364,7 +1380,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../chapter_software/sub_chapter_lua/Rolematch%E6%A8%A1%E5%9D%97/" class="md-nav__link">
+      <a href="../../sub_chapter_lua/Rolematch%E6%A8%A1%E5%9D%97/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1385,7 +1401,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../chapter_software/sub_chapter_lua/%E5%85%B6%E5%AE%83/" class="md-nav__link">
+      <a href="../../sub_chapter_lua/%E5%85%B6%E5%AE%83/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1442,7 +1458,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../chapter_software/sub_chapter_skill/" class="md-nav__link ">
+            <a href="../../sub_chapter_skill/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -1475,7 +1491,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../chapter_software/sub_chapter_skill/advance/" class="md-nav__link">
+      <a href="../../sub_chapter_skill/advance/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1496,7 +1512,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../chapter_software/sub_chapter_skill/MarkingPosV2/" class="md-nav__link">
+      <a href="../../sub_chapter_skill/MarkingPosV2/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1517,7 +1533,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../chapter_software/sub_chapter_skill/bestPlayer/" class="md-nav__link">
+      <a href="../../sub_chapter_skill/bestPlayer/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1538,7 +1554,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../chapter_software/sub_chapter_skill/getBall/" class="md-nav__link">
+      <a href="../../sub_chapter_skill/getBall/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1605,7 +1621,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../chapter_electronics/" class="md-nav__link ">
+            <a href="../../../chapter_electronics/" class="md-nav__link ">
               
   
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m16.56 5.44-1.45 1.45A5.969 5.969 0 0 1 18 12a6 6 0 0 1-6 6 6 6 0 0 1-6-6c0-2.17 1.16-4.06 2.88-5.12L7.44 5.44A7.961 7.961 0 0 0 4 12a8 8 0 0 0 8 8 8 8 0 0 0 8-8c0-2.72-1.36-5.12-3.44-6.56M13 3h-2v10h2"/></svg>
@@ -1681,7 +1697,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../chapter_electronics/sub_chapter_motor/index.md" class="md-nav__link">
+      <a href="../../../chapter_electronics/sub_chapter_motor/index.md" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1753,7 +1769,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../chapter_electronics/sub_chapter_circuit/index.md" class="md-nav__link">
+      <a href="../../../chapter_electronics/sub_chapter_circuit/index.md" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1774,7 +1790,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../chapter_electronics/sub_chapter_circuit/power_board/" class="md-nav__link">
+      <a href="../../../chapter_electronics/sub_chapter_circuit/power_board/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1846,7 +1862,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../chapter_electronics/sub_chapter_control/index.md" class="md-nav__link">
+      <a href="../../../chapter_electronics/sub_chapter_control/index.md" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1867,7 +1883,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../chapter_electronics/sub_chapter_control/%E5%B0%8F%E8%BD%A6%E4%BB%A3%E7%A0%81%E7%83%A7%E5%86%99%E6%96%B9%E6%B3%95/" class="md-nav__link">
+      <a href="../../../chapter_electronics/sub_chapter_control/%E5%B0%8F%E8%BD%A6%E4%BB%A3%E7%A0%81%E7%83%A7%E5%86%99%E6%96%B9%E6%B3%95/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1937,7 +1953,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../chapter_electronics/sub_chapter_communication/index.md" class="md-nav__link">
+      <a href="../../../chapter_electronics/sub_chapter_communication/index.md" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1998,7 +2014,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../chapter_hardware/" class="md-nav__link ">
+            <a href="../../../chapter_hardware/" class="md-nav__link ">
               
   
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a2 2 0 0 1 2 2c0 .74-.4 1.39-1 1.73V7h1a7 7 0 0 1 7 7h1a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1v1a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-1H2a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h1a7 7 0 0 1 7-7h1V5.73c-.6-.34-1-.99-1-1.73a2 2 0 0 1 2-2M7.5 13A2.5 2.5 0 0 0 5 15.5 2.5 2.5 0 0 0 7.5 18a2.5 2.5 0 0 0 2.5-2.5A2.5 2.5 0 0 0 7.5 13m9 0a2.5 2.5 0 0 0-2.5 2.5 2.5 2.5 0 0 0 2.5 2.5 2.5 2.5 0 0 0 2.5-2.5 2.5 2.5 0 0 0-2.5-2.5Z"/></svg>
@@ -2033,7 +2049,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../chapter_hardware/body/" class="md-nav__link">
+      <a href="../../../chapter_hardware/body/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2058,8 +2074,6 @@
       
   
   
-    
-  
   
   
     
@@ -2079,16 +2093,16 @@
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
         
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../" class="md-nav__link ">
+            <a href="../../../chapter_other/" class="md-nav__link ">
               
   
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m15 19-6-2.11V5l6 2.11M20.5 3h-.16L15 5.1 9 3 3.36 4.9c-.21.07-.36.25-.36.48V20.5a.5.5 0 0 0 .5.5c.05 0 .11 0 .16-.03L9 18.9l6 2.1 5.64-1.9c.21-.1.36-.25.36-.48V3.5a.5.5 0 0 0-.5-.5Z"/></svg>
@@ -2107,7 +2121,7 @@
             
           </div>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_6">
             <span class="md-nav__icon md-icon"></span>
             第 5 章 &nbsp; &nbsp; 其他
@@ -2120,8 +2134,6 @@
                 
   
   
-    
-  
   
   
     
@@ -2138,16 +2150,16 @@
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_2" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_2" >
         
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../freshmencup/" class="md-nav__link ">
+            <a href="../../../chapter_other/freshmencup/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -2164,7 +2176,7 @@
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_2_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_2_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_6_2">
             <span class="md-nav__icon md-icon"></span>
             5.1 &nbsp; 校内赛说明
@@ -2177,30 +2189,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    5.1.1 &nbsp; 2024校内赛软件包说明
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../../chapter_other/SoftwarePackfor2024/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2209,62 +2201,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="目录">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      目录
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#falcon" class="md-nav__link">
-    <span class="md-ellipsis">
-      falcon界面启动
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      裁判盒说明
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      脚本说明
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    <span class="md-ellipsis">
-      特别说明
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -2305,50 +2241,6 @@
     
   
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      目录
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#falcon" class="md-nav__link">
-    <span class="md-ellipsis">
-      falcon界面启动
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      裁判盒说明
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      脚本说明
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    <span class="md-ellipsis">
-      特别说明
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -2362,7 +2254,7 @@
                   
 
   
-    <a href="https://github.com/sjtu-src/Wiki/edit/master/docs/chapter_other/SoftwarePackfor2024.md" title="编辑此页" class="md-content__button md-icon">
+    <a href="https://github.com/sjtu-src/Wiki/edit/master/docs/chapter_software/sub_chapter_cpp/decisionmodule.md" title="编辑此页" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"/></svg>
     </a>
@@ -2370,48 +2262,42 @@
   
 
 
-<h1 id="2024">2024软件包说明<a class="headerlink" href="#2024" title="Permanent link">&para;</a></h1>
-<div class="admonition abstract">
-<p class="admonition-title">Abstract</p>
-<p>本文档主要用于说明2024年上海交通大学SRC赛队校内赛的软件包的安装与使用说明</p>
-</div>
-<h2 id="falcon">falcon界面启动<a class="headerlink" href="#falcon" title="Permanent link">&para;</a></h2>
-<p>解压后,bin文件夹下的Client.exe即为启动器,单击后即可启动falcon界面</p>
-<p><a class="glightbox" href="../SoftwarePackfor2024.assets/folder.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="folder" src="../SoftwarePackfor2024.assets/folder.png" /></a></p>
-<p>后续会出现终端界面,当出现<code>go on</code> <code>true</code>后会打开falcon主界面</p>
-<p><a class="glightbox" href="../SoftwarePackfor2024.assets/falcon.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="falcon" src="../SoftwarePackfor2024.assets/falcon.png" /></a></p>
-<p>大体上与当前赛队成员使用的falcon功能相近,想要详细了解可以参考:</p>
-<p><a class="md-button md-button--primary" href="https://sjtu-src.github.io/Wiki/chapter_universal_build/falcon/">falcon编译</a></p>
-<p>这里只讲讲校内赛需要的一些功能:</p>
-<ol>
-<li>点击插头键,以及simulator的启动按钮,主界面上将出现22辆小车(11y and 11b)</li>
-<li>点击页面上方的formation,再点击load中的4v4,即进入4v4的队形</li>
-<li>再点击simulator下的controller中的蓝方,黄方启动按钮,双方即可开始行动,再次点击即为关闭</li>
-</ol>
-<h2 id="_1">裁判盒说明<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
-<p>机器人启动后,即可用裁判盒开始控制比赛</p>
-<p>点击侧边栏的referee box,进入裁判盒界面</p>
-<p><a class="glightbox" href="../SoftwarePackfor2024.assets/RefereeBox.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="RefereeBox" src="../SoftwarePackfor2024.assets/RefereeBox.png" /></a></p>
-<p>下面讲讲校内赛中裁判盒的使用:</p>
-<ul>
-<li>点击send后,机器人开始接受裁判盒信息;点击stop后,机器人停止接受裁判盒信息</li>
-<li>点击stop后,机器人进入stop阶段,此时类似于开球或者定位球时的准备阶段,机器人进行跑位,不进行其他动作</li>
-<li>接下来如果进行定位球(初赛),即点击directkick,机器人即开始定位球攻防(黄方进攻则点击黄方的directkick,蓝方进攻则点击蓝方的directkick)</li>
-</ul>
-<h2 id="_2">脚本说明<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
-<p>推荐参赛队伍使用sublime作为text editor,使用vscode需要自行安装插件</p>
-<p>脚本位于<code>bin\lua_scripts\ssl\play\Ref\Gamecode</code>文件夹下</p>
-<p><a class="glightbox" href="../SoftwarePackfor2024.assets/code.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="code" src="../SoftwarePackfor2024.assets/code.png" /></a></p>
-<p>初赛目前需要使用到的是<code>Ref_Def.lua, Ref_Kick.lua, Ref_Stop.lua</code>,分别对应的是定位球防守, 定位球进攻,Stop阶段所进行的脚本,另外的<code>Ref_Nor_4.lua</code>是复赛时常规4v4的脚本.</p>
-<h2 id="_3">特别说明<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
-<p><a class="glightbox" href="../SoftwarePackfor2024.assets/alertnames.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="alertnames" src="../SoftwarePackfor2024.assets/alertnames.png" /></a></p>
-<p>脚本对战的时候,双方ssl文件夹分别命名为自身队伍名字,并在falcon右下角的<code>Settings\Name\AlertNames</code>中进行更改!</p>
-<p><a class="glightbox" href="../SoftwarePackfor2024.assets/goalieSpeed.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="goalieSpeed" src="../SoftwarePackfor2024.assets/goalieSpeed.png" /></a></p>
-<p>controller中新增的按钮FULL/HALF/ZERO分别代表门将全速,半速,零速,更改时需重新启动蓝黄双方!</p>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>一旦不重新启动,门将的设置将不会生效!</p>
-</div>
+<h1 id="cplayertask">CPlayerTask原理<a class="headerlink" href="#cplayertask" title="Permanent link">&para;</a></h1>
+<p>在Core\src\ssl\skill\PlayerTask.h中定义了类 CPlayerTask，CPlayerTask即每个机器人所需要完成的任务<br />
+简单介绍一下CPlayerTask的原理，打个比分，我们把所有的任务分层：<br />
+基础任务：移动，踢球，转圈，吸球<br />
+低级任务：拿球（移动到球位置+吸球），传球（转圈至朝向队友+踢球）<br />
+高级任务：拿球转身传（拿球+传球）<br />
+我们可以这样进行理解：一个低级任务是由多个基础任务组成，一个高级任务是由多个低级任务组成（而实际上任务的层数可能不只三层，一个高级任务也可以由低级任务和基础任务共同组成）。<br />
+因此我们让一辆车”拿球转身传”，它显然不是直接执行这个高级指令，而是依次执行：”移动→吸球→转圈→踢球” 这一系列基础的指令。  </p>
+<p>我们不妨定义每个CPlayerTask在当前时刻需要执行的低一级任务为其子任务。比方说”拿球转身传”的子任务，可能是”拿球”或者”传球”，”拿球”的子任务可能是”移动”或者”吸球”。子任务在每个时刻只有一个，但不同时刻不同情况下可以变化。
+<a class="glightbox" href="../demodule.assets/1.PNG" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="CPlayTask" src="../demodule.assets/1.PNG" title="CPlayTask code" /></a><br />
+可以看到CPlayerTask类中定义了成员CPlayerTask*指针pSubTask，指向其子任务，其实就是链表的数据结构。</p>
+<h1 id="planexecute">plan与execute<a class="headerlink" href="#planexecute" title="Permanent link">&para;</a></h1>
+<p>接下来讲解CPlayerTask的两个重要函数：plan 和 execute。
+plan本质上也是写状态机，当出现一个怎样的情况，我需要选择哪个低级的任务作为我的子任务。
+比如我们要写一个拿球转身踢的skill，它的plan函数是这样的逻辑
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>void plan(){
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>    if(我还没拿到球) setSubTask(拿球)；    //如果我还没拿到球，我的子任务就是拿球
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>    else  setSubTask(传球)；              //如果拿到了，我的子任务就是传球
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>}
+</code></pre></div>
+但是拿球和传球并不是最低级的任务，所以它们也有自己的子任务和plan函数。这样它们就以链表的形式一直嵌套下去……<br />
+是不是给人一种很简单的感觉？但事实上plan代码要复杂的多。有自信的童鞋可以去了解一下最复杂的advance.cpp，也就一千多行代码吧。</p>
+<p>execute则比较简单，大部分skill（即除了最底层的、没有子任务的CPlayerTask）的execute的代码大概长这样：
+<a class="glightbox" href="../demodule.assets/2.PNG" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="execute" src="../demodule.assets/2.PNG" title="execute code" /></a><br />
+即从顶层的CPlayerTask以函数嵌套的方式往下执行子函数。最底层的CPlayerTask，如GotoPosition、StopRobot，则有特殊的execute执行方式。
+总的来说就是：每个CPlayerTask的plan设定子任务的挑选逻辑，execute则以函数嵌套的方式执行在plan中选择的子任务。</p>
+<h1 id="decisionmodule">decisionmodule<a class="headerlink" href="#decisionmodule" title="Permanent link">&para;</a></h1>
+<p>理解了以上这些，我们理解decisionmodule就是水到渠成的事情了。
+decisionmodel的实现类是CDecisionModule，它主要的函数是PlanTasks()
+<a class="glightbox" href="../demodule.assets/3.PNG" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="PlanTask" src="../demodule.assets/3.PNG" title="PlanTask code" /></a><br />
+它的逻辑就是，从TaskMediator的单例类里面获取所有机器人的任务指令，并且用冒泡排序法进行优先级排序，然后对每个CPlayerTask依次调用plan方法。接着在ActionModule中会依次调用execute执行。
+<a class="glightbox" href="../demodule.assets/4.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="decisionmodule" src="../demodule.assets/4.png" title="decisionmodule struct" /></a>  </p>
+<p>TaskMediator可以理解为一个所有机器人任务的存储器，它负责从lua脚本中接受当前周期的任务、清理旧周期任务、保存每个车号对应的角色（advancer、helperBack、supporter等）。如PlanTasks()的这一小段代码，就是使用getPlayerTask(int num)来获取num号机器人当前的任务。
+<a class="glightbox" href="../demodule.assets/6.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="getPlayerTask" src="../demodule.assets/6.png" title="getPlayerTask" /></a>  </p>
+<p>而TaskMediator中保存的这些PlayerTask信息，则是在Core/src/LuaModule.cpp中使用setPlayerTask函数，从lua层面传递给TaskMediator。
+<a class="glightbox" href="../demodule.assets/5.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="setPlayerTask" src="../demodule.assets/5.png" title="setPlayerTask" /></a>  </p>
 
 
 
@@ -2449,7 +2335,7 @@
       <nav class="md-footer__inner md-grid" aria-label="页脚" >
         
           
-          <a href="../freshmencup/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 校内赛说明">
+          <a href="../DataReceive/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 2.1.4 &amp;nbsp; 信息处理">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
@@ -2459,11 +2345,27 @@
                 上一页
               </span>
               <div class="md-ellipsis">
-                校内赛说明
+                2.1.4 &nbsp; 信息处理
               </div>
             </div>
           </a>
         
+        
+          
+          <a href="../../sub_chapter_lua/" class="md-footer__link md-footer__link--next" aria-label="下一页: Introduction">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                下一页
+              </span>
+              <div class="md-ellipsis">
+                Introduction
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+            </div>
+          </a>
         
       </nav>
     
@@ -2504,12 +2406,12 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["content.action.edit", "header.autohide", "content.code.annotate", "content.code.copy", "content.tabs.link", "content.tooltips", "content.footnote.tooltips", "navigation.indexes", "navigation.sections", "navigation.top", "navigation.footer", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.action.edit", "header.autohide", "content.code.annotate", "content.code.copy", "content.tabs.link", "content.tooltips", "content.footnote.tooltips", "navigation.indexes", "navigation.sections", "navigation.top", "navigation.footer", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.fe8b6f2b.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.fe8b6f2b.min.js"></script>
       
-        <script src="../../javascripts/mathjax.js"></script>
+        <script src="../../../javascripts/mathjax.js"></script>
       
         <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       
