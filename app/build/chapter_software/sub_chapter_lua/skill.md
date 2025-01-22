@@ -1,5 +1,6 @@
-# lua中的skill
-本文主要介绍lua中的skill脚本，这些脚本一般在task.lua中被调用，自身调用C++中的skil，在task.lua中组成机器人在场上需要执行的task任务，这些task任务会在前文提到的test或Ref等等脚本中被分配给机器人在场上执行。这些skill脚本也是lua的最底层，与C++部分衔接
+# skill
+
+本文主要介绍lua中的skill脚本，这些脚本一般在task.lua中被调用，自身调用C++中的skill，在task.lua中组成机器人在场上需要执行的task任务，这些task任务会在前文提到的test或Ref等等脚本中被分配给机器人在场上执行。这些skill脚本也是lua的最底层，与C++部分衔接
 
 ## 脚本介绍
 
@@ -42,6 +43,7 @@ gSkillTable.CreateSkill{
 ```
 
 此处的`CreateSkill`函数在`Skill.lua`中定义如下：
+
 ```lua
 gSkillTable = {}
 
