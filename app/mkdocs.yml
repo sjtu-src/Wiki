@@ -212,6 +212,7 @@ nav:
       - 2.1.2 &nbsp; 单例与指针: chapter_software/sub_chapter_cpp/单例与指针.md
       - 2.1.3 &nbsp; 一切的开始: chapter_software/sub_chapter_cpp/ssl_strategy.md
       - 2.1.4 &nbsp; 信息处理: chapter_software/sub_chapter_cpp/DataReceive.md
+      - 2.1.5 &nbsp; DecisionModule: chapter_software/sub_chapter_cpp/decisionmodule.md
     - 2.2 &nbsp; LuaModule:
       - chapter_software/sub_chapter_lua/index.md
       - 2.2.1 &nbsp; lua基本语法: chapter_software/sub_chapter_lua/lua基本语法.md
