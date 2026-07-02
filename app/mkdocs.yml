@@ -4,6 +4,9 @@ site_url: https://sjtu-src.github.io/Wiki/
 site_author: SYLG
 site_description: Robocup Small Size League 教培系统
 docs_dir: build
+exclude_docs: |
+  chapter_software/outline.md
+  chapter_software/archive/
 # Repository
 repo_name: sjtu-src/Wiki
 repo_url: https://github.com/sjtu-src/Wiki
@@ -136,8 +139,8 @@ markdown_extensions:
       smart_enable: all
   
   - pymdownx.emoji:
-      emoji_index: !!python/name:material.extensions.emoji.twemoji
-      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
   - pymdownx.highlight:
       anchor_linenums: true
 
@@ -206,36 +209,38 @@ nav:
 
   - 第 2 章 &nbsp; &nbsp; 软件与算法:
     - chapter_software/index.md
-    - 2.0 &nbsp; 软件开发统一规范: chapter_software/软件开发统一规范.md
-    - 2.1 &nbsp; core:
-      - 2.1.1 &nbsp; 跑一个程序发生了什么: chapter_software/sub_chapter_cpp/跑一个程序发生了什么.md
-      - 2.1.2 &nbsp; 单例与指针: chapter_software/sub_chapter_cpp/单例与指针.md
-      - 2.1.3 &nbsp; 一切的开始: chapter_software/sub_chapter_cpp/ssl_strategy.md
-      - 2.1.4 &nbsp; 信息处理: chapter_software/sub_chapter_cpp/DataReceive.md
-      - 2.1.5 &nbsp; DecisionModule: chapter_software/sub_chapter_cpp/decisionmodule.md
-    - 2.2 &nbsp; LuaModule:
-      - chapter_software/sub_chapter_lua/index.md
-      - 2.2.1 &nbsp; lua基本语法: chapter_software/sub_chapter_lua/lua基本语法.md
-      - 2.2.2 &nbsp; Config.lua: chapter_software/sub_chapter_lua/Config.md
-      - 2.2.3 &nbsp; 脚本选择: chapter_software/sub_chapter_lua/脚本选择.md
-      - 2.2.4 &nbsp; 脚本运行: chapter_software/sub_chapter_lua/脚本运行.md
-      - 2.2.5 &nbsp; 状态机与跳转: chapter_software/sub_chapter_lua/状态机.md
-      - 2.2.6 &nbsp; skill: chapter_software/sub_chapter_lua/skill.md
-      - 2.2.7 &nbsp; worldmodel(工具函数集): 
-        - 2.2.7.1 &nbsp; ball.lua: chapter_software/sub_chapter_lua/ball.lua.md
-        - 2.2.7.2 &nbsp; cond.lua: chapter_software/sub_chapter_lua/cond.lua.md
-        - 2.2.7.3 &nbsp; dir.lua: chapter_software/sub_chapter_lua/dir.lua.md
-        - 2.2.7.4 &nbsp; player.lua: chapter_software/sub_chapter_lua/player.lua.md
-        - 2.2.7.5 &nbsp; enemy.lua: chapter_software/sub_chapter_lua/enemy.lua.md
-        - 2.2.7.6 &nbsp; pos.lua: chapter_software/sub_chapter_lua/pos.lua.md
-      - 2.2.8 &nbsp; rolematch模块: chapter_software/sub_chapter_lua/Rolematch模块.md
-      - 2.2.9 &nbsp; debug: chapter_software\sub_chapter_lua\其它.md
-    - 2.3 &nbsp; 策略框架: 
-      - chapter_software/sub_chapter_skill/index.md
-      - 2.3.1 &nbsp; advance: chapter_software/sub_chapter_skill/advance.md
-      - 2.3.2 &nbsp; marking: chapter_software/sub_chapter_skill/MarkingPosV2.md
-      - 2.3.3 &nbsp; bestPlayer: chapter_software/sub_chapter_skill/bestPlayer.md
-      - 2.3.4 &nbsp; getBall: chapter_software/sub_chapter_skill/getBall.md
+    - 2.0 &nbsp; 软件开发统一规范: chapter_software/fundamentals/software-development-guide.md
+    - 2.1 &nbsp; 开发入门:
+      - chapter_software/fundamentals/index.md
+      - 2.1.1 &nbsp; Terminal 与 CLI: chapter_software/fundamentals/terminal-and-cli.md
+      - 2.1.2 &nbsp; 开发环境: chapter_software/fundamentals/dev-environment.md
+      - 2.1.3 &nbsp; Git 工作流: chapter_software/fundamentals/git-workflow.md
+      - 2.1.4 &nbsp; 设计模式: chapter_software/fundamentals/design-patterns.md
+      - 2.1.5 &nbsp; 状态机: chapter_software/fundamentals/state-machine.md
+      - 2.1.6 &nbsp; Munkres 角色匹配: chapter_software/fundamentals/munkres.md
+    - 2.2 &nbsp; 软件总体架构:
+      - chapter_software/architecture/index.md
+      - 2.2.1 &nbsp; 总体设计: chapter_software/architecture/overview.md
+      - 2.2.2 &nbsp; 运行时主流程: chapter_software/architecture/runtime-pipeline.md
+    - 2.3 &nbsp; C++ Core:
+      - chapter_software/cpp/index.md
+      - 2.3.1 &nbsp; 运行骨架: chapter_software/cpp/core-runtime.md
+      - 2.3.2 &nbsp; DecisionModule 与 TaskMediator: chapter_software/cpp/decision-and-task-mediator.md
+      - 2.3.3 &nbsp; 视觉、运动与 Skill: chapter_software/cpp/vision-motion-and-skills.md
+      - 2.3.4 &nbsp; CUDA 与扩展: chapter_software/cpp/cuda-and-extensions.md
+    - 2.4 &nbsp; Python 顶层:
+      - chapter_software/python/index.md
+      - 2.4.1 &nbsp; Python 总览: chapter_software/python/overview.md
+      - 2.4.2 &nbsp; Config、SelectPlay 与 Play: chapter_software/python/config-selectplay-play.md
+      - 2.4.3 &nbsp; 状态机与角色匹配: chapter_software/python/state-machine-and-rolematch.md
+      - 2.4.4 &nbsp; WorldModel 与工具层: chapter_software/python/worldmodel-and-utilities.md
+      - 2.4.5 &nbsp; Python 顶层启动: chapter_software/python/python-top-level-startup.md
+      - 2.4.6 &nbsp; Pybind11 与 CMake: chapter_software/python/pybind11-and-cmake.md
+      - 2.4.7 &nbsp; 力度模型: chapter_software/python/power-model.md
+    - 2.5 &nbsp; 调试与排障:
+      - chapter_software/debug/index.md
+      - 2.5.1 &nbsp; VS Code 调试工作流: chapter_software/debug/vscode-workflows.md
+      - 2.5.2 &nbsp; Release 下的调试符号: chapter_software/debug/release-symbols.md
 
   - 第 3 章 &nbsp; &nbsp; 电控:
     - chapter_electronics/index.md
