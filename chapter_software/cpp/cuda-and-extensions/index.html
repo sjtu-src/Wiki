@@ -22,7 +22,7 @@
     
     
       
-        <title>2.3.4 &nbsp; CUDA 与扩展 - SJTU-SRC Wiki</title>
+        <title>2.3.5 &nbsp; *CUDA 与进阶扩展 - SJTU-SRC Wiki</title>
       
     
     
@@ -142,7 +142,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              2.3.4 &nbsp; CUDA 与扩展
+              2.3.5 &nbsp; *CUDA 与进阶扩展
             
           </span>
         </div>
@@ -911,6 +911,8 @@
         
           
         
+          
+        
       
       
         
@@ -967,8 +969,22 @@
   
   
     <li class="md-nav__item">
+      <a href="../skill-recursion-and-taskt/" class="md-nav__link">
+        2.3.3 &nbsp; Skill 递归、SubTask 与 TaskT
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../vision-motion-and-skills/" class="md-nav__link">
-        2.3.3 &nbsp; 视觉、运动与 Skill
+        2.3.4 &nbsp; 视觉、运动控制与底层 Skill
       </a>
     </li>
   
@@ -991,12 +1007,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          2.3.4 &nbsp; CUDA 与扩展
+          2.3.5 &nbsp; *CUDA 与进阶扩展
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        2.3.4 &nbsp; CUDA 与扩展
+        2.3.5 &nbsp; *CUDA 与进阶扩展
       </a>
       
         
@@ -1023,28 +1039,35 @@
       
         <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
-    当前它主要做什么
+    它主要想加速什么
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cpu" class="md-nav__link">
+    在运行时，它和 CPU 回退路径是并存的
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
-    对新人而言应该如何理解它
+    对新人来说，最实用的理解姿势是什么
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
-    当前状态的一个现实提醒
+    真要动它之前，建议先问自己三个问题
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    其它值得知道的进阶扩展点
+  <a href="#cuda_2" class="md-nav__link">
+    这页更想顺带提醒你：进阶扩展不只有 CUDA
   </a>
   
 </li>
@@ -1082,6 +1105,10 @@
         
           
             
+          
+        
+          
+        
           
         
           
@@ -1141,7 +1168,21 @@
   
     <li class="md-nav__item">
       <a href="../../python/config-selectplay-play/" class="md-nav__link">
-        2.4.2 &nbsp; Config、SelectPlay 与 Play
+        2.4.2 &nbsp; Config、SelectPlay 与 gameStrategies
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python/skill-py/" class="md-nav__link">
+        2.4.3 &nbsp; Skill.py 与任务包装
       </a>
     </li>
   
@@ -1155,7 +1196,21 @@
   
     <li class="md-nav__item">
       <a href="../../python/state-machine-and-rolematch/" class="md-nav__link">
-        2.4.3 &nbsp; 状态机与角色匹配
+        2.4.4 &nbsp; 状态机与角色匹配
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python/writing-play-and-test/" class="md-nav__link">
+        2.4.5 &nbsp; 编写新的 Test / Strategy 脚本
       </a>
     </li>
   
@@ -1169,7 +1224,7 @@
   
     <li class="md-nav__item">
       <a href="../../python/worldmodel-and-utilities/" class="md-nav__link">
-        2.4.4 &nbsp; WorldModel 与工具层
+        2.4.6 &nbsp; WorldModel 与工具层
       </a>
     </li>
   
@@ -1183,7 +1238,7 @@
   
     <li class="md-nav__item">
       <a href="../../python/python-top-level-startup/" class="md-nav__link">
-        2.4.5 &nbsp; Python 顶层启动
+        2.4.7 &nbsp; *Python 作为顶层启动 Medusa
       </a>
     </li>
   
@@ -1197,7 +1252,7 @@
   
     <li class="md-nav__item">
       <a href="../../python/pybind11-and-cmake/" class="md-nav__link">
-        2.4.6 &nbsp; Pybind11 与 CMake
+        2.4.8 &nbsp; *Pybind11、CMake 与 C++ Skill 绑定
       </a>
     </li>
   
@@ -1211,7 +1266,7 @@
   
     <li class="md-nav__item">
       <a href="../../python/power-model/" class="md-nav__link">
-        2.4.7 &nbsp; 力度模型
+        2.4.9 &nbsp; 力度模型
       </a>
     </li>
   
@@ -1291,7 +1346,7 @@
   
     <li class="md-nav__item">
       <a href="../../debug/release-symbols/" class="md-nav__link">
-        2.5.2 &nbsp; Release 下的调试符号
+        2.5.2 &nbsp; *Release 下的调试符号
       </a>
     </li>
   
@@ -1829,28 +1884,35 @@
       
         <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
-    当前它主要做什么
+    它主要想加速什么
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cpu" class="md-nav__link">
+    在运行时，它和 CPU 回退路径是并存的
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
-    对新人而言应该如何理解它
+    对新人来说，最实用的理解姿势是什么
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
-    当前状态的一个现实提醒
+    真要动它之前，建议先问自己三个问题
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    其它值得知道的进阶扩展点
+  <a href="#cuda_2" class="md-nav__link">
+    这页更想顺带提醒你：进阶扩展不只有 CUDA
   </a>
   
 </li>
@@ -1878,55 +1940,45 @@
   
 
 
-<h1 id="cuda">CUDA 与进阶扩展<a class="headerlink" href="#cuda" title="Permanent link">¶</a></h1>
-<p>这一页是进阶内容。<br>
-如果你还没把 <code>DecisionModule -&gt; Play -&gt; Skill -&gt; Action</code> 主链走通，先不用急着看这一层。</p>
+<h1 id="cuda">*CUDA 与进阶扩展<a class="headerlink" href="#cuda" title="Permanent link">¶</a></h1>
+<p>这一页是明确的进阶内容。如果你现在还没把 <code>DecisionModule -&gt; Play -&gt; Skill -&gt; Action</code> 的主链走顺，先完全可以把它放后面。因为对大多数日常战术开发来说，CUDA 不是起步门槛，而是进一步做性能增强时才会真正碰到的层。</p>
 <h2 id="cuda_1">CUDA 模块在仓库里的位置<a class="headerlink" href="#cuda_1" title="Permanent link">¶</a></h2>
-<p>可选 GPU 模块位于：</p>
+<p>当前可选 GPU 模块主要位于：</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>Medusa/src/CUDAModule/
 </code></pre></div>
 <p>根 CMake 里通过：</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>option(USE_CUDA "Enable CUDA support" OFF)
 </code></pre></div>
-<p>控制是否启用。</p>
-<h2 id="_1">当前它主要做什么<a class="headerlink" href="#_1" title="Permanent link">¶</a></h2>
-<p>从代码结构上看，<code>CUDAModule</code> 主要围绕：</p>
+<p>控制是否启用。这件事本身就说明了它的定位：它是可选增强，而不是当前整个比赛系统必须依赖的绝对基础设施。</p>
+<h2 id="_1">它主要想加速什么<a class="headerlink" href="#_1" title="Permanent link">¶</a></h2>
+<p>从代码结构和初始化逻辑看，当前 CUDA 层更多是围绕“候选点评估”这类问题做加速尝试，比如最佳传球点、最佳射门点、某些空间评分或大规模候选位置搜索。</p>
+<p>这类问题的共同点是：单次逻辑不一定复杂，但候选点很多、重复计算频繁，因此天然适合做 GPU 并行化。而像状态机切换、角色注册、pybind 包装这种更偏流程控制的事情，就并不是它的主战场。</p>
+<h2 id="cpu">在运行时，它和 CPU 回退路径是并存的<a class="headerlink" href="#cpu" title="Permanent link">¶</a></h2>
+<p>你在 <code>runLoop()</code> 或 <code>SystemRunner::init()</code> 一类初始化逻辑里，会看到这样的分流思路：</p>
 <ul>
-<li>最佳传球点</li>
-<li>最佳射门点</li>
-<li>一些候选点评估</li>
+<li>如果启用了 CUDA，就初始化 <code>ZCUDAModule</code>；</li>
+<li>如果没有，就走 <code>ZGetBestUtils</code> / <code>ZBestPosCalculate</code> 这一类 CPU 路线。</li>
 </ul>
-<p>做 GPU 加速尝试。</p>
-<p>在 <code>runLoop()</code> / <code>SystemRunner::init()</code> 里也能看到：</p>
-<ul>
-<li>如果启用 CUDA，就初始化 <code>ZCUDAModule</code></li>
-<li>否则走 <code>ZGetBestUtils</code> 和 <code>ZBestPosCalculate</code></li>
-</ul>
-<h2 id="_2">对新人而言应该如何理解它<a class="headerlink" href="#_2" title="Permanent link">¶</a></h2>
-<p>最实用的理解是：</p>
-<ul>
-<li>这不是当前入门主线</li>
-<li>它属于“为了更快地做大规模候选点评估而存在的加速模块”</li>
-<li>它和普通 Play / Skill 开发是弱耦合的</li>
-</ul>
-<p>也就是说，大部分日常战术开发并不需要先掌握 CUDA。</p>
-<h2 id="_3">当前状态的一个现实提醒<a class="headerlink" href="#_3" title="Permanent link">¶</a></h2>
-<p>仓库里的 CUDA 模块更像“可选高级实验层”，而不是所有功能都完全依赖它的基础设施。<br>
-例如代码中也能看到一些 <code>todo</code>、条件编译和保底分支。</p>
-<p>所以如果你想动它，建议先确认三件事：</p>
+<p>这意味着当前工程在设计上默认接受“同一类能力可以有 GPU 增强版，也可以有 CPU 回退版”。这个取向对比赛工程其实很重要，因为它保证了系统不会因为某一层可选加速不可用，就整套跑不起来。</p>
+<h2 id="_2">对新人来说，最实用的理解姿势是什么<a class="headerlink" href="#_2" title="Permanent link">¶</a></h2>
+<p>最实际的理解并不是立刻去啃 CUDA 内核，而是先记住三件事：</p>
+<p>第一，CUDA 不是入门主线。你不会因为暂时不懂它，就无法写 <code>Play</code>、改 <code>Skill.py</code> 或看 <code>DecisionModule</code>。</p>
+<p>第二，它更接近“高开销评估问题的性能增强层”，而不是“顶层比赛逻辑的组织层”。</p>
+<p>第三，它和普通 Play / Skill 开发是弱耦合的。也就是说，大多数时候你可以先把战术逻辑写对、跑顺，再回头决定是否值得为某类计算上 GPU。</p>
+<h2 id="_3">真要动它之前，建议先问自己三个问题<a class="headerlink" href="#_3" title="Permanent link">¶</a></h2>
 <ol>
-<li>当前编译链是否真的启用了 <code>USE_CUDA</code></li>
-<li>你的修改是“核心比赛依赖”，还是“可选加速增强”</li>
-<li>有没有同等功能的 CPU 回退路径</li>
+<li>当前构建链路真的启用了 <code>USE_CUDA</code> 吗？</li>
+<li>你改的是比赛主线强依赖功能，还是可选加速增强？</li>
+<li>如果 CUDA 不可用，系统是否还有明确的 CPU 回退路径？</li>
 </ol>
-<h2 id="_4">其它值得知道的进阶扩展点<a class="headerlink" href="#_4" title="Permanent link">¶</a></h2>
-<p>除了 CUDA，当前系统还有两类很重要的进阶扩展方向：</p>
+<p>这三个问题其实很朴素，但它们决定了你是在做“稳定的比赛工程”，还是在把某个局部实验不小心做成全系统单点依赖。</p>
+<h2 id="cuda_2">这页更想顺带提醒你：进阶扩展不只有 CUDA<a class="headerlink" href="#cuda_2" title="Permanent link">¶</a></h2>
+<p>对当前仓库来说，真正常见、也更容易立刻产生收益的进阶扩展，其实还有两类：</p>
 <ul>
-<li><code>Pybind11Module/</code>：给 Python 暴露更多 C++ 能力</li>
-<li><code>PhysicalModel/</code> 与 Python 力度模型：把球模型和数据拟合工具接进战术层</li>
+<li><code>Pybind11Module/</code>：把更多 C++ 能力安全暴露给 Python；</li>
+<li><code>PhysicalModel/</code> 和 Python 力度模型工具：把球模型、数据拟合和 GUI 编辑器接进战术层。</li>
 </ul>
-<p>如果你的目标是“让高层脚本更好用”，通常先看 pybind；<br>
-如果你的目标是“让某类评估更快”，再考虑 CUDA 或更底层的数值优化。</p>
+<p>如果你的目标是“让顶层开发更顺手、更好调、更好写”，通常先看 pybind 会更划算；如果你的目标是“某一类大规模评估计算太慢”，再考虑 CUDA 会更自然。</p>
 
 
 
@@ -1955,7 +2007,7 @@
       <nav class="md-footer__inner md-grid" aria-label="页脚">
         
           
-          <a href="../vision-motion-and-skills/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 2.3.3 &amp;nbsp; 视觉、运动与 Skill" rel="prev">
+          <a href="../vision-motion-and-skills/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 2.3.4 &amp;nbsp; 视觉、运动控制与底层 Skill" rel="prev">
             <div class="md-footer__button md-icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
             </div>
@@ -1964,7 +2016,7 @@
                 <span class="md-footer__direction">
                   上一页
                 </span>
-                2.3.3 &nbsp; 视觉、运动与 Skill
+                2.3.4 &nbsp; 视觉、运动控制与底层 Skill
               </div>
             </div>
           </a>

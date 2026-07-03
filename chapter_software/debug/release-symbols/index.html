@@ -22,7 +22,7 @@
     
     
       
-        <title>2.5.2 &nbsp; Release 下的调试符号 - SJTU-SRC Wiki</title>
+        <title>2.5.2 &nbsp; *Release 下的调试符号 - SJTU-SRC Wiki</title>
       
     
     
@@ -142,7 +142,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              2.5.2 &nbsp; Release 下的调试符号
+              2.5.2 &nbsp; *Release 下的调试符号
             
           </span>
         </div>
@@ -909,6 +909,8 @@
         
           
         
+          
+        
       
       
         
@@ -965,8 +967,22 @@
   
   
     <li class="md-nav__item">
+      <a href="../../cpp/skill-recursion-and-taskt/" class="md-nav__link">
+        2.3.3 &nbsp; Skill 递归、SubTask 与 TaskT
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../cpp/vision-motion-and-skills/" class="md-nav__link">
-        2.3.3 &nbsp; 视觉、运动与 Skill
+        2.3.4 &nbsp; 视觉、运动控制与底层 Skill
       </a>
     </li>
   
@@ -980,7 +996,7 @@
   
     <li class="md-nav__item">
       <a href="../../cpp/cuda-and-extensions/" class="md-nav__link">
-        2.3.4 &nbsp; CUDA 与扩展
+        2.3.5 &nbsp; *CUDA 与进阶扩展
       </a>
     </li>
   
@@ -1011,6 +1027,10 @@
         
           
             
+          
+        
+          
+        
           
         
           
@@ -1070,7 +1090,21 @@
   
     <li class="md-nav__item">
       <a href="../../python/config-selectplay-play/" class="md-nav__link">
-        2.4.2 &nbsp; Config、SelectPlay 与 Play
+        2.4.2 &nbsp; Config、SelectPlay 与 gameStrategies
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python/skill-py/" class="md-nav__link">
+        2.4.3 &nbsp; Skill.py 与任务包装
       </a>
     </li>
   
@@ -1084,7 +1118,21 @@
   
     <li class="md-nav__item">
       <a href="../../python/state-machine-and-rolematch/" class="md-nav__link">
-        2.4.3 &nbsp; 状态机与角色匹配
+        2.4.4 &nbsp; 状态机与角色匹配
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python/writing-play-and-test/" class="md-nav__link">
+        2.4.5 &nbsp; 编写新的 Test / Strategy 脚本
       </a>
     </li>
   
@@ -1098,7 +1146,7 @@
   
     <li class="md-nav__item">
       <a href="../../python/worldmodel-and-utilities/" class="md-nav__link">
-        2.4.4 &nbsp; WorldModel 与工具层
+        2.4.6 &nbsp; WorldModel 与工具层
       </a>
     </li>
   
@@ -1112,7 +1160,7 @@
   
     <li class="md-nav__item">
       <a href="../../python/python-top-level-startup/" class="md-nav__link">
-        2.4.5 &nbsp; Python 顶层启动
+        2.4.7 &nbsp; *Python 作为顶层启动 Medusa
       </a>
     </li>
   
@@ -1126,7 +1174,7 @@
   
     <li class="md-nav__item">
       <a href="../../python/pybind11-and-cmake/" class="md-nav__link">
-        2.4.6 &nbsp; Pybind11 与 CMake
+        2.4.8 &nbsp; *Pybind11、CMake 与 C++ Skill 绑定
       </a>
     </li>
   
@@ -1140,7 +1188,7 @@
   
     <li class="md-nav__item">
       <a href="../../python/power-model/" class="md-nav__link">
-        2.4.7 &nbsp; 力度模型
+        2.4.9 &nbsp; 力度模型
       </a>
     </li>
   
@@ -1231,12 +1279,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          2.5.2 &nbsp; Release 下的调试符号
+          2.5.2 &nbsp; *Release 下的调试符号
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        2.5.2 &nbsp; Release 下的调试符号
+        2.5.2 &nbsp; *Release 下的调试符号
       </a>
       
         
@@ -1256,69 +1304,42 @@
       
         <li class="md-nav__item">
   <a href="#debug" class="md-nav__link">
-    目标不是“完整 Debug 构建”
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#cmake" class="md-nav__link">
-    当前 CMake 已经做了什么
+    目标从来不是“完整 Debug 构建”
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
-    你应该看到什么结果
+    当前工程是怎么做到这件事的
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
-    这套做法的直接好处
+    你应该在产物里看到什么
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
-    你仍然要注意什么
+    这套方案真正解决了什么问题
   </a>
-  
-    <nav class="md-nav" aria-label="你仍然要注意什么">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1" class="md-nav__link">
-    1. 优化级别和调试体验不是完全等价概念
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2" class="md-nav__link">
-    2. 要确认调到的是最新二进制
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#3-python-c-pyd-dll" class="md-nav__link">
-    3. Python-C++ 混合时还要考虑 pyd / dll 同步
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#_4" class="md-nav__link">
-    一句话经验
+    但要对它的边界有预期
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    最后记一句最实用的话
   </a>
   
 </li>
@@ -1856,69 +1877,42 @@
       
         <li class="md-nav__item">
   <a href="#debug" class="md-nav__link">
-    目标不是“完整 Debug 构建”
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#cmake" class="md-nav__link">
-    当前 CMake 已经做了什么
+    目标从来不是“完整 Debug 构建”
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
-    你应该看到什么结果
+    当前工程是怎么做到这件事的
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
-    这套做法的直接好处
+    你应该在产物里看到什么
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
-    你仍然要注意什么
+    这套方案真正解决了什么问题
   </a>
-  
-    <nav class="md-nav" aria-label="你仍然要注意什么">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1" class="md-nav__link">
-    1. 优化级别和调试体验不是完全等价概念
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2" class="md-nav__link">
-    2. 要确认调到的是最新二进制
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#3-python-c-pyd-dll" class="md-nav__link">
-    3. Python-C++ 混合时还要考虑 pyd / dll 同步
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#_4" class="md-nav__link">
-    一句话经验
+    但要对它的边界有预期
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    最后记一句最实用的话
   </a>
   
 </li>
@@ -1946,67 +1940,54 @@
   
 
 
-<h1 id="release">Release 下保留调试符号<a class="headerlink" href="#release" title="Permanent link">¶</a></h1>
-<p>这部分是当前工程非常值得知道的一个实践。</p>
-<h2 id="debug">目标不是“完整 Debug 构建”<a class="headerlink" href="#debug" title="Permanent link">¶</a></h2>
-<p>当前项目并没有把日常主构建切成传统的 Qt Debug 套件依赖模式。<br>
-相反，它采用的是：</p>
+<h1 id="release">*Release 下保留调试符号<a class="headerlink" href="#release" title="Permanent link">¶</a></h1>
+<p>这页也是明确的进阶内容，因为它讨论的不是“怎么写战术”，而是比赛工程里一个非常现实的折中方案：<strong>尽量保持 Release 运行形态，但同时保留足够的符号，让 C++ 仍然可以调试。</strong></p>
+<h2 id="debug">目标从来不是“完整 Debug 构建”<a class="headerlink" href="#debug" title="Permanent link">¶</a></h2>
+<p>当前项目并没有把日常主工作流切成那种传统、完整、重依赖的 Qt Debug 套件模式。它走的是另一条更适合比赛工程的路：</p>
 <blockquote>
-<p>以 Release 形态为主，但保留足够的调试信息，让我们仍然能断到代码。</p>
+<p>主体尽量仍按 Release 方式运行，但通过编译和链接选项保留可用的调试信息。</p>
 </blockquote>
-<p>这样做的原因很现实：</p>
+<p>这个取舍背后的动机其实非常实际：</p>
 <ul>
-<li>不想强依赖完整 Qt Debug DLL 套件</li>
-<li>希望运行环境尽量接近比赛真实形态</li>
-<li>但又不能失去 C++ 调试能力</li>
+<li>不想为了日常调试，强依赖完整的 Qt Debug DLL 套件；</li>
+<li>希望运行环境尽量贴近比赛时真正会跑的那套二进制；</li>
+<li>但又不能因为追求接近实战，就彻底放弃源码级调试能力。</li>
 </ul>
-<h2 id="cmake">当前 CMake 已经做了什么<a class="headerlink" href="#cmake" title="Permanent link">¶</a></h2>
-<p>根 <code>CMakeLists.txt</code> 里已经明确加入了这些关键选项：</p>
+<h2 id="_1">当前工程是怎么做到这件事的<a class="headerlink" href="#_1" title="Permanent link">¶</a></h2>
+<p>根 <code>CMakeLists.txt</code> 里已经明确加了这些关键选项：</p>
 <ul>
-<li><code>/Od</code>：关闭优化</li>
-<li><code>/Zi</code>：生成调试信息</li>
-<li><code>/DEBUG</code>：链接阶段生成调试信息</li>
+<li><code>/Od</code>：关闭优化；</li>
+<li><code>/Zi</code>：生成调试信息；</li>
+<li><code>/DEBUG</code>：链接阶段生成调试信息。</li>
 </ul>
-<p>同时 <code>CMakePresets.json</code> 里主构建预设也是 <code>Release</code>。</p>
-<p>这意味着当前工程实际上走的是一种“偏 Release 运行形态 + 保留 PDB”的路线。</p>
-<h2 id="_1">你应该看到什么结果<a class="headerlink" href="#_1" title="Permanent link">¶</a></h2>
-<p>在 <code>ZBin/</code> 目录下，正常情况下你会看到：</p>
+<p>同时，<code>CMakePresets.json</code> 里主预设仍然是 <code>Release</code>。把这两件事放在一起理解，你就会明白当前工程的取向：它并不是在“假装 Release”，而是在有意识地做一种偏 Release 形态、但仍保留 PDB 的构建。</p>
+<h2 id="_2">你应该在产物里看到什么<a class="headerlink" href="#_2" title="Permanent link">¶</a></h2>
+<p>正常情况下，构建完成后在 <code>ZBin/</code> 一类运行目录下，你应该能看到：</p>
 <ul>
 <li><code>Medusa.pdb</code></li>
 <li><code>MedusaCore.pdb</code></li>
 <li><code>Client.pdb</code></li>
 </ul>
-<p>这些文件的存在，就是 VS Code / Visual Studio 能正确映射源码断点的重要前提之一。</p>
-<h2 id="_2">这套做法的直接好处<a class="headerlink" href="#_2" title="Permanent link">¶</a></h2>
-<ul>
-<li>更接近真实运行环境</li>
-<li>不必为了调试去维护完整 Debug 版 Qt 运行库</li>
-<li>大多数时候已经足够进行源码级单步</li>
-</ul>
-<h2 id="_3">你仍然要注意什么<a class="headerlink" href="#_3" title="Permanent link">¶</a></h2>
-<h3 id="1">1. 优化级别和调试体验不是完全等价概念<a class="headerlink" href="#1" title="Permanent link">¶</a></h3>
-<p>即便已经加了 <code>/Od</code> / <code>/Zi</code>，有些跨模块、内联、模板相关的调试体验仍然可能没有纯 Debug 那么丝滑。</p>
-<h3 id="2">2. 要确认调到的是最新二进制<a class="headerlink" href="#2" title="Permanent link">¶</a></h3>
-<p>很多“断点飘了”的问题，其实不是符号没开，而是：</p>
-<ul>
-<li>你改了源码</li>
-<li>但没有重新编译对应模块</li>
-<li>VS Code 连到的是旧的 exe / dll / pyd</li>
-</ul>
-<h3 id="3-python-c-pyd-dll">3. Python-C++ 混合时还要考虑 <code>pyd</code> / <code>dll</code> 同步<a class="headerlink" href="#3-python-c-pyd-dll" title="Permanent link">¶</a></h3>
-<p>如果你调的是 Python 顶层，还要确认：</p>
+<p>这些符号文件的存在，基本就是 VS Code 或 Visual Studio 能否把断点准确映射回源码的重要前提。</p>
+<h2 id="_3">这套方案真正解决了什么问题<a class="headerlink" href="#_3" title="Permanent link">¶</a></h2>
+<p>它最大的价值，不在于让调试体验完美媲美传统 Debug 套件，而在于用更低的维护成本，把“足够好用的 C++ 单步能力”保留在了比赛主工作流里。换句话说，你不需要为了打断点，就把整套运行环境切到一套与比赛形态差别很大的 Debug 版本。</p>
+<p>这对比赛工程非常重要。因为很多 bug 只有在更接近真实运行形态时才会暴露，如果调试环境和比赛环境差得太远，排查出来的问题有时反而不具代表性。</p>
+<h2 id="_4">但要对它的边界有预期<a class="headerlink" href="#_4" title="Permanent link">¶</a></h2>
+<p>第一，<code>/Od</code>、<code>/Zi</code> 和 <code>PDB</code> 能让你调得动代码，但它们并不意味着体验会和纯 Debug 构建一模一样。跨模块、模板、内联函数以及某些编译器优化边界，仍然可能让单步体验显得没那么丝滑。</p>
+<p>第二，很多所谓“断点飘了”的问题，最后并不是符号没开，而是你调到的根本不是最新二进制。比如你改了 <code>MedusaCore.dll</code> 对应源码，却没有重新编译；或者 Python 顶层仍在加载旧的 <code>CppPackage.pyd</code>。这种情况下，就算 PDB 在，也一样会让人误以为调试器出问题了。</p>
+<p>第三，在 Python-C++ 混合调试时，别忘了产物同步问题永远比单独调 C++ 更复杂。至少要确认：</p>
 <ul>
 <li><code>CppPackage.pyd</code></li>
 <li><code>MedusaCore.dll</code></li>
-<li><code>CppPackage.pyi</code></li>
+<li>对应的 <code>pdb</code></li>
 </ul>
-<p>至少前两个已经是最新构建结果。</p>
-<h2 id="_4">一句话经验<a class="headerlink" href="#_4" title="Permanent link">¶</a></h2>
-<p>当前项目的调试思路不是“切 Debug 模式再说”，而是：</p>
+<p>是真正同一轮构建出来的一套。</p>
+<h2 id="_5">最后记一句最实用的话<a class="headerlink" href="#_5" title="Permanent link">¶</a></h2>
+<p>当前项目的调试思路，不是“先切 Debug 再说”，而是：</p>
 <blockquote>
 <p>在主 Release 工作流里，尽量保留足够的符号和可单步能力。</p>
 </blockquote>
-<p>这正是它适合比赛工程长期维护的地方。</p>
+<p>这正是它适合长期维护、也更适合比赛工程节奏的地方。</p>
 
 
 

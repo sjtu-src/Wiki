@@ -22,7 +22,7 @@
     
     
       
-        <title>2.4.5 &nbsp; Python 顶层启动 - SJTU-SRC Wiki</title>
+        <title>2.4.7 &nbsp; *Python 作为顶层启动 Medusa - SJTU-SRC Wiki</title>
       
     
     
@@ -86,7 +86,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#python" class="md-skip">
+        <a href="#python-medusa" class="md-skip">
           跳转至
         </a>
       
@@ -142,7 +142,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              2.4.5 &nbsp; Python 顶层启动
+              2.4.7 &nbsp; *Python 作为顶层启动 Medusa
             
           </span>
         </div>
@@ -909,6 +909,8 @@
         
           
         
+          
+        
       
       
         
@@ -965,8 +967,22 @@
   
   
     <li class="md-nav__item">
+      <a href="../../cpp/skill-recursion-and-taskt/" class="md-nav__link">
+        2.3.3 &nbsp; Skill 递归、SubTask 与 TaskT
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../cpp/vision-motion-and-skills/" class="md-nav__link">
-        2.3.3 &nbsp; 视觉、运动与 Skill
+        2.3.4 &nbsp; 视觉、运动控制与底层 Skill
       </a>
     </li>
   
@@ -980,7 +996,7 @@
   
     <li class="md-nav__item">
       <a href="../../cpp/cuda-and-extensions/" class="md-nav__link">
-        2.3.4 &nbsp; CUDA 与扩展
+        2.3.5 &nbsp; *CUDA 与进阶扩展
       </a>
     </li>
   
@@ -1013,6 +1029,10 @@
         
           
             
+          
+        
+          
+        
           
         
           
@@ -1072,7 +1092,21 @@
   
     <li class="md-nav__item">
       <a href="../config-selectplay-play/" class="md-nav__link">
-        2.4.2 &nbsp; Config、SelectPlay 与 Play
+        2.4.2 &nbsp; Config、SelectPlay 与 gameStrategies
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../skill-py/" class="md-nav__link">
+        2.4.3 &nbsp; Skill.py 与任务包装
       </a>
     </li>
   
@@ -1086,7 +1120,21 @@
   
     <li class="md-nav__item">
       <a href="../state-machine-and-rolematch/" class="md-nav__link">
-        2.4.3 &nbsp; 状态机与角色匹配
+        2.4.4 &nbsp; 状态机与角色匹配
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../writing-play-and-test/" class="md-nav__link">
+        2.4.5 &nbsp; 编写新的 Test / Strategy 脚本
       </a>
     </li>
   
@@ -1100,7 +1148,7 @@
   
     <li class="md-nav__item">
       <a href="../worldmodel-and-utilities/" class="md-nav__link">
-        2.4.4 &nbsp; WorldModel 与工具层
+        2.4.6 &nbsp; WorldModel 与工具层
       </a>
     </li>
   
@@ -1123,12 +1171,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          2.4.5 &nbsp; Python 顶层启动
+          2.4.7 &nbsp; *Python 作为顶层启动 Medusa
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        2.4.5 &nbsp; Python 顶层启动
+        2.4.7 &nbsp; *Python 作为顶层启动 Medusa
       </a>
       
         
@@ -1148,13 +1196,20 @@
       
         <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
-    启动前提
+    什么时候值得优先用这种模式
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
+    启动前最容易忽视的两件事
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
     基本启动命令
   </a>
   
@@ -1162,28 +1217,42 @@
       
         <li class="md-nav__item">
   <a href="#mainpy" class="md-nav__link">
-    main.py 实际做了什么
+    main.py 真正做了什么
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#zbin" class="md-nav__link">
-    为什么会强调“必须从 ZBin 启动”
+  <a href="#systemrunner" class="md-nav__link">
+    SystemRunner 在这里扮演什么角色
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    一个最小可运行的骨架
+  <a href="#cpppackage__init__py" class="md-nav__link">
+    为什么 CppPackage/__init__.py 也很关键
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#_4" class="md-nav__link">
-    什么时候优先用这种模式
+    一个最小可运行骨架
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    这一模式为什么特别适合调试
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    但它不是万能入口
   </a>
   
 </li>
@@ -1204,7 +1273,7 @@
   
     <li class="md-nav__item">
       <a href="../pybind11-and-cmake/" class="md-nav__link">
-        2.4.6 &nbsp; Pybind11 与 CMake
+        2.4.8 &nbsp; *Pybind11、CMake 与 C++ Skill 绑定
       </a>
     </li>
   
@@ -1218,7 +1287,7 @@
   
     <li class="md-nav__item">
       <a href="../power-model/" class="md-nav__link">
-        2.4.7 &nbsp; 力度模型
+        2.4.9 &nbsp; 力度模型
       </a>
     </li>
   
@@ -1298,7 +1367,7 @@
   
     <li class="md-nav__item">
       <a href="../../debug/release-symbols/" class="md-nav__link">
-        2.5.2 &nbsp; Release 下的调试符号
+        2.5.2 &nbsp; *Release 下的调试符号
       </a>
     </li>
   
@@ -1829,13 +1898,20 @@
       
         <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
-    启动前提
+    什么时候值得优先用这种模式
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
+    启动前最容易忽视的两件事
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
     基本启动命令
   </a>
   
@@ -1843,28 +1919,42 @@
       
         <li class="md-nav__item">
   <a href="#mainpy" class="md-nav__link">
-    main.py 实际做了什么
+    main.py 真正做了什么
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#zbin" class="md-nav__link">
-    为什么会强调“必须从 ZBin 启动”
+  <a href="#systemrunner" class="md-nav__link">
+    SystemRunner 在这里扮演什么角色
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    一个最小可运行的骨架
+  <a href="#cpppackage__init__py" class="md-nav__link">
+    为什么 CppPackage/__init__.py 也很关键
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#_4" class="md-nav__link">
-    什么时候优先用这种模式
+    一个最小可运行骨架
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    这一模式为什么特别适合调试
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    但它不是万能入口
   </a>
   
 </li>
@@ -1892,87 +1982,103 @@
   
 
 
-<h1 id="python">Python 作为顶层启动<a class="headerlink" href="#python" title="Permanent link">¶</a></h1>
-<p>这一模式非常适合：</p>
+<h1 id="python-medusa">*Python 作为顶层启动 Medusa<a class="headerlink" href="#python-medusa" title="Permanent link">¶</a></h1>
+<p>这一页属于进阶内容，因为它默认你已经知道系统的普通主线是怎么跑的。只有在这个前提下，你才会真正体会到 Python 顶层模式的价值：它不是为了“换一种启动姿势”，而是为了让你在日常开发里更方便地调 Python、连 C++、做实验和写工具。</p>
+<h2 id="_1">什么时候值得优先用这种模式<a class="headerlink" href="#_1" title="Permanent link">¶</a></h2>
+<p>如果你当前主要在改：</p>
 <ul>
-<li>快速调试战术</li>
-<li>联合调试 Python 与 C++</li>
-<li>直接写实验脚本</li>
-<li>做工具化开发</li>
+<li><code>SelectPlay.py</code></li>
+<li><code>Config.py</code></li>
+<li><code>Play/Normal/*</code></li>
+<li><code>Play/RefPlay/*</code></li>
+<li><code>Play/Test/*</code></li>
+<li><code>RoleMatch_LuaStyle/*</code></li>
 </ul>
-<h2 id="_1">启动前提<a class="headerlink" href="#_1" title="Permanent link">¶</a></h2>
-<p>请先确认两件事：</p>
-<ol>
-<li>Python 解释器是 <code>ZBin/PythonScripts/.venv/Scripts/python.exe</code></li>
-<li>当前工作目录是 <code>ZBin/</code></li>
-</ol>
-<p>第二点非常重要，因为当前很多相对路径都默认从 <code>ZBin</code> 开始计算。</p>
-<h2 id="_2">基本启动命令<a class="headerlink" href="#_2" title="Permanent link">¶</a></h2>
-<p>在 <code>ZBin/</code> 下运行：</p>
+<p>那么 Python 顶层模式通常会比传统 <code>Medusa.exe</code> 顶层更顺手。因为你可以直接在 Python 主循环里断点、改参数、看状态机切换，也更容易跟 VS Code 里的 <code>debugpy</code> 联动。</p>
+<p>反过来说，如果你此刻只是在排查纯 C++ 底层路径规划、运动控制或 Qt 相关问题，那它就不一定是最优入口。</p>
+<h2 id="_2">启动前最容易忽视的两件事<a class="headerlink" href="#_2" title="Permanent link">¶</a></h2>
+<p>第一件事，是解释器必须对。当前项目要求的环境并不是你系统里随便一个 Python，而是 <code>ZBin/PythonScripts/.venv</code> 这套受 <code>uv</code> 管理的环境。<code>pyproject.toml</code> 里也明确写了 Python 版本和依赖，例如 <code>debugpy</code>、<code>munkres</code>、<code>pybind11</code>、<code>pybind11-stubgen</code>、<code>litgen</code> 等都在这里集中管理。</p>
+<p>第二件事，是当前工作目录必须是 <code>ZBin/</code>。这一点千万别嫌啰嗦，因为 <code>main.py</code>、<code>CppPackage/__init__.py</code>、<code>zss.ini</code>、各种相对路径资源，默认都是按 <code>ZBin</code> 作为工作根来算的。</p>
+<div class="admonition warning">
+<p class="admonition-title">最常见的启动坑</p>
+<p>不是脚本写错，也不是 pybind 坏了，而是你从错误目录启动了 Python，导致 <code>zss.ini</code>、<code>CppPackage.pyd</code>、<code>MedusaCore.dll</code>、参数文件和工具资源都找偏了。</p>
+</div>
+<h2 id="_3">基本启动命令<a class="headerlink" href="#_3" title="Permanent link">¶</a></h2>
+<p>在 <code>ZBin/</code> 目录下，最常用的启动方式是：</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">python</span> <span class="n">PythonScripts</span><span class="p">/</span><span class="n">main</span><span class="p">.</span><span class="n">py</span> <span class="p">-</span><span class="n">-team</span> <span class="n">blue</span> <span class="p">-</span><span class="n">-side</span> <span class="n">right</span> <span class="p">-</span><span class="n">-sim</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="n">python</span> <span class="n">PythonScripts</span><span class="p">/</span><span class="n">main</span><span class="p">.</span><span class="n">py</span> <span class="p">-</span><span class="n">-team</span> <span class="n">blue</span> <span class="p">-</span><span class="n">-side</span> <span class="n">right</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="n">python</span> <span class="n">PythonScripts</span><span class="p">/</span><span class="n">main</span><span class="p">.</span><span class="n">py</span> <span class="p">-</span><span class="n">-team</span> <span class="n">yellow</span> <span class="p">-</span><span class="n">-side</span> <span class="n">left</span>
 </code></pre></div>
-<p>当前参数主要包括：</p>
+<p>当前 <code>main.py</code> 支持的主要参数包括：</p>
 <ul>
-<li><code>--team</code>：<code>blue</code> 或 <code>yellow</code></li>
-<li><code>--side</code> / <code>--positive-side</code>：<code>left</code> 或 <code>right</code></li>
+<li><code>--team</code> / <code>-t</code>：<code>blue</code> 或 <code>yellow</code></li>
+<li><code>--side</code> / <code>--positive-side</code> / <code>-s</code>：<code>left</code> 或 <code>right</code></li>
 <li><code>--sim</code> / <code>--simulation</code>：是否仿真</li>
+<li><code>--test-mode</code>：是否直接进入 Test Mode</li>
 </ul>
-<h2 id="mainpy"><code>main.py</code> 实际做了什么<a class="headerlink" href="#mainpy" title="Permanent link">¶</a></h2>
-<p>它的大体流程是：</p>
-<ol>
-<li>解析命令行参数</li>
-<li>把关键参数写回 <code>zss.ini</code></li>
-<li>创建 <code>CppPackage.SystemRunner.Instance()</code></li>
-<li>调用 <code>systemRunner.init()</code></li>
-<li>循环执行：</li>
-</ol>
+<p>这些参数最终会被写回 <code>zss.ini</code>，这样 Python 层和 C++ 层就能共享同一份启动状态。</p>
+<h2 id="mainpy"><code>main.py</code> 真正做了什么<a class="headerlink" href="#mainpy" title="Permanent link">¶</a></h2>
+<p><code>main.py</code> 的代码不长，但它做的事情非常像一层“Python 版系统启动器”。</p>
+<p>它先解析命令行参数，然后通过 <code>_update_config_file()</code> 把队伍颜色、正方向、仿真开关等信息写进 <code>zss.ini</code>。接着，它创建 <code>CppPackage.SystemRunner.Instance()</code>，并调用 <code>systemRunner.init()</code> 完成底层 C++ 模块初始化。等这些都完成后，才进入真正的循环：</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">systemRunner</span><span class="o">.</span><span class="n">preDecision</span><span class="p">()</span>
 <a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="n">SelectPlay</span><span class="o">.</span><span class="n">SelectPlay</span><span class="p">()</span>
 <a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="n">systemRunner</span><span class="o">.</span><span class="n">postDecision</span><span class="p">()</span>
 </code></pre></div>
-<h2 id="zbin">为什么会强调“必须从 <code>ZBin</code> 启动”<a class="headerlink" href="#zbin" title="Permanent link">¶</a></h2>
-<p>因为当前 Python 顶层并不只是普通脚本，它还要和 C++ 核心共享：</p>
+<p>看到这里时，最好把这三行翻译成一句人话：</p>
+<blockquote>
+<p>前半帧先让 C++ 更新视觉和环境，再让 Python 决定这帧任务，最后回到 C++ 做任务规划和发包。</p>
+</blockquote>
+<h2 id="systemrunner"><code>SystemRunner</code> 在这里扮演什么角色<a class="headerlink" href="#systemrunner" title="Permanent link">¶</a></h2>
+<p><code>SystemRunner</code> 的意义，在于把传统 <code>runLoop()</code> 那种“一整帧全包在 C++ 里”的流程，拆成更适合 Python 顶层插入的两段。</p>
 <ul>
-<li><code>zss.ini</code></li>
-<li><code>params/</code></li>
-<li><code>CppPackage.pyd</code></li>
-<li><code>MedusaCore.dll</code></li>
-<li>若干工具数据文件</li>
+<li><code>init()</code>：做底层初始化，相当于传统主流程里 while 循环之前的大部分准备工作；</li>
+<li><code>preDecision()</code>：做本帧开始前的视觉更新和任务清理；</li>
+<li><code>postDecision()</code>：做本帧后半段的 Skill 规划、发包和 debug 输出。</li>
 </ul>
-<p>如果当前工作目录不对，常见结果包括：</p>
+<p>如果你只是把它看成“某个 pybind 包出来的类”，会低估它的重要性。更准确的说法是：它是 Python 顶层模式下，连接整个 C++ Core 生命周期的总开关。</p>
+<h2 id="cpppackage__init__py">为什么 <code>CppPackage/__init__.py</code> 也很关键<a class="headerlink" href="#cpppackage__init__py" title="Permanent link">¶</a></h2>
+<p>很多人会把 <code>CppPackage/__init__.py</code> 当成普通包初始化文件，但它这里有个很实用的工作：在 Windows 下先把 <code>ZBin/</code> 加进 DLL 搜索路径，然后再导入真正的 <code>CppPackage.pyd</code>。没有这一步，<code>import CppPackage</code> 往往会因为找不到 <code>MedusaCore.dll</code> 或其他依赖而直接失败。</p>
+<p>所以 Python 顶层模式并不是“脚本直接调用某个 pyd”那么简单，而是靠：</p>
 <ul>
-<li>参数读错</li>
-<li>路径找不到</li>
-<li><code>import CppPackage</code> 失败</li>
-<li>某些 Skill 内部读取配置异常</li>
+<li>工作目录对齐；</li>
+<li><code>.venv</code> 解释器对齐；</li>
+<li>DLL 路径对齐；</li>
+<li><code>zss.ini</code> 配置对齐；</li>
 </ul>
-<h2 id="_3">一个最小可运行的骨架<a class="headerlink" href="#_3" title="Permanent link">¶</a></h2>
-<p>如果你只是想快速验证视觉更新和 Python-C++ 交互，可以把主循环理解成：</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="n">systemRunner</span> <span class="o">=</span> <span class="n">CppPackage</span><span class="o">.</span><span class="n">SystemRunner</span><span class="o">.</span><span class="n">Instance</span><span class="p">()</span>
-<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="n">systemRunner</span><span class="o">.</span><span class="n">init</span><span class="p">()</span>
-<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>
-<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="kn">import</span><span class="w"> </span><span class="nn">InitAllModules</span>
-<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="kn">import</span><span class="w"> </span><span class="nn">SelectPlay</span>
-<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>
-<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
-<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>    <span class="n">systemRunner</span><span class="o">.</span><span class="n">preDecision</span><span class="p">()</span>
-<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>    <span class="n">SelectPlay</span><span class="o">.</span><span class="n">SelectPlay</span><span class="p">()</span>
-<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>    <span class="n">systemRunner</span><span class="o">.</span><span class="n">postDecision</span><span class="p">()</span>
+<p>这四件事一起才能稳定跑起来。</p>
+<h2 id="_4">一个最小可运行骨架<a class="headerlink" href="#_4" title="Permanent link">¶</a></h2>
+<p>如果你现在想验证的不是完整比赛逻辑，而只是“Python 能不能带着 C++ 跑起来”，那么脑子里可以先保留这样一个最小骨架：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">CppPackage</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">C</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="n">systemRunner</span> <span class="o">=</span> <span class="n">C</span><span class="o">.</span><span class="n">SystemRunner</span><span class="o">.</span><span class="n">Instance</span><span class="p">()</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="n">systemRunner</span><span class="o">.</span><span class="n">init</span><span class="p">()</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="kn">import</span><span class="w"> </span><span class="nn">InitAllModules</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="kn">import</span><span class="w"> </span><span class="nn">SelectPlay</span>
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>    <span class="n">systemRunner</span><span class="o">.</span><span class="n">preDecision</span><span class="p">()</span>
+<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>    <span class="n">SelectPlay</span><span class="o">.</span><span class="n">SelectPlay</span><span class="p">()</span>
+<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a>    <span class="n">systemRunner</span><span class="o">.</span><span class="n">postDecision</span><span class="p">()</span>
 </code></pre></div>
-<h2 id="_4">什么时候优先用这种模式<a class="headerlink" href="#_4" title="Permanent link">¶</a></h2>
-<p>推荐场景：</p>
+<p>当然，真实 <code>main.py</code> 比这还多了参数解析、测试模式和退出处理，但核心骨架就是这样。</p>
+<h2 id="_5">这一模式为什么特别适合调试<a class="headerlink" href="#_5" title="Permanent link">¶</a></h2>
+<p>最大的原因不是“Python 更高级”，而是你现在可以把断点直接打在顶层脚本上，而不必每次都从 <code>Client -&gt; Medusa.exe -&gt; Python attach</code> 那条传统链进去。对日常开发来说，这会明显降低调试摩擦。</p>
+<p>比如你想查：</p>
 <ul>
-<li>需要频繁改 Python Play</li>
-<li>想把调试断点打在 Python 顶层</li>
-<li>想做更快的实验和验证</li>
+<li>为什么 <code>SelectPlay</code> 没切到预期脚本；</li>
+<li>为什么某个 Test 脚本没拿到正确角色号；</li>
+<li>为什么 <code>Skill.py</code> 传给 C++ 的参数不对；</li>
 </ul>
-<p>不那么推荐的场景：</p>
+<p>用 Python 顶层模式通常会快很多。</p>
+<h2 id="_6">但它不是万能入口<a class="headerlink" href="#_6" title="Permanent link">¶</a></h2>
+<p>也要实事求是地说，这一模式并不适合所有问题。假如你现在在追：</p>
 <ul>
-<li>你当前只是在排查纯 C++ 底层问题</li>
-<li>你需要复现完全等同于 <code>Client -&gt; Medusa.exe</code> 的传统调用路径</li>
+<li>纯 C++ 底层性能问题；</li>
+<li><code>Client</code> 调 <code>Medusa.exe</code> 时才出现的兼容性问题；</li>
+<li>Qt 或线程相关的传统入口行为；</li>
 </ul>
-<p>两种模式都很重要，但 Python 顶层通常更适合日常开发。</p>
+<p>那么回到 C++ 顶层模式往往更直接。</p>
+<p>所以真正成熟的使用方式不是“以后都只用 Python 顶层”，而是知道：<strong>什么时候该用它，什么时候该回传统入口。</strong></p>
 
 
 
@@ -2001,7 +2107,7 @@
       <nav class="md-footer__inner md-grid" aria-label="页脚">
         
           
-          <a href="../worldmodel-and-utilities/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 2.4.4 &amp;nbsp; WorldModel 与工具层" rel="prev">
+          <a href="../worldmodel-and-utilities/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 2.4.6 &amp;nbsp; WorldModel 与工具层" rel="prev">
             <div class="md-footer__button md-icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
             </div>
@@ -2010,20 +2116,20 @@
                 <span class="md-footer__direction">
                   上一页
                 </span>
-                2.4.4 &nbsp; WorldModel 与工具层
+                2.4.6 &nbsp; WorldModel 与工具层
               </div>
             </div>
           </a>
         
         
           
-          <a href="../pybind11-and-cmake/" class="md-footer__link md-footer__link--next" aria-label="下一页: 2.4.6 &amp;nbsp; Pybind11 与 CMake" rel="next">
+          <a href="../pybind11-and-cmake/" class="md-footer__link md-footer__link--next" aria-label="下一页: 2.4.8 &amp;nbsp; *Pybind11、CMake 与 C++ Skill 绑定" rel="next">
             <div class="md-footer__title">
               <div class="md-ellipsis">
                 <span class="md-footer__direction">
                   下一页
                 </span>
-                2.4.6 &nbsp; Pybind11 与 CMake
+                2.4.8 &nbsp; *Pybind11、CMake 与 C++ Skill 绑定
               </div>
             </div>
             <div class="md-footer__button md-icon">

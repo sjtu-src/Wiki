@@ -9,27 +9,27 @@
         <meta name="author" content="SYLG">
       
       
-        <link rel="canonical" href="https://sjtu-src.github.io/Wiki/chapter_universal_build/SRC%20%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%E6%95%99%E7%A8%8B/">
+        <link rel="canonical" href="https://sjtu-src.github.io/Wiki/chapter_software/cpp/skill-recursion-and-taskt/">
       
       
-        <link rel="prev" href="../%E5%BF%AB%E9%80%9F%E5%BC%80%E5%A7%8B/">
+        <link rel="prev" href="../decision-and-task-mediator/">
       
       
-        <link rel="next" href="../falcon/">
+        <link rel="next" href="../vision-motion-and-skills/">
       
-      <link rel="icon" href="../../assets/images/favicon.svg">
+      <link rel="icon" href="../../../assets/images/favicon.svg">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.0.13">
     
     
       
-        <title>1.2 &nbsp; 环境搭建 - SJTU-SRC Wiki</title>
+        <title>2.3.3 &nbsp; Skill 递归、SubTask 与 TaskT - SJTU-SRC Wiki</title>
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.ffa9267a.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.ffa9267a.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.a0c5b2b5.min.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.a0c5b2b5.min.css">
       
       
 
@@ -45,16 +45,16 @@
       
     
     
-      <link rel="stylesheet" href="../../stylesheets/extra.css">
+      <link rel="stylesheet" href="../../../stylesheets/extra.css">
     
-    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
     
     
     
-  <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+  <link href="../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
             html.glightbox-open { overflow: initial; height: 100%; }
             .gslide-title { margin-top: 0px; user-select: text; }
             .gslide-desc { color: #666; user-select: text; }
@@ -86,7 +86,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#src" class="md-skip">
+        <a href="#skill-subtask-taskt" class="md-skip">
           跳转至
         </a>
       
@@ -124,9 +124,9 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="页眉">
-    <a href="../.." title="SJTU-SRC Wiki" class="md-header__button md-logo" aria-label="SJTU-SRC Wiki" data-md-component="logo">
+    <a href="../../.." title="SJTU-SRC Wiki" class="md-header__button md-logo" aria-label="SJTU-SRC Wiki" data-md-component="logo">
       
-  <img src="../../assets/images/logo.jpg" alt="logo">
+  <img src="../../../assets/images/logo.jpg" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -142,7 +142,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              1.2 &nbsp; 环境搭建
+              2.3.3 &nbsp; Skill 递归、SubTask 与 TaskT
             
           </span>
         </div>
@@ -247,9 +247,9 @@
 
 <nav class="md-nav md-nav--primary" aria-label="导航栏" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="SJTU-SRC Wiki" class="md-nav__button md-logo" aria-label="SJTU-SRC Wiki" data-md-component="logo">
+    <a href="../../.." title="SJTU-SRC Wiki" class="md-nav__button md-logo" aria-label="SJTU-SRC Wiki" data-md-component="logo">
       
-  <img src="../../assets/images/logo.jpg" alt="logo">
+  <img src="../../../assets/images/logo.jpg" alt="logo">
 
     </a>
     SJTU-SRC Wiki
@@ -303,7 +303,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../chapter_preface/">第 0 章 &nbsp;  SJTU_SRC</a>
+          <a href="../../../chapter_preface/">第 0 章 &nbsp;  SJTU_SRC</a>
           
             <label for="__nav_1">
               <span class="md-nav__icon md-icon"></span>
@@ -326,7 +326,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../chapter_preface/what_is_ssl/" class="md-nav__link">
+      <a href="../../../chapter_preface/what_is_ssl/" class="md-nav__link">
         0.1. &nbsp; 什么是Robocup SSL
       </a>
     </li>
@@ -340,7 +340,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../chapter_preface/%E4%B8%8A%E6%B5%B7%E4%BA%A4%E9%80%9A%E5%A4%A7%E5%AD%A6SRC%E8%B5%9B%E9%98%9F%E7%AB%A0%E7%A8%8B/" class="md-nav__link">
+      <a href="../../../chapter_preface/%E4%B8%8A%E6%B5%B7%E4%BA%A4%E9%80%9A%E5%A4%A7%E5%AD%A6SRC%E8%B5%9B%E9%98%9F%E7%AB%A0%E7%A8%8B/" class="md-nav__link">
         0.2. &nbsp; SRC赛队章程
       </a>
     </li>
@@ -354,7 +354,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../chapter_preface/about_the_book/" class="md-nav__link">
+      <a href="../../../chapter_preface/about_the_book/" class="md-nav__link">
         0.3. &nbsp; 关于本教培系统
       </a>
     </li>
@@ -374,18 +374,16 @@
 
   
   
-    
-  
   
     
       
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked="">
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2">
       
       
         
@@ -412,7 +410,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../">第 1 章 &nbsp; &nbsp; 实车调试流程</a>
+          <a href="../../../chapter_universal_build/">第 1 章 &nbsp; &nbsp; 实车调试流程</a>
           
             <label for="__nav_2">
               <span class="md-nav__icon md-icon"></span>
@@ -420,7 +418,7 @@
           
         </div>
       
-      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_2">
           <span class="md-nav__icon md-icon"></span>
           第 1 章 &nbsp; &nbsp; 实车调试流程
@@ -435,7 +433,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../%E5%BF%AB%E9%80%9F%E5%BC%80%E5%A7%8B/" class="md-nav__link">
+      <a href="../../../chapter_universal_build/%E5%BF%AB%E9%80%9F%E5%BC%80%E5%A7%8B/" class="md-nav__link">
         1.1 &nbsp; 快速开始
       </a>
     </li>
@@ -447,86 +445,11 @@
               
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          1.2 &nbsp; 环境搭建
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../../chapter_universal_build/SRC%20%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%E6%95%99%E7%A8%8B/" class="md-nav__link">
         1.2 &nbsp; 环境搭建
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="目录">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      目录
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
-      
-        <li class="md-nav__item">
-  <a href="#1" class="md-nav__link">
-    1.必要软件安装
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#2falcon" class="md-nav__link">
-    2.Falcon环境配置
-  </a>
-  
-    <nav class="md-nav" aria-label="2.Falcon环境配置">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    编译准备
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    编译方法
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#3cuda" class="md-nav__link">
-    3.CUDA配置
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -538,7 +461,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../falcon/" class="md-nav__link">
+      <a href="../../../chapter_universal_build/falcon/" class="md-nav__link">
         1.3 &nbsp; falcon
       </a>
     </li>
@@ -552,7 +475,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../%E8%A7%86%E8%A7%89%E6%9C%BA/" class="md-nav__link">
+      <a href="../../../chapter_universal_build/%E8%A7%86%E8%A7%89%E6%9C%BA/" class="md-nav__link">
         1.4 &nbsp; 视觉机
       </a>
     </li>
@@ -599,7 +522,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../%E8%A3%81%E5%88%A4%E7%9B%92/" class="md-nav__link">
+      <a href="../../../chapter_universal_build/%E8%A3%81%E5%88%A4%E7%9B%92/" class="md-nav__link">
         1.5.1 &nbsp; 裁判盒
       </a>
     </li>
@@ -613,7 +536,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../%E8%A3%81%E5%88%A4%E7%9B%92%E4%BD%BF%E7%94%A8%E9%80%9F%E6%88%90/" class="md-nav__link">
+      <a href="../../../chapter_universal_build/%E8%A3%81%E5%88%A4%E7%9B%92%E4%BD%BF%E7%94%A8%E9%80%9F%E6%88%90/" class="md-nav__link">
         1.5.2 &nbsp; 裁判盒使用速成
       </a>
     </li>
@@ -634,7 +557,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../%E5%8F%91%E5%B0%84%E6%9C%BA%E4%B8%8E%E6%9C%BA%E5%99%A8%E4%BA%BA/" class="md-nav__link">
+      <a href="../../../chapter_universal_build/%E5%8F%91%E5%B0%84%E6%9C%BA%E4%B8%8E%E6%9C%BA%E5%99%A8%E4%BA%BA/" class="md-nav__link">
         1.6 &nbsp; 发射机与机器人
       </a>
     </li>
@@ -648,7 +571,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../参数标定.md" class="md-nav__link">
+      <a href="../../../chapter_universal_build/参数标定.md" class="md-nav__link">
         1.7 &nbsp; 参数标定
       </a>
     </li>
@@ -668,16 +591,18 @@
 
   
   
+    
+  
   
     
       
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3">
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked="">
       
       
         
@@ -702,7 +627,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../chapter_software/">第 2 章 &nbsp; &nbsp; 软件与算法</a>
+          <a href="../../">第 2 章 &nbsp; &nbsp; 软件与算法</a>
           
             <label for="__nav_3">
               <span class="md-nav__icon md-icon"></span>
@@ -710,7 +635,7 @@
           
         </div>
       
-      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
         <label class="md-nav__title" for="__nav_3">
           <span class="md-nav__icon md-icon"></span>
           第 2 章 &nbsp; &nbsp; 软件与算法
@@ -725,7 +650,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../chapter_software/fundamentals/software-development-guide/" class="md-nav__link">
+      <a href="../../fundamentals/software-development-guide/" class="md-nav__link">
         2.0 &nbsp; 软件开发统一规范
       </a>
     </li>
@@ -769,7 +694,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../chapter_software/fundamentals/">2.1 &nbsp; 开发入门</a>
+          <a href="../../fundamentals/">2.1 &nbsp; 开发入门</a>
           
             <label for="__nav_3_3">
               <span class="md-nav__icon md-icon"></span>
@@ -792,7 +717,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../chapter_software/fundamentals/terminal-and-cli/" class="md-nav__link">
+      <a href="../../fundamentals/terminal-and-cli/" class="md-nav__link">
         2.1.1 &nbsp; Terminal 与 CLI
       </a>
     </li>
@@ -806,7 +731,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../chapter_software/fundamentals/dev-environment/" class="md-nav__link">
+      <a href="../../fundamentals/dev-environment/" class="md-nav__link">
         2.1.2 &nbsp; 开发环境
       </a>
     </li>
@@ -820,7 +745,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../chapter_software/fundamentals/git-workflow/" class="md-nav__link">
+      <a href="../../fundamentals/git-workflow/" class="md-nav__link">
         2.1.3 &nbsp; Git 工作流
       </a>
     </li>
@@ -834,7 +759,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../chapter_software/fundamentals/design-patterns/" class="md-nav__link">
+      <a href="../../fundamentals/design-patterns/" class="md-nav__link">
         2.1.4 &nbsp; 设计模式
       </a>
     </li>
@@ -848,7 +773,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../chapter_software/fundamentals/state-machine/" class="md-nav__link">
+      <a href="../../fundamentals/state-machine/" class="md-nav__link">
         2.1.5 &nbsp; 状态机
       </a>
     </li>
@@ -862,7 +787,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../chapter_software/fundamentals/munkres/" class="md-nav__link">
+      <a href="../../fundamentals/munkres/" class="md-nav__link">
         2.1.6 &nbsp; Munkres 角色匹配
       </a>
     </li>
@@ -905,7 +830,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../chapter_software/architecture/">2.2 &nbsp; 软件总体架构</a>
+          <a href="../../architecture/">2.2 &nbsp; 软件总体架构</a>
           
             <label for="__nav_3_4">
               <span class="md-nav__icon md-icon"></span>
@@ -928,7 +853,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../chapter_software/architecture/overview/" class="md-nav__link">
+      <a href="../../architecture/overview/" class="md-nav__link">
         2.2.1 &nbsp; 总体设计
       </a>
     </li>
@@ -942,7 +867,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../chapter_software/architecture/runtime-pipeline/" class="md-nav__link">
+      <a href="../../architecture/runtime-pipeline/" class="md-nav__link">
         2.2.2 &nbsp; 运行时主流程
       </a>
     </li>
@@ -961,14 +886,16 @@
               
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_5">
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_5" checked="">
       
       
         
@@ -991,7 +918,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../chapter_software/cpp/">2.3 &nbsp; C++ Core</a>
+          <a href="../">2.3 &nbsp; C++ Core</a>
           
             <label for="__nav_3_5">
               <span class="md-nav__icon md-icon"></span>
@@ -999,7 +926,7 @@
           
         </div>
       
-      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_5_label" aria-expanded="false">
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_5_label" aria-expanded="true">
         <label class="md-nav__title" for="__nav_3_5">
           <span class="md-nav__icon md-icon"></span>
           2.3 &nbsp; C++ Core
@@ -1014,7 +941,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../chapter_software/cpp/core-runtime/" class="md-nav__link">
+      <a href="../core-runtime/" class="md-nav__link">
         2.3.1 &nbsp; 运行骨架
       </a>
     </li>
@@ -1028,7 +955,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../chapter_software/cpp/decision-and-task-mediator/" class="md-nav__link">
+      <a href="../decision-and-task-mediator/" class="md-nav__link">
         2.3.2 &nbsp; DecisionModule 与 TaskMediator
       </a>
     </li>
@@ -1040,11 +967,108 @@
               
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../../chapter_software/cpp/skill-recursion-and-taskt/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          2.3.3 &nbsp; Skill 递归、SubTask 与 TaskT
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         2.3.3 &nbsp; Skill 递归、SubTask 与 TaskT
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#cplayertask" class="md-nav__link">
+    CPlayerTask 的默认行为：递归往下传
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#turnandshoot" class="md-nav__link">
+    一个最小但很清楚的例子：TurnAndShoot
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#smartgotopositionv4" class="md-nav__link">
+    再看一个更常用的底层例子：SmartGotoPositionV4
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#taskt" class="md-nav__link">
+    TaskT 是这条链上的参数载体
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tasks-taskt" class="md-nav__link">
+    tasks 字典是怎么“变成”这些 TaskT 的
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pybind" class="md-nav__link">
+    pybind 包装层到底做了什么
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#taskmediator" class="md-nav__link">
+    TaskMediator 在这一页里的角色
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#taskt_1" class="md-nav__link">
+    TaskT 字段并不总是“语义完美”
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    看懂这条链后，再回去读代码会轻松很多
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1056,7 +1080,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../chapter_software/cpp/vision-motion-and-skills/" class="md-nav__link">
+      <a href="../vision-motion-and-skills/" class="md-nav__link">
         2.3.4 &nbsp; 视觉、运动控制与底层 Skill
       </a>
     </li>
@@ -1070,7 +1094,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../chapter_software/cpp/cuda-and-extensions/" class="md-nav__link">
+      <a href="../cuda-and-extensions/" class="md-nav__link">
         2.3.5 &nbsp; *CUDA 与进阶扩展
       </a>
     </li>
@@ -1127,7 +1151,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../chapter_software/python/">2.4 &nbsp; Python 顶层</a>
+          <a href="../../python/">2.4 &nbsp; Python 顶层</a>
           
             <label for="__nav_3_6">
               <span class="md-nav__icon md-icon"></span>
@@ -1150,7 +1174,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../chapter_software/python/overview/" class="md-nav__link">
+      <a href="../../python/overview/" class="md-nav__link">
         2.4.1 &nbsp; Python 总览
       </a>
     </li>
@@ -1164,7 +1188,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../chapter_software/python/config-selectplay-play/" class="md-nav__link">
+      <a href="../../python/config-selectplay-play/" class="md-nav__link">
         2.4.2 &nbsp; Config、SelectPlay 与 gameStrategies
       </a>
     </li>
@@ -1178,7 +1202,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../chapter_software/python/skill-py/" class="md-nav__link">
+      <a href="../../python/skill-py/" class="md-nav__link">
         2.4.3 &nbsp; Skill.py 与任务包装
       </a>
     </li>
@@ -1192,7 +1216,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../chapter_software/python/state-machine-and-rolematch/" class="md-nav__link">
+      <a href="../../python/state-machine-and-rolematch/" class="md-nav__link">
         2.4.4 &nbsp; 状态机与角色匹配
       </a>
     </li>
@@ -1206,7 +1230,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../chapter_software/python/writing-play-and-test/" class="md-nav__link">
+      <a href="../../python/writing-play-and-test/" class="md-nav__link">
         2.4.5 &nbsp; 编写新的 Test / Strategy 脚本
       </a>
     </li>
@@ -1220,7 +1244,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../chapter_software/python/worldmodel-and-utilities/" class="md-nav__link">
+      <a href="../../python/worldmodel-and-utilities/" class="md-nav__link">
         2.4.6 &nbsp; WorldModel 与工具层
       </a>
     </li>
@@ -1234,7 +1258,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../chapter_software/python/python-top-level-startup/" class="md-nav__link">
+      <a href="../../python/python-top-level-startup/" class="md-nav__link">
         2.4.7 &nbsp; *Python 作为顶层启动 Medusa
       </a>
     </li>
@@ -1248,7 +1272,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../chapter_software/python/pybind11-and-cmake/" class="md-nav__link">
+      <a href="../../python/pybind11-and-cmake/" class="md-nav__link">
         2.4.8 &nbsp; *Pybind11、CMake 与 C++ Skill 绑定
       </a>
     </li>
@@ -1262,7 +1286,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../chapter_software/python/power-model/" class="md-nav__link">
+      <a href="../../python/power-model/" class="md-nav__link">
         2.4.9 &nbsp; 力度模型
       </a>
     </li>
@@ -1305,7 +1329,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../chapter_software/debug/">2.5 &nbsp; 调试与排障</a>
+          <a href="../../debug/">2.5 &nbsp; 调试与排障</a>
           
             <label for="__nav_3_7">
               <span class="md-nav__icon md-icon"></span>
@@ -1328,7 +1352,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../chapter_software/debug/vscode-workflows/" class="md-nav__link">
+      <a href="../../debug/vscode-workflows/" class="md-nav__link">
         2.5.1 &nbsp; VS Code 调试工作流
       </a>
     </li>
@@ -1342,7 +1366,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../chapter_software/debug/release-symbols/" class="md-nav__link">
+      <a href="../../debug/release-symbols/" class="md-nav__link">
         2.5.2 &nbsp; *Release 下的调试符号
       </a>
     </li>
@@ -1399,7 +1423,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../chapter_electronics/">第 3 章 &nbsp; &nbsp; 电控</a>
+          <a href="../../../chapter_electronics/">第 3 章 &nbsp; &nbsp; 电控</a>
           
             <label for="__nav_4">
               <span class="md-nav__icon md-icon"></span>
@@ -1453,7 +1477,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../chapter_electronics/sub_chapter_motor/index.md" class="md-nav__link">
+      <a href="../../../chapter_electronics/sub_chapter_motor/index.md" class="md-nav__link">
         None
       </a>
     </li>
@@ -1507,7 +1531,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../chapter_electronics/sub_chapter_circuit/index.md" class="md-nav__link">
+      <a href="../../../chapter_electronics/sub_chapter_circuit/index.md" class="md-nav__link">
         None
       </a>
     </li>
@@ -1521,7 +1545,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../chapter_electronics/sub_chapter_circuit/power_board/" class="md-nav__link">
+      <a href="../../../chapter_electronics/sub_chapter_circuit/power_board/" class="md-nav__link">
         3.2.1 &nbsp; 功率板
       </a>
     </li>
@@ -1575,7 +1599,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../chapter_electronics/sub_chapter_control/index.md" class="md-nav__link">
+      <a href="../../../chapter_electronics/sub_chapter_control/index.md" class="md-nav__link">
         None
       </a>
     </li>
@@ -1589,7 +1613,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../chapter_electronics/sub_chapter_control/%E5%B0%8F%E8%BD%A6%E4%BB%A3%E7%A0%81%E7%83%A7%E5%86%99%E6%96%B9%E6%B3%95/" class="md-nav__link">
+      <a href="../../../chapter_electronics/sub_chapter_control/%E5%B0%8F%E8%BD%A6%E4%BB%A3%E7%A0%81%E7%83%A7%E5%86%99%E6%96%B9%E6%B3%95/" class="md-nav__link">
         3.3.1 &nbsp; 代码烧写
       </a>
     </li>
@@ -1641,7 +1665,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../chapter_electronics/sub_chapter_communication/index.md" class="md-nav__link">
+      <a href="../../../chapter_electronics/sub_chapter_communication/index.md" class="md-nav__link">
         None
       </a>
     </li>
@@ -1692,7 +1716,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../chapter_hardware/">第 4 章 &nbsp; &nbsp; 硬件</a>
+          <a href="../../../chapter_hardware/">第 4 章 &nbsp; &nbsp; 硬件</a>
           
             <label for="__nav_5">
               <span class="md-nav__icon md-icon"></span>
@@ -1715,7 +1739,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../chapter_hardware/body/" class="md-nav__link">
+      <a href="../../../chapter_hardware/body/" class="md-nav__link">
         4.1 &nbsp; 机械结构介绍
       </a>
     </li>
@@ -1759,7 +1783,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../chapter_other/">第 5 章 &nbsp; &nbsp; 其他</a>
+          <a href="../../../chapter_other/">第 5 章 &nbsp; &nbsp; 其他</a>
           
             <label for="__nav_6">
               <span class="md-nav__icon md-icon"></span>
@@ -1802,7 +1826,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../chapter_other/freshmencup/">5.1 &nbsp; 校内赛说明</a>
+          <a href="../../../chapter_other/freshmencup/">5.1 &nbsp; 校内赛说明</a>
           
             <label for="__nav_6_2">
               <span class="md-nav__icon md-icon"></span>
@@ -1825,7 +1849,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../chapter_other/SoftwarePackfor2024/" class="md-nav__link">
+      <a href="../../../chapter_other/SoftwarePackfor2024/" class="md-nav__link">
         5.1.1 &nbsp; 2024校内赛软件包说明
       </a>
     </li>
@@ -1873,42 +1897,64 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
       
         <li class="md-nav__item">
-  <a href="#1" class="md-nav__link">
-    1.必要软件安装
+  <a href="#cplayertask" class="md-nav__link">
+    CPlayerTask 的默认行为：递归往下传
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#2falcon" class="md-nav__link">
-    2.Falcon环境配置
+  <a href="#turnandshoot" class="md-nav__link">
+    一个最小但很清楚的例子：TurnAndShoot
   </a>
   
-    <nav class="md-nav" aria-label="2.Falcon环境配置">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#smartgotopositionv4" class="md-nav__link">
+    再看一个更常用的底层例子：SmartGotoPositionV4
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#taskt" class="md-nav__link">
+    TaskT 是这条链上的参数载体
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tasks-taskt" class="md-nav__link">
+    tasks 字典是怎么“变成”这些 TaskT 的
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pybind" class="md-nav__link">
+    pybind 包装层到底做了什么
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#taskmediator" class="md-nav__link">
+    TaskMediator 在这一页里的角色
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#taskt_1" class="md-nav__link">
+    TaskT 字段并不总是“语义完美”
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
-    编译准备
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    编译方法
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#3cuda" class="md-nav__link">
-    3.CUDA配置
+    看懂这条链后，再回去读代码会轻松很多
   </a>
   
 </li>
@@ -1928,7 +1974,7 @@
                   
 
   
-    <a href="https://github.com/sjtu-src/Wiki/edit/master/docs/chapter_universal_build/SRC 开发环境搭建教程.md" title="编辑此页" class="md-content__button md-icon">
+    <a href="https://github.com/sjtu-src/Wiki/edit/master/docs/chapter_software/cpp/skill-recursion-and-taskt.md" title="编辑此页" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"></path></svg>
     </a>
@@ -1936,184 +1982,194 @@
   
 
 
-<h1 id="src">SRC软件算法组 开发环境搭建教程<a class="headerlink" href="#src" title="Permanent link">¶</a></h1>
-<hr>
-<div class="admonition abstract">
-<p class="admonition-title">Abstract</p>
-<p>本教程旨在帮助新成员快速搭建开发环境，并熟悉SRC项目的基本结构。</p>
-<p>---by 陶涵 23.11.15</p>
-</div>
-<h2 id="1">1.必要软件安装<a class="headerlink" href="#1" title="Permanent link">¶</a></h2>
+<h1 id="skill-subtask-taskt">Skill 递归、SubTask 与 TaskT<a class="headerlink" href="#skill-subtask-taskt" title="Permanent link">¶</a></h1>
+<p>如果说 <code>DecisionModule</code> 负责把“一帧决策流程”组织起来，那么这一页讲的内容，负责解释另一件更底层的问题：</p>
+<blockquote>
+<p>一旦 Python 或高层 C++ 已经说了“这台车做某个 Skill”，系统究竟是怎样一步步把这个 Skill 细化到底层控制命令的？</p>
+</blockquote>
+<p>很多新人第一次看 C++ Skill 时，最困惑的点就在这里。明明已经叫 <code>TurnAndShoot</code> 了，为什么里面又 <code>setSubTask()</code> 到 <code>GetBallV4</code>？明明已经叫 <code>SmartGotoPositionV4</code> 了，为什么最后还要继续下发 <code>GotoPositionV4</code>？这不是“多绕了一层”，而是当前 Skill 体系的基本工作方式。</p>
+<h2 id="cplayertask"><code>CPlayerTask</code> 的默认行为：递归往下传<a class="headerlink" href="#cplayertask" title="Permanent link">¶</a></h2>
+<p>先看最基础的抽象：<code>Strategy/skill/PlayerTask.h</code> 和 <code>PlayerTask.cpp</code>。</p>
+<p><code>CPlayerTask</code> 里有一个成员 <code>_pSubTask</code>，而默认实现的 <code>plan()</code> 和 <code>execute()</code> 都很简单：</p>
 <ul>
-<li>
-<p><strong>Git Bash与Github注册</strong></p>
-<div class="admonition question">
-<p class="admonition-title">为什么要使用git</p>
-<p><strong>采用git进行代码管理,同时注册github账号</strong></p>
-</div>
-<ul>
-<li>参考<a href="https://blog.csdn.net/qq_36667170/article/details/79085301">Git Bash教程</a>进行配置</li>
-<li>全部完成后可以输入<code>ssh -T git@github.com</code>命令行后看是否能够正常连入你的Github
-<a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../SRC%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA.assets/1.png" data-desc-position="bottom"><img alt="" src="../SRC%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA.assets/1.png"></a></li>
+<li>如果有 <code>subTask()</code>，就继续调用它的 <code>plan()</code> / <code>execute()</code>；</li>
+<li>如果没有，就停在当前这一层。</li>
 </ul>
-</li>
-<li>
-<p><strong>Cmake安装</strong></p>
-<div class="admonition question">
-<p class="admonition-title">为什么要使用Cmake</p>
-<p>gcc将源文件编译成可执行文件或者库文件；而当需要编译的东西很多时， <strong>需要说明先编译什么，后编译什么</strong> ，这个过程称为构建，常用的工具是make。而我们的代码体系较为庞大，需要通过CMake软件更加简单的定义构建的流程。<strong>代码从Github上pull下来后需要通过Cmake进行编译</strong></p>
-</div>
-<p class="annotate"><a href="https://cmake.org/">CMake官网</a>
-进入官网后找到合适自己电脑对应的(1)Cmake版本即可，可以选择3.28。</p>
+<p>这意味着很多 C++ Skill 并不是直接产生命令，而是先做“更高层的战术判断”，再把真正的底层动作作为子任务交下去。于是一个 Skill 树就会长成这样：</p>
+<pre class="mermaid"><code>flowchart TD
+    A["TurnAndShoot"] --&gt; B["GetBallV4"]
+    B --&gt; C["SmartGotoPositionV4 / GotoPosition"]
+    C --&gt; D["最终速度指令 / 踢球 / 吸球"]</code></pre>
+<p>这就是文档里常说的“递归调用到底层 Skill”的真实含义。</p>
+<h2 id="turnandshoot">一个最小但很清楚的例子：<code>TurnAndShoot</code><a class="headerlink" href="#turnandshoot" title="Permanent link">¶</a></h2>
+<p><code>Medusa/src/Strategy/skill/TurnAndShoot.cpp</code> 很适合拿来说明这套结构。</p>
+<p>这个 Skill 在 <code>plan()</code> 里会先读：</p>
+<ul>
+<li><code>task().executor</code></li>
+<li><code>task().player.pos</code>，这里被当成射门目标点</li>
+<li><code>task().player.kickpower</code></li>
+<li><code>task().player.flag</code></li>
+</ul>
+<p>然后它会结合视觉信息判断三件事：</p>
 <ol>
-<li><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../SRC%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA.assets/2.png" data-desc-position="bottom"><img alt="" src="../SRC%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA.assets/2.png"></a></li>
+<li>这台车现在是否已经拿到球；</li>
+<li>朝向是否已经对准目标；</li>
+<li>是否该提前打开吸球。</li>
 </ol>
-</li>
-<li>
-<p><strong>Visual Studio</strong></p>
-<p>我们的项目需要通过Visual Studio进行编辑运行，建议下载Visual Studio 2022</p>
-<p class="annotate"><a href="https://visualstudio.microsoft.com/zh-hans/vs/">VS</a>官网，安装过程所需项目勾选含有本地cpp开发的选项即可，(1)注意更改安装路径（占用空间很大）</p>
+<p>如果方向对了、球也控制住了，它会直接设置 <code>KickStatus</code>；但即便如此，它仍然不会在这一层自己去做完整的运动控制，而是继续：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">setSubTask</span><span class="p">(</span><span class="n">PlayerRole</span><span class="o">::</span><span class="n">makeItGetBallV4</span><span class="p">(</span><span class="n">executor</span><span class="p">,</span><span class="w"> </span><span class="n">targetDir</span><span class="p">,</span><span class="w"> </span><span class="n">flag</span><span class="p">));</span>
+</code></pre></div>
+<p>也就是说，<code>TurnAndShoot</code> 真正负责的是“什么时候该踢、什么时候该吸、什么时候还需要继续调整身体朝向”；至于“为了把车真正带到合适姿态，需要怎么接近球、怎么跑过去”，它会把这部分交给下一层 Skill 去完成。</p>
+<h2 id="smartgotopositionv4">再看一个更常用的底层例子：<code>SmartGotoPositionV4</code><a class="headerlink" href="#smartgotopositionv4" title="Permanent link">¶</a></h2>
+<p><code>SmartGotoPositionV4.cpp</code> 是整个底层执行链里最值得啃的一份源码。它做的事非常多：</p>
+<ul>
+<li>读取 <code>TaskT</code> 里的目标点、角度、速度、标志位；</li>
+<li>从 <code>TaskMediator</code> 判断当前执行者是不是守门员、后卫等特殊角色；</li>
+<li>按角色类型调整速度、加速度等能力上限；</li>
+<li>处理裁判盒约束，例如 stop 球圈、摆球区、禁区约束；</li>
+<li>构造障碍物集合；</li>
+<li>调用 RRT 或相关路径规划器求中间点；</li>
+<li>修正最终目标和末速度；</li>
+<li>最后再把结果交给更底层的轨迹 / 运动控制任务。</li>
+</ul>
+<p>所以你会看到它末尾并不是“在本函数里直接输出轮速”，而是继续：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">setSubTask</span><span class="p">(</span><span class="n">TaskFactoryV2</span><span class="o">::</span><span class="n">Instance</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">GotoPositionV4</span><span class="p">(</span><span class="n">newTask</span><span class="p">));</span>
+</code></pre></div>
+<p>这正说明了一个很重要的分工：</p>
+<ul>
+<li>上层 Skill 负责解释“我要以什么语义去到哪里”；</li>
+<li>更底层的子任务负责解释“具体应该怎么走过去”。</li>
+</ul>
+<h2 id="taskt"><code>TaskT</code> 是这条链上的参数载体<a class="headerlink" href="#taskt" title="Permanent link">¶</a></h2>
+<p>上面这些 Skill 之所以能一层层传递，是因为它们都围绕同一个参数结构：<code>TaskT</code>。</p>
+<p><code>Utils/misc_types.h</code> 里定义的 <code>TaskT</code> 可以粗略理解成“本帧某个执行者的一整包任务参数”。最常用的字段如下：</p>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>典型含义</th>
+<th>常见来源</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>executor</code></td>
+<td>真实执行车号</td>
+<td>Munkres 匹配后的 <code>task.num</code></td>
+</tr>
+<tr>
+<td><code>player.pos</code></td>
+<td>目标点</td>
+<td><code>Skill.py</code> 里传入的点位参数</td>
+</tr>
+<tr>
+<td><code>player.angle</code></td>
+<td>目标朝向</td>
+<td>例如 <code>RushTo</code> / <code>GetBallV4</code> 的目标朝向</td>
+</tr>
+<tr>
+<td><code>player.flag</code></td>
+<td>标志位</td>
+<td><code>Flags.dodge_ball</code>、<code>Flags.allow_dss</code> 等</td>
+</tr>
+<tr>
+<td><code>player.vel</code></td>
+<td>期望末速度</td>
+<td>某些轨迹类 Skill 使用</td>
+</tr>
+<tr>
+<td><code>player.max_acceleration</code></td>
+<td>最大加速度限制</td>
+<td><code>RushTo</code> 等包装层传入</td>
+</tr>
+<tr>
+<td><code>player.needdribble</code></td>
+<td>是否吸球</td>
+<td><code>needDribble=True</code> 之类参数</td>
+</tr>
+<tr>
+<td><code>ball.Sender</code></td>
+<td>出球者 / 辅助整数字段</td>
+<td>传球者编号，或某些旧 Skill 复用</td>
+</tr>
+<tr>
+<td><code>extraTaskParams</code></td>
+<td>额外参数字典</td>
+<td>不适合塞进固定字段的新参数</td>
+</tr>
+</tbody>
+</table>
+<h2 id="tasks-taskt"><code>tasks</code> 字典是怎么“变成”这些 <code>TaskT</code> 的<a class="headerlink" href="#tasks-taskt" title="Permanent link">¶</a></h2>
+<p>这一点非常容易误解，值得单独讲清楚。</p>
+<p>在 Python 状态机里，<code>getTasks()</code> 返回的是一张 <code>dict[str, Task]</code>，例如：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="p">{</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>    <span class="s2">"L"</span><span class="p">:</span> <span class="n">Task</span><span class="p">(</span><span class="n">Skill</span><span class="o">.</span><span class="n">Crossover</span><span class="p">(</span><span class="o">...</span><span class="p">)),</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>    <span class="s2">"A"</span><span class="p">:</span> <span class="n">Task</span><span class="p">(</span><span class="k">lambda</span> <span class="n">runner</span><span class="p">:</span> <span class="n">Skill</span><span class="o">.</span><span class="n">RushTo</span><span class="p">(</span><span class="o">...</span><span class="p">)),</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>    <span class="s2">"G"</span><span class="p">:</span> <span class="n">Task</span><span class="p">(</span><span class="n">Skill</span><span class="o">.</span><span class="n">Goalie</span><span class="p">(</span><span class="o">...</span><span class="p">)),</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="p">}</span>
+</code></pre></div>
+<p>这张字典本身**不会原封不动传到 C++**。它先在 Python 里完成三件事：</p>
 <ol>
-<li>完成界面<a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../SRC%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA.assets/4.png" data-desc-position="bottom"><img alt="" src="../SRC%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA.assets/4.png"></a></li>
+<li>按角色名组织任务；</li>
+<li>跑角色匹配，把 <code>L/A/G</code> 这些槽位分给真实车号；</li>
+<li>调用每个 <code>Task.run()</code>，而 <code>Task.run()</code> 内部又会去调用 <code>skill_cpp(num)</code>。</li>
 </ol>
-<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../SRC%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA.assets/3.png" data-desc-position="bottom"><img alt="" src="../SRC%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA.assets/3.png"></a></p>
-</li>
-</ul>
-<div class="admonition warning">
-<p class="admonition-title">重要提醒</p>
-<p>如果你的电脑有invida显卡，将会选择安装CUDA（参见第3节），那么在安装Visual Studio时需要考虑与CUDA的版本适配问题，<a href="https://mwell.tech/archives/12662">参考</a></p>
-<p>因此我们建议安装时注意安装17.9.2以前的版本，参考<a href="https://answers.microsoft.com/zh-hans/msoffice/forum/all/%E5%A6%82%E4%BD%95%E4%B8%8B%E8%BD%BDms-visual/576e8cab-00b3-4371-9824-3eb698903a19">解决方案</a></p>
-<p>否则cmake编译时会报错</p>
-<p>如果不选择安装CUDA则应该不用考虑版本问题</p>
+<p>真正进入 C++ 的时候，已经不是整张字典，而是“每个角色各自调用一次 <code>CppPackage.makeIt...</code>”。也就是说，每次进入 pybind 层时，处理的都是**一个执行者的一份 <code>TaskT</code>**，而不是整个战术状态的一张大表。</p>
+<div class="admonition note">
+<p class="admonition-title">一个常见误解</p>
+<p>Python 里的 <code>tasks</code> 字典是“本帧整队任务的组织形式”；C++ 里的 <code>TaskT</code> 是“单个执行者当前任务的参数包”。两者是一对多映射关系，不是同一个数据结构的跨语言传递。</p>
 </div>
-<hr>
-<h2 id="2falcon">2.Falcon环境配置<a class="headerlink" href="#2falcon" title="Permanent link">¶</a></h2>
-<h3 id="_1">编译准备<a class="headerlink" href="#_1" title="Permanent link">¶</a></h3>
-<p><strong>Qt:</strong></p>
+<h2 id="pybind">pybind 包装层到底做了什么<a class="headerlink" href="#pybind" title="Permanent link">¶</a></h2>
+<p>以 <code>Pybind11Module/Strategy/Skill/pybind_Skill.cpp</code> 里的 <code>makeItRushTo</code> 为例，包装层做的事情其实很具体：</p>
+<ol>
+<li>新建一个 <code>TaskT playerTask</code>；</li>
+<li>把 <code>executor</code>、<code>target</code>、<code>angle</code>、<code>flag</code>、<code>sender</code>、<code>maxAcc</code>、<code>needDribble</code> 等参数一个个写进 <code>TaskT</code>；</li>
+<li>调 <code>TaskFactoryV2::Instance()-&gt;SmartGotoPosition(playerTask)</code> 创建真正的 C++ Skill 对象；</li>
+<li>再调用 <code>TaskMediator::Instance()-&gt;setPlayerTask(executor, pTask, 1)</code> 把这份任务注册进本帧任务中心。</li>
+</ol>
+<p>所以 pybind 并不是“直接把 Python 函数暴露给 C++”，而是把 Python 侧传入的高层参数，翻译成 C++ Skill 体系看得懂的 <code>TaskT</code>。</p>
+<h2 id="taskmediator"><code>TaskMediator</code> 在这一页里的角色<a class="headerlink" href="#taskmediator" title="Permanent link">¶</a></h2>
+<p>在这条递归链里，<code>TaskMediator</code> 承担两个非常重要的作用。</p>
+<p>第一，它是本帧任务的存放处。高层通过 <code>setPlayerTask()</code> 把任务塞进去，<code>DecisionModule::PlanTasks()</code> 再按优先级把这些任务取出来，逐个调用 <code>plan()</code>。</p>
+<p>第二，它还是角色标签的共享处。像 <code>Skill.py</code> 里经常会先调用：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="n">taskMediator</span><span class="o">.</span><span class="n">registerRole</span><span class="p">(</span><span class="n">executor</span><span class="p">,</span> <span class="s2">"leader"</span><span class="p">)</span>
+</code></pre></div>
+<p>或者：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="n">CppPackage</span><span class="o">.</span><span class="n">TaskMediator</span><span class="o">.</span><span class="n">Instance</span><span class="p">()</span><span class="o">.</span><span class="n">registerRole</span><span class="p">(</span><span class="n">executor</span><span class="p">,</span> <span class="s2">"goalie"</span><span class="p">)</span>
+</code></pre></div>
+<p>这样到了 C++ 里，<code>SmartGotoPositionV4</code> 之类的模块就能根据 <code>TaskMediator::Instance()-&gt;goalie()</code>、<code>isBack()</code> 这些接口，知道当前执行者应该套用哪种能力限制、是否允许进禁区、该使用怎样的避障逻辑。</p>
+<h2 id="taskt_1"><code>TaskT</code> 字段并不总是“语义完美”<a class="headerlink" href="#taskt_1" title="Permanent link">¶</a></h2>
+<p>这一点很现实，但很有必要提前说清楚。由于历史包袱和渐进迁移的原因，并不是所有 Skill 都严格遵守“一个字段只做一种含义”的现代接口设计。</p>
+<p>例如：</p>
 <ul>
-<li><a href="https://jbox.sjtu.edu.cn/v/link/view/da696e5c2f7c40aa9c797437aada7f06">Qt安装器下载</a></li>
-<li>进入到 Qt 安装器所在的文件夹内，打开终端</li>
-<li>输入以下命令 （使用清华镜像源下载比较快）
-    <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>.\qt-unified-windows-x64-4.5.1-online.exe --mirror https://mirrors.tuna.tsinghua.edu.cn/qt
-</code></pre></div></li>
-<li>回车之后，开始进入到 Qt 安装阶段。</li>
-<li>在窗口内输入个人的 Qt 账号和密码（如果没有的话，需要先注册，否则无法进行下一步），完成后单击 下一步</li>
-<li>勾选界面中的同意协议及声明是个人账号，完成后单击 下一步</li>
-<li>点击 下一步</li>
-<li>根据个人习惯选择是否提交信息给Qt官方，完成后单击 下一步</li>
-<li>根据个人习惯，确定软件的安装目录，这里勾选 Custom Installation 即可，同时根据个人习惯确认是否将文件建立关联，完成后单击 下一步</li>
-<li>如图选择右侧的Archive,点击筛选
-<a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../SRC%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA.assets/32.png" data-desc-position="bottom"><img alt="" src="../SRC%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA.assets/32.png"></a></li>
-<li>等待
-<a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../SRC%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA.assets/29.png" data-desc-position="bottom"><img alt="" src="../SRC%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA.assets/29.png"></a></li>
-<li>如图勾选安装组件，只需要勾选Qt/Qt 5.15.2/MSVC 2019 64-bit，其余全部取消勾选，完成后单击 下一步
-<a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../SRC%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA.assets/30.png" data-desc-position="bottom"><img alt="" src="../SRC%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA.assets/30.png"></a>
-<a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../SRC%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA.assets/31.png" data-desc-position="bottom"><img alt="" src="../SRC%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA.assets/31.png"></a></li>
-<li>勾选同意许可协议，完成后单击 下一步</li>
-<li>默认即可，单击 下一步</li>
-<li>单击 安装 开始安装，接下来等待其安装完成</li>
-<li>安装完成，单击 完成 即可</li>
+<li><code>ball.Sender</code> 有时确实表示传球者编号；</li>
+<li>在某些老 Skill 里，它也会被复用来装 <code>defendNum</code>、敌方编号等整型参数；</li>
+<li><code>extraTaskParams</code> 则被用来给 <code>NormalShoot</code> 这种需要额外模式信息的 Skill 传参。</li>
 </ul>
-<hr>
-<h3 id="_2">编译方法<a class="headerlink" href="#_2" title="Permanent link">¶</a></h3>
-<p><strong>Windows :</strong></p>
-<ul>
-<li>修改 cmake/GetThirdParty.cmake 中的 QT 部分，输入自己电脑上的 QT 路径，例如：
-    <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>set(CMAKE_PREFIX_PATH "D:/QT/5.15.2/msvc2019_64/lib/cmake/Qt5")
-</code></pre></div></li>
-<li>使用 CMake Gui，输入源代码所在目录和编译目录，如：
-    <a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../SRC%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA.assets/6.png" data-desc-position="bottom"><img alt="" src="../SRC%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA.assets/6.png"></a></li>
-<li>点击 Configure</li>
-<li>
-<p>如图选择，点击Finish</p>
-<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../SRC%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA.assets/7.png" data-desc-position="bottom"><img alt="" src="../SRC%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA.assets/7.png"></a></p>
-</li>
-<li>
-<p>完成后无报错，点击 Generate，再点击 Open Project
-    <a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../SRC%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA.assets/8.png" data-desc-position="bottom"><img alt="" src="../SRC%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA.assets/8.png"></a></p>
-</li>
-<li>
-<p>在 vs 中选择 Release x64 模式</p>
-<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../SRC%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA.assets/9.png" data-desc-position="bottom"><img alt="" src="../SRC%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA.assets/9.png"></a></p>
-</li>
-<li>
-<p>点击生成解决方案，没有报错则完成</p>
-<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../SRC%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA.assets/10.png" data-desc-position="bottom"><img alt="" src="../SRC%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA.assets/10.png"></a>
-<a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../SRC%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA.assets/11.png" data-desc-position="bottom"><img alt="" src="../SRC%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA.assets/11.png"></a></p>
-</li>
-<li>
-<p>运行 bin/package.bat，首次编译或更换 QT 路径时需删除 package.txt 重新输入路径,如：
-    </p><div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>Where is QT QML : D:\QT\5.15.2\msvc2019_64\qml
-<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>Where is Client QML : D:\Falcon_2023\Client\src\qml
-</code></pre></div><p></p>
-</li>
-<li>如果发现 cmake 载入路径有误，则先点击菜单栏中的 File/Delete Cache，做有必要的调整后再重新 Configure 和 Generate
-    <a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../SRC%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA.assets/12.png" data-desc-position="bottom"><img alt="" src="../SRC%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA.assets/12.png"></a></li>
-<li>如果觉得生成过慢，可以更改 cmake/Utils.cmake，之后重新 Configure 和 Generate。下述用了4核并行编译，可以查看电脑有几核，适当设置多些，但不建议给满
-    <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>ProcessorCount(N)
-<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>if(N GREATER_EQUAL 4)
-<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>
-<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>        set(N 4)
-<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>endif()
-</code></pre></div></li>
-<li>ubuntu :<ul>
-<li>具体编译方法见B站，搜索"Rocos环境配置"</li>
-</ul>
-</li>
-</ul>
-<hr>
-<h2 id="3cuda">3.CUDA配置<a class="headerlink" href="#3cuda" title="Permanent link">¶</a></h2>
-<p><a href="https://github.com/sjtu-src/Wiki/blob/master/docs/Algorithm/%E5%8A%A0%E5%85%A5cuda%E7%9A%84falcon%E7%BC%96%E8%AF%91.md">参考文档</a></p>
-<ul>
-<li>CUDA下载<ul>
-<li>首先电脑得有NVIDIA显卡，然后命令行输入nvidia-smi查看当前驱动支持的最高CUDA版本
-    <a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../SRC%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA.assets/13.png" data-desc-position="bottom"><img alt="" src="../SRC%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA.assets/13.png"></a>
-    如果低于12.0就需要升级显卡驱动</li>
-<li>推荐下载CUDA12，安装教程网上多的是，不再赘述了</li>
-<li><a href="https://developer.download.nvidia.com/compute/cuda/12.0.1/local_installers/cuda_12.0.1_528.33_windows.exe">CUDA下载官网</a></li>
-<li><a href="https://jbox.sjtu.edu.cn/l/k1G4BM">交大云盘备份</a></li>
-</ul>
-</li>
-</ul>
-<hr>
-<ul>
-<li>VS配置<ul>
-<li>点击上方菜单栏工具-&gt;选项-&gt;文本编辑器-&gt;文件扩展名，在扩展名栏中输入.cu，并选择编辑器为：Microsoft Visual C++
-    <a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../SRC%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA.assets/14.png" data-desc-position="bottom"><img alt="" src="../SRC%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA.assets/14.png"></a>
-    <a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../SRC%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA.assets/15.png" data-desc-position="bottom"><img alt="" src="../SRC%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA.assets/15.png"></a></li>
-<li>工具–&gt;选项–&gt;项目和解决方案–&gt;VC++项目设置，添加要包括的扩展名".cu"
-    <a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../SRC%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA.assets/16.png" data-desc-position="bottom"><img alt="" src="../SRC%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA.assets/16.png"></a></li>
-<li>
-<p>打开解决方案管理器</p>
-<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../SRC%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA.assets/17.png" data-desc-position="bottom"><img alt="" src="../SRC%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA.assets/17.png"></a></p>
-<p>找到Core</p>
-<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../SRC%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA.assets/18.png" data-desc-position="bottom"><img alt="" src="../SRC%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA.assets/18.png"></a></p>
-<p>右键Core–&gt;生成依赖项–&gt;生成自定义–&gt;勾选CUDA v12.0</p>
-<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../SRC%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA.assets/19.png" data-desc-position="bottom"><img alt="" src="../SRC%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA.assets/19.png"></a>
-<a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../SRC%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA.assets/20.png" data-desc-position="bottom"><img alt="" src="../SRC%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA.assets/20.png"></a></p>
-<p>如果这里找不到CUDA12.0，可以参考这篇<a href="https://blog.csdn.net/a7_aaaaa/article/details/122470988">博客</a>，或者重装CUDA。如果CUDA路径下没有找到visual_studio_integration，可能要重新安装CUDA
-    - 在解决方案管理器搜索栏输入 cudatest.cu
-<a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../SRC%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA.assets/21.png" data-desc-position="bottom"><img alt="" src="../SRC%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA.assets/21.png"></a></p>
-<p>右键cudatest.cu-&gt;属性-&gt;配置属性-&gt;常规-&gt;项类型-&gt;CUDA C/C++</p>
-<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../SRC%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA.assets/22.png" data-desc-position="bottom"><img alt="" src="../SRC%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA.assets/22.png"></a>
-    - 配置cuda的lib，右键Core-&gt;属性-&gt;链接器-&gt;输入-&gt;附加依赖项中填入:cudart_static.lib与cublas.lib</p>
-<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../SRC%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA.assets/23.png" data-desc-position="bottom"><img alt="" src="../SRC%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA.assets/23.png"></a></p>
-<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../SRC%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA.assets/24.png" data-desc-position="bottom"><img alt="" src="../SRC%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA.assets/24.png"></a>
-    - 右键Core-&gt;属性-&gt;配置属性-&gt;CUDA C/C++-&gt;Common，在CUDA Toolkit Custom Dir处填入CUDA路径即可，如：
-</p><div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.0
-</code></pre></div><p></p>
-<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../SRC%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA.assets/25.png" data-desc-position="bottom"><img alt="" src="../SRC%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA.assets/25.png"></a>
-    - 生成解决方案，可能会报错</p>
-<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../SRC%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA.assets/26.png" data-desc-position="bottom"><img alt="" src="../SRC%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA.assets/26.png"></a>
-    - 将 cmake 中的 ENABLE_CUDA 置为 ON</p>
-<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../SRC%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA.assets/27.png" data-desc-position="bottom"><img alt="" src="../SRC%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA.assets/27.png"></a></p>
-<p>重新Configure-&gt;Generate-&gt;Open Project
-    - 再次生成解决方案，出现以下信息即配置成功</p>
-<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../SRC%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA.assets/28.png" data-desc-position="bottom"><img alt="" src="../SRC%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA.assets/28.png"></a></p>
-</li>
-</ul>
-</li>
-</ul>
+<p>这不是优雅设计，但它是当前代码的真实情况。所以当你新增或修改 Skill 时，最重要的不是先追求“接口看起来漂亮”，而是先确认：</p>
+<ol>
+<li>这个参数在当前 C++ Skill 里最终是从哪个字段读出来的；</li>
+<li>这个字段有没有被别的旧逻辑复用；</li>
+<li>是否更适合走 <code>extraTaskParams</code> 而不是继续挤占旧字段。</li>
+</ol>
+<h2 id="_1">看懂这条链后，再回去读代码会轻松很多<a class="headerlink" href="#_1" title="Permanent link">¶</a></h2>
+<p>如果你以后在 Python 里写了一句：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="n">Task</span><span class="p">(</span><span class="n">Skill</span><span class="o">.</span><span class="n">RushTo</span><span class="p">(</span><span class="n">target</span><span class="p">,</span> <span class="n">angle</span><span class="p">,</span> <span class="n">flag</span><span class="o">=...</span><span class="p">))</span>
+</code></pre></div>
+<p>最好在脑子里自动补全成下面这段流程：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>State.getTasks() 产出 Task
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>    -&gt; Munkres 分配真实车号
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>    -&gt; Task.run(num)
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>    -&gt; Skill.py 里的 skill_cpp(num)
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>    -&gt; CppPackage.makeItRushTo(...)
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>    -&gt; pybind 包成 TaskT
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>    -&gt; TaskFactoryV2 创建 C++ Skill
+<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>    -&gt; TaskMediator 缓存本帧任务
+<a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a>    -&gt; DecisionModule::PlanTasks() 调 plan()
+<a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a>    -&gt; 各层 Skill 通过 setSubTask() 递归下钻
+<a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a>    -&gt; 最终得到真正的底层控制命令
+</code></pre></div>
+<p>一旦这个流程在脑子里通了，很多原本看起来“怎么又套了一层”的地方，就会突然变得非常合理。</p>
 
 
 
@@ -2142,7 +2198,7 @@
       <nav class="md-footer__inner md-grid" aria-label="页脚">
         
           
-          <a href="../%E5%BF%AB%E9%80%9F%E5%BC%80%E5%A7%8B/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 1.1 &amp;nbsp; 快速开始" rel="prev">
+          <a href="../decision-and-task-mediator/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 2.3.2 &amp;nbsp; DecisionModule 与 TaskMediator" rel="prev">
             <div class="md-footer__button md-icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
             </div>
@@ -2151,20 +2207,20 @@
                 <span class="md-footer__direction">
                   上一页
                 </span>
-                1.1 &nbsp; 快速开始
+                2.3.2 &nbsp; DecisionModule 与 TaskMediator
               </div>
             </div>
           </a>
         
         
           
-          <a href="../falcon/" class="md-footer__link md-footer__link--next" aria-label="下一页: 1.3 &amp;nbsp; falcon" rel="next">
+          <a href="../vision-motion-and-skills/" class="md-footer__link md-footer__link--next" aria-label="下一页: 2.3.4 &amp;nbsp; 视觉、运动控制与底层 Skill" rel="next">
             <div class="md-footer__title">
               <div class="md-ellipsis">
                 <span class="md-footer__direction">
                   下一页
                 </span>
-                1.3 &nbsp; falcon
+                2.3.4 &nbsp; 视觉、运动控制与底层 Skill
               </div>
             </div>
             <div class="md-footer__button md-icon">
@@ -2210,12 +2266,12 @@
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["content.action.edit", "header.autohide", "content.code.annotate", "content.code.copy", "content.tabs.link", "content.tooltips", "content.footnote.tooltips", "navigation.indexes", "navigation.sections", "navigation.top", "navigation.footer", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.action.edit", "header.autohide", "content.code.annotate", "content.code.copy", "content.tabs.link", "content.tooltips", "content.footnote.tooltips", "navigation.indexes", "navigation.sections", "navigation.top", "navigation.footer", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.2a6f1dda.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.2a6f1dda.min.js"></script>
       
-        <script src="../../javascripts/mathjax.js"></script>
+        <script src="../../../javascripts/mathjax.js"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       

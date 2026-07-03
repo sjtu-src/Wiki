@@ -22,7 +22,7 @@
     
     
       
-        <title>2.4.6 &nbsp; Pybind11 与 CMake - SJTU-SRC Wiki</title>
+        <title>2.4.8 &nbsp; *Pybind11、CMake 与 C++ Skill 绑定 - SJTU-SRC Wiki</title>
       
     
     
@@ -86,7 +86,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#pybind11-cmake" class="md-skip">
+        <a href="#pybind11cmake-c-skill" class="md-skip">
           跳转至
         </a>
       
@@ -142,7 +142,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              2.4.6 &nbsp; Pybind11 与 CMake
+              2.4.8 &nbsp; *Pybind11、CMake 与 C++ Skill 绑定
             
           </span>
         </div>
@@ -909,6 +909,8 @@
         
           
         
+          
+        
       
       
         
@@ -965,8 +967,22 @@
   
   
     <li class="md-nav__item">
+      <a href="../../cpp/skill-recursion-and-taskt/" class="md-nav__link">
+        2.3.3 &nbsp; Skill 递归、SubTask 与 TaskT
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../cpp/vision-motion-and-skills/" class="md-nav__link">
-        2.3.3 &nbsp; 视觉、运动与 Skill
+        2.3.4 &nbsp; 视觉、运动控制与底层 Skill
       </a>
     </li>
   
@@ -980,7 +996,7 @@
   
     <li class="md-nav__item">
       <a href="../../cpp/cuda-and-extensions/" class="md-nav__link">
-        2.3.4 &nbsp; CUDA 与扩展
+        2.3.5 &nbsp; *CUDA 与进阶扩展
       </a>
     </li>
   
@@ -1013,6 +1029,10 @@
         
           
             
+          
+        
+          
+        
           
         
           
@@ -1072,7 +1092,21 @@
   
     <li class="md-nav__item">
       <a href="../config-selectplay-play/" class="md-nav__link">
-        2.4.2 &nbsp; Config、SelectPlay 与 Play
+        2.4.2 &nbsp; Config、SelectPlay 与 gameStrategies
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../skill-py/" class="md-nav__link">
+        2.4.3 &nbsp; Skill.py 与任务包装
       </a>
     </li>
   
@@ -1086,7 +1120,21 @@
   
     <li class="md-nav__item">
       <a href="../state-machine-and-rolematch/" class="md-nav__link">
-        2.4.3 &nbsp; 状态机与角色匹配
+        2.4.4 &nbsp; 状态机与角色匹配
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../writing-play-and-test/" class="md-nav__link">
+        2.4.5 &nbsp; 编写新的 Test / Strategy 脚本
       </a>
     </li>
   
@@ -1100,7 +1148,7 @@
   
     <li class="md-nav__item">
       <a href="../worldmodel-and-utilities/" class="md-nav__link">
-        2.4.4 &nbsp; WorldModel 与工具层
+        2.4.6 &nbsp; WorldModel 与工具层
       </a>
     </li>
   
@@ -1114,7 +1162,7 @@
   
     <li class="md-nav__item">
       <a href="../python-top-level-startup/" class="md-nav__link">
-        2.4.5 &nbsp; Python 顶层启动
+        2.4.7 &nbsp; *Python 作为顶层启动 Medusa
       </a>
     </li>
   
@@ -1137,12 +1185,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          2.4.6 &nbsp; Pybind11 与 CMake
+          2.4.8 &nbsp; *Pybind11、CMake 与 C++ Skill 绑定
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        2.4.6 &nbsp; Pybind11 与 CMake
+        2.4.8 &nbsp; *Pybind11、CMake 与 C++ Skill 绑定
       </a>
       
         
@@ -1162,78 +1210,57 @@
       
         <li class="md-nav__item">
   <a href="#cpppackage" class="md-nav__link">
-    CppPackage 是什么
+    CppPackage 不是“某个普通模块”，而是整座桥
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
-    当前的包形态
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    绑定代码在哪里
+    绑定代码在仓库里的哪一层
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#cmake" class="md-nav__link">
-    CMake 在这里扮演什么角色
+    CMake 在这里不是配角，而是总装线
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#pyi" class="md-nav__link">
-    .pyi 为什么重要
+    .pyi 为什么在这个项目里特别重要
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    如果你要新增一个绑定，大概步骤是什么
+  <a href="#c-skill" class="md-nav__link">
+    新增一个 C++ Skill 后，通常要经过哪几层
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    当前这套体系里最常见的坑
+  <a href="#_2" class="md-nav__link">
+    真正实用的做法：先判断你要绑定的是哪一类能力
   </a>
   
-    <nav class="md-nav" aria-label="当前这套体系里最常见的坑">
+    <nav class="md-nav" aria-label="真正实用的做法：先判断你要绑定的是哪一类能力">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#1-python" class="md-nav__link">
-    1. Python 版本不一致
+  <a href="#_3" class="md-nav__link">
+    第一类：直接暴露一个已有的查询或工具接口
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#2-dll" class="md-nav__link">
-    2. DLL 搜索路径错误
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#3-slots" class="md-nav__link">
-    3. slots 宏冲突
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#4" class="md-nav__link">
-    4. 把头文件内联实现当成可共享单例
+  <a href="#python-skill" class="md-nav__link">
+    第二类：暴露一个“可被 Python 当作 Skill 调用”的任务入口
   </a>
   
 </li>
@@ -1244,8 +1271,77 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    一个典型绑定函数长什么样
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#c-skill_1" class="md-nav__link">
+    如果你要新增一个 C++ Skill，推荐按这个顺序做
+  </a>
+  
+    <nav class="md-nav" aria-label="如果你要新增一个 C++ Skill，推荐按这个顺序做">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-c" class="md-nav__link">
+    第 1 步：先把 C++ 内部能力做扎实
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-taskt" class="md-nav__link">
+    第 2 步：决定参数该怎么落进 TaskT
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-pybind" class="md-nav__link">
+    第 3 步：在 pybind 层写包装函数和注册
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-skillpy" class="md-nav__link">
+    第 4 步：必要时补 Skill.py 包装层
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-pyi" class="md-nav__link">
+    第 5 步：重新构建并检查 .pyi
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#litgen_online" class="md-nav__link">
+    litgen_online 能帮什么，不能帮什么
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#_5" class="md-nav__link">
-    一个很重要的开发观念
+    一个经常被忽视但非常重要的点：导出边界
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    这一页想让你带走的核心观念
   </a>
   
 </li>
@@ -1266,7 +1362,7 @@
   
     <li class="md-nav__item">
       <a href="../power-model/" class="md-nav__link">
-        2.4.7 &nbsp; 力度模型
+        2.4.9 &nbsp; 力度模型
       </a>
     </li>
   
@@ -1346,7 +1442,7 @@
   
     <li class="md-nav__item">
       <a href="../../debug/release-symbols/" class="md-nav__link">
-        2.5.2 &nbsp; Release 下的调试符号
+        2.5.2 &nbsp; *Release 下的调试符号
       </a>
     </li>
   
@@ -1877,78 +1973,57 @@
       
         <li class="md-nav__item">
   <a href="#cpppackage" class="md-nav__link">
-    CppPackage 是什么
+    CppPackage 不是“某个普通模块”，而是整座桥
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
-    当前的包形态
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    绑定代码在哪里
+    绑定代码在仓库里的哪一层
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#cmake" class="md-nav__link">
-    CMake 在这里扮演什么角色
+    CMake 在这里不是配角，而是总装线
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#pyi" class="md-nav__link">
-    .pyi 为什么重要
+    .pyi 为什么在这个项目里特别重要
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    如果你要新增一个绑定，大概步骤是什么
+  <a href="#c-skill" class="md-nav__link">
+    新增一个 C++ Skill 后，通常要经过哪几层
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    当前这套体系里最常见的坑
+  <a href="#_2" class="md-nav__link">
+    真正实用的做法：先判断你要绑定的是哪一类能力
   </a>
   
-    <nav class="md-nav" aria-label="当前这套体系里最常见的坑">
+    <nav class="md-nav" aria-label="真正实用的做法：先判断你要绑定的是哪一类能力">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#1-python" class="md-nav__link">
-    1. Python 版本不一致
+  <a href="#_3" class="md-nav__link">
+    第一类：直接暴露一个已有的查询或工具接口
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#2-dll" class="md-nav__link">
-    2. DLL 搜索路径错误
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#3-slots" class="md-nav__link">
-    3. slots 宏冲突
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#4" class="md-nav__link">
-    4. 把头文件内联实现当成可共享单例
+  <a href="#python-skill" class="md-nav__link">
+    第二类：暴露一个“可被 Python 当作 Skill 调用”的任务入口
   </a>
   
 </li>
@@ -1959,8 +2034,77 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    一个典型绑定函数长什么样
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#c-skill_1" class="md-nav__link">
+    如果你要新增一个 C++ Skill，推荐按这个顺序做
+  </a>
+  
+    <nav class="md-nav" aria-label="如果你要新增一个 C++ Skill，推荐按这个顺序做">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-c" class="md-nav__link">
+    第 1 步：先把 C++ 内部能力做扎实
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-taskt" class="md-nav__link">
+    第 2 步：决定参数该怎么落进 TaskT
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-pybind" class="md-nav__link">
+    第 3 步：在 pybind 层写包装函数和注册
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-skillpy" class="md-nav__link">
+    第 4 步：必要时补 Skill.py 包装层
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-pyi" class="md-nav__link">
+    第 5 步：重新构建并检查 .pyi
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#litgen_online" class="md-nav__link">
+    litgen_online 能帮什么，不能帮什么
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#_5" class="md-nav__link">
-    一个很重要的开发观念
+    一个经常被忽视但非常重要的点：导出边界
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    这一页想让你带走的核心观念
   </a>
   
 </li>
@@ -1988,39 +2132,34 @@
   
 
 
-<h1 id="pybind11-cmake">Pybind11 + CMake<a class="headerlink" href="#pybind11-cmake" title="Permanent link">¶</a></h1>
-<p>这一页讲的是当前 Python-C++ 架构最关键的“桥”。</p>
-<h2 id="cpppackage"><code>CppPackage</code> 是什么<a class="headerlink" href="#cpppackage" title="Permanent link">¶</a></h2>
-<p>对 Python 开发者来说，<code>CppPackage</code> 就是：</p>
+<h1 id="pybind11cmake-c-skill">*Pybind11、CMake 与 C++ Skill 绑定<a class="headerlink" href="#pybind11cmake-c-skill" title="Permanent link">¶</a></h1>
+<p>这一页属于进阶内容，因为它讨论的不是“如何写战术”，而是更底层的一件事：</p>
 <blockquote>
-<p>访问 C++ Core 能力的统一入口。</p>
+<p>当你在 C++ 里写了一个新能力，怎样把它变成 Python 层真正好用、可补全、可维护的一等公民？</p>
 </blockquote>
-<p>你在 Python 里看到的这些东西，大多都来自它：</p>
+<p>这件事一旦搞明白，你会对当前整套 Python-C++ 架构的边界有非常扎实的理解。</p>
+<h2 id="cpppackage"><code>CppPackage</code> 不是“某个普通模块”，而是整座桥<a class="headerlink" href="#cpppackage" title="Permanent link">¶</a></h2>
+<p>对 Python 开发者来说，<code>CppPackage</code> 就是访问 C++ Core 的统一入口。你在 Python 里看到的这些对象和函数：</p>
 <ul>
 <li><code>CppPackage.SystemRunner</code></li>
 <li><code>CppPackage.VisionModule</code></li>
 <li><code>CppPackage.TaskMediator</code></li>
-<li><code>CppPackage.makeItRushTo(...)</code></li>
 <li><code>CppPackage.CGeoPoint</code></li>
+<li><code>CppPackage.makeItRushTo(...)</code></li>
 </ul>
-<h2 id="_1">当前的包形态<a class="headerlink" href="#_1" title="Permanent link">¶</a></h2>
-<p>仓库采用的是：</p>
+<p>本质上都来自同一个二进制扩展模块：<code>CppPackage.pyd</code>。</p>
+<p>当前仓库采用的是“一个顶层二进制包 + 一个同名 <code>.pyi</code> + 一个 Python 包壳”的组织方式：</p>
 <ul>
-<li>一个大的 <code>CppPackage.pyd</code></li>
-<li>一个对应的 <code>CppPackage.pyi</code></li>
-<li>Python 侧用 <code>CppPackage/__init__.py</code> 处理 DLL 搜索路径</li>
+<li><code>CppPackage.pyd</code>：真正的 pybind11 扩展；</li>
+<li><code>CppPackage.pyi</code>：给 IDE 用的类型提示；</li>
+<li><code>CppPackage/__init__.py</code>：补 DLL 搜索路径，再转发导入。</li>
 </ul>
-<p>这意味着当前推荐认知是：</p>
-<ul>
-<li><strong>对外只暴露一个顶层包 <code>CppPackage</code></strong></li>
-<li>不要指望按多级本地二进制包去 import</li>
-</ul>
-<p>这也是当前仓库里“单层包”设计的核心原因。</p>
-<h2 id="_2">绑定代码在哪里<a class="headerlink" href="#_2" title="Permanent link">¶</a></h2>
-<p>主要在：</p>
+<p>所以平时请把它当成**统一入口**来理解，而不要期待它像普通 Python 包那样按多级目录拆成很多二进制子包。</p>
+<h2 id="_1">绑定代码在仓库里的哪一层<a class="headerlink" href="#_1" title="Permanent link">¶</a></h2>
+<p>当前绑定代码主要集中在：</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>Medusa/src/Pybind11Module/
 </code></pre></div>
-<p>常见子目录包括：</p>
+<p>其中最常见的子目录包括：</p>
 <ul>
 <li><code>Geometry/</code></li>
 <li><code>Vision/</code></li>
@@ -2029,60 +2168,121 @@
 <li><code>Strategy/Skill/</code></li>
 <li><code>System/</code></li>
 </ul>
-<p><code>pybind_CppPackage.cpp</code> 最终把这些模块统一注册成 <code>CppPackage</code>。</p>
-<h2 id="cmake">CMake 在这里扮演什么角色<a class="headerlink" href="#cmake" title="Permanent link">¶</a></h2>
-<p>当前 <code>CMakeLists.txt</code> 里做了几件很关键的事：</p>
+<p>最终由 <code>pybind_CppPackage.cpp</code> 统一把这些注册函数组装成一个 <code>PYBIND11_MODULE(CppPackage, m)</code>。所以如果你新增了某个绑定文件，却忘了让上层注册函数真的调到它，最后 Python 里是看不到的。</p>
+<h2 id="cmake">CMake 在这里不是配角，而是总装线<a class="headerlink" href="#cmake" title="Permanent link">¶</a></h2>
+<p>当前这套架构里，CMake 真正在做的是整条编译链的装配工作。它要负责：</p>
 <ol>
-<li>把 Python 和 pybind11 显式绑定到 <code>ZBin/PythonScripts/.venv</code></li>
-<li>构建 <code>MedusaCore.dll</code></li>
-<li>构建 <code>CppPackage.pyd</code></li>
-<li>生成 <code>CppPackage.pyi</code></li>
-<li>把运行所需文件复制到 <code>ZBin</code></li>
+<li>找到 <code>ZBin/PythonScripts/.venv</code> 这套 Python 环境；</li>
+<li>构建 <code>MedusaCore.dll</code>；</li>
+<li>构建 <code>CppPackage.pyd</code>；</li>
+<li>运行 <code>pybind11-stubgen</code> 生成 <code>CppPackage.pyi</code>；</li>
+<li>把运行时需要的二进制和脚本放到 <code>ZBin</code> 的正确位置。</li>
 </ol>
-<p>因此这不是“额外加一层类型提示”的小工具链，而是整个 Python-C++ 架构的编译基础设施。</p>
-<h2 id="pyi"><code>.pyi</code> 为什么重要<a class="headerlink" href="#pyi" title="Permanent link">¶</a></h2>
-<p><code>CppPackage.pyd</code> 是二进制模块，本身不提供良好的 IDE 类型提示。<br>
-所以项目会通过 <code>pybind11_stubgen</code> 生成：</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>CppPackage.pyi
-</code></pre></div>
-<p>它的价值非常大：</p>
+<p>所以不要把 pybind 绑定理解成“顺手写个包装函数”。它背后是一整套由 CMake 串起来的构建和部署流程。</p>
+<h2 id="pyi"><code>.pyi</code> 为什么在这个项目里特别重要<a class="headerlink" href="#pyi" title="Permanent link">¶</a></h2>
+<p><code>CppPackage.pyd</code> 是二进制模块，本身不适合给 IDE 做参数提示和静态补全。当前工程通过 <code>pybind11-stubgen</code> 生成的 <code>CppPackage.pyi</code>，会把大量接口签名同步出来。</p>
+<p>这件事的价值远比“补全好看一点”更大。因为一旦 Python 顶层越来越重，大家写 <code>Skill.py</code>、<code>Play/*.py</code> 时对接口签名的依赖会越来越强。如果没有 <code>.pyi</code>，很多参数只能靠记忆、猜测或者到 pybind 源码里现翻，维护成本会明显上升。</p>
+<h2 id="c-skill">新增一个 C++ Skill 后，通常要经过哪几层<a class="headerlink" href="#c-skill" title="Permanent link">¶</a></h2>
+<p>下面这条链，建议你背下来。它几乎就是“让一个 C++ 能力进入 Python 生态”的标准路径。</p>
+<ol>
+<li>在 <code>Medusa/src/Strategy/skill/</code> 里实现或修改真实 C++ Skill；</li>
+<li>通过 <code>TaskFactoryV2</code> / <code>PlayerRole</code> 或相关接口，确保 C++ 内部能创建并调用它；</li>
+<li>在 <code>Medusa/src/Pybind11Module/</code> 里增加 pybind 包装函数和 <code>m.def(...)</code> 注册；</li>
+<li>重新构建，生成新的 <code>CppPackage.pyd</code> 和 <code>CppPackage.pyi</code>；</li>
+<li>如果你希望 Python 侧更易用，再去 <code>RoleMatch_LuaStyle/Skills/Skill.py</code> 加一层更符合项目习惯的包装。</li>
+</ol>
+<p>只要其中一层漏了，这条链就不完整。</p>
+<h2 id="_2">真正实用的做法：先判断你要绑定的是哪一类能力<a class="headerlink" href="#_2" title="Permanent link">¶</a></h2>
+<p>新增绑定时，先别急着上手写 <code>m.def(...)</code>。更好的第一步是先判断：你要暴露给 Python 的到底是哪一类东西。</p>
+<h3 id="_3">第一类：直接暴露一个已有的查询或工具接口<a class="headerlink" href="#_3" title="Permanent link">¶</a></h3>
+<p>比如某个世界模型查询函数、某个单例对象的方法、某个 Geometry 工具。这类绑定通常比较直接，更多是在做类型转换、返回策略和模块组织。</p>
+<h3 id="python-skill">第二类：暴露一个“可被 Python 当作 Skill 调用”的任务入口<a class="headerlink" href="#python-skill" title="Permanent link">¶</a></h3>
+<p>这类最常见，也最容易踩坑。因为 Python 层真正想要的通常不是“某个 C++ 类本身”，而是一个像 <code>makeItRushTo(...)</code>、<code>makeItWBack(...)</code>、<code>makeItTurnAndShoot(...)</code> 这样的任务入口。此时 pybind 文件里往往要自己手动：</p>
 <ul>
-<li>自动补全更可靠</li>
-<li>类型和参数签名更清楚</li>
-<li>新人写 Python 脚本时少很多猜测</li>
+<li>新建 <code>TaskT playerTask</code>；</li>
+<li>填 <code>executor / player.pos / player.angle / flag / needdribble / ball.Sender / extraTaskParams</code>；</li>
+<li>再交给 <code>TaskFactoryV2</code> 去创建真正的 C++ Skill；</li>
+<li>最后注册到 <code>TaskMediator</code>。</li>
 </ul>
-<h2 id="_3">如果你要新增一个绑定，大概步骤是什么<a class="headerlink" href="#_3" title="Permanent link">¶</a></h2>
-<ol>
-<li>找到对应的 C++ 能力应该放在哪个 pybind 子目录</li>
-<li>在 <code>Pybind11Module/...</code> 里补充声明和注册</li>
-<li>保证它依赖的 C++ 符号在 <code>MedusaCore.dll</code> 中正确导出</li>
-<li>重新构建 <code>PybindAll</code></li>
-<li>检查 <code>CppPackage.pyi</code> 是否更新</li>
-</ol>
-<h2 id="_4">当前这套体系里最常见的坑<a class="headerlink" href="#_4" title="Permanent link">¶</a></h2>
-<h3 id="1-python">1. Python 版本不一致<a class="headerlink" href="#1-python" title="Permanent link">¶</a></h3>
-<p>编译 <code>pyd</code> 用的 Python，和运行脚本用的 Python，必须是同一个版本体系。</p>
-<h3 id="2-dll">2. DLL 搜索路径错误<a class="headerlink" href="#2-dll" title="Permanent link">¶</a></h3>
-<p>这会导致：</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">CppPackage</span>
+<p>也就是说，这一层并不只是“自动导出 C++ 符号”，而是在主动把 Python 参数翻译成项目内部的任务结构。</p>
+<h2 id="_4">一个典型绑定函数长什么样<a class="headerlink" href="#_4" title="Permanent link">¶</a></h2>
+<p>以 <code>pybind_Skill.cpp</code> 里的 <code>makeItRushTo</code> 为例，它的套路很标准：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">makeItRushTo</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">executor</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">CGeoPoint</span><span class="w"> </span><span class="o">&amp;</span><span class="n">target</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">angle</span><span class="p">,</span><span class="w"> </span><span class="p">...)</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="p">{</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">    </span><span class="n">TaskT</span><span class="w"> </span><span class="n">playerTask</span><span class="p">;</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">    </span><span class="n">playerTask</span><span class="p">.</span><span class="n">executor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">executor</span><span class="p">;</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">    </span><span class="n">playerTask</span><span class="p">.</span><span class="n">player</span><span class="p">.</span><span class="n">pos</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">target</span><span class="p">;</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">    </span><span class="n">playerTask</span><span class="p">.</span><span class="n">player</span><span class="p">.</span><span class="n">angle</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">angle</span><span class="p">;</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">    </span><span class="p">...</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="w">    </span><span class="n">CPlayerTask</span><span class="w"> </span><span class="o">*</span><span class="n">pTask</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">TaskFactoryV2</span><span class="o">::</span><span class="n">Instance</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">SmartGotoPosition</span><span class="p">(</span><span class="n">playerTask</span><span class="p">);</span>
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="w">    </span><span class="n">TaskMediator</span><span class="o">::</span><span class="n">Instance</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">setPlayerTask</span><span class="p">(</span><span class="n">executor</span><span class="p">,</span><span class="w"> </span><span class="n">pTask</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="p">}</span>
 </code></pre></div>
-<p>直接失败。</p>
-<h3 id="3-slots">3. <code>slots</code> 宏冲突<a class="headerlink" href="#3-slots" title="Permanent link">¶</a></h3>
-<p>Qt 的 <code>slots</code> 宏和 Python / pybind 头文件里的命名冲突，是这个项目里的经典坑。<br>
-当前代码里已经有相应处理方式，但你新增绑定时仍然要有这个意识。</p>
-<h3 id="4">4. 把头文件内联实现当成可共享单例<a class="headerlink" href="#4" title="Permanent link">¶</a></h3>
-<p>像 <code>TaskMediator</code>、<code>TaskFactoryV2</code> 这种涉及共享状态的对象，如果处理不当，会出现“看似同名，实际不是同一份实例”的问题。<br>
-这也是当前工程把一些原本 head-only 的单例写法改成显式实现的原因。</p>
-<h2 id="_5">一个很重要的开发观念<a class="headerlink" href="#_5" title="Permanent link">¶</a></h2>
-<p>如果你只是写战术，不一定需要理解所有 pybind 细节；<br>
-但如果你想把某个 C++ 能力变成 Python 一等公民，那你迟早要理解：</p>
+<p>然后在 <code>register_skill(...)</code> 里再加一条：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="n">m</span><span class="p">.</span><span class="n">def</span><span class="p">(</span><span class="s">"makeItRushTo"</span><span class="p">,</span><span class="w"> </span><span class="n">makeItRushTo</span><span class="p">,</span><span class="w"> </span><span class="p">...);</span>
+</code></pre></div>
+<p>这就是 Python 里 <code>CppPackage.makeItRushTo(...)</code> 的来源。</p>
+<h2 id="c-skill_1">如果你要新增一个 C++ Skill，推荐按这个顺序做<a class="headerlink" href="#c-skill_1" title="Permanent link">¶</a></h2>
+<h3 id="1-c">第 1 步：先把 C++ 内部能力做扎实<a class="headerlink" href="#1-c" title="Permanent link">¶</a></h3>
+<p>先确认这个 Skill 在纯 C++ 体系里能被创建、能被 <code>plan()</code>、能通过 <code>setSubTask()</code> 正常下钻。也就是说，先把它当成一个 C++ Skill 写对，而不是一上来就想着 Python 怎么调。</p>
+<h3 id="2-taskt">第 2 步：决定参数该怎么落进 <code>TaskT</code><a class="headerlink" href="#2-taskt" title="Permanent link">¶</a></h3>
+<p>这是最关键的一步。你要提前想清楚：</p>
+<ul>
+<li>目标点放 <code>player.pos</code> 吗？</li>
+<li>朝向放 <code>player.angle</code> 吗？</li>
+<li>传球者编号或防守编号是不是要用 <code>ball.Sender</code>？</li>
+<li>是不是需要 <code>extraTaskParams</code> 来存额外模式？</li>
+</ul>
+<p>很多 binding 写坏，不是 pybind 语法错，而是 <code>TaskT</code> 字段设计错了。</p>
+<h3 id="3-pybind">第 3 步：在 pybind 层写包装函数和注册<a class="headerlink" href="#3-pybind" title="Permanent link">¶</a></h3>
+<p>如果是 Skill 相关入口，通常放在：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>Medusa/src/Pybind11Module/Strategy/Skill/pybind_Skill.cpp
+</code></pre></div>
+<p>如果是全新类别的能力，也可以新建绑定文件，然后在对应上层注册函数里接进去。</p>
+<h3 id="4-skillpy">第 4 步：必要时补 <code>Skill.py</code> 包装层<a class="headerlink" href="#4-skillpy" title="Permanent link">¶</a></h3>
+<p>很多时候，直接在 Python 里裸调 <code>CppPackage.makeIt...</code> 不够优雅，也不符合当前项目的任务接口约定。此时就应该再去 <code>RoleMatch_LuaStyle/Skills/Skill.py</code> 写一层包装，把它变成返回 <code>(skill_cpp, matchPos)</code> 的标准形式。</p>
+<h3 id="5-pyi">第 5 步：重新构建并检查 <code>.pyi</code><a class="headerlink" href="#5-pyi" title="Permanent link">¶</a></h3>
+<p>构建成功之后，别只看 <code>.pyd</code> 有没有生成。一定要顺手确认：</p>
+<ul>
+<li><code>CppPackage.pyi</code> 有没有更新；</li>
+<li>Python 里是否能正确补全新接口；</li>
+<li>默认参数、类型签名和名称是否符合预期。</li>
+</ul>
+<h2 id="litgen_online"><code>litgen_online</code> 能帮什么，不能帮什么<a class="headerlink" href="#litgen_online" title="Permanent link">¶</a></h2>
+<p>仓库里已经专门放了一个工具目录：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>ZBin/PythonScripts/litgen_online/
+</code></pre></div>
+<p>这里的 notebook 和说明，主要是为了借助 litgen 生成 pybind 代码骨架。这个工具很好用，尤其在你要绑定一批查询接口、结构体、普通函数时，会明显节省时间。</p>
+<p>但要注意，它生成的是“骨架”，不是最终可直接交付的项目代码。当前项目里很多 Skill 绑定都有自己的工程约束，litgen 不会替你自动处理：</p>
+<ul>
+<li><code>TaskT</code> 的参数打包；</li>
+<li><code>TaskMediator</code> 注册；</li>
+<li>自定义默认参数和 <code>py::arg(...)</code> 命名；</li>
+<li><code>py::return_value_policy::reference</code> / <code>py::nodelete</code> 这类生命周期问题；</li>
+<li>Qt / pybind11 / 宏定义之间的工程细节；</li>
+<li>生成后还要接入当前 <code>register_*</code> 体系。</li>
+</ul>
+<p>所以更实际的建议是：</p>
+<div class="admonition tip">
+<p class="admonition-title">推荐使用方式</p>
+<p>可以先用 <code>litgen_online</code> 或 AI 帮你生成第一版绑定骨架，但一定要把它当成草稿。最后定稿时，仍然要回到当前仓库的 <code>pybind_Skill.cpp</code>、<code>pybind_CppPackage.cpp</code>、<code>TaskT</code> 和 CMake 体系里逐项校对。</p>
+</div>
+<h2 id="_5">一个经常被忽视但非常重要的点：导出边界<a class="headerlink" href="#_5" title="Permanent link">¶</a></h2>
+<p>当前工程里，<code>MedusaCore.dll</code> 和 <code>CppPackage.pyd</code> 共享大量底层能力。如果某个函数、类或单例本来只在一个编译单元里可见，你直接在 pybind 里 include 进去，并不代表它就天然能跨 DLL 正常共享状态。</p>
+<p>这也是为什么仓库里反复强调像 <code>TaskMediator</code>、<code>TaskFactoryV2</code> 这类共享状态对象，不能草率地保持成“看似 header-only 的单例写法”，而要显式实现并导出。否则 Python 和 exe 侧很可能看见的不是同一份实例。</p>
+<h2 id="_6">这一页想让你带走的核心观念<a class="headerlink" href="#_6" title="Permanent link">¶</a></h2>
+<p>如果你只是改战术，不一定非得马上精通所有 pybind 细节；但只要你想把一个新的 C++ 能力平稳交给 Python 层使用，就一定要把下面这几个名字看成同一套体系：</p>
 <ul>
 <li><code>MedusaCore.dll</code></li>
 <li><code>CppPackage.pyd</code></li>
 <li><code>CppPackage.pyi</code></li>
-<li><code>PybindAll</code></li>
+<li><code>Pybind11Module/</code></li>
+<li><code>TaskT</code></li>
+<li><code>TaskMediator</code></li>
+<li>CMake 构建与拷贝流程</li>
 </ul>
-<p>它们是一整套，不是彼此独立的几个文件。</p>
+<p>它们不是几个互相独立的文件，而是一条真正把 C++ 能力送到 Python 手里的装配链。</p>
 
 
 
@@ -2111,7 +2311,7 @@
       <nav class="md-footer__inner md-grid" aria-label="页脚">
         
           
-          <a href="../python-top-level-startup/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 2.4.5 &amp;nbsp; Python 顶层启动" rel="prev">
+          <a href="../python-top-level-startup/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 2.4.7 &amp;nbsp; *Python 作为顶层启动 Medusa" rel="prev">
             <div class="md-footer__button md-icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
             </div>
@@ -2120,20 +2320,20 @@
                 <span class="md-footer__direction">
                   上一页
                 </span>
-                2.4.5 &nbsp; Python 顶层启动
+                2.4.7 &nbsp; *Python 作为顶层启动 Medusa
               </div>
             </div>
           </a>
         
         
           
-          <a href="../power-model/" class="md-footer__link md-footer__link--next" aria-label="下一页: 2.4.7 &amp;nbsp; 力度模型" rel="next">
+          <a href="../power-model/" class="md-footer__link md-footer__link--next" aria-label="下一页: 2.4.9 &amp;nbsp; 力度模型" rel="next">
             <div class="md-footer__title">
               <div class="md-ellipsis">
                 <span class="md-footer__direction">
                   下一页
                 </span>
-                2.4.7 &nbsp; 力度模型
+                2.4.9 &nbsp; 力度模型
               </div>
             </div>
             <div class="md-footer__button md-icon">

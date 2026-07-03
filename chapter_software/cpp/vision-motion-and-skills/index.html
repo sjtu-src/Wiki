@@ -12,7 +12,7 @@
         <link rel="canonical" href="https://sjtu-src.github.io/Wiki/chapter_software/cpp/vision-motion-and-skills/">
       
       
-        <link rel="prev" href="../decision-and-task-mediator/">
+        <link rel="prev" href="../skill-recursion-and-taskt/">
       
       
         <link rel="next" href="../cuda-and-extensions/">
@@ -22,7 +22,7 @@
     
     
       
-        <title>2.3.3 &nbsp; 视觉、运动与 Skill - SJTU-SRC Wiki</title>
+        <title>2.3.4 &nbsp; 视觉、运动控制与底层 Skill - SJTU-SRC Wiki</title>
       
     
     
@@ -142,7 +142,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              2.3.3 &nbsp; 视觉、运动与 Skill
+              2.3.4 &nbsp; 视觉、运动控制与底层 Skill
             
           </span>
         </div>
@@ -911,6 +911,8 @@
         
           
         
+          
+        
       
       
         
@@ -965,6 +967,20 @@
               
   
   
+  
+    <li class="md-nav__item">
+      <a href="../skill-recursion-and-taskt/" class="md-nav__link">
+        2.3.3 &nbsp; Skill 递归、SubTask 与 TaskT
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
     
   
   
@@ -977,12 +993,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          2.3.3 &nbsp; 视觉、运动与 Skill
+          2.3.4 &nbsp; 视觉、运动控制与底层 Skill
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        2.3.3 &nbsp; 视觉、运动与 Skill
+        2.3.4 &nbsp; 视觉、运动控制与底层 Skill
       </a>
       
         
@@ -1002,49 +1018,63 @@
       
         <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
-    视觉模块：系统感知入口
+    视觉模块：整套系统共享的世界状态入口
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
-    视觉层给上层提供了什么
+    上层最常从视觉层拿什么
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#skill-c" class="md-nav__link">
-    Skill 为什么大多写在 C++
+    为什么底层 Skill 主要还留在 C++
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#skillsmartgotopositionv4" class="md-nav__link">
-    一个最值得重点读的 Skill：SmartGotoPositionV4
+  <a href="#smartgotopositionv4" class="md-nav__link">
+    最值得反复看的底层样本：SmartGotoPositionV4
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    它和运动控制 / 路径规划是什么关系
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    运动控制层该怎么看
+  <a href="#taskmediator" class="md-nav__link">
+    TaskMediator 在这里为什么又出现了
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#skill_1" class="md-nav__link">
-    盯人、防守、接球类 Skill 的共同特点
+    Skill、路径规划、运动控制之间怎么分层更好理解
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#skill_2" class="md-nav__link">
+    读一个底层 Skill 时，应该盯哪三件事
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#skill_3" class="md-nav__link">
+    防守、盯人、接球类 Skill 的共同味道
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    第一次深入这部分代码，建议怎么读
   </a>
   
 </li>
@@ -1065,7 +1095,7 @@
   
     <li class="md-nav__item">
       <a href="../cuda-and-extensions/" class="md-nav__link">
-        2.3.4 &nbsp; CUDA 与扩展
+        2.3.5 &nbsp; *CUDA 与进阶扩展
       </a>
     </li>
   
@@ -1096,6 +1126,10 @@
         
           
             
+          
+        
+          
+        
           
         
           
@@ -1155,7 +1189,21 @@
   
     <li class="md-nav__item">
       <a href="../../python/config-selectplay-play/" class="md-nav__link">
-        2.4.2 &nbsp; Config、SelectPlay 与 Play
+        2.4.2 &nbsp; Config、SelectPlay 与 gameStrategies
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python/skill-py/" class="md-nav__link">
+        2.4.3 &nbsp; Skill.py 与任务包装
       </a>
     </li>
   
@@ -1169,7 +1217,21 @@
   
     <li class="md-nav__item">
       <a href="../../python/state-machine-and-rolematch/" class="md-nav__link">
-        2.4.3 &nbsp; 状态机与角色匹配
+        2.4.4 &nbsp; 状态机与角色匹配
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python/writing-play-and-test/" class="md-nav__link">
+        2.4.5 &nbsp; 编写新的 Test / Strategy 脚本
       </a>
     </li>
   
@@ -1183,7 +1245,7 @@
   
     <li class="md-nav__item">
       <a href="../../python/worldmodel-and-utilities/" class="md-nav__link">
-        2.4.4 &nbsp; WorldModel 与工具层
+        2.4.6 &nbsp; WorldModel 与工具层
       </a>
     </li>
   
@@ -1197,7 +1259,7 @@
   
     <li class="md-nav__item">
       <a href="../../python/python-top-level-startup/" class="md-nav__link">
-        2.4.5 &nbsp; Python 顶层启动
+        2.4.7 &nbsp; *Python 作为顶层启动 Medusa
       </a>
     </li>
   
@@ -1211,7 +1273,7 @@
   
     <li class="md-nav__item">
       <a href="../../python/pybind11-and-cmake/" class="md-nav__link">
-        2.4.6 &nbsp; Pybind11 与 CMake
+        2.4.8 &nbsp; *Pybind11、CMake 与 C++ Skill 绑定
       </a>
     </li>
   
@@ -1225,7 +1287,7 @@
   
     <li class="md-nav__item">
       <a href="../../python/power-model/" class="md-nav__link">
-        2.4.7 &nbsp; 力度模型
+        2.4.9 &nbsp; 力度模型
       </a>
     </li>
   
@@ -1305,7 +1367,7 @@
   
     <li class="md-nav__item">
       <a href="../../debug/release-symbols/" class="md-nav__link">
-        2.5.2 &nbsp; Release 下的调试符号
+        2.5.2 &nbsp; *Release 下的调试符号
       </a>
     </li>
   
@@ -1836,49 +1898,63 @@
       
         <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
-    视觉模块：系统感知入口
+    视觉模块：整套系统共享的世界状态入口
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
-    视觉层给上层提供了什么
+    上层最常从视觉层拿什么
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#skill-c" class="md-nav__link">
-    Skill 为什么大多写在 C++
+    为什么底层 Skill 主要还留在 C++
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#skillsmartgotopositionv4" class="md-nav__link">
-    一个最值得重点读的 Skill：SmartGotoPositionV4
+  <a href="#smartgotopositionv4" class="md-nav__link">
+    最值得反复看的底层样本：SmartGotoPositionV4
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    它和运动控制 / 路径规划是什么关系
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    运动控制层该怎么看
+  <a href="#taskmediator" class="md-nav__link">
+    TaskMediator 在这里为什么又出现了
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#skill_1" class="md-nav__link">
-    盯人、防守、接球类 Skill 的共同特点
+    Skill、路径规划、运动控制之间怎么分层更好理解
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#skill_2" class="md-nav__link">
+    读一个底层 Skill 时，应该盯哪三件事
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#skill_3" class="md-nav__link">
+    防守、盯人、接球类 Skill 的共同味道
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    第一次深入这部分代码，建议怎么读
   </a>
   
 </li>
@@ -1906,101 +1982,87 @@
   
 
 
-<h1 id="skill">视觉、运动控制与 Skill<a class="headerlink" href="#skill" title="Permanent link">¶</a></h1>
-<h2 id="_1">视觉模块：系统感知入口<a class="headerlink" href="#_1" title="Permanent link">¶</a></h2>
-<p><code>Medusa/src/Vision/VisionModule.h</code> 对它自己的描述非常准确：</p>
-<ul>
-<li>接收原始视觉数据</li>
-<li>做滤波与预测</li>
-<li>维护球和机器人的世界状态</li>
-<li>处理裁判盒信息</li>
-<li>结合下位机反馈修正状态</li>
-</ul>
-<p>在高层开发时，你可以把 <code>VisionModule</code> 当成：</p>
+<h1 id="skill">视觉、运动控制与底层 Skill<a class="headerlink" href="#skill" title="Permanent link">¶</a></h1>
+<p>这一页更像是在讲“执行层的气质”。如果 Python 顶层是教练席，那么这里讲的视觉、路径规划、运动控制和底层 Skill，就是场上真正干活的那批人。它们不是各自独立的小模块，而是一条从“看见世界”到“算出控制命令”的连续链。</p>
+<h2 id="_1">视觉模块：整套系统共享的世界状态入口<a class="headerlink" href="#_1" title="Permanent link">¶</a></h2>
+<p><code>Medusa/src/Vision/VisionModule.h</code> 对自己的定位其实非常准确：它负责接收原始视觉数据、做滤波与预测、维护球和机器人的世界状态、处理裁判盒消息，并结合下位机反馈做修正。</p>
+<p>对上层开发者来说，最重要的不是记住它内部每个滤波细节，而是先建立一个稳定认知：</p>
 <blockquote>
-<p>“这一帧全场状态的权威来源”</p>
+<p><code>VisionModule</code> 是这一帧全场状态的权威来源。</p>
 </blockquote>
-<p>Python 侧大部分 <code>Vision</code> 包装，也都是在围绕它工作。</p>
-<h2 id="_2">视觉层给上层提供了什么<a class="headerlink" href="#_2" title="Permanent link">¶</a></h2>
-<p>对战术最常用的信息包括：</p>
+<p>无论你在 Python 里调用 <code>Vision.ball()</code>、<code>Player.pos()</code>，还是在 C++ Skill 里读取 <code>pVision-&gt;ourPlayer(i)</code>、<code>pVision-&gt;ball()</code>，本质上都在围绕同一份世界状态工作。</p>
+<h2 id="_2">上层最常从视觉层拿什么<a class="headerlink" href="#_2" title="Permanent link">¶</a></h2>
+<p>战术开发里最常用的视觉信息通常有这些：</p>
 <ul>
-<li><code>ourPlayer(i)</code> / <code>theirPlayer(i)</code></li>
-<li><code>ball()</code></li>
-<li><code>getCycle()</code></li>
-<li><code>getCurrentRefereeMsg()</code></li>
-<li><code>getBallPlacementPosition()</code></li>
+<li>我方 / 对方球员状态；</li>
+<li>当前球位置和速度；</li>
+<li>当前 cycle；</li>
+<li>当前裁判盒消息；</li>
+<li>摆球目标点；</li>
+<li>以及一些结合传感器和世界模型推出来的高层条件。</li>
 </ul>
-<p>这些接口最终也通过 pybind 暴露到了 <code>CppPackage.VisionModule</code>。</p>
-<h2 id="skill-c">Skill 为什么大多写在 C++<a class="headerlink" href="#skill-c" title="Permanent link">¶</a></h2>
-<p>因为很多底层行为需要同时满足：</p>
+<p>这些能力后面又会通过 pybind 暴露到 <code>CppPackage.VisionModule</code> 以及 Python 侧的包装模块中。所以你可以把视觉层理解成“所有上层判断的共同地基”。</p>
+<h2 id="skill-c">为什么底层 Skill 主要还留在 C++<a class="headerlink" href="#skill-c" title="Permanent link">¶</a></h2>
+<p>原因很简单，但很硬核：很多底层行为既要高频执行，又要同时满足复杂几何约束、路径规划、避障规则和实时性要求。把这部分长期留在 C++，能保证整套系统不会因为顶层脚本改得频繁，就把执行层的实时性拖垮。</p>
+<p>所以现在的自然分工是：</p>
 <ul>
-<li>高频执行</li>
-<li>复杂几何与约束处理</li>
-<li>多障碍避障</li>
-<li>对实时性敏感</li>
+<li>Python 决定这一帧该选哪种 Skill；</li>
+<li>C++ Skill 再决定这个 Skill 到底如何落地执行。</li>
 </ul>
-<p>所以 Python 层通常负责“选择哪种 Skill”，而不是自己计算所有细节。</p>
-<h2 id="skillsmartgotopositionv4">一个最值得重点读的 Skill：<code>SmartGotoPositionV4</code><a class="headerlink" href="#skillsmartgotopositionv4" title="Permanent link">¶</a></h2>
-<p>如果你只打算认真读一个底层 Skill，推荐先看：</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>Medusa/src/Strategy/skill/SmartGotoPositionV4.cpp
-</code></pre></div>
-<p>它基本能体现本队底层技能的典型风格：</p>
+<p>这也是为什么你会经常看到 Python 侧说“让这台车去 <code>RushTo</code> / <code>WBack</code> / <code>TurnAndShoot</code>”，但真正的规划细节都在 <code>Medusa/src/Strategy/skill/</code> 下面。</p>
+<h2 id="smartgotopositionv4">最值得反复看的底层样本：<code>SmartGotoPositionV4</code><a class="headerlink" href="#smartgotopositionv4" title="Permanent link">¶</a></h2>
+<p>如果你只挑一个底层 Skill 来认真读，<code>SmartGotoPositionV4.cpp</code> 依然是最推荐的起点。它几乎把执行层最典型的思维方式都浓缩在一起了。</p>
+<p>这份文件会先读取当前 <code>TaskT</code> 的目标点、朝向、速度和标志位，再结合 <code>TaskMediator</code> 判断当前执行者是不是守门员、后卫、主攻等特殊角色。接着它会根据角色身份调整运动能力上限，处理 stop 球圈、摆球区、禁区等规则约束，构造障碍物集合，调用路径规划模块生成中间点，再把结果继续往更底层的轨迹控制任务交下去。</p>
+<p>这段流程特别能体现本队底层 Skill 的一个共同特点：<strong>它们不是只做一条直线上的数学计算，而是在把战术语义、比赛规则、角色身份和几何约束一起折进执行层。</strong></p>
+<h2 id="taskmediator"><code>TaskMediator</code> 在这里为什么又出现了<a class="headerlink" href="#taskmediator" title="Permanent link">¶</a></h2>
+<p>你会发现，越往底层读，<code>TaskMediator</code> 反而越常出现。原因是很多执行细节都依赖“这台车当前是什么角色”。</p>
+<p>例如在 <code>SmartGotoPositionV4</code> 里，系统会去看：</p>
 <ul>
-<li>先读任务参数</li>
-<li>根据角色类型调整能力上限</li>
-<li>处理禁区、停球圈、摆球区等规则约束</li>
-<li>构造障碍物</li>
-<li>调用路径规划器</li>
-<li>生成中间点和目标速度</li>
-<li>最终下发子任务</li>
+<li>这台车是不是 goalie；</li>
+<li>是不是 back；</li>
+<li>是否属于某些特殊执行身份。</li>
 </ul>
-<h2 id="_3">它和运动控制 / 路径规划是什么关系<a class="headerlink" href="#_3" title="Permanent link">¶</a></h2>
-<p>可以粗略理解为三层：</p>
+<p>这些信息不是路径规划器自己凭空知道的，而是通过顶层 <code>registerRole()</code> 写进 <code>TaskMediator</code>，再被底层 Skill 读出来。所以 <code>TaskMediator</code> 的角色标签，不只是给调试看，而是真的会影响运动能力和规则处理方式。</p>
+<h2 id="skill_1">Skill、路径规划、运动控制之间怎么分层更好理解<a class="headerlink" href="#skill_1" title="Permanent link">¶</a></h2>
+<p>读这部分代码时，最有效的方式不是从数学公式往上抠，而是先把它粗分成三层：</p>
 <ol>
-<li><strong>Skill 层</strong>：决定“我要去哪、按什么规则去”</li>
-<li><strong>路径规划层</strong>：决定“避开障碍后走哪条路”</li>
-<li><strong>运动控制层</strong>：决定“沿这条路具体怎么加速、转向、跟踪”</li>
+<li><strong>Skill 层</strong>：决定“我要去哪、为什么去、带着什么比赛语义去”；</li>
+<li><strong>路径规划层</strong>：决定“在当前障碍和规则约束下，该走哪条路更合适”；</li>
+<li><strong>运动控制层</strong>：决定“沿着这条路，具体该怎么给速度、加速度和转向命令”。</li>
 </ol>
-<p>在当前代码里，你会看到：</p>
+<p>当前仓库里大致对应的代码位置是：</p>
 <ul>
-<li><code>Strategy/skill/SmartGotoPositionV4.cpp</code></li>
-<li><code>PathPlan/RRTPathPlanner...</code></li>
-<li><code>MotionControl/ControlModel.*</code></li>
-<li><code>MotionControl/CMmotion.*</code></li>
+<li><code>Strategy/skill/*</code></li>
+<li><code>PathPlan/*</code></li>
+<li><code>MotionControl/*</code></li>
 </ul>
-<p>它们共同完成“从战术目标点到实际速度指令”的转换。</p>
-<h2 id="_4">运动控制层该怎么看<a class="headerlink" href="#_4" title="Permanent link">¶</a></h2>
-<p>第一次读不建议直接扎进所有数学推导。<br>
-先建立下面的理解：</p>
+<p>只要先把这三层想清楚，后面即使没有一下子吃透每个数学细节，也不会迷路。</p>
+<h2 id="skill_2">读一个底层 Skill 时，应该盯哪三件事<a class="headerlink" href="#skill_2" title="Permanent link">¶</a></h2>
+<p>很多人读 Skill 容易陷进“这一行公式在算什么”，结果读了半天还是不知道这份 Skill 在整条链里扮演什么角色。更推荐的方式是始终盯住这三个问题：</p>
+<ol>
+<li>它为什么会在这一帧被选中；</li>
+<li>它从 <code>TaskT</code>、视觉层和 <code>TaskMediator</code> 里拿了哪些输入；</li>
+<li>它最后把什么子任务继续往下交。</li>
+</ol>
+<p>比如 <code>TurnAndShoot</code> 不是简单“转身就踢”，它先判断是否已经控住球和对准方向，再把继续调姿态的工作交给 <code>GetBallV4</code>。<code>SmartGotoPositionV4</code> 也不是简单“算一条轨迹”，它更像是把比赛规则和障碍条件先融进目标表达，再继续下发底层轨迹任务。</p>
+<h2 id="skill_3">防守、盯人、接球类 Skill 的共同味道<a class="headerlink" href="#skill_3" title="Permanent link">¶</a></h2>
+<p>像 <code>WMarking</code>、<code>WBack</code>、<code>GetBallV4/V5</code>、<code>Crossover</code>、<code>ZAttackV2</code> 这些 Skill，看上去作用差很多，但它们有几个共同特征：</p>
 <ul>
-<li><code>MotionControl/</code> 负责轨迹和控制模型</li>
-<li><code>PathPlan/</code> 负责空间层面的避障与中间点</li>
-<li>Skill 的 <code>plan()</code> 把战术语义翻译成这些模块能处理的参数</li>
+<li>都强依赖当前球和机器人状态；</li>
+<li>都会受 <code>TaskMediator</code> 的角色标签影响；</li>
+<li>都不是独立运行的小岛，而是和同一套路径规划与运动控制框架协作；</li>
+<li>最后几乎都会继续把任务递归下发到更基础的动作层。</li>
 </ul>
-<p>也就是说，Skill 更像“上游业务逻辑”，运动控制更像“下游执行引擎”。</p>
-<h2 id="skill_1">盯人、防守、接球类 Skill 的共同特点<a class="headerlink" href="#skill_1" title="Permanent link">¶</a></h2>
-<p>像这些 Skill：</p>
-<ul>
-<li><code>WMarking</code></li>
-<li><code>WBack</code></li>
-<li><code>ZAttackV2</code></li>
-<li><code>Crossover</code></li>
-<li><code>GetBallV4/V5</code></li>
-</ul>
-<p>虽然目标不同，但基本都会依赖：</p>
-<ul>
-<li>当前球和机器人状态</li>
-<li><code>TaskMediator</code> 里的角色标签</li>
-<li>若干点位计算模块</li>
-<li>相同的底层运动/避障框架</li>
-</ul>
-<p>所以读一个 Skill 时，最好同时关注：</p>
-<ul>
-<li>它“为什么被选中”</li>
-<li>它“拿到了哪些输入”</li>
-<li>它“最后把哪些子任务往下交”</li>
-</ul>
-<p>不要只盯着局部公式。</p>
+<p>所以读它们时，千万不要只盯某个局部几何公式。更有价值的问题往往是：“这个 Skill 现在代表哪种比赛语义，它想把哪件事交给下游执行引擎完成？”</p>
+<h2 id="_3">第一次深入这部分代码，建议怎么读<a class="headerlink" href="#_3" title="Permanent link">¶</a></h2>
+<p>建议你把顺序定成：</p>
+<ol>
+<li>先看 <code>VisionModule</code> 这一层给出了什么世界状态；</li>
+<li>再看一个典型 Skill，例如 <code>SmartGotoPositionV4</code>；</li>
+<li>然后顺着它看到 <code>PathPlan</code> 和 <code>MotionControl</code>；</li>
+<li>最后再回头看其他防守或接球 Skill。</li>
+</ol>
+<p>这样读的好处是，你不会一上来就被各类特殊 Skill 的业务语义淹没，而能先建立“执行层到底是怎样把一个目标点变成实际控制命令”的总感觉。</p>
 
 
 
@@ -2029,7 +2091,7 @@
       <nav class="md-footer__inner md-grid" aria-label="页脚">
         
           
-          <a href="../decision-and-task-mediator/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 2.3.2 &amp;nbsp; DecisionModule 与 TaskMediator" rel="prev">
+          <a href="../skill-recursion-and-taskt/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 2.3.3 &amp;nbsp; Skill 递归、SubTask 与 TaskT" rel="prev">
             <div class="md-footer__button md-icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
             </div>
@@ -2038,20 +2100,20 @@
                 <span class="md-footer__direction">
                   上一页
                 </span>
-                2.3.2 &nbsp; DecisionModule 与 TaskMediator
+                2.3.3 &nbsp; Skill 递归、SubTask 与 TaskT
               </div>
             </div>
           </a>
         
         
           
-          <a href="../cuda-and-extensions/" class="md-footer__link md-footer__link--next" aria-label="下一页: 2.3.4 &amp;nbsp; CUDA 与扩展" rel="next">
+          <a href="../cuda-and-extensions/" class="md-footer__link md-footer__link--next" aria-label="下一页: 2.3.5 &amp;nbsp; *CUDA 与进阶扩展" rel="next">
             <div class="md-footer__title">
               <div class="md-ellipsis">
                 <span class="md-footer__direction">
                   下一页
                 </span>
-                2.3.4 &nbsp; CUDA 与扩展
+                2.3.5 &nbsp; *CUDA 与进阶扩展
               </div>
             </div>
             <div class="md-footer__button md-icon">

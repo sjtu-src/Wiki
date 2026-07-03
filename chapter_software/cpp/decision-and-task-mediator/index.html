@@ -15,7 +15,7 @@
         <link rel="prev" href="../core-runtime/">
       
       
-        <link rel="next" href="../vision-motion-and-skills/">
+        <link rel="next" href="../skill-recursion-and-taskt/">
       
       <link rel="icon" href="../../../assets/images/favicon.svg">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.0.13">
@@ -911,6 +911,8 @@
         
           
         
+          
+        
       
       
         
@@ -988,76 +990,70 @@
       
         <li class="md-nav__item">
   <a href="#cdecisionmodule" class="md-nav__link">
-    CDecisionModule 在做什么
+    CDecisionModule 的职责不是“算所有东西”，而是“把一帧组织好”
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
-    初始化时发生了什么
+    初始化阶段，它先决定这一套系统今天说哪门语言
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    一帧里最重要的两个动作
-  </a>
-  
-    <nav class="md-nav" aria-label="一帧里最重要的两个动作">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#generatetasks" class="md-nav__link">
-    GenerateTasks()
+  <a href="#generatetasks-plantasks" class="md-nav__link">
+    一帧里最关键的分界线：GenerateTasks() 和 PlanTasks()
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#plantasks" class="md-nav__link">
-    PlanTasks()
+    PlanTasks() 真正在做什么
   </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#taskmediator" class="md-nav__link">
-    TaskMediator 到底是什么
+    TaskMediator 最好被理解成什么
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#skill" class="md-nav__link">
-    为什么很多 Skill 逻辑都依赖它
+  <a href="#registerrole" class="md-nav__link">
+    为什么 registerRole() 这么重要
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#playerrolemakeit-taskfactoryv2" class="md-nav__link">
-    PlayerRole::makeIt... 与 TaskFactoryV2
+  <a href="#taskmediator_1" class="md-nav__link">
+    TaskMediator 里保存的内容会在每帧开始时清空
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#playerrolemakeittaskfactoryv2-pybind" class="md-nav__link">
+    PlayerRole::makeIt...、TaskFactoryV2 和 pybind 之间的关系
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#python-c" class="md-nav__link">
-    为什么这套结构对 Python-C++ 混合架构很关键
+    这套结构为什么对 Python-C++ 混合架构特别重要
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    读代码时的一个实用技巧
+  <a href="#_2" class="md-nav__link">
+    顺着代码追一条完整链，会非常有帮助
   </a>
   
 </li>
@@ -1077,8 +1073,22 @@
   
   
     <li class="md-nav__item">
+      <a href="../skill-recursion-and-taskt/" class="md-nav__link">
+        2.3.3 &nbsp; Skill 递归、SubTask 与 TaskT
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../vision-motion-and-skills/" class="md-nav__link">
-        2.3.3 &nbsp; 视觉、运动与 Skill
+        2.3.4 &nbsp; 视觉、运动控制与底层 Skill
       </a>
     </li>
   
@@ -1092,7 +1102,7 @@
   
     <li class="md-nav__item">
       <a href="../cuda-and-extensions/" class="md-nav__link">
-        2.3.4 &nbsp; CUDA 与扩展
+        2.3.5 &nbsp; *CUDA 与进阶扩展
       </a>
     </li>
   
@@ -1123,6 +1133,10 @@
         
           
             
+          
+        
+          
+        
           
         
           
@@ -1182,7 +1196,21 @@
   
     <li class="md-nav__item">
       <a href="../../python/config-selectplay-play/" class="md-nav__link">
-        2.4.2 &nbsp; Config、SelectPlay 与 Play
+        2.4.2 &nbsp; Config、SelectPlay 与 gameStrategies
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python/skill-py/" class="md-nav__link">
+        2.4.3 &nbsp; Skill.py 与任务包装
       </a>
     </li>
   
@@ -1196,7 +1224,21 @@
   
     <li class="md-nav__item">
       <a href="../../python/state-machine-and-rolematch/" class="md-nav__link">
-        2.4.3 &nbsp; 状态机与角色匹配
+        2.4.4 &nbsp; 状态机与角色匹配
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python/writing-play-and-test/" class="md-nav__link">
+        2.4.5 &nbsp; 编写新的 Test / Strategy 脚本
       </a>
     </li>
   
@@ -1210,7 +1252,7 @@
   
     <li class="md-nav__item">
       <a href="../../python/worldmodel-and-utilities/" class="md-nav__link">
-        2.4.4 &nbsp; WorldModel 与工具层
+        2.4.6 &nbsp; WorldModel 与工具层
       </a>
     </li>
   
@@ -1224,7 +1266,7 @@
   
     <li class="md-nav__item">
       <a href="../../python/python-top-level-startup/" class="md-nav__link">
-        2.4.5 &nbsp; Python 顶层启动
+        2.4.7 &nbsp; *Python 作为顶层启动 Medusa
       </a>
     </li>
   
@@ -1238,7 +1280,7 @@
   
     <li class="md-nav__item">
       <a href="../../python/pybind11-and-cmake/" class="md-nav__link">
-        2.4.6 &nbsp; Pybind11 与 CMake
+        2.4.8 &nbsp; *Pybind11、CMake 与 C++ Skill 绑定
       </a>
     </li>
   
@@ -1252,7 +1294,7 @@
   
     <li class="md-nav__item">
       <a href="../../python/power-model/" class="md-nav__link">
-        2.4.7 &nbsp; 力度模型
+        2.4.9 &nbsp; 力度模型
       </a>
     </li>
   
@@ -1332,7 +1374,7 @@
   
     <li class="md-nav__item">
       <a href="../../debug/release-symbols/" class="md-nav__link">
-        2.5.2 &nbsp; Release 下的调试符号
+        2.5.2 &nbsp; *Release 下的调试符号
       </a>
     </li>
   
@@ -1863,76 +1905,70 @@
       
         <li class="md-nav__item">
   <a href="#cdecisionmodule" class="md-nav__link">
-    CDecisionModule 在做什么
+    CDecisionModule 的职责不是“算所有东西”，而是“把一帧组织好”
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
-    初始化时发生了什么
+    初始化阶段，它先决定这一套系统今天说哪门语言
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    一帧里最重要的两个动作
-  </a>
-  
-    <nav class="md-nav" aria-label="一帧里最重要的两个动作">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#generatetasks" class="md-nav__link">
-    GenerateTasks()
+  <a href="#generatetasks-plantasks" class="md-nav__link">
+    一帧里最关键的分界线：GenerateTasks() 和 PlanTasks()
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#plantasks" class="md-nav__link">
-    PlanTasks()
+    PlanTasks() 真正在做什么
   </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#taskmediator" class="md-nav__link">
-    TaskMediator 到底是什么
+    TaskMediator 最好被理解成什么
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#skill" class="md-nav__link">
-    为什么很多 Skill 逻辑都依赖它
+  <a href="#registerrole" class="md-nav__link">
+    为什么 registerRole() 这么重要
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#playerrolemakeit-taskfactoryv2" class="md-nav__link">
-    PlayerRole::makeIt... 与 TaskFactoryV2
+  <a href="#taskmediator_1" class="md-nav__link">
+    TaskMediator 里保存的内容会在每帧开始时清空
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#playerrolemakeittaskfactoryv2-pybind" class="md-nav__link">
+    PlayerRole::makeIt...、TaskFactoryV2 和 pybind 之间的关系
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#python-c" class="md-nav__link">
-    为什么这套结构对 Python-C++ 混合架构很关键
+    这套结构为什么对 Python-C++ 混合架构特别重要
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    读代码时的一个实用技巧
+  <a href="#_2" class="md-nav__link">
+    顺着代码追一条完整链，会非常有帮助
   </a>
   
 </li>
@@ -1961,102 +1997,107 @@
 
 
 <h1 id="decisionmodule-taskmediator">DecisionModule 与 TaskMediator<a class="headerlink" href="#decisionmodule-taskmediator" title="Permanent link">¶</a></h1>
-<p>这两个类几乎是理解 C++ Core 的必经之路。</p>
-<h2 id="cdecisionmodule"><code>CDecisionModule</code> 在做什么<a class="headerlink" href="#cdecisionmodule" title="Permanent link">¶</a></h2>
-<p><code>DecisionModule</code> 不负责所有细节计算，但它负责把一帧决策过程组织起来。</p>
-<p>在当前实现中，它至少负责三类事：</p>
+<p>如果你问“C++ Core 里哪两个名字最值得先搞懂”，<code>DecisionModule</code> 和 <code>TaskMediator</code> 基本就是标准答案。前者决定一帧决策流程怎么排布，后者决定这一帧的任务和角色身份放在哪里、由谁来读。</p>
+<h2 id="cdecisionmodule"><code>CDecisionModule</code> 的职责不是“算所有东西”，而是“把一帧组织好”<a class="headerlink" href="#cdecisionmodule" title="Permanent link">¶</a></h2>
+<p><code>DecisionModule</code> 自己并不直接承担所有底层计算，它更像是一个导演：负责安排谁先上场、谁后上场、什么时候轮到 Python 决策、什么时候轮到 C++ 继续细化任务。</p>
+<p>从当前实现看，它至少承担三类职责：</p>
 <ol>
-<li>管理脚本语言入口（Lua 或 Python）</li>
-<li>控制“生成任务”和“规划任务”的时序</li>
-<li>作为视觉与动作层之间的中间调度者</li>
+<li>管理脚本语言入口，是走旧 Lua 还是当前 Python；</li>
+<li>把“生成高层任务”和“规划底层任务”这两段时序分开；</li>
+<li>作为视觉层和动作层之间的中间调度者。</li>
 </ol>
-<h2 id="_1">初始化时发生了什么<a class="headerlink" href="#_1" title="Permanent link">¶</a></h2>
+<p>这也是为什么它虽然代码量不算整个仓库里最多，却几乎处在每条主链路的中心。</p>
+<h2 id="_1">初始化阶段，它先决定这一套系统今天说哪门语言<a class="headerlink" href="#_1" title="Permanent link">¶</a></h2>
 <p><code>DecisionModule</code> 构造时会读取：</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>ScriptLanguage/CurrentScriptLanguage
 </code></pre></div>
-<p>然后决定：</p>
-<ul>
-<li>如果是 <code>LUA</code>，走旧脚本入口</li>
-<li>如果是 <code>PYTHON</code>，执行 <code>InitAllModules.py</code> 并 import <code>SelectPlay</code></li>
-</ul>
-<p>当前默认主线已经是 Python。</p>
-<h2 id="_2">一帧里最重要的两个动作<a class="headerlink" href="#_2" title="Permanent link">¶</a></h2>
-<h3 id="generatetasks"><code>GenerateTasks()</code><a class="headerlink" href="#generatetasks" title="Permanent link">¶</a></h3>
-<p>这一阶段回答的是：</p>
+<p>如果配置是 <code>LUA</code>，它会走旧脚本入口；如果是 <code>PYTHON</code>，它会初始化嵌入式 Python 解释器、执行 <code>InitAllModules.py</code>，并只 import 一次 <code>SelectPlay</code> 模块。当前主线当然是 Python，所以你在日常开发里更多会看到后一条路径。</p>
+<p>这里有个很值得记住的点：<strong>Python 顶层并不是另外起了一个平行系统，而是被嵌进了同一个 C++ 决策流程里。</strong></p>
+<h2 id="generatetasks-plantasks">一帧里最关键的分界线：<code>GenerateTasks()</code> 和 <code>PlanTasks()</code><a class="headerlink" href="#generatetasks-plantasks" title="Permanent link">¶</a></h2>
+<p>理解 <code>DecisionModule</code> 最有效的方法，就是先把这一帧拆成两个问题。</p>
+<p>第一个问题是：</p>
 <blockquote>
-<p>顶层到底想让每台车干什么？</p>
+<p>顶层现在到底想让哪几台车做什么？</p>
 </blockquote>
-<p>在 Python 主线下，本质上就是让 <code>SelectPlay.py</code> 和具体 Play 脚本把任务塞进 <code>TaskMediator</code>。</p>
-<h3 id="plantasks"><code>PlanTasks()</code><a class="headerlink" href="#plantasks" title="Permanent link">¶</a></h3>
-<p>这一阶段回答的是：</p>
+<p>这是 <code>GenerateTasks()</code> 负责的。在 Python 主线下，它的真实含义就是：调用 <code>SelectPlay.py</code> 和具体 Play 脚本，让 Python 把这一帧的任务通过 <code>CppPackage.makeIt...</code> 重新写回 C++。</p>
+<p>第二个问题是：</p>
 <blockquote>
-<p>已经分好的这些任务，如何递归展开成真正能执行的底层控制任务？</p>
+<p>这些已经选好的高层任务，接下来怎么一步步细化，直到变成真正的执行命令？</p>
 </blockquote>
-<p>它会：</p>
-<ul>
-<li>读取 <code>TaskMediator</code> 中每台车当前任务</li>
-<li>按任务优先级排序</li>
-<li>依次调用各个 <code>CPlayerTask::plan()</code></li>
-</ul>
-<p>也就是说，高层任务“被创建出来”还不够，还必须经过 C++ Skill 的进一步规划。</p>
-<h2 id="taskmediator"><code>TaskMediator</code> 到底是什么<a class="headerlink" href="#taskmediator" title="Permanent link">¶</a></h2>
-<p>最直接的理解方式是：</p>
+<p>这就是 <code>PlanTasks()</code> 负责的部分。</p>
+<p>很多人第一次看代码时，会下意识把这两步当成“一个大决策函数里的两个普通阶段”，但其实它们对应的是完全不同的层级。前者更接近战术选择，后者更接近执行规划。</p>
+<h2 id="plantasks"><code>PlanTasks()</code> 真正在做什么<a class="headerlink" href="#plantasks" title="Permanent link">¶</a></h2>
+<p><code>PlanTasks()</code> 的逻辑其实很耐看。它先把 <code>TaskMediator</code> 里已经注册好的任务取出来，再按优先级做排序，最后依次调用每个任务的 <code>plan()</code>。这意味着它做的不是“重新生成任务”，而是对现有任务做递归下钻。</p>
+<p>它的工作顺序大致可以翻译成：</p>
+<ol>
+<li>遍历所有车号；</li>
+<li>找出本帧确实已经分配了任务的那些执行者；</li>
+<li>读取每个任务在 <code>TaskMediator</code> 里记录的优先级；</li>
+<li>先高优先级、后低优先级地调用 <code>plan()</code>。</li>
+</ol>
+<p>这个排序并不是装饰性的。因为有些 Skill 会占用关键球权、关键空间，先规划谁、后规划谁，确实会影响最终效果。也正因为如此，<code>TaskMediator</code> 不只记录“有没有任务”，还要记录“任务优先级”。</p>
+<h2 id="taskmediator"><code>TaskMediator</code> 最好被理解成什么<a class="headerlink" href="#taskmediator" title="Permanent link">¶</a></h2>
+<p>最直白的理解方式是：</p>
 <blockquote>
-<p><code>TaskMediator</code> 是“本帧任务中心”和“角色标签中心”。</p>
+<p><code>TaskMediator</code> 是“本帧任务中心”加“角色标签中心”。</p>
 </blockquote>
-<p>它主要承担：</p>
+<p>它至少负责四件事：</p>
 <ul>
-<li>记录每台车当前被分配到的 <code>CPlayerTask</code></li>
-<li>记录优先级</li>
-<li>记录 goalie / back / marking / advancer 等角色标签</li>
-<li>提供统一接口给各模块查询当前任务状态</li>
+<li>存每台车当前的 <code>CPlayerTask*</code>；</li>
+<li>存这个任务的优先级；</li>
+<li>存守门员、后卫、leader、marking 等角色标签；</li>
+<li>给下游模块提供统一查询接口。</li>
 </ul>
-<p>这也是为什么很多模块都会 include <code>TaskMediator.h</code>。</p>
-<h2 id="skill">为什么很多 Skill 逻辑都依赖它<a class="headerlink" href="#skill" title="Permanent link">¶</a></h2>
-<p>例如在 <code>SmartGotoPositionV4</code> 或防守相关 Skill 里，经常要区分：</p>
+<p>这也是为什么它在仓库里被这么多模块 include。因为一旦进入底层 Skill、路径规划、运动控制这条链，大家都需要一个共享的地方来问：“当前这台车是谁？它这帧被分到了什么身份？”</p>
+<h2 id="registerrole">为什么 <code>registerRole()</code> 这么重要<a class="headerlink" href="#registerrole" title="Permanent link">¶</a></h2>
+<p>你在 Python 的 <code>Skill.py</code> 里经常会看到类似：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">taskMediator</span><span class="o">.</span><span class="n">registerRole</span><span class="p">(</span><span class="n">executor</span><span class="p">,</span> <span class="s2">"leader"</span><span class="p">)</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="n">CppPackage</span><span class="o">.</span><span class="n">TaskMediator</span><span class="o">.</span><span class="n">Instance</span><span class="p">()</span><span class="o">.</span><span class="n">registerRole</span><span class="p">(</span><span class="n">executor</span><span class="p">,</span> <span class="s2">"leader"</span><span class="p">)</span>
+</code></pre></div>
+<p>别把它当成单纯的调试注释。它真正的意义是把“这台车这帧的身份”同步给整个 C++ Core。后面 <code>SmartGotoPositionV4</code> 之类的模块会根据这些角色标签，决定：</p>
 <ul>
-<li>这台车是不是守门员</li>
-<li>是不是后卫</li>
-<li>当前是不是某个特殊角色</li>
+<li>这台车是不是守门员；</li>
+<li>是不是后卫；</li>
+<li>能不能采用某些特殊的速度上限；</li>
+<li>在禁区、摆球区、stop 球圈附近应该套哪种约束。</li>
 </ul>
-<p>这些判断不适合每个模块自己维护一份，所以会统一从 <code>TaskMediator</code> 查。</p>
-<h2 id="playerrolemakeit-taskfactoryv2"><code>PlayerRole::makeIt...</code> 与 <code>TaskFactoryV2</code><a class="headerlink" href="#playerrolemakeit-taskfactoryv2" title="Permanent link">¶</a></h2>
-<p>从 Python 或更高层看，常见调用姿势是：</p>
+<p>所以 <code>TaskMediator</code> 不是一个被动仓库，而是角色语义在 C++ 侧的共享源头。</p>
+<h2 id="taskmediator_1"><code>TaskMediator</code> 里保存的内容会在每帧开始时清空<a class="headerlink" href="#taskmediator_1" title="Permanent link">¶</a></h2>
+<p>这一点必须知道。<code>DecisionModule::DoDecision()</code> 一开始就会调用：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="n">TaskMediator</span><span class="o">::</span><span class="n">Instance</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">cleanOldTasks</span><span class="p">();</span>
+</code></pre></div>
+<p>这意味着 <code>TaskMediator</code> 存的是**本帧任务状态**，而不是一个长期数据库。跨帧需要保留的东西，通常要回到 <code>Global</code>、状态机上下文或其他专门的缓存结构里管理。否则你很容易误以为“上一帧的任务应该还在”，结果读到的是空任务。</p>
+<h2 id="playerrolemakeittaskfactoryv2-pybind"><code>PlayerRole::makeIt...</code>、<code>TaskFactoryV2</code> 和 pybind 之间的关系<a class="headerlink" href="#playerrolemakeittaskfactoryv2-pybind" title="Permanent link">¶</a></h2>
+<p>从 Python 顶层看，你平时更常见的调用姿势是：</p>
 <ul>
 <li><code>CppPackage.makeItRushTo(...)</code></li>
 <li><code>CppPackage.makeItWBack(...)</code></li>
 <li><code>CppPackage.makeItCrossover(...)</code></li>
 </ul>
-<p>但在 C++ 内部，真正创建任务的核心通常是：</p>
-<ul>
-<li><code>PlayerRole::makeIt...</code></li>
-<li><code>TaskFactoryV2::...</code></li>
-</ul>
-<p>可以把这条链理解成：</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>Python / 顶层脚本
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>    -&gt; pybind 中介函数
-<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>    -&gt; TaskT 参数封装
-<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>    -&gt; TaskFactoryV2 创建 CPlayerTask
-<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>    -&gt; TaskMediator 保存
+<p>但在 C++ 内部，这条链通常会继续变成：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>Python / 顶层脚本
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>    -&gt; pybind 包装函数
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>    -&gt; TaskT 参数封装
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>    -&gt; TaskFactoryV2 创建 CPlayerTask
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>    -&gt; TaskMediator 保存
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>    -&gt; DecisionModule::PlanTasks() 调 plan()
 </code></pre></div>
-<h2 id="python-c">为什么这套结构对 Python-C++ 混合架构很关键<a class="headerlink" href="#python-c" title="Permanent link">¶</a></h2>
-<p>因为 Python 顶层并不直接参与底层 task 对象的生命周期管理。<br>
-Python 更多是在“描述任务”，真正把任务放进系统、排序、规划、执行，仍然由 C++ 完成。</p>
-<p>这让架构边界非常清楚：</p>
-<ul>
-<li>Python 负责表达高层意图</li>
-<li>C++ 负责把意图变成高实时执行逻辑</li>
-</ul>
-<h2 id="_3">读代码时的一个实用技巧<a class="headerlink" href="#_3" title="Permanent link">¶</a></h2>
-<p>当你看到一个 Python 技能函数，例如 <code>Skill.RushTo(...)</code>，可以顺着下面这条链去追：</p>
+<p>所以 <code>TaskMediator</code> 在这条链上既是“落点”，也是“中转站”。高层任务先落到这里，之后 <code>DecisionModule</code> 再从这里把任务取走，送进递归的 Skill 规划过程。</p>
+<h2 id="python-c">这套结构为什么对 Python-C++ 混合架构特别重要<a class="headerlink" href="#python-c" title="Permanent link">¶</a></h2>
+<p>原因其实很朴素。Python 顶层的强项是表达高层意图，而不是管理底层 <code>CPlayerTask</code> 对象的生命周期。当前架构让 Python 在自己擅长的层级表达任务，再由 C++ 接管对象创建、优先级排序、递归规划和最终执行，这样边界就非常清晰。</p>
+<p>换句话说，Python 负责说“我要这个角色干这件事”，C++ 负责回答“好，那我现在把这件事规划到底层，让它真能跑起来”。<code>DecisionModule</code> 和 <code>TaskMediator</code> 就是这次交接里最关键的两个节点。</p>
+<h2 id="_2">顺着代码追一条完整链，会非常有帮助<a class="headerlink" href="#_2" title="Permanent link">¶</a></h2>
+<p>以后当你看到一个 Python 包装函数，例如 <code>Skill.RushTo(...)</code>，可以刻意顺着下面这条链追一次：</p>
 <ol>
 <li><code>RoleMatch_LuaStyle/Skills/Skill.py</code></li>
 <li><code>CppPackage.makeIt...</code></li>
 <li><code>Pybind11Module/Strategy/Skill/pybind_Skill.cpp</code></li>
-<li><code>PlayerRole::makeIt...</code> / <code>TaskFactoryV2</code></li>
-<li>具体 Skill 的 <code>plan()</code></li>
+<li><code>TaskFactoryV2</code> / <code>PlayerRole::makeIt...</code></li>
+<li><code>TaskMediator::setPlayerTask(...)</code></li>
+<li><code>DecisionModule::PlanTasks()</code></li>
+<li>对应 C++ Skill 的 <code>plan()</code></li>
 </ol>
-<p>这是理解“Python 任务最终怎么在 C++ 里落地”的最快路径。</p>
+<p>一旦你这样完整走通过一次，再回来看这两个类，很多原本抽象的描述都会变得特别具体。</p>
 
 
 
@@ -2101,13 +2142,13 @@ Python 更多是在“描述任务”，真正把任务放进系统、排序、�
         
         
           
-          <a href="../vision-motion-and-skills/" class="md-footer__link md-footer__link--next" aria-label="下一页: 2.3.3 &amp;nbsp; 视觉、运动与 Skill" rel="next">
+          <a href="../skill-recursion-and-taskt/" class="md-footer__link md-footer__link--next" aria-label="下一页: 2.3.3 &amp;nbsp; Skill 递归、SubTask 与 TaskT" rel="next">
             <div class="md-footer__title">
               <div class="md-ellipsis">
                 <span class="md-footer__direction">
                   下一页
                 </span>
-                2.3.3 &nbsp; 视觉、运动与 Skill
+                2.3.3 &nbsp; Skill 递归、SubTask 与 TaskT
               </div>
             </div>
             <div class="md-footer__button md-icon">

@@ -15,14 +15,14 @@
         <link rel="prev" href="../overview/">
       
       
-        <link rel="next" href="../state-machine-and-rolematch/">
+        <link rel="next" href="../skill-py/">
       
       <link rel="icon" href="../../../assets/images/favicon.svg">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.0.13">
     
     
       
-        <title>2.4.2 &nbsp; Config、SelectPlay 与 Play - SJTU-SRC Wiki</title>
+        <title>2.4.2 &nbsp; Config、SelectPlay 与 gameStrategies - SJTU-SRC Wiki</title>
       
     
     
@@ -86,7 +86,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#configpyselectplaypy-play" class="md-skip">
+        <a href="#configpyselectplaypy-gamestrategies" class="md-skip">
           跳转至
         </a>
       
@@ -142,7 +142,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              2.4.2 &nbsp; Config、SelectPlay 与 Play
+              2.4.2 &nbsp; Config、SelectPlay 与 gameStrategies
             
           </span>
         </div>
@@ -909,6 +909,8 @@
         
           
         
+          
+        
       
       
         
@@ -965,8 +967,22 @@
   
   
     <li class="md-nav__item">
+      <a href="../../cpp/skill-recursion-and-taskt/" class="md-nav__link">
+        2.3.3 &nbsp; Skill 递归、SubTask 与 TaskT
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../cpp/vision-motion-and-skills/" class="md-nav__link">
-        2.3.3 &nbsp; 视觉、运动与 Skill
+        2.3.4 &nbsp; 视觉、运动控制与底层 Skill
       </a>
     </li>
   
@@ -980,7 +996,7 @@
   
     <li class="md-nav__item">
       <a href="../../cpp/cuda-and-extensions/" class="md-nav__link">
-        2.3.4 &nbsp; CUDA 与扩展
+        2.3.5 &nbsp; *CUDA 与进阶扩展
       </a>
     </li>
   
@@ -1013,6 +1029,10 @@
         
           
             
+          
+        
+          
+        
           
         
           
@@ -1081,12 +1101,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          2.4.2 &nbsp; Config、SelectPlay 与 Play
+          2.4.2 &nbsp; Config、SelectPlay 与 gameStrategies
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        2.4.2 &nbsp; Config、SelectPlay 与 Play
+        2.4.2 &nbsp; Config、SelectPlay 与 gameStrategies
       </a>
       
         
@@ -1106,49 +1126,56 @@
       
         <li class="md-nav__item">
   <a href="#initallmodulespy" class="md-nav__link">
-    InitAllModules.py 负责“一次性初始化”
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#configpy" class="md-nav__link">
-    Config.py 负责“注册可用脚本”
+    InitAllModules.py 负责把舞台先搭好
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#selectplaypy" class="md-nav__link">
-    SelectPlay.py 是每帧入口
+    SelectPlay.py 每帧到底在决定什么
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#resetplay" class="md-nav__link">
-    ResetPlay() 为什么很重要
+    ResetPlay() 为什么不是可有可无的小函数
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configpy" class="md-nav__link">
+    Config.py 负责“注册这套系统有哪些可用策略”
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gamestrategy" class="md-nav__link">
+    GameStrategy 这个小包装类在干什么
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#globalgamestrategies" class="md-nav__link">
+    Global.gameStrategies 里每个条目大概都是什么意思
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#test-normal-refplay" class="md-nav__link">
+    Test 模式和 Normal / RefPlay 是并行入口，不是附属功能
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#play" class="md-nav__link">
-    Play/ 目录该怎么理解
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    一个正常主战术的例子
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    一个裁判盒脚本的例子
+    Play/ 目录怎么理解才不容易迷路
   </a>
   
 </li>
@@ -1158,25 +1185,12 @@
     什么时候改 Config.py，什么时候直接改 Play
   </a>
   
-    <nav class="md-nav" aria-label="什么时候改 Config.py，什么时候直接改 Play">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#configpy_1" class="md-nav__link">
-    改 Config.py
-  </a>
-  
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#play_1" class="md-nav__link">
-    直接改 Play
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    读这套顶层分发代码时，建议先建立一个很实用的脑图
   </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -1195,8 +1209,36 @@
   
   
     <li class="md-nav__item">
+      <a href="../skill-py/" class="md-nav__link">
+        2.4.3 &nbsp; Skill.py 与任务包装
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../state-machine-and-rolematch/" class="md-nav__link">
-        2.4.3 &nbsp; 状态机与角色匹配
+        2.4.4 &nbsp; 状态机与角色匹配
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../writing-play-and-test/" class="md-nav__link">
+        2.4.5 &nbsp; 编写新的 Test / Strategy 脚本
       </a>
     </li>
   
@@ -1210,7 +1252,7 @@
   
     <li class="md-nav__item">
       <a href="../worldmodel-and-utilities/" class="md-nav__link">
-        2.4.4 &nbsp; WorldModel 与工具层
+        2.4.6 &nbsp; WorldModel 与工具层
       </a>
     </li>
   
@@ -1224,7 +1266,7 @@
   
     <li class="md-nav__item">
       <a href="../python-top-level-startup/" class="md-nav__link">
-        2.4.5 &nbsp; Python 顶层启动
+        2.4.7 &nbsp; *Python 作为顶层启动 Medusa
       </a>
     </li>
   
@@ -1238,7 +1280,7 @@
   
     <li class="md-nav__item">
       <a href="../pybind11-and-cmake/" class="md-nav__link">
-        2.4.6 &nbsp; Pybind11 与 CMake
+        2.4.8 &nbsp; *Pybind11、CMake 与 C++ Skill 绑定
       </a>
     </li>
   
@@ -1252,7 +1294,7 @@
   
     <li class="md-nav__item">
       <a href="../power-model/" class="md-nav__link">
-        2.4.7 &nbsp; 力度模型
+        2.4.9 &nbsp; 力度模型
       </a>
     </li>
   
@@ -1332,7 +1374,7 @@
   
     <li class="md-nav__item">
       <a href="../../debug/release-symbols/" class="md-nav__link">
-        2.5.2 &nbsp; Release 下的调试符号
+        2.5.2 &nbsp; *Release 下的调试符号
       </a>
     </li>
   
@@ -1863,49 +1905,56 @@
       
         <li class="md-nav__item">
   <a href="#initallmodulespy" class="md-nav__link">
-    InitAllModules.py 负责“一次性初始化”
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#configpy" class="md-nav__link">
-    Config.py 负责“注册可用脚本”
+    InitAllModules.py 负责把舞台先搭好
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#selectplaypy" class="md-nav__link">
-    SelectPlay.py 是每帧入口
+    SelectPlay.py 每帧到底在决定什么
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#resetplay" class="md-nav__link">
-    ResetPlay() 为什么很重要
+    ResetPlay() 为什么不是可有可无的小函数
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configpy" class="md-nav__link">
+    Config.py 负责“注册这套系统有哪些可用策略”
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gamestrategy" class="md-nav__link">
+    GameStrategy 这个小包装类在干什么
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#globalgamestrategies" class="md-nav__link">
+    Global.gameStrategies 里每个条目大概都是什么意思
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#test-normal-refplay" class="md-nav__link">
+    Test 模式和 Normal / RefPlay 是并行入口，不是附属功能
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#play" class="md-nav__link">
-    Play/ 目录该怎么理解
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    一个正常主战术的例子
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    一个裁判盒脚本的例子
+    Play/ 目录怎么理解才不容易迷路
   </a>
   
 </li>
@@ -1915,25 +1964,12 @@
     什么时候改 Config.py，什么时候直接改 Play
   </a>
   
-    <nav class="md-nav" aria-label="什么时候改 Config.py，什么时候直接改 Play">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#configpy_1" class="md-nav__link">
-    改 Config.py
-  </a>
-  
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#play_1" class="md-nav__link">
-    直接改 Play
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    读这套顶层分发代码时，建议先建立一个很实用的脑图
   </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -1960,117 +1996,187 @@
   
 
 
-<h1 id="configpyselectplaypy-play"><code>Config.py</code>、<code>SelectPlay.py</code> 与 Play 组织方式<a class="headerlink" href="#configpyselectplaypy-play" title="Permanent link">¶</a></h1>
-<h2 id="initallmodulespy"><code>InitAllModules.py</code> 负责“一次性初始化”<a class="headerlink" href="#initallmodulespy" title="Permanent link">¶</a></h2>
-<p>这个脚本在系统启动时只执行一次，主要做：</p>
-<ul>
-<li>把项目 <code>.venv</code> 的 site-packages 放进 <code>sys.path</code></li>
-<li>读取 <code>zss.ini</code></li>
-<li>初始化 <code>Global</code> 中的启动参数</li>
-<li>import <code>Geometry</code>、<code>Vision</code>、<code>WorldModel</code>、<code>Utils</code></li>
-<li>import <code>Config</code></li>
-<li>最后 import <code>SelectPlay</code></li>
-</ul>
-<p>你可以把它理解成 Python 侧的 <code>StartZeus</code>。</p>
-<h2 id="configpy"><code>Config.py</code> 负责“注册可用脚本”<a class="headerlink" href="#configpy" title="Permanent link">¶</a></h2>
-<p><code>Config.py</code> 在当前架构里最像原来的 <code>Config.lua</code>：</p>
-<ul>
-<li>设置全局开关</li>
-<li>选择 NormalPlay</li>
-<li>注册 RefPlay</li>
-<li>指定测试脚本</li>
-<li>固定守门员车号等默认角色规则</li>
-</ul>
-<p>其中最重要的是 <code>Global.gameStrategies</code> 这张表。</p>
-<p>它把字符串名称映射到真实的策略对象，例如：</p>
-<ul>
-<li><code>NormalPlay</code></li>
-<li><code>KickOff</code></li>
-<li><code>FreeKick</code></li>
-<li><code>GameStop</code></li>
-<li><code>BallPlace</code></li>
-</ul>
-<h2 id="selectplaypy"><code>SelectPlay.py</code> 是每帧入口<a class="headerlink" href="#selectplaypy" title="Permanent link">¶</a></h2>
-<p>它每帧都会做这几件事：</p>
+<h1 id="configpyselectplaypy-gamestrategies"><code>Config.py</code>、<code>SelectPlay.py</code> 与 <code>gameStrategies</code><a class="headerlink" href="#configpyselectplaypy-gamestrategies" title="Permanent link">¶</a></h1>
+<p>如果说 <code>SelectPlay.py</code> 是顶层路由器，那么 <code>Config.py</code> 就是它背后的路由表。很多新人刚接触这套代码时，会先去翻 <code>Play/</code> 目录里的具体脚本，结果越翻越容易糊涂，因为你会看到好多 <code>NormalPlay</code>、<code>RefPlay</code>、<code>Test</code> 文件，却不知道系统到底是怎么“选中它们”的。理解这页之后，这件事就会清楚很多。</p>
+<h2 id="initallmodulespy"><code>InitAllModules.py</code> 负责把舞台先搭好<a class="headerlink" href="#initallmodulespy" title="Permanent link">¶</a></h2>
+<p>Python 层真正开始工作前，首先会跑 <code>InitAllModules.py</code>。这个脚本只执行一次，但作用很重：它会把 <code>.venv</code> 的包路径、<code>zss.ini</code> 里的配置、<code>Global</code> 里的启动参数，以及 <code>Geometry / Vision / WorldModel / Utils / Config / SelectPlay</code> 这些关键模块全都拉起来。</p>
+<p>你可以把它理解成 Python 版的“总初始化入口”。它不负责每帧做决策，但它决定了后面的决策模块能不能正常工作。如果这里路径、解释器或者配置没对齐，后面很多看似奇怪的错误其实都是从这里埋下的。</p>
+<h2 id="selectplaypy"><code>SelectPlay.py</code> 每帧到底在决定什么<a class="headerlink" href="#selectplaypy" title="Permanent link">¶</a></h2>
+<p><code>SelectPlay.SelectPlay()</code> 的逻辑并不复杂，但它的位置极其关键。它每帧都会先读取当前裁判盒消息，然后按下面这个顺序做判断：</p>
 <ol>
-<li>读取当前裁判盒消息</li>
-<li>判断是否进入 Test Mode</li>
-<li>判断是否该跑 RefPlay</li>
-<li>否则进入 NormalPlay</li>
-<li>在 Play 切换时执行 <code>ResetPlay()</code></li>
+<li>如果 <code>Global.isTestMode</code> 为真，直接进入 <code>testStrategy</code>；</li>
+<li>否则，如果当前裁判消息属于 RefPlay 范围，交给 <code>GameControl/Referee.py</code> 去映射；</li>
+<li>如果某个 RefPlay 还没跑完，即使裁判消息已经切回普通状态，也允许它再续跑一段；</li>
+<li>如果前面都不是，就回到 <code>Global.gameStrategies["NormalPlay"]</code>。</li>
 </ol>
-<p>所以它本质上是一个 <strong>顶层路由器</strong>。</p>
-<h2 id="resetplay"><code>ResetPlay()</code> 为什么很重要<a class="headerlink" href="#resetplay" title="Permanent link">¶</a></h2>
-<p>切换 Play 时，不只是换个脚本名这么简单。<br>
-还需要把很多跨帧状态清掉，例如：</p>
+<p>所以这份文件本质上不是“写战术”的地方，而是“决定当前到底该用哪套战术”的地方。你如果把它看成顶层 dispatch，就会很自然。</p>
+<h2 id="resetplay"><code>ResetPlay()</code> 为什么不是可有可无的小函数<a class="headerlink" href="#resetplay" title="Permanent link">¶</a></h2>
+<p>很多人第一次看 <code>SelectPlay.py</code> 会觉得 <code>ResetPlay()</code> 只是做点清理工作，但它其实是整套系统稳定性的关键。因为 Play 一旦切换，必须把上一套脚本在世界模型里留下的跨帧状态清掉，比如：</p>
 <ul>
-<li><code>worldModel.SPlayFSMSwitchClearAll(True)</code></li>
-<li>角色号表</li>
-<li>防守信息</li>
-<li>各种 buffer / timer</li>
+<li><code>worldModel.SPlayFSMSwitchClearAll(True)</code> 相关缓存；</li>
+<li><code>Global</code> 里的角色号表；</li>
+<li>防守模块里的标记信息；</li>
+<li>各类 buffer condition 和计时器。</li>
 </ul>
-<p>如果切换 Play 时不重置这些状态，最容易出现的结果就是：</p>
+<p>不做这一步，最常见的后果不是直接报错，而是出现那种最烦人的“看起来像随机 bug”的现象：脚本明明已经切了，可场上角色还带着上一套战术的身份和历史状态在跑。</p>
+<h2 id="configpy"><code>Config.py</code> 负责“注册这套系统有哪些可用策略”<a class="headerlink" href="#configpy" title="Permanent link">¶</a></h2>
+<p>当前 <code>Config.py</code> 的作用很像以前的 <code>Config.lua</code>，但它现在承担的事情更清楚也更集中：</p>
 <ul>
-<li>新脚本读到了旧脚本残留状态</li>
-<li>表现看起来像“随机 bug”</li>
+<li>设置顶层全局开关；</li>
+<li>指定默认 NormalPlay；</li>
+<li>注册所有 RefPlay 的策略对象；</li>
+<li>指定 Test 模式入口；</li>
+<li>固定守门员或其他默认角色号。</li>
 </ul>
-<h2 id="play"><code>Play/</code> 目录该怎么理解<a class="headerlink" href="#play" title="Permanent link">¶</a></h2>
-<p>当前主线可以粗分为三类：</p>
+<p>这里面最核心的数据结构就是 <code>Global.gameStrategies</code>。你可以把它看成一张“字符串名称 -&gt; 真实策略对象”的映射表。<code>SelectPlay.py</code>、<code>GameControl/Referee.py</code> 以及其他顶层流程，最终都会回到这张表里找对象并调用 <code>runStrategy()</code>。</p>
+<h2 id="gamestrategy"><code>GameStrategy</code> 这个小包装类在干什么<a class="headerlink" href="#gamestrategy" title="Permanent link">¶</a></h2>
+<p><code>Config.py</code> 里先定义了一个 <code>GameStrategy</code> 类，它表面上很轻量，但作用很实用。它允许你给蓝方和黄方分别指定不同策略对象：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">GameStrategy</span><span class="p">(</span><span class="n">blueTeamStrategy</span><span class="p">,</span> <span class="n">yellowTeamStrategy</span><span class="p">)</span>
+</code></pre></div>
+<p>如果只传一个对象，那蓝黄双方默认共用同一套策略。<code>runStrategy()</code> 内部再根据 <code>Global.isYellow</code> 选择究竟跑哪一个实例。</p>
+<p>这层包装的意义是：你在注册策略时不必把“颜色选择”逻辑散落到各个 Play 里，而是统一留在这一层处理。对长期维护来说，这个边界非常舒服。</p>
+<h2 id="globalgamestrategies"><code>Global.gameStrategies</code> 里每个条目大概都是什么意思<a class="headerlink" href="#globalgamestrategies" title="Permanent link">¶</a></h2>
+<p>下面这张表对应的是当前 <code>Config.py</code> 里能直接看到的主策略条目。它不是把源码逐行翻译成中文，而是帮你建立“这些 key 在系统里分别扮演什么角色”的直觉。</p>
+<table>
+<thead>
+<tr>
+<th>key</th>
+<th>当前默认脚本</th>
+<th>主要用途</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>NormalPlay</code></td>
+<td><code>Messi_11vs11_new()</code></td>
+<td>常规比赛主战术，裁判盒不接管时的默认入口</td>
+</tr>
+<tr>
+<td><code>KickOff</code></td>
+<td><code>RefPlay.KickOff()</code></td>
+<td>我方开球或接近开球状态</td>
+</tr>
+<tr>
+<td><code>KickOffDef</code></td>
+<td><code>RefPlay.KickOffDefend()</code></td>
+<td>对方开球时的防守脚本</td>
+</tr>
+<tr>
+<td><code>FreeKick</code></td>
+<td><code>RefPlay.DirectKick_2025_Middle()</code></td>
+<td>通用定位球入口，当前偏向我方执行型脚本</td>
+</tr>
+<tr>
+<td><code>FreeKickDef</code></td>
+<td><code>RefPlay.FreeKickDefend()</code></td>
+<td>定位球防守入口</td>
+</tr>
+<tr>
+<td><code>ourDirectKick</code></td>
+<td><code>RefPlay.DirectKick_2025_Middle()</code></td>
+<td>我方直接任意球</td>
+</tr>
+<tr>
+<td><code>ourIndirectKick</code></td>
+<td><code>RefPlay.DirectKick_2025_Middle()</code></td>
+<td>我方间接任意球</td>
+</tr>
+<tr>
+<td><code>theirDirectKick</code></td>
+<td><code>RefPlay.FreeKickDefend()</code></td>
+<td>对方直接任意球防守</td>
+</tr>
+<tr>
+<td><code>theirIndirectKick</code></td>
+<td><code>RefPlay.FreeKickDefend()</code></td>
+<td>对方间接任意球防守</td>
+</tr>
+<tr>
+<td><code>PenaltyKick</code></td>
+<td><code>RefPlay.PenaltyKickV3_CornerKick()</code></td>
+<td>我方点球脚本</td>
+</tr>
+<tr>
+<td><code>theirPenaltyKick</code></td>
+<td><code>RefPlay.PenaltyDefend()</code></td>
+<td>对方点球防守</td>
+</tr>
+<tr>
+<td><code>BallPlace</code></td>
+<td><code>RefPlay.BallPlace()</code></td>
+<td>我方摆球</td>
+</tr>
+<tr>
+<td><code>TheirBallPlace</code></td>
+<td><code>RefPlay.TheirBallPlace()</code></td>
+<td>对方摆球时的站位与避让</td>
+</tr>
+<tr>
+<td><code>TimeOut</code></td>
+<td><code>RefPlay.OurTimeout()</code></td>
+<td>我方暂停</td>
+</tr>
+<tr>
+<td><code>GameStop</code></td>
+<td><code>RefPlay.GameStop()</code></td>
+<td>stop 状态下的停球与重摆阵</td>
+</tr>
+<tr>
+<td><code>GameHalt</code></td>
+<td><code>RefPlay.GameHalt()</code></td>
+<td>halt 状态下的彻底停机</td>
+</tr>
+<tr>
+<td><code>IfHalfField</code></td>
+<td><code>False</code></td>
+<td>顶层配置开关，不是一个状态机脚本</td>
+</tr>
+<tr>
+<td><code>USE_ZPASS</code></td>
+<td><code>False</code></td>
+<td>顶层配置开关，不是一个状态机脚本</td>
+</tr>
+</tbody>
+</table>
+<p>这里有两个容易忽视的小点。</p>
+<p>第一，<code>GameControl/Referee.py</code> 里真正接收到的裁判盒消息，并不总和 <code>gameStrategies</code> 里的 key 同名。例如 <code>OurBallPlacement</code> 最终会映射到 <code>BallPlace</code>，<code>TheirKickOff</code> 会映射到 <code>KickOffDef</code>。所以如果你新增一个 RefPlay，不只要在 <code>Config.py</code> 注册，还要看是否需要补 <code>Referee.py</code> 的映射。</p>
+<p>第二，表里不只有“真策略”，还混着少数布尔配置，例如 <code>IfHalfField</code> 和 <code>USE_ZPASS</code>。因此读这张表时不要默认每个 key 都是状态机类实例。</p>
+<h2 id="test-normal-refplay">Test 模式和 Normal / RefPlay 是并行入口，不是附属功能<a class="headerlink" href="#test-normal-refplay" title="Permanent link">¶</a></h2>
+<p><code>Config.py</code> 里除了 <code>Global.gameStrategies</code> 之外，还有一行经常被忽视：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">testStrategy</span> <span class="o">=</span> <span class="n">GameStrategy</span><span class="p">(</span><span class="n">Test_Run11</span><span class="p">())</span>
+</code></pre></div>
+<p>这意味着 Test 模式不是临时 if 一下某个脚本路径，而是跟 NormalPlay / RefPlay 一样，被当作一条正式入口维护。只要 <code>Global.isTestMode = True</code>，<code>SelectPlay.py</code> 就会优先走这里。</p>
+<p>这设计很实用，因为它让 Test 脚本也能共享同一套状态机框架、同一套 <code>Skill.py</code> 包装和同一套 C++ Core，而不是另起炉灶写一套“只给测试用”的简化体系。</p>
+<h2 id="play"><code>Play/</code> 目录怎么理解才不容易迷路<a class="headerlink" href="#play" title="Permanent link">¶</a></h2>
+<p>当前主线可以简单分成三类：</p>
 <ul>
-<li><code>Play/Normal/</code>：正常比赛主战术</li>
-<li><code>Play/RefPlay/</code>：裁判盒相关战术</li>
-<li><code>Play/Test/</code>：实验和测试脚本</li>
+<li><code>Play/Normal/</code>：正常比赛主战术；</li>
+<li><code>Play/RefPlay/</code>：由裁判盒消息触发的脚本；</li>
+<li><code>Play/Test/</code>：开发、实验、Benchmark 和单项验证脚本。</li>
 </ul>
-<p>这三类不是按“重要程度”分的，而是按“使用场景”分的。</p>
-<h2 id="_1">一个正常主战术的例子<a class="headerlink" href="#_1" title="Permanent link">¶</a></h2>
-<p><code>Play/Normal/NormalPlayMessi_11vs11_new.py</code> 是当前很值得认真读的例子。</p>
-<p>它会结合：</p>
-<ul>
-<li><code>messiDecision</code></li>
-<li><code>defenceSequence</code></li>
-<li><code>Task</code></li>
-<li><code>State</code></li>
-<li><code>matchStr</code></li>
-</ul>
-<p>动态组织：</p>
-<ul>
-<li>leader</li>
-<li>receiver</li>
-<li>back</li>
-<li>marking</li>
-<li>goalie</li>
-</ul>
-<p>它能很好体现“Python 层到底在管什么”。</p>
-<h2 id="_2">一个裁判盒脚本的例子<a class="headerlink" href="#_2" title="Permanent link">¶</a></h2>
-<p><code>Play/RefPlay/GameStop.py</code> 很适合入门 RefPlay：</p>
-<ul>
-<li>结构清晰</li>
-<li>状态数量少</li>
-<li>和裁判盒消息关系直接</li>
-<li>同时能看到 stop 站位、角色匹配和退出逻辑</li>
-</ul>
+<p>这三类不是按“重要程度”分的，而是按“触发场景”分的。<code>Test</code> 不代表不重要，<code>RefPlay</code> 也不代表只是附属逻辑。它们都在同一个顶层调度框架里，只是入口条件不同。</p>
 <h2 id="configpy-play">什么时候改 <code>Config.py</code>，什么时候直接改 <code>Play</code><a class="headerlink" href="#configpy-play" title="Permanent link">¶</a></h2>
-<h3 id="configpy_1">改 <code>Config.py</code><a class="headerlink" href="#configpy_1" title="Permanent link">¶</a></h3>
-<p>适合：</p>
+<p>这个判断标准其实很简单：如果你改的是“这套系统应该选谁”，就去改 <code>Config.py</code>；如果你改的是“某套具体战术自己该怎么做”，就去改 <code>Play/*.py</code>。</p>
+<p>适合改 <code>Config.py</code> 的典型场景有：</p>
 <ul>
-<li>切换当前默认 NormalPlay</li>
-<li>调整测试入口</li>
-<li>注册新的脚本名字</li>
-<li>设置默认固定角色号</li>
+<li>切换当前默认 <code>NormalPlay</code>；</li>
+<li>换一个 <code>testStrategy</code>；</li>
+<li>新增一个可被顶层调度选中的策略名；</li>
+<li>固定守门员或其他默认角色编号。</li>
 </ul>
-<h3 id="play_1">直接改 <code>Play</code><a class="headerlink" href="#play_1" title="Permanent link">¶</a></h3>
-<p>适合：</p>
+<p>适合直接改 <code>Play</code> 的典型场景有：</p>
 <ul>
-<li>修改某套具体战术逻辑</li>
-<li>增加状态机状态</li>
-<li>调整角色匹配规则</li>
-<li>修改某个裁判盒脚本</li>
+<li>修改某个状态里的任务逻辑；</li>
+<li>增加或删除状态；</li>
+<li>改角色匹配规则；</li>
+<li>调整某个 RefPlay 的退出条件或站位生成方式。</li>
 </ul>
-<p>简单说：</p>
-<ul>
-<li><code>Config.py</code> 负责“选择用谁”</li>
-<li><code>Play/*.py</code> 负责“具体怎么做”</li>
-</ul>
+<h2 id="_1">读这套顶层分发代码时，建议先建立一个很实用的脑图<a class="headerlink" href="#_1" title="Permanent link">¶</a></h2>
+<p>建议你把这部分代码一直翻译成下面这句口语：</p>
+<blockquote>
+<p><code>Config.py</code> 先告诉系统“我有哪些策略可以选”；<code>SelectPlay.py</code> 每帧再根据测试模式、裁判盒和运行状态决定“这一帧该选谁”。</p>
+</blockquote>
+<p>当你能这样去看时，<code>Global.gameStrategies</code>、<code>testStrategy</code>、<code>runRefPlay()</code> 这些东西就不会再像零散配置，而会变成一张很好理解的调度地图。</p>
 
 
 
@@ -2115,13 +2221,13 @@
         
         
           
-          <a href="../state-machine-and-rolematch/" class="md-footer__link md-footer__link--next" aria-label="下一页: 2.4.3 &amp;nbsp; 状态机与角色匹配" rel="next">
+          <a href="../skill-py/" class="md-footer__link md-footer__link--next" aria-label="下一页: 2.4.3 &amp;nbsp; Skill.py 与任务包装" rel="next">
             <div class="md-footer__title">
               <div class="md-ellipsis">
                 <span class="md-footer__direction">
                   下一页
                 </span>
-                2.4.3 &nbsp; 状态机与角色匹配
+                2.4.3 &nbsp; Skill.py 与任务包装
               </div>
             </div>
             <div class="md-footer__button md-icon">

@@ -12,17 +12,17 @@
         <link rel="canonical" href="https://sjtu-src.github.io/Wiki/chapter_software/python/state-machine-and-rolematch/">
       
       
-        <link rel="prev" href="../config-selectplay-play/">
+        <link rel="prev" href="../skill-py/">
       
       
-        <link rel="next" href="../worldmodel-and-utilities/">
+        <link rel="next" href="../writing-play-and-test/">
       
       <link rel="icon" href="../../../assets/images/favicon.svg">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.0.13">
     
     
       
-        <title>2.4.3 &nbsp; 状态机与角色匹配 - SJTU-SRC Wiki</title>
+        <title>2.4.4 &nbsp; 状态机与角色匹配 - SJTU-SRC Wiki</title>
       
     
     
@@ -142,7 +142,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              2.4.3 &nbsp; 状态机与角色匹配
+              2.4.4 &nbsp; 状态机与角色匹配
             
           </span>
         </div>
@@ -909,6 +909,8 @@
         
           
         
+          
+        
       
       
         
@@ -965,8 +967,22 @@
   
   
     <li class="md-nav__item">
+      <a href="../../cpp/skill-recursion-and-taskt/" class="md-nav__link">
+        2.3.3 &nbsp; Skill 递归、SubTask 与 TaskT
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../cpp/vision-motion-and-skills/" class="md-nav__link">
-        2.3.3 &nbsp; 视觉、运动与 Skill
+        2.3.4 &nbsp; 视觉、运动控制与底层 Skill
       </a>
     </li>
   
@@ -980,7 +996,7 @@
   
     <li class="md-nav__item">
       <a href="../../cpp/cuda-and-extensions/" class="md-nav__link">
-        2.3.4 &nbsp; CUDA 与扩展
+        2.3.5 &nbsp; *CUDA 与进阶扩展
       </a>
     </li>
   
@@ -1013,6 +1029,10 @@
         
           
             
+          
+        
+          
+        
           
         
           
@@ -1072,7 +1092,21 @@
   
     <li class="md-nav__item">
       <a href="../config-selectplay-play/" class="md-nav__link">
-        2.4.2 &nbsp; Config、SelectPlay 与 Play
+        2.4.2 &nbsp; Config、SelectPlay 与 gameStrategies
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../skill-py/" class="md-nav__link">
+        2.4.3 &nbsp; Skill.py 与任务包装
       </a>
     </li>
   
@@ -1095,12 +1129,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          2.4.3 &nbsp; 状态机与角色匹配
+          2.4.4 &nbsp; 状态机与角色匹配
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        2.4.3 &nbsp; 状态机与角色匹配
+        2.4.4 &nbsp; 状态机与角色匹配
       </a>
       
         
@@ -1119,85 +1153,72 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
       
         <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    你真正应该读的文件
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#task" class="md-nav__link">
-    Task 是什么
+    Task：一帧里单个角色的任务包装
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#task_1" class="md-nav__link">
-    为什么 Task 里会有“延迟求值”
+  <a href="#gettasks" class="md-nav__link">
+    为什么 getTasks() 返回的是字典，不是列表
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#state" class="md-nav__link">
-    State 负责什么
+  <a href="#_2" class="md-nav__link">
+    延迟求值为什么是刚需，不是花活
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    角色名和车号的关系
+  <a href="#staterun" class="md-nav__link">
+    State.run() 是这套框架真正的主线
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#matchstr" class="md-nav__link">
-    matchStr 的设计意义
+    matchStr 解决的不是数学问题，而是身份稳定性问题
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#globalpy" class="md-nav__link">
-    Global.py 在这套系统里的角色
+  <a href="#global" class="md-nav__link">
+    角色名、真实车号和 Global 之间的关系
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#statemachine" class="md-nav__link">
+    StateMachine 这一层到底负责什么
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gamestop-messi_11vs11_new" class="md-nav__link">
+    GameStop 和 Messi_11vs11_new 为什么值得一起读
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    写这类脚本时，最该保持的两个习惯
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#_4" class="md-nav__link">
-    写战术时的经验建议
+    这一页的落点
   </a>
-  
-    <nav class="md-nav" aria-label="写战术时的经验建议">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
-    优先显式表达角色意图
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
-    尽量把“匹配规则”和“状态跳转规则”分开想
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
-    先跑通一条最小链路，再复杂化
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -1216,8 +1237,22 @@
   
   
     <li class="md-nav__item">
+      <a href="../writing-play-and-test/" class="md-nav__link">
+        2.4.5 &nbsp; 编写新的 Test / Strategy 脚本
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../worldmodel-and-utilities/" class="md-nav__link">
-        2.4.4 &nbsp; WorldModel 与工具层
+        2.4.6 &nbsp; WorldModel 与工具层
       </a>
     </li>
   
@@ -1231,7 +1266,7 @@
   
     <li class="md-nav__item">
       <a href="../python-top-level-startup/" class="md-nav__link">
-        2.4.5 &nbsp; Python 顶层启动
+        2.4.7 &nbsp; *Python 作为顶层启动 Medusa
       </a>
     </li>
   
@@ -1245,7 +1280,7 @@
   
     <li class="md-nav__item">
       <a href="../pybind11-and-cmake/" class="md-nav__link">
-        2.4.6 &nbsp; Pybind11 与 CMake
+        2.4.8 &nbsp; *Pybind11、CMake 与 C++ Skill 绑定
       </a>
     </li>
   
@@ -1259,7 +1294,7 @@
   
     <li class="md-nav__item">
       <a href="../power-model/" class="md-nav__link">
-        2.4.7 &nbsp; 力度模型
+        2.4.9 &nbsp; 力度模型
       </a>
     </li>
   
@@ -1339,7 +1374,7 @@
   
     <li class="md-nav__item">
       <a href="../../debug/release-symbols/" class="md-nav__link">
-        2.5.2 &nbsp; Release 下的调试符号
+        2.5.2 &nbsp; *Release 下的调试符号
       </a>
     </li>
   
@@ -1869,85 +1904,72 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
       
         <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    你真正应该读的文件
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#task" class="md-nav__link">
-    Task 是什么
+    Task：一帧里单个角色的任务包装
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#task_1" class="md-nav__link">
-    为什么 Task 里会有“延迟求值”
+  <a href="#gettasks" class="md-nav__link">
+    为什么 getTasks() 返回的是字典，不是列表
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#state" class="md-nav__link">
-    State 负责什么
+  <a href="#_2" class="md-nav__link">
+    延迟求值为什么是刚需，不是花活
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    角色名和车号的关系
+  <a href="#staterun" class="md-nav__link">
+    State.run() 是这套框架真正的主线
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#matchstr" class="md-nav__link">
-    matchStr 的设计意义
+    matchStr 解决的不是数学问题，而是身份稳定性问题
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#globalpy" class="md-nav__link">
-    Global.py 在这套系统里的角色
+  <a href="#global" class="md-nav__link">
+    角色名、真实车号和 Global 之间的关系
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#statemachine" class="md-nav__link">
+    StateMachine 这一层到底负责什么
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gamestop-messi_11vs11_new" class="md-nav__link">
+    GameStop 和 Messi_11vs11_new 为什么值得一起读
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    写这类脚本时，最该保持的两个习惯
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#_4" class="md-nav__link">
-    写战术时的经验建议
+    这一页的落点
   </a>
-  
-    <nav class="md-nav" aria-label="写战术时的经验建议">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
-    优先显式表达角色意图
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
-    尽量把“匹配规则”和“状态跳转规则”分开想
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
-    先跑通一条最小链路，再复杂化
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -1975,119 +1997,93 @@
 
 
 <h1 id="_1">状态机与角色匹配<a class="headerlink" href="#_1" title="Permanent link">¶</a></h1>
-<p>这一页是 Python 层里最核心的实现机制说明。</p>
-<h2 id="_2">你真正应该读的文件<a class="headerlink" href="#_2" title="Permanent link">¶</a></h2>
-<p>核心入口有四个：</p>
+<p>前面的“状态机”页主要是在帮你建立概念，这一页则更偏向代码视角：<strong>Python 这一层到底是怎么把一整队的任务组织起来，再把角色号分下去的。</strong></p>
+<p>真正建议你反复读的核心文件只有四个：</p>
 <ul>
 <li><code>RoleMatch_LuaStyle/Task.py</code></li>
 <li><code>RoleMatch_LuaStyle/State.py</code></li>
 <li><code>RoleMatch_LuaStyle/StateMachine.py</code></li>
 <li><code>Algorithm/munkre.py</code></li>
 </ul>
-<p>绝大多数 NormalPlay / RefPlay，本质上都在调用这套框架。</p>
-<h2 id="task"><code>Task</code> 是什么<a class="headerlink" href="#task" title="Permanent link">¶</a></h2>
-<p><code>Task</code> 不是“底层机器人命令”，而是 Python 层对一个角色任务的包装。</p>
-<p>它通常包含：</p>
+<p>绝大多数 <code>NormalPlay</code>、<code>RefPlay</code>、<code>Test_*</code>，最终都在用这套框架。</p>
+<h2 id="task"><code>Task</code>：一帧里单个角色的任务包装<a class="headerlink" href="#task" title="Permanent link">¶</a></h2>
+<p>在 Python 层里，<code>Task</code> 不是“已经算好的底层机器人命令”，而是一个更上层的包装。它至少包含三类信息：</p>
 <ul>
-<li>一个 Skill 工厂或闭包</li>
-<li>匹配位置 <code>matchPos</code></li>
-<li>可选固定车号 <code>fixedNumber</code></li>
-<li>调试描述</li>
+<li>这个角色本帧想执行什么 Skill；</li>
+<li>角色匹配时该参考哪个 <code>matchPos</code>；</li>
+<li>是否要固定给某个真实车号。</li>
 </ul>
-<p>最重要的一点是：</p>
-<blockquote>
-<p><code>Task</code> 既参与角色匹配，也参与真正执行。</p>
-</blockquote>
-<h2 id="task_1">为什么 <code>Task</code> 里会有“延迟求值”<a class="headerlink" href="#task_1" title="Permanent link">¶</a></h2>
-<p>很多任务会依赖：</p>
+<p>真正值得你注意的是：<code>Task</code> 同时参与 <strong>角色匹配</strong> 和 <strong>任务执行</strong>。也就是说，它不是匹配完就没用了，而是先帮系统决定“谁更适合接这件事”，再在匹配完成后真正把这件事执行下去。</p>
+<h2 id="gettasks">为什么 <code>getTasks()</code> 返回的是字典，不是列表<a class="headerlink" href="#gettasks" title="Permanent link">¶</a></h2>
+<p>很多旧代码读者会下意识想把任务看成“按顺序的一串动作”，但当前框架里更自然的组织方式是：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="p">{</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>    <span class="s2">"L"</span><span class="p">:</span> <span class="n">Task</span><span class="p">(</span><span class="o">...</span><span class="p">),</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>    <span class="s2">"A"</span><span class="p">:</span> <span class="n">Task</span><span class="p">(</span><span class="o">...</span><span class="p">),</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>    <span class="s2">"B"</span><span class="p">:</span> <span class="n">Task</span><span class="p">(</span><span class="o">...</span><span class="p">),</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>    <span class="s2">"G"</span><span class="p">:</span> <span class="n">Task</span><span class="p">(</span><span class="o">...</span><span class="p">),</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="p">}</span>
+</code></pre></div>
+<p>也就是说，这是一张“角色槽位 -&gt; 任务”的映射表。角色名本身就是语义，不只是一个列表下标。这样做的好处是，当你读 <code>Messi_11vs11_new.py</code> 或 <code>GameStop.py</code> 时，看到 <code>L</code>、<code>A</code>、<code>G</code>，可以马上知道它们在整套战术里分别扮演什么位置。</p>
+<h2 id="_2">延迟求值为什么是刚需，不是花活<a class="headerlink" href="#_2" title="Permanent link">¶</a></h2>
+<p><code>Task.py</code> 里最容易让人皱眉的一段逻辑，就是它为什么要支持 <code>lambda:</code> 或 <code>lambda runner:</code> 这种延迟写法。原因非常现实：很多任务在创建那一刻，还不知道最终会分给哪台真实车辆。</p>
+<p>例如某个任务可能要引用：</p>
 <ul>
-<li>另一个角色当前车号</li>
-<li>另一个角色本帧位置</li>
-<li>匹配完成后的真实 executor</li>
+<li>“receiver 这帧匹配到的真实车号”；</li>
+<li>“另一个角色当前实际位置”；</li>
+<li>“匹配完成后 executor 朝向球门的方向”。</li>
 </ul>
-<p>这时就不能在 <code>Task</code> 创建的那一刻把所有参数算死。<br>
-所以框架允许你传：</p>
-<ul>
-<li><code>lambda: ...</code></li>
-<li><code>lambda runner: ...</code></li>
-</ul>
-<p>等延迟求值形式。</p>
-<h2 id="state"><code>State</code> 负责什么<a class="headerlink" href="#state" title="Permanent link">¶</a></h2>
-<p>每个 <code>State</code> 负责三件事：</p>
+<p>这些信息如果在创建 <code>Task(...)</code> 的当下就算死，往往是错的。所以框架选择先保留一个延迟计算的壳，等 Munkres 把车号分好，再真正展开 <code>skill_cpp</code> 和 <code>matchPos</code>。这也是 <code>State.py</code> 里要维护 <code>achedMatchPos</code> 的原因。</p>
+<h2 id="staterun"><code>State.run()</code> 是这套框架真正的主线<a class="headerlink" href="#staterun" title="Permanent link">¶</a></h2>
+<p>从代码层面看，<code>State.run()</code> 基本可以理解成 Python 顶层决策的一帧骨架。它做的事情比表面上丰富得多：</p>
 <ol>
-<li>生成任务表</li>
-<li>给出匹配规则字符串</li>
-<li>决定下一状态</li>
+<li>先调用 <code>getTasks()</code> 产出当前状态的任务字典；</li>
+<li>给每个 <code>Task</code> 填上角色名，并初始化需要缓存的 <code>matchPos</code>；</li>
+<li>调 <code>updateRole()</code>，根据 <code>matchStr</code> 和 Munkres 分配真实车号；</li>
+<li>对延迟任务做解包；</li>
+<li>逐个执行 <code>task.run(task.getNum())</code>，把底层 Skill 注册到 C++；</li>
+<li>更新 <code>Global.rolePositions</code> 与调试显示；</li>
+<li>最后调用 <code>transFunction()</code> 决定下一个状态。</li>
 </ol>
-<p><code>State.run()</code> 里最关键的一步，是先用当前 <code>matchPos</code> 跑匹配，再去真正展开延迟任务。</p>
-<p>这也是为什么框架里会维护缓存的 <code>achedMatchPos</code>。</p>
-<h2 id="_3">角色名和车号的关系<a class="headerlink" href="#_3" title="Permanent link">¶</a></h2>
-<p>当前主流角色名通常是：</p>
+<p>看到这里，你就会明白为什么很多人会说“状态机其实是整个 Python 战术层的骨架”。因为它并不是只负责跳转，而是把匹配、执行和切换都放在了一起。</p>
+<h2 id="matchstr"><code>matchStr</code> 解决的不是数学问题，而是身份稳定性问题<a class="headerlink" href="#matchstr" title="Permanent link">¶</a></h2>
+<p>Munkres 本身只负责“最优匹配”，但比赛里真正麻烦的，是有些角色应该经常换车，有些角色却必须保持连续身份。所以 <code>matchStr</code> 才显得这么重要。</p>
+<p>在当前约定里：</p>
 <ul>
-<li><code>A/B/C/...</code></li>
-<li><code>G</code>：守门员</li>
-<li><code>L</code>：很多脚本里会拿来表示 leader 或关键角色</li>
+<li><code>[]</code> 表示实时匹配；</li>
+<li><code>()</code> 表示进入状态时匹配一次；</li>
+<li><code>{}</code> 表示只有切换 Play 时才尽量重匹配。</li>
 </ul>
-<p>这些都只是 <strong>角色槽位</strong>，不是固定车号。</p>
-<p>真正的车号分配结果，会落在：</p>
+<p>这套设计非常贴合比赛语义。比如主攻角色和接应角色，常常希望在一小段时间内保持身份连续，不然传跑配合会抖；而某些纯补位角色，如果场上位置变化很大，实时匹配反而更合理。</p>
+<h2 id="global">角色名、真实车号和 <code>Global</code> 之间的关系<a class="headerlink" href="#global" title="Permanent link">¶</a></h2>
+<p>当前代码里最容易混的是这三层概念：</p>
 <ul>
-<li><code>task.num</code></li>
-<li><code>Global.roleNumberStructTable</code></li>
-<li><code>Global.lastRoleNumberStructTable</code></li>
+<li><code>L/A/B/C/.../G</code>：角色槽位；</li>
+<li><code>task.num</code>：这一帧该角色最终分到的真实车号；</li>
+<li><code>Global.roleNumberStructTable</code> / <code>lastRoleNumberStructTable</code>：跨帧保存的角色号状态。</li>
 </ul>
-<p>上。</p>
-<h2 id="matchstr"><code>matchStr</code> 的设计意义<a class="headerlink" href="#matchstr" title="Permanent link">¶</a></h2>
-<p><code>matchStr</code> 不是装饰，而是在表达“哪些角色身份要尽量稳定，哪些角色允许实时漂移”。</p>
-<p>这对足球场景很重要，因为：</p>
-<ul>
-<li>有些角色必须连续，比如 leader / receiver</li>
-<li>有些角色只要站位合理就行</li>
-<li>有些角色在状态切换时才应该重分配</li>
-</ul>
-<p>如果你把所有角色都做成每帧实时匹配，往往会出现：</p>
-<ul>
-<li>角色抖动</li>
-<li>状态机语义不稳定</li>
-<li>同一意图在场上不断换车执行</li>
-</ul>
-<h2 id="globalpy"><code>Global.py</code> 在这套系统里的角色<a class="headerlink" href="#globalpy" title="Permanent link">¶</a></h2>
-<p><code>Global.py</code> 不是“随便放全局变量”的文件，而是角色匹配体系的核心状态中心之一。</p>
-<p>它管理的关键内容包括：</p>
-<ul>
-<li><code>isYellow / isRight / isSimulation</code></li>
-<li><code>gameStrategies</code></li>
-<li><code>currentPlayName / lastPlayName</code></li>
-<li><code>roleNumberStructTable</code></li>
-<li><code>goalieNumber</code></li>
-<li>调试与力度模型相关配置</li>
-</ul>
-<p>所以你改 <code>Global</code> 时要非常清楚自己是在改：</p>
-<ul>
-<li>启动配置</li>
-<li>运行时状态</li>
-<li>还是跨模块共享规则</li>
-</ul>
-<h2 id="_4">写战术时的经验建议<a class="headerlink" href="#_4" title="Permanent link">¶</a></h2>
-<h3 id="_5">优先显式表达角色意图<a class="headerlink" href="#_5" title="Permanent link">¶</a></h3>
-<p>宁可让 <code>getTasks()</code> 长一点，也尽量把：</p>
-<ul>
-<li>谁是 leader</li>
-<li>谁负责 back</li>
-<li>谁负责 marking</li>
-</ul>
-<p>写得明确。</p>
-<h3 id="_6">尽量把“匹配规则”和“状态跳转规则”分开想<a class="headerlink" href="#_6" title="Permanent link">¶</a></h3>
-<p>匹配回答的是“谁来做”，状态机回答的是“现在该做什么”。</p>
-<p>这两个问题关联很强，但不是同一个问题。</p>
-<h3 id="_7">先跑通一条最小链路，再复杂化<a class="headerlink" href="#_7" title="Permanent link">¶</a></h3>
-<p>先写出：</p>
-<ul>
-<li>一个状态</li>
-<li>两三个角色</li>
-<li>一个清晰 <code>matchStr</code></li>
-<li>一个稳定的 <code>transFunction()</code></li>
-</ul>
-<p>再慢慢扩展到完整 11v11，会比一开始就把全部角色和状态堆满靠谱很多。</p>
+<p>如果你把它们混在一起，就会很容易写出“看起来能跑，实际上角色全串了”的代码。尤其是当脚本既有固定守门员、又有 <code>Never/Once/RealTime</code> 混合匹配的时候，这三层一定要分清。</p>
+<div class="admonition note">
+<p class="admonition-title">一个实用记忆法</p>
+<p>角色名是“岗位”，车号是“上岗的人”，<code>Global</code> 则是“本队这一段时间的岗位安排表”。</p>
+</div>
+<h2 id="statemachine"><code>StateMachine</code> 这一层到底负责什么<a class="headerlink" href="#statemachine" title="Permanent link">¶</a></h2>
+<p><code>StateMachine.py</code> 里做的事情其实相当专注：它不负责生成任务细节，也不负责算 Munkres，而是负责管理“当前在哪个状态”和“什么时候发生状态切换”。</p>
+<p><code>planTasks()</code> 里最关键的逻辑有两个：</p>
+<p>第一，如果 Play 发生了切换，就把 <code>current_state</code> 拉回 <code>start_state</code>；第二，根据 <code>current_state.run()</code> 的返回值，决定保持当前状态、切到另一个状态，还是在 RefPlay 中直接 <code>exit</code>。于是你会发现：<code>State</code> 更像“单个状态的业务逻辑”，<code>StateMachine</code> 更像“这些状态之间的调度壳”。</p>
+<h2 id="gamestop-messi_11vs11_new"><code>GameStop</code> 和 <code>Messi_11vs11_new</code> 为什么值得一起读<a class="headerlink" href="#gamestop-messi_11vs11_new" title="Permanent link">¶</a></h2>
+<p>这两个脚本分别代表了两种非常典型的使用方式。</p>
+<p><code>GameStop.py</code> 很适合你看懂“状态少但切换明确”的 RefPlay 写法。它的 <code>Stop</code> 和 <code>Run</code> 状态都很清楚，<code>generateStopTasks()</code>、<code>stopMatch()</code>、<code>play_switch()</code> 这些函数边界也分得很干净。</p>
+<p><code>NormalPlayMessi_11vs11_new.py</code> 则更适合你理解“状态不多，但每个状态内部逻辑很重”的主战术写法。它会在 <code>GetBall</code> 和 <code>Pass</code> 两个状态里不停地重新生成 attack / defend 任务表，再通过 <code>nextTempRoleNumber</code>、<code>lastTempRoleNumber</code> 和 <code>matchStr</code> 控制身份稳定性。</p>
+<p>一个偏入门、一个偏主战术，把这两个读透之后，你再回来看其他脚本，会轻松很多。</p>
+<h2 id="_3">写这类脚本时，最该保持的两个习惯<a class="headerlink" href="#_3" title="Permanent link">¶</a></h2>
+<p>第一个习惯，是让角色意图尽量显式。宁可 <code>getTasks()</code> 写得长一点，也尽量把 “谁在主攻、谁在补防、谁在盯人、谁是守门员” 直接写明白。因为这套系统长期维护最大的敌人，不是代码行数多，而是角色语义隐在一堆临时变量和副作用里。</p>
+<p>第二个习惯，是把“当前状态下要做什么”和“这个状态该不该切”分开思考。前者属于 <code>getTasks()</code>，后者属于 <code>transFunction()</code>。很多脚本变复杂之后，问题往往不是 Munkres 算错，而是这两件事被缠在一起了。</p>
+<h2 id="_4">这一页的落点<a class="headerlink" href="#_4" title="Permanent link">¶</a></h2>
+<p>读完这页，你最好能形成这样一个非常具体的脑内流程：</p>
+<blockquote>
+<p><code>State.getTasks()</code> 先产出角色任务字典；<code>State.updateRole()</code> 再根据 <code>matchStr</code> 和 Munkres 把角色分给真实车号；之后每个 <code>Task</code> 被真正执行，把 Skill 下发给 C++；最后 <code>StateMachine</code> 根据返回值决定下一帧是否切换状态。</p>
+</blockquote>
+<p>只要这个流程在脑子里稳住，后面不管你是新增一个 Test 脚本，还是去读 <code>Messi_11vs11_new</code> 里的复杂角色漂移逻辑，都会有抓手。</p>
 
 
 
@@ -2116,7 +2112,7 @@
       <nav class="md-footer__inner md-grid" aria-label="页脚">
         
           
-          <a href="../config-selectplay-play/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 2.4.2 &amp;nbsp; Config、SelectPlay 与 Play" rel="prev">
+          <a href="../skill-py/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 2.4.3 &amp;nbsp; Skill.py 与任务包装" rel="prev">
             <div class="md-footer__button md-icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
             </div>
@@ -2125,20 +2121,20 @@
                 <span class="md-footer__direction">
                   上一页
                 </span>
-                2.4.2 &nbsp; Config、SelectPlay 与 Play
+                2.4.3 &nbsp; Skill.py 与任务包装
               </div>
             </div>
           </a>
         
         
           
-          <a href="../worldmodel-and-utilities/" class="md-footer__link md-footer__link--next" aria-label="下一页: 2.4.4 &amp;nbsp; WorldModel 与工具层" rel="next">
+          <a href="../writing-play-and-test/" class="md-footer__link md-footer__link--next" aria-label="下一页: 2.4.5 &amp;nbsp; 编写新的 Test / Strategy 脚本" rel="next">
             <div class="md-footer__title">
               <div class="md-ellipsis">
                 <span class="md-footer__direction">
                   下一页
                 </span>
-                2.4.4 &nbsp; WorldModel 与工具层
+                2.4.5 &nbsp; 编写新的 Test / Strategy 脚本
               </div>
             </div>
             <div class="md-footer__button md-icon">

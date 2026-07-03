@@ -909,6 +909,8 @@
         
           
         
+          
+        
       
       
         
@@ -965,8 +967,22 @@
   
   
     <li class="md-nav__item">
+      <a href="../../cpp/skill-recursion-and-taskt/" class="md-nav__link">
+        2.3.3 &nbsp; Skill 递归、SubTask 与 TaskT
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../cpp/vision-motion-and-skills/" class="md-nav__link">
-        2.3.3 &nbsp; 视觉、运动与 Skill
+        2.3.4 &nbsp; 视觉、运动控制与底层 Skill
       </a>
     </li>
   
@@ -980,7 +996,7 @@
   
     <li class="md-nav__item">
       <a href="../../cpp/cuda-and-extensions/" class="md-nav__link">
-        2.3.4 &nbsp; CUDA 与扩展
+        2.3.5 &nbsp; *CUDA 与进阶扩展
       </a>
     </li>
   
@@ -1011,6 +1027,10 @@
         
           
             
+          
+        
+          
+        
           
         
           
@@ -1070,7 +1090,21 @@
   
     <li class="md-nav__item">
       <a href="../../python/config-selectplay-play/" class="md-nav__link">
-        2.4.2 &nbsp; Config、SelectPlay 与 Play
+        2.4.2 &nbsp; Config、SelectPlay 与 gameStrategies
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python/skill-py/" class="md-nav__link">
+        2.4.3 &nbsp; Skill.py 与任务包装
       </a>
     </li>
   
@@ -1084,7 +1118,21 @@
   
     <li class="md-nav__item">
       <a href="../../python/state-machine-and-rolematch/" class="md-nav__link">
-        2.4.3 &nbsp; 状态机与角色匹配
+        2.4.4 &nbsp; 状态机与角色匹配
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python/writing-play-and-test/" class="md-nav__link">
+        2.4.5 &nbsp; 编写新的 Test / Strategy 脚本
       </a>
     </li>
   
@@ -1098,7 +1146,7 @@
   
     <li class="md-nav__item">
       <a href="../../python/worldmodel-and-utilities/" class="md-nav__link">
-        2.4.4 &nbsp; WorldModel 与工具层
+        2.4.6 &nbsp; WorldModel 与工具层
       </a>
     </li>
   
@@ -1112,7 +1160,7 @@
   
     <li class="md-nav__item">
       <a href="../../python/python-top-level-startup/" class="md-nav__link">
-        2.4.5 &nbsp; Python 顶层启动
+        2.4.7 &nbsp; *Python 作为顶层启动 Medusa
       </a>
     </li>
   
@@ -1126,7 +1174,7 @@
   
     <li class="md-nav__item">
       <a href="../../python/pybind11-and-cmake/" class="md-nav__link">
-        2.4.6 &nbsp; Pybind11 与 CMake
+        2.4.8 &nbsp; *Pybind11、CMake 与 C++ Skill 绑定
       </a>
     </li>
   
@@ -1140,7 +1188,7 @@
   
     <li class="md-nav__item">
       <a href="../../python/power-model/" class="md-nav__link">
-        2.4.7 &nbsp; 力度模型
+        2.4.9 &nbsp; 力度模型
       </a>
     </li>
   
@@ -1241,70 +1289,43 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
       
         <li class="md-nav__item">
-  <a href="#1python" class="md-nav__link">
-    工作流 1：Python 顶层启动
+  <a href="#python-mainpy" class="md-nav__link">
+    最常用的一条：Python 调试main.py
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#2python-c" class="md-nav__link">
-    工作流 2：Python 顶层 + C++ 联合调试
+  <a href="#c-compound" class="md-nav__link">
+    想连 C++ 一起看时，用 compound
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#3c-python-attach" class="md-nav__link">
-    工作流 3：C++ 顶层启动 + Python attach
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#4" class="md-nav__link">
-    工作流 4：当前脚本单独调试
+  <a href="#c" class="md-nav__link">
+    什么时候该回到传统 C++ 顶层
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
-    推荐你平时怎么选
+    当前文件调试 不是主线，但也很有用
   </a>
-  
-    <nav class="md-nav" aria-label="推荐你平时怎么选">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    改战术脚本
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    查传统入口问题
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#c" class="md-nav__link">
-    查纯 C++ 底层执行
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    一个很关键的排障顺序
+  <a href="#_2" class="md-nav__link">
+    平时怎么选最省力
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vs-code_1" class="md-nav__link">
+    如果断点怎么都进不去，先别急着怀疑 VS Code
   </a>
   
 </li>
@@ -1325,7 +1346,7 @@
   
     <li class="md-nav__item">
       <a href="../release-symbols/" class="md-nav__link">
-        2.5.2 &nbsp; Release 下的调试符号
+        2.5.2 &nbsp; *Release 下的调试符号
       </a>
     </li>
   
@@ -1855,70 +1876,43 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
       
         <li class="md-nav__item">
-  <a href="#1python" class="md-nav__link">
-    工作流 1：Python 顶层启动
+  <a href="#python-mainpy" class="md-nav__link">
+    最常用的一条：Python 调试main.py
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#2python-c" class="md-nav__link">
-    工作流 2：Python 顶层 + C++ 联合调试
+  <a href="#c-compound" class="md-nav__link">
+    想连 C++ 一起看时，用 compound
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#3c-python-attach" class="md-nav__link">
-    工作流 3：C++ 顶层启动 + Python attach
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#4" class="md-nav__link">
-    工作流 4：当前脚本单独调试
+  <a href="#c" class="md-nav__link">
+    什么时候该回到传统 C++ 顶层
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
-    推荐你平时怎么选
+    当前文件调试 不是主线，但也很有用
   </a>
-  
-    <nav class="md-nav" aria-label="推荐你平时怎么选">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    改战术脚本
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    查传统入口问题
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#c" class="md-nav__link">
-    查纯 C++ 底层执行
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    一个很关键的排障顺序
+  <a href="#_2" class="md-nav__link">
+    平时怎么选最省力
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vs-code_1" class="md-nav__link">
+    如果断点怎么都进不去，先别急着怀疑 VS Code
   </a>
   
 </li>
@@ -1947,95 +1941,58 @@
 
 
 <h1 id="vs-code">VS Code 调试工作流<a class="headerlink" href="#vs-code" title="Permanent link">¶</a></h1>
-<p>当前仓库的 <code>.vscode/launch.json</code> 已经准备了几套常用配置。<br>
-关键是你要理解它们分别对应什么场景。</p>
-<h2 id="1python">工作流 1：Python 顶层启动<a class="headerlink" href="#1python" title="Permanent link">¶</a></h2>
-<p>最直接的入口是：</p>
-<ul>
-<li><code>Python 调试main.py</code></li>
-</ul>
-<p>它会：</p>
-<ul>
-<li>启动 <code>ZBin/PythonScripts/main.py</code></li>
-<li>以 <code>ZBin/</code> 为工作目录</li>
-<li>适合调试 Python 顶层主循环</li>
-</ul>
-<p>如果你当前主要在改：</p>
+<p>当前仓库的 <code>.vscode/launch.json</code> 已经把几种最常用的调试入口准备好了。真正的关键不是记住配置名字，而是知道：<strong>我现在是在调顶层 Python，还是在调传统 C++ 入口；我想看的是单边逻辑，还是整条 Python-C++ 链。</strong></p>
+<h2 id="python-mainpy">最常用的一条：<code>Python 调试main.py</code><a class="headerlink" href="#python-mainpy" title="Permanent link">¶</a></h2>
+<p>这是日常开发最推荐先上的入口。它会直接启动 <code>ZBin/PythonScripts/main.py</code>，并把工作目录设成 <code>ZBin/</code>。如果你现在主要在改：</p>
 <ul>
 <li><code>SelectPlay.py</code></li>
 <li><code>Config.py</code></li>
 <li><code>Play/*</code></li>
 <li><code>RoleMatch_LuaStyle/*</code></li>
 </ul>
-<p>这通常是第一选择。</p>
-<h2 id="2python-c">工作流 2：Python 顶层 + C++ 联合调试<a class="headerlink" href="#2python-c" title="Permanent link">¶</a></h2>
-<p>当前已经有一个 compound：</p>
-<ul>
-<li><code>Python顶层 + C++ 联合调试</code></li>
-</ul>
-<p>它的思路是：</p>
-<ol>
-<li>用 <code>Python 调试main.py</code> 启动 <code>python.exe</code></li>
-<li>再用 <code>C++ (Windows) 附加</code> 连接到这个 Python 进程</li>
-</ol>
-<p>注意这里附加的不是 <code>Medusa.exe</code>，而是 <strong>加载了 <code>CppPackage.pyd</code> / <code>MedusaCore.dll</code> 的 <code>python.exe</code> 进程</strong>。</p>
-<p>适合场景：</p>
-<ul>
-<li>Python 脚本和 C++ Skill 两边都要看</li>
-<li>想追踪 <code>Skill.py -&gt; CppPackage -&gt; C++ task plan()</code> 全链路</li>
-</ul>
-<h2 id="3c-python-attach">工作流 3：C++ 顶层启动 + Python attach<a class="headerlink" href="#3c-python-attach" title="Permanent link">¶</a></h2>
-<p>当前也保留了传统方式：</p>
+<p>那这条通常就是第一选择。</p>
+<p>它的最大好处是：你不需要先穿过 <code>Client -&gt; Medusa.exe</code> 那条更传统的入口，就能直接在 Python 顶层主循环里打断点。对改战术、看状态机和查角色匹配来说，这会省很多时间。</p>
+<h2 id="c-compound">想连 C++ 一起看时，用 compound<a class="headerlink" href="#c-compound" title="Permanent link">¶</a></h2>
+<p>当前工作区已经配好一个很实用的 compound：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>Python顶层 + C++ 联合调试
+</code></pre></div>
+<p>它的思路其实很自然：先用 <code>Python 调试main.py</code> 启动加载了 <code>CppPackage.pyd</code> 和 <code>MedusaCore.dll</code> 的 <code>python.exe</code> 进程，再用 <code>C++ (Windows) 附加</code> 挂到这个进程上。注意，这里附加的不是 <code>Medusa.exe</code>，而是那只已经把 Core 加载进来的 Python 进程。</p>
+<p>这条工作流特别适合下面这种场景：</p>
+<blockquote>
+<p>你想从 <code>Play</code> 或 <code>Skill.py</code> 的高层逻辑出发，一路追到 <code>pybind_Skill.cpp</code>、再追到真正的 C++ Skill <code>plan()</code>。</p>
+</blockquote>
+<h2 id="c">什么时候该回到传统 C++ 顶层<a class="headerlink" href="#c" title="Permanent link">¶</a></h2>
+<p>仓库里也保留了经典路线：</p>
 <ul>
 <li><code>Launch C++ EXE with Python debugpy</code></li>
 <li><code>Python Attach (debugpy 5678)</code></li>
 </ul>
-<p>这种方式适合：</p>
+<p>这条路更适合你在下面这些情况下使用：</p>
 <ul>
-<li>你想从 <code>Medusa.exe</code> 传统入口复现问题</li>
-<li>但同时又想断到 Python 层</li>
+<li>问题只会在 <code>Medusa.exe</code> 传统入口下复现；</li>
+<li>你想看 <code>Client -&gt; Medusa.exe</code> 这条老工作流；</li>
+<li>你确实需要复现更接近比赛时的入口形式。</li>
 </ul>
-<p>前提是 Python 侧代码里需要显式打开 <code>debugpy.listen(5678)</code> 并等待 attach。<br>
-当前项目里已经在若干文件里预留了相应注释模板。</p>
-<h2 id="4">工作流 4：当前脚本单独调试<a class="headerlink" href="#4" title="Permanent link">¶</a></h2>
-<p>还有一个通用配置：</p>
-<ul>
-<li><code>Python 调试程序: 当前文件</code></li>
-</ul>
-<p>适合：</p>
-<ul>
-<li>某个工具脚本</li>
-<li>某个数据处理脚本</li>
-<li>单独跑一个小实验</li>
-</ul>
-<p>但它不适合直接替代完整比赛主循环调试。</p>
-<h2 id="_1">推荐你平时怎么选<a class="headerlink" href="#_1" title="Permanent link">¶</a></h2>
-<h3 id="_2">改战术脚本<a class="headerlink" href="#_2" title="Permanent link">¶</a></h3>
-<p>优先：</p>
-<ul>
-<li><code>Python 调试main.py</code></li>
-<li>或 <code>Python顶层 + C++ 联合调试</code></li>
-</ul>
-<h3 id="_3">查传统入口问题<a class="headerlink" href="#_3" title="Permanent link">¶</a></h3>
-<p>优先：</p>
-<ul>
-<li><code>Launch C++ EXE with Python debugpy</code></li>
-</ul>
-<h3 id="c">查纯 C++ 底层执行<a class="headerlink" href="#c" title="Permanent link">¶</a></h3>
-<p>优先：</p>
-<ul>
-<li>C++ 启动 / 附加</li>
-<li>然后只在必要时再把 Python 连进来</li>
-</ul>
-<h2 id="_4">一个很关键的排障顺序<a class="headerlink" href="#_4" title="Permanent link">¶</a></h2>
-<p>如果断点怎么都进不去，先查下面四件事：</p>
+<p>它的代价是调试动作稍多一些，因为 Python 侧需要显式打开 <code>debugpy.listen(5678)</code> 并等待 attach。不过仓库里已经预留了相关注释模板，所以并不是从零开始折腾。</p>
+<h2 id="_1"><code>当前文件调试</code> 不是主线，但也很有用<a class="headerlink" href="#_1" title="Permanent link">¶</a></h2>
+<p><code>Python 调试程序: 当前文件</code> 这个配置很适合跑一些单独的小脚本，比如工具脚本、数据处理脚本、GUI 辅助模块或小实验。但它并不适合替代完整比赛主循环，因为它默认不会自动给你拉起整个 <code>SystemRunner -&gt; SelectPlay -&gt; postDecision</code> 这套流程。</p>
+<p>所以更合适的用法是：把它当作“单脚本实验台”，而不是“比赛系统总入口”。</p>
+<h2 id="_2">平时怎么选最省力<a class="headerlink" href="#_2" title="Permanent link">¶</a></h2>
+<p>如果你现在在改战术脚本、状态机或 <code>Skill.py</code> 包装层，通常先选 <code>Python 调试main.py</code>。如果你已经知道这次排查一定会追进 C++ 底层，那就直接上 compound。只有当你明确需要复现传统入口问题时，才优先回到 <code>Launch C++ EXE with Python debugpy</code>。</p>
+<p>这个顺序看起来像经验主义，但实际上很省时间。因为大部分日常问题，根本不需要先把整条老入口链都拉起来。</p>
+<h2 id="vs-code_1">如果断点怎么都进不去，先别急着怀疑 VS Code<a class="headerlink" href="#vs-code_1" title="Permanent link">¶</a></h2>
+<p>绝大多数所谓“调试器坏了”的问题，最后都能回到下面这几项对齐检查：</p>
 <ol>
-<li>VS Code 当前 Python 解释器是否是 <code>.venv</code></li>
-<li>当前工作目录是不是 <code>ZBin</code></li>
-<li>调的是 Python 顶层流程还是 C++ 顶层流程</li>
-<li>你附加到的进程是不是对的</li>
+<li>VS Code 当前 Python 解释器是不是 <code>ZBin/PythonScripts/.venv</code>；</li>
+<li>当前工作目录是不是 <code>ZBin</code>；</li>
+<li>你现在调的是 Python 顶层模式，还是 C++ 顶层模式；</li>
+<li>你附加到的进程到底是不是那只真正加载了 Core 的进程。</li>
 </ol>
-<p>很多所谓“调试器坏了”，其实都是这四件事里有一件没对齐。</p>
+<div class="admonition tip">
+<p class="admonition-title">一个非常实用的判断</p>
+<p>如果你走的是 Python 顶层联合调试，C++ 应该附加到 <code>python.exe</code>；如果你走的是传统入口联合调试，C++ 本体才会是 <code>Medusa.exe</code>。</p>
+</div>
+<p>只要这几件事在脑子里一直很清楚，调试这件事就不会显得神秘。</p>
 
 
 
@@ -2080,13 +2037,13 @@
         
         
           
-          <a href="../release-symbols/" class="md-footer__link md-footer__link--next" aria-label="下一页: 2.5.2 &amp;nbsp; Release 下的调试符号" rel="next">
+          <a href="../release-symbols/" class="md-footer__link md-footer__link--next" aria-label="下一页: 2.5.2 &amp;nbsp; *Release 下的调试符号" rel="next">
             <div class="md-footer__title">
               <div class="md-ellipsis">
                 <span class="md-footer__direction">
                   下一页
                 </span>
-                2.5.2 &nbsp; Release 下的调试符号
+                2.5.2 &nbsp; *Release 下的调试符号
               </div>
             </div>
             <div class="md-footer__button md-icon">

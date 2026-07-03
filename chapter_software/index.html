@@ -909,6 +909,8 @@
         
           
         
+          
+        
       
       
         
@@ -965,8 +967,22 @@
   
   
     <li class="md-nav__item">
+      <a href="cpp/skill-recursion-and-taskt/" class="md-nav__link">
+        2.3.3 &nbsp; Skill 递归、SubTask 与 TaskT
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="cpp/vision-motion-and-skills/" class="md-nav__link">
-        2.3.3 &nbsp; 视觉、运动与 Skill
+        2.3.4 &nbsp; 视觉、运动控制与底层 Skill
       </a>
     </li>
   
@@ -980,7 +996,7 @@
   
     <li class="md-nav__item">
       <a href="cpp/cuda-and-extensions/" class="md-nav__link">
-        2.3.4 &nbsp; CUDA 与扩展
+        2.3.5 &nbsp; *CUDA 与进阶扩展
       </a>
     </li>
   
@@ -1011,6 +1027,10 @@
         
           
             
+          
+        
+          
+        
           
         
           
@@ -1070,7 +1090,21 @@
   
     <li class="md-nav__item">
       <a href="python/config-selectplay-play/" class="md-nav__link">
-        2.4.2 &nbsp; Config、SelectPlay 与 Play
+        2.4.2 &nbsp; Config、SelectPlay 与 gameStrategies
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="python/skill-py/" class="md-nav__link">
+        2.4.3 &nbsp; Skill.py 与任务包装
       </a>
     </li>
   
@@ -1084,7 +1118,21 @@
   
     <li class="md-nav__item">
       <a href="python/state-machine-and-rolematch/" class="md-nav__link">
-        2.4.3 &nbsp; 状态机与角色匹配
+        2.4.4 &nbsp; 状态机与角色匹配
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="python/writing-play-and-test/" class="md-nav__link">
+        2.4.5 &nbsp; 编写新的 Test / Strategy 脚本
       </a>
     </li>
   
@@ -1098,7 +1146,7 @@
   
     <li class="md-nav__item">
       <a href="python/worldmodel-and-utilities/" class="md-nav__link">
-        2.4.4 &nbsp; WorldModel 与工具层
+        2.4.6 &nbsp; WorldModel 与工具层
       </a>
     </li>
   
@@ -1112,7 +1160,7 @@
   
     <li class="md-nav__item">
       <a href="python/python-top-level-startup/" class="md-nav__link">
-        2.4.5 &nbsp; Python 顶层启动
+        2.4.7 &nbsp; *Python 作为顶层启动 Medusa
       </a>
     </li>
   
@@ -1126,7 +1174,7 @@
   
     <li class="md-nav__item">
       <a href="python/pybind11-and-cmake/" class="md-nav__link">
-        2.4.6 &nbsp; Pybind11 与 CMake
+        2.4.8 &nbsp; *Pybind11、CMake 与 C++ Skill 绑定
       </a>
     </li>
   
@@ -1140,7 +1188,7 @@
   
     <li class="md-nav__item">
       <a href="python/power-model/" class="md-nav__link">
-        2.4.7 &nbsp; 力度模型
+        2.4.9 &nbsp; 力度模型
       </a>
     </li>
   
@@ -1220,7 +1268,7 @@
   
     <li class="md-nav__item">
       <a href="debug/release-symbols/" class="md-nav__link">
-        2.5.2 &nbsp; Release 下的调试符号
+        2.5.2 &nbsp; *Release 下的调试符号
       </a>
     </li>
   
@@ -1801,21 +1849,20 @@
 
 
 <h1 id="_1">软件与算法总览<a class="headerlink" href="#_1" title="Permanent link">¶</a></h1>
-<p>这一章面向现在正在维护 <code>MilkTest</code> / <code>Medusa</code> / <code>PythonScripts</code> 的队员，而不是早期 Lua 时代的历史版本。</p>
-<p>当前主线架构已经是 <strong>Python + C++</strong>：</p>
-<ul>
-<li>C++ 负责视觉处理、任务执行、路径规划、底层技能与发包。</li>
-<li>Python 负责顶层战术组织、状态机、角色匹配、裁判盒脚本与大量快速迭代逻辑。</li>
-<li>二者通过 <code>Pybind11</code> 连接，统一暴露为 <code>CppPackage</code>。</li>
-</ul>
+<p>这一章面向现在正在维护 <code>MilkTest</code> / <code>Medusa</code> / <code>PythonScripts</code> 的队员，而不是早期 Lua 时代的历史版本。你可以把它理解成一份“从第一天接手代码，到敢自己改战术、加 Skill、做调试”的上手地图。</p>
+<p>当前主线架构已经非常明确：<strong>Python 负责表达战术意图，C++ 负责高实时执行</strong>。比赛时真正跑在场上的不是某一个孤立脚本，而是 <code>SelectPlay.py -&gt; Play -&gt; Skill.py -&gt; CppPackage -&gt; MedusaCore.dll</code> 这一整条链。</p>
+<div class="admonition note">
+<p class="admonition-title">关于带 <code>*</code> 的标题</p>
+<p>本章里标题前带 <code>*</code> 的页面，表示它们属于“进阶拓展内容”。这些内容很重要，但建议你先把主链路读通，再回头啃这几页，会轻松很多。</p>
+</div>
 <h2 id="_2">推荐阅读顺序<a class="headerlink" href="#_2" title="Permanent link">¶</a></h2>
-<p>如果你是第一次接触本队软件，建议按下面的顺序阅读：</p>
+<p>如果你是第一次接触本队软件，推荐按下面的顺序走。顺序本身并不是教条，而是为了避免“还没搞清楚系统怎么跑，就先扎进单个 Skill 的细节”。</p>
 <ol>
 <li><code>开发入门</code>：先把命令行、<code>uv</code>、VS Code、Git 工作流这些最容易卡人的基础打通。</li>
 <li><code>软件总体架构</code>：先知道整个系统从哪里进、数据怎么流，再去看单个模块。</li>
-<li><code>C++ Core</code>：理解 <code>Medusa.exe</code> / <code>MedusaCore.dll</code>、<code>DecisionModule</code>、<code>TaskMediator</code>、视觉与运动控制。</li>
-<li><code>Python 顶层</code>：理解 <code>main.py</code>、<code>InitAllModules.py</code>、<code>SelectPlay.py</code>、<code>Config.py</code>、<code>Play/</code> 与 <code>RoleMatch_LuaStyle/</code>。</li>
-<li><code>调试与排障</code>：学会用 <code>launch.json</code> 把 C++ 和 Python 一起 debug。</li>
+<li><code>Python 顶层</code>：理解 <code>main.py</code>、<code>InitAllModules.py</code>、<code>SelectPlay.py</code>、<code>Config.py</code>、<code>Play/</code> 与 <code>RoleMatch_LuaStyle/</code> 这些“战术作者最常碰的地方”。</li>
+<li><code>C++ Core</code>：再去看 <code>Medusa.exe</code> / <code>MedusaCore.dll</code>、<code>DecisionModule</code>、<code>TaskMediator</code>、视觉与运动控制，理解“这些 Python 任务最后怎么真正跑起来”。</li>
+<li><code>调试与排障</code>：最后把 <code>launch.json</code> 的几种工作流走通，不然你后面改代码会一直处在“只能猜”的状态。</li>
 </ol>
 <h2 id="_3">一张图先看全局<a class="headerlink" href="#_3" title="Permanent link">¶</a></h2>
 <pre class="mermaid"><code>flowchart LR
@@ -1826,6 +1873,7 @@
     Core &lt;--&gt; Bind["CppPackage.pyd / .pyi"]
     Python["ZBin/PythonScripts"] &lt;--&gt; Bind
     Python --&gt; Plays["Play / RefPlay / RoleMatch"]</code></pre>
+<p>这张图有一个非常重要的阅读姿势：不要把 <code>Python</code> 和 <code>C++</code> 看成两个互相替代的版本，而要把它们看成同一个系统里的上下两层。上层描述“这帧应该做什么”，下层负责把这个描述变成真正的跑位、避障、控球、踢球和发包。</p>
 <h2 id="_4">这一版文档的原则<a class="headerlink" href="#_4" title="Permanent link">¶</a></h2>
 <ul>
 <li>以 <strong>当前仓库真实代码</strong> 为准，尽量不给“只存在于老文档里”的说法。</li>
