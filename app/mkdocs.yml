@@ -225,21 +225,24 @@ nav:
       - chapter_software/cpp/index.md
       - 2.3.1 &nbsp; 运行骨架: chapter_software/cpp/core-runtime.md
       - 2.3.2 &nbsp; DecisionModule 与 TaskMediator: chapter_software/cpp/decision-and-task-mediator.md
-      - 2.3.3 &nbsp; 视觉、运动与 Skill: chapter_software/cpp/vision-motion-and-skills.md
-      - 2.3.4 &nbsp; CUDA 与扩展: chapter_software/cpp/cuda-and-extensions.md
+      - 2.3.3 &nbsp; Skill 递归、SubTask 与 TaskT: chapter_software/cpp/skill-recursion-and-taskt.md
+      - 2.3.4 &nbsp; 视觉、运动控制与底层 Skill: chapter_software/cpp/vision-motion-and-skills.md
+      - 2.3.5 &nbsp; *CUDA 与进阶扩展: chapter_software/cpp/cuda-and-extensions.md
     - 2.4 &nbsp; Python 顶层:
       - chapter_software/python/index.md
       - 2.4.1 &nbsp; Python 总览: chapter_software/python/overview.md
-      - 2.4.2 &nbsp; Config、SelectPlay 与 Play: chapter_software/python/config-selectplay-play.md
-      - 2.4.3 &nbsp; 状态机与角色匹配: chapter_software/python/state-machine-and-rolematch.md
-      - 2.4.4 &nbsp; WorldModel 与工具层: chapter_software/python/worldmodel-and-utilities.md
-      - 2.4.5 &nbsp; Python 顶层启动: chapter_software/python/python-top-level-startup.md
-      - 2.4.6 &nbsp; Pybind11 与 CMake: chapter_software/python/pybind11-and-cmake.md
-      - 2.4.7 &nbsp; 力度模型: chapter_software/python/power-model.md
+      - 2.4.2 &nbsp; Config、SelectPlay 与 gameStrategies: chapter_software/python/config-selectplay-play.md
+      - 2.4.3 &nbsp; Skill.py 与任务包装: chapter_software/python/skill-py.md
+      - 2.4.4 &nbsp; 状态机与角色匹配: chapter_software/python/state-machine-and-rolematch.md
+      - 2.4.5 &nbsp; 编写新的 Test / Strategy 脚本: chapter_software/python/writing-play-and-test.md
+      - 2.4.6 &nbsp; WorldModel 与工具层: chapter_software/python/worldmodel-and-utilities.md
+      - 2.4.7 &nbsp; *Python 作为顶层启动 Medusa: chapter_software/python/python-top-level-startup.md
+      - 2.4.8 &nbsp; *Pybind11、CMake 与 C++ Skill 绑定: chapter_software/python/pybind11-and-cmake.md
+      - 2.4.9 &nbsp; 力度模型: chapter_software/python/power-model.md
     - 2.5 &nbsp; 调试与排障:
       - chapter_software/debug/index.md
       - 2.5.1 &nbsp; VS Code 调试工作流: chapter_software/debug/vscode-workflows.md
-      - 2.5.2 &nbsp; Release 下的调试符号: chapter_software/debug/release-symbols.md
+      - 2.5.2 &nbsp; *Release 下的调试符号: chapter_software/debug/release-symbols.md
 
   - 第 3 章 &nbsp; &nbsp; 电控:
     - chapter_electronics/index.md
