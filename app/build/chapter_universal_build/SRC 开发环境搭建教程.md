@@ -33,9 +33,11 @@ ___
     
 + **Visual Studio**
   
-    我们的项目需要通过Visual Studio的MSVC编译器进行编译运行，可以下载Visual Studio 2022/2026
+    我们的项目需要通过Visual Studio的MSVC编译器进行编译运行，需要下载Visual Studio2022。
+
+    请注意下载正确版本，可以访问https://learn.microsoft.com/zh-cn/visualstudio/releases/2022/release-history来下载VS的往期版本。
     
-    直接访问[VS](https://visualstudio.microsoft.com/zh-hans/vs/)官网，可以选择community下载安装程序。
+    直接访问[VS](https://visualstudio.microsoft.com/zh-hans/vs/)官网，可以选择community下载安装程序。（目前这个渠道默认下载2026版本，建议使用上面那个链接）
     
     ![](SRC开发环境搭建.assets/VS官网.png)
     
